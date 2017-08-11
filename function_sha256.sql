@@ -1,0 +1,4 @@
+CREATE OR REPLACE FUNCTION sha256(bytea) RETURNS text AS $$
+    SELECT ENCODE(digest($1, 'sha256'), 'hex')
+$$ LANGUAGE SQL STRICT IMMUTABLE
+;
