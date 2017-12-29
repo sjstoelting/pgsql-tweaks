@@ -9,3 +9,4 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
+COMMENT ON FUNCTION is_latin1(s VARCHAR) IS 'Checks, whether the given parameter is a number';
