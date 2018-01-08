@@ -1,3 +1,6 @@
+/**
+ * Creates a function to check strings for being nunbers.
+ */
 CREATE OR REPLACE FUNCTION is_numeric(s VARCHAR) RETURNS BOOLEAN AS $$
 BEGIN
     PERFORM s::NUMERIC;
