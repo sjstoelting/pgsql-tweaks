@@ -1,3 +1,8 @@
+/**
+ * Creates two functions to check strings for being a date.
+ * The first function checks it with the default format, the second with the
+ * format given as parameter.
+ */
 CREATE OR REPLACE FUNCTION is_date(s VARCHAR) RETURNS BOOLEAN AS $$
 BEGIN
   PERFORM s::date;
