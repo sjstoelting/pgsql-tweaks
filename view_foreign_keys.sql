@@ -1,4 +1,7 @@
-CREATE VIEW foreign_keys AS
+/**
+ * Creates a view to get all foreign keys of the current database.
+ */
+CREATE OR REPLACE VIEW pg_foreign_keys AS
 SELECT tc.TABLE_CATALOG
 	, tc.TABLE_SCHEMA
   , tc.TABLE_NAME
@@ -12,3 +15,4 @@ FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS tc
   	ON ccu.CONSTRAINT_NAME = tc.CONSTRAINT_NAME
 WHERE tc.CONSTRAINT_TYPE = 'FOREIGN KEY'
 ;
+COMMENT ON VIEW pg_foreign_keys IS 'The view returns all foreign keys of the current database'
