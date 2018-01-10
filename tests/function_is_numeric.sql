@@ -31,7 +31,7 @@ SELECT
 FROM test
 ;
 
--- Test not a number
+-- Test a number with decimal separator
 WITH test AS
 	(
 		SELECT is_numeric('123.456') AS isnum, 0 AS zero
