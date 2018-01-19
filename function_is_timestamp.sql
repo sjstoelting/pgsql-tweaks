@@ -13,7 +13,7 @@ END;
 $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE;
-COMMENT ON FUNCTION is_timestamp(s VARCHAR) IS 'Takes a varchar and checks if it is a timestamp without time zone, uses standard timestamp format YYYY-MM-DD HH24:MI:SS';
+COMMENT ON FUNCTION is_timestamp(s VARCHAR) IS 'Takes a varchar and checks if it is a timestamp, uses standard timestamp format YYYY-MM-DD HH24:MI:SS';
 
 
 CREATE OR REPLACE FUNCTION is_timestamp(s VARCHAR, f VARCHAR) RETURNS BOOLEAN AS $$
