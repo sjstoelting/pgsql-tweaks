@@ -69,6 +69,60 @@ Result:
 |:---:|
 | f   |
 
+### FUNCTION is_time
+
+The function checks strings for being a time.<br />
+You might pass a second parameter to use a format string. Without the format,
+the default format of PostgreSQL is used.
+
+#### Examples
+
+```sql
+/**
+ * Parameter is in PostgreSQL default format
+ */
+SELECT is_time('14:33:55.456574') AS res;
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_time('25:33:55.456574') AS res;
+```
+
+Result:
+
+| res |
+|:---:|
+| f   |
+
+```sql
+/**
+ * Parameter is some time format
+ */
+SELECT is_time('14.33.55,456574', 'HH24.MI.SS,US') AS res;
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+
+```sql
+SELECT is_time('25.33.55,456574', 'HH24.MI.SS,US') AS res;
+```
+
+Result:
+
+| res |
+|:---:|
+| f   |
 
 ### FUNCTION is_timestamp
 The function checks strings for being a timestamp.<br />
