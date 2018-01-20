@@ -44,6 +44,9 @@ statements. Each test does raise division by zero if it fails.
 1.5 [User defined aggregates](#user-defined-aggregates)<br />
 1.5.1 [AGGREGATE gap_fil](#AGGREGATE-gap_fil)
 
+1.6 [Format functions](#format-functions)<br />
+1.6.1 [FUNCTION date_de](#function-date_de)
+
 # List of functions
 
 ## Functions to check data types
@@ -658,3 +661,27 @@ Result:
 |  2 | value 2    |
 |  2 | value 2    |
 |  3 | value 3    |
+
+## Format functions
+
+Several countries use different formats for numbers, dates, and timestamps.
+Therefore I needed some functions, which is easy to remember than the format
+codes which differ in different programming languages.
+
+### German formats
+
+#### FUNCTION date_de
+
+Creates a function which returns the given date in German format.
+
+##### Example
+
+```sql
+SELECT date_de('2018-01-01') AS d_de;
+```
+
+Result:
+
+| d_de       |
+| ---------- |
+| 01.01.2018 |
