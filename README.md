@@ -25,7 +25,8 @@ statements. Each test does raise division by zero if it fails.
 1.2.1 [FUNCTION sha256](#function-sha256)
 
 1.3 [Functions and views to get extended system information](#functions-and-views-to-get-extended-system-information)<br />
-1.3.1 [FUNCTION pg_schema_size](#function-pg_schema_size)
+1.3.1 [FUNCTION pg_schema_size](#function-pg_schema_size)<br />
+1.3.2 [VIEW pg_db_views](#view-pg_db_views)
 
 1.4 [Functions about encodings](#Functions-about-encodings)<br />
 1.4.1 [FUNCTION is_encoding](#function-is_encoding)<br />
@@ -321,6 +322,19 @@ Result:
 | pg_schema_size |
 | --------------:|
 |         332 MB |
+
+### VIEW pg_db_views
+
+Creates a view to get all views of the current database but excluding system views and all views which do start with "pg" or "\_pg".
+
+```sql
+SELECT * FROM pg_db_views;
+```
+
+| view_catalog | view_schema | view_name               |
+| ------------ | ----------- | ----------------------- |
+| chinook      | public      | v_json_artist_data      |
+| chinook      | public      | v_prospect_infos_result |
 
 
 ## Functions about encodings
