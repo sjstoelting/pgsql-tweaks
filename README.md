@@ -26,7 +26,8 @@ statements. Each test does raise division by zero if it fails.
 
 1.3 [Functions and views to get extended system information](#functions-and-views-to-get-extended-system-information)<br />
 1.3.1 [FUNCTION pg_schema_size](#function-pg_schema_size)<br />
-1.3.2 [VIEW pg_db_views](#view-pg_db_views)
+1.3.2 [VIEW pg_db_views](#view-pg_db_views)<br />
+1.3.3 [VIEW pg_foreign_keys](#view-pg_foreign_keys)
 
 1.4 [Functions about encodings](#Functions-about-encodings)<br />
 1.4.1 [FUNCTION is_encoding](#function-is_encoding)<br />
@@ -335,6 +336,29 @@ SELECT * FROM pg_db_views;
 | ------------ | ----------- | ----------------------- |
 | chinook      | public      | v_json_artist_data      |
 | chinook      | public      | v_prospect_infos_result |
+
+
+### VIEW pg_foreign_keys
+
+Creates a view to get all views of the current database but excluding system views and all views which do start with "pg" or "\_pg".
+
+```sql
+SELECT * FROM pg_foreign_keys;
+```
+
+| table_catalog | table_schema |  table_name   | column_name  | foreign_table_name | foreign_column_name |
+| ------------- | ------------ | ------------- | ------------ | ------------------ | ------------------- |
+|chinook        | public       | Album         | ArtistId     | Artist             | ArtistId            |
+|chinook        | public       | Customer      | SupportRepId | Employee           | EmployeeId          |
+|chinook        | public       | Employee      | ReportsTo    | Employee           | EmployeeId          |
+|chinook        | public       | Invoice       | CustomerId   | Customer           | CustomerId          |
+|chinook        | public       | InvoiceLine   | InvoiceId    | Invoice            | InvoiceId           |
+|chinook        | public       | InvoiceLine   | TrackId      | Track              | TrackId             |
+|chinook        | public       | PlaylistTrack | PlaylistId   | Playlist           | PlaylistId          |
+|chinook        | public       | PlaylistTrack | TrackId      | Track              | TrackId             |
+|chinook        | public       | Track         | AlbumId      | Album              | AlbumId             |
+|chinook        | public       | Track         | GenreId      | Genre              | GenreId             |
+|chinook        | public       | Track         | MediaTypeId  | MediaType          | MediaTypeId         |
 
 
 ## Functions about encodings
