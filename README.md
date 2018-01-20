@@ -14,24 +14,20 @@ statements. Each test does raise division by zero if it fails.
 
 1 [List of functions](#list-of-functions)
 
-1.1 [Functions to check data types](#functions-to-check-data-types)
-
+1.1 [Functions to check data types](#functions-to-check-data-types)<br />
 1.1.1 [FUNCTION is_date](#function-is_date)<br />
 1.1.2 [FUNCTION is_time](#function-is_time)<br />
 1.1.3 [FUNCTION is_timestamp](#function-is_timestamp)<br />
 1.1.4 [FUNCTION is_numeric](#function-is_numeric)<br />
 1.1.5 [FUNCTION is_integer](#function-is_integer)
 
-1.2 [Functions about encryption](#functions-about-encryption)
-
+1.2 [Functions about encryption](#functions-about-encryption)<br />
 1.2.1 [FUNCTION sha256](#function-sha256)
 
-1.3 [Functions and views to get extended system information](#functions-and-views-to-get-extended-system-information)
-
+1.3 [Functions and views to get extended system information](#functions-and-views-to-get-extended-system-information)<br />
 1.3.1 [FUNCTION pg_schema_size](#function-pg_schema_size)
 
-1.4 [Functions about encodings](#Functions-about-encodings)
-
+1.4 [Functions about encodings](#Functions-about-encodings)<br />
 1.4.1 [FUNCTION is_encoding](#function-is_encoding)<br />
 1.4.2 [FUNCTION is_latin1](#function-is_latin1)<br />
 1.4.3 [FUNCTION return_not_part_of_latin1](#function-return_not_part_of_latin1)<br />
@@ -45,8 +41,7 @@ statements. Each test does raise division by zero if it fails.
 1.4.6.2 [replace_encoding\(s VARCHAR, e VARCHAR, replacement VARCHAR\)](#replace_encoding-s-varchar-e-varchar-replacement-varchar-)<br />
 1.4.6.3 [replace_encoding\(s VARCHAR, s_search VARCHAR\[\], s_replace VARCHAR\[\]\)](#replace_encoding-s-varchar-s_search-varchar-s_replace-varchar-)
 
-1.5 [User defined aggregates](#user-defined-aggregates)
-
+1.5 [User defined aggregates](#user-defined-aggregates)<br />
 1.5.1 [AGGREGATE gap_fil](#AGGREGATE-gap_fil)
 
 # List of functions
