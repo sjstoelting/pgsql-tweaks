@@ -45,7 +45,8 @@ statements. Each test does raise division by zero if it fails.
 1.5.1 [AGGREGATE gap_fil](#AGGREGATE-gap_fil)
 
 1.6 [Format functions](#format-functions)<br />
-1.6.1 [FUNCTION date_de](#function-date_de)
+1.6.1 [FUNCTION date_de](#function-date_de)<br />
+1.6.2 [FUNCTION datetime_de](#function-datetime_de)
 
 # List of functions
 
@@ -683,5 +684,21 @@ SELECT date_de('2018-01-01') AS d_de;
 Result:
 
 | d_de       |
-| ---------- |
+|:----------:|
 | 01.01.2018 |
+
+#### FUNCTION datetime_de
+
+Creates a function which returns the given timestamp in German format.
+
+##### Example
+
+```sql
+SELECT datetime_de('2018-01-01 13:30:30 GMT') AS ts_de;
+```
+
+Result:
+
+| ts_de               |
+|:-------------------:|
+| 01.01.2018 14:30:30 |
