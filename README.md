@@ -12,40 +12,40 @@ statements. Each test does raise division by zero if it fails.
 
 # Table of content
 
-1 [List of functions](#List-of-functions)
+1 [List of functions](#list-of-functions)
 
-1.1 [Functions to check data types](#Functions-to-check-data-types)
+1.1 [Functions to check data types](#functions-to-check-data-types)
 
-1.1.1 [FUNCTION is_date](#FUNCTION-is_date)<br />
-1.1.2 [FUNCTION is_time](#FUNCTION-is_time)<br />
-1.1.3 [FUNCTION is_timestamp](#FUNCTION-is_timestamp)<br />
-1.1.4 [FUNCTION is_numeric](#FUNCTION-is_numeric)<br />
-1.1.5 [FUNCTION is_integer](#FUNCTION-is_integer)
+1.1.1 [FUNCTION is_date](#function-is_date)<br />
+1.1.2 [FUNCTION is_time](#function-is_time)<br />
+1.1.3 [FUNCTION is_timestamp](#function-is_timestamp)<br />
+1.1.4 [FUNCTION is_numeric](#function-is_numeric)<br />
+1.1.5 [FUNCTION is_integer](#function-is_integer)
 
-1.2 [Functions about encryption](#Functions-about-encryption)
+1.2 [Functions about encryption](#functions-about-encryption)
 
-1.2.1 [FUNCTION sha256](#FUNCTION-sha256)
+1.2.1 [FUNCTION sha256](#function-sha256)
 
-1.3 [Functions and views to get extended system information](#Functions-and-views-to-get-extended-system-information)
+1.3 [Functions and views to get extended system information](#functions-and-views-to-get-extended-system-information)
 
-1.3.1 [FUNCTION pg_schema_size](#FUNCTION-pg_schema_size)
+1.3.1 [FUNCTION pg_schema_size](#function-pg_schema_size)
 
 1.4 [Functions about encodings](#Functions-about-encodings)
 
-1.4.1 [FUNCTION is_encoding](#FUNCTION-is_encoding)<br />
-1.4.2 [FUNCTION is_latin1](#FUNCTION-is_latin1)<br />
-1.4.3 [FUNCTION return_not_part_of_latin1](#FUNCTION-return_not_part_of_latin1)<br />
-1.4.4 [FUNCTION replace_latin1](#FUNCTION-replace_latin1)<br />
+1.4.1 [FUNCTION is_encoding](#function-is_encoding)<br />
+1.4.2 [FUNCTION is_latin1](#function-is_latin1)<br />
+1.4.3 [FUNCTION return_not_part_of_latin1](#function-return_not_part_of_latin1)<br />
+1.4.4 [FUNCTION replace_latin1](#function-replace_latin1)<br />
 1.4.4.1 [replace_latin1\(s VARCHAR\)](#replace_latin1-s-varchar-)<br />
 1.4.4.2 [replace_latin1\(s VARCHAR, replacement VARCHAR\)](#replace_latin1-s-varchar-replacement-varchar-)<br />
 1.4.4.3 [replace_latin1\(s VARCHAR, s_search VARCHAR\[\], s_replace VARCHAR\[\]\)](#replace_latin1-s-varchar-s_search-varchar-s_replace-varchar-)<br />
-1.4.5 [FUNCTION return_not_part_of_encoding](#FUNCTION-return_not_part_of_encoding)<br />
-1.4.6 [FUNCTION replace_encoding](#FUNCTION-replace_encoding)<br />
+1.4.5 [FUNCTION return_not_part_of_encoding](#function-return_not_part_of_encoding)<br />
+1.4.6 [FUNCTION replace_encoding](#function-replace_encoding)<br />
 1.4.6.1 [replace_encoding\(s VARCHAR, e VARCHAR\)](#replace_encoding-s-varchar-e-varchar-)<br />
 1.4.6.2 [replace_encoding\(s VARCHAR, e VARCHAR, replacement VARCHAR\)](#replace_encoding-s-varchar-e-varchar-replacement-varchar-)<br />
 1.4.6.3 [replace_encoding\(s VARCHAR, s_search VARCHAR\[\], s_replace VARCHAR\[\]\)](#replace_encoding-s-varchar-s_search-varchar-s_replace-varchar-)
 
-1.5 [User defined aggregates](#User-defined-aggregates)
+1.5 [User defined aggregates](#user-defined-aggregates)
 
 1.5.1 [AGGREGATE gap_fil](#AGGREGATE-gap_fil)
 
