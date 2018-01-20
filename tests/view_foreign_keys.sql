@@ -12,7 +12,7 @@ WITH test AS
     FROM pg_catalog.pg_views
     WHERE viewname = 'pg_foreign_keys'
   )
-SELECT 1 / test.exist AS res
+SELECT 1 / test.exist = 1 AS res
 FROM test
 ;
 

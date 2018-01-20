@@ -12,7 +12,7 @@ WITH test AS
     FROM pg_catalog.pg_proc
     WHERE proname = 'gap_fill_internal'
   )
-SELECT 1 / test.exist AS res
+SELECT 1 / test.exist = 1 AS res
 FROM test
 ;
 
@@ -23,7 +23,7 @@ WITH test AS
     FROM pg_catalog.pg_proc
     WHERE proname = 'gap_fill'
   )
-SELECT 1 / test.exist AS res
+SELECT 1 / test.exist = 1 AS res
 FROM test
 ;
 
@@ -47,7 +47,7 @@ WITH t1 AS
       , gap_fill(some_value) OVER (ORDER BY id) AS some_value
     FROM test_gap_fill
   )
-SELECT count(*) / count(*) FILTER (WHERE NOT some_value IS NULL) AS res
+SELECT count(*) / count(*) FILTER (WHERE NOT some_value IS NULL) = 1 AS res
 FROM t1
 ;
 

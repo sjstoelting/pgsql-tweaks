@@ -12,7 +12,7 @@ WITH test AS
     FROM pg_catalog.pg_proc
     WHERE proname = 'pg_schema_size'
   )
-SELECT 1 / test.exist AS res
+SELECT 1 / test.exist = 1 AS res
 FROM test
 ;
 

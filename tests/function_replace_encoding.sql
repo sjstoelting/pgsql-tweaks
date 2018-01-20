@@ -12,7 +12,7 @@ WITH test AS
     FROM pg_catalog.pg_proc
     WHERE proname = 'replace_encoding'
   )
-SELECT 1 / test.exist  AS res
+SELECT 3 / test.exist = 1 AS res
 FROM test
 ;
 
@@ -27,9 +27,9 @@ WITH test AS
 SELECT
   CASE
     WHEN test.exist = 3 THEN
-      1
+      TRUE
     ELSE
-      1 / test.zero
+      (1 / test.zero)::BOOLEAN
   END AS res
 FROM test
 ;
@@ -45,15 +45,15 @@ WITH test AS
 SELECT
 	CASE
 		WHEN length(test_string) = 8 AND length(replace_encoding(test_string, enc)) = 4 THEN
-			1
+			TRUE
 		ELSE
-			1 / zero
+      (1 / test.zero)::BOOLEAN
   END AS res_1
   , CASE
 		WHEN is_encoding(replace_encoding(test_string, enc), enc) THEN
-			1
+			TRUE
 		ELSE
-			1 / zero
+			(1 / test.zero)::BOOLEAN
 	END AS res_2
 FROM test
 ;
@@ -70,15 +70,15 @@ WITH test AS
 SELECT
 	CASE
 		WHEN length(test_string) = length(replace_encoding(test_string, enc, replacement)) THEN
-			1
+			TRUE
 		ELSE
-			1 / zero
+			(1 / test.zero)::BOOLEAN
 	END AS res_1
   , CASE
 		WHEN is_encoding(replace_encoding(test_string, enc, replacement), enc) THEN
-			1
+			TRUE
 		ELSE
-			1 / zero
+			(1 / test.zero)::BOOLEAN
 	END AS res_2
 FROM test
 ;
@@ -96,15 +96,15 @@ WITH test AS
 SELECT
 	CASE
 		WHEN length(test_string) = length(replace_encoding(test_string, to_replace, replacement)) THEN
-			1
+			TRUE
 		ELSE
-			1 / zero
+			(1 / test.zero)::BOOLEAN
 	END AS res_1
 	, CASE
 		WHEN is_latin1(replace_encoding(test_string, to_replace, replacement)) THEN
-			1
+			TRUE
 		ELSE
-			1 / zero
+			(1 / test.zero)::BOOLEAN
 	END AS res_2
 FROM test
 ;

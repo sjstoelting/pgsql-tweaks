@@ -12,7 +12,7 @@ WITH test AS
     FROM pg_catalog.pg_proc
     WHERE proname = 'replace_latin1'
   )
-SELECT 1 / test.exist  AS res
+SELECT 3 / test.exist = 1 AS res
 FROM test
 ;
 
@@ -27,9 +27,9 @@ WITH test AS
 SELECT
   CASE
     WHEN test.exist = 3 THEN
-      1
+      TRUE
     ELSE
-      1 / test.zero
+      (1 / test.zero)::BOOLEAN
   END AS res
 FROM test
 ;
@@ -44,15 +44,15 @@ WITH test AS
 SELECT
 	CASE
 		WHEN length(test_string) = 8 AND length(replace_latin1(test_string)) = 4 THEN
-			1
+			TRUE
 		ELSE
-			1 / zero
+			(1 / test.zero)::BOOLEAN
   END AS res_1
   , CASE
 		WHEN is_latin1(replace_latin1(test_string)) THEN
-			1
+			TRUE
 		ELSE
-			1 / zero
+    (1 / test.zero)::BOOLEAN
 	END AS res_2
 FROM test
 ;
@@ -68,15 +68,15 @@ WITH test AS
 SELECT
 	CASE
 		WHEN length(test_string) = length(replace_latin1(test_string, replacement)) THEN
-			1
+			TRUE
 		ELSE
-			1 / zero
+    (1 / test.zero)::BOOLEAN
 	END AS res_1
   , CASE
 		WHEN is_latin1(replace_latin1(test_string, replacement)) THEN
-			1
+			TRUE
 		ELSE
-			1 / zero
+    (1 / test.zero)::BOOLEAN
 	END AS res_2
 FROM test
 ;
@@ -94,15 +94,15 @@ WITH test AS
 SELECT
 	CASE
 		WHEN length(test_string) = length(replace_latin1(test_string, to_replace, replacement)) THEN
-			1
+			TRUE
 		ELSE
-			1 / zero
+    (1 / test.zero)::BOOLEAN
 	END AS res_1
 	, CASE
 		WHEN is_latin1(replace_latin1(test_string, to_replace, replacement)) THEN
-			1
+			TRUE
 		ELSE
-			1 / zero
+    (1 / test.zero)::BOOLEAN
 	END AS res_2
 FROM test
 ;

@@ -12,7 +12,7 @@ WITH test AS
     FROM pg_catalog.pg_proc
     WHERE proname = 'return_not_part_of_latin1'
   )
-SELECT 1 / test.exist  AS res
+SELECT 1 / test.exist = 1 AS res
 FROM test
 ;
 
@@ -25,15 +25,15 @@ with test AS
 SELECT
   CASE
     WHEN array_length(res, 1) = 2 THEN
-      1
+      TRUE
     ELSE
-      1 / zero
+      (1 / test.zero)::BOOLEAN
       END as res_1
       , CASE
       	WHEN 'ğ' = ANY (res) AND 'Ƶ' = ANY (res) THEN
-      		1
+      		TRUE
         ELSE
-          1 / zero
+          (1 / test.zero)::BOOLEAN
       END as res_2
 FROM test
 ;
