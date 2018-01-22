@@ -27,7 +27,8 @@ statements. Each test does raise division by zero if it fails.
 1.3 [Functions and views to get extended system information](#functions-and-views-to-get-extended-system-information)<br />
 1.3.1 [FUNCTION pg_schema_size](#function-pg_schema_size)<br />
 1.3.2 [VIEW pg_db_views](#view-pg_db_views)<br />
-1.3.3 [VIEW pg_foreign_keys](#view-pg_foreign_keys)
+1.3.3 [VIEW pg_foreign_keys](#view-pg_foreign_keys)<br />
+1.3.4 [VIEW pg_functions](#view-pg_functions)
 
 1.4 [Functions about encodings](#Functions-about-encodings)<br />
 1.4.1 [FUNCTION is_encoding](#function-is_encoding)<br />
@@ -359,6 +360,20 @@ SELECT * FROM pg_foreign_keys;
 |chinook        | public       | Track         | AlbumId      | Album              | AlbumId             |
 |chinook        | public       | Track         | GenreId      | Genre              | GenreId             |
 |chinook        | public       | Track         | MediaTypeId  | MediaType          | MediaTypeId         |
+
+
+### VIEW pg_functions
+
+Creates a view to get all functions of the current database, excluding those in the schema pg_catalog and information_schema.
+
+```sql
+SELECT * FROM pg_functions;
+```
+
+| schema_name | function_name | returning_data_type | parameters                    | function_type | function_comment                                                      |
+| ----------- | ------------- | ------------------- | --------------- | ----------- | ------------- | --------------------------------------------------------------------- |
+| public      | date_de       | character varying   | d date                        | function      | Creates a function which returns the given date in German format      |
+| public      | datetime_de   | character varying   | t timestamp without time zone | function      | Creates a function which returns the given timestamp in German format |
 
 
 ## Functions about encodings
