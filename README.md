@@ -371,7 +371,7 @@ SELECT * FROM pg_functions;
 ```
 
 | schema_name | function_name | returning_data_type | parameters                    | function_type | function_comment                                                      |
-| ----------- | ------------- | ------------------- | --------------- | ----------- | ------------- | --------------------------------------------------------------------- |
+| ----------- | ------------- | ------------------- | ----------------------------- | ------------- | --------------------------------------------------------------------- |
 | public      | date_de       | character varying   | d date                        | function      | Creates a function which returns the given date in German format      |
 | public      | datetime_de   | character varying   | t timestamp without time zone | function      | Creates a function which returns the given timestamp in German format |
 
