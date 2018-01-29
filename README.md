@@ -51,7 +51,7 @@ statements. Each test does raise division by zero if it fails.
 1.6.1 [FUNCTION date_de](#function-date_de)<br />
 1.6.2 [FUNCTION datetime_de](#function-datetime_de)
 
-1.7 [Conversion functions](#conversion-functions)
+1.7 [Conversion functions](#conversion-functions)<br />
 1.7.1 [FUNCTION to_unix_timestamp](#function-to_unix_timestamp)
 
 # List of functions
