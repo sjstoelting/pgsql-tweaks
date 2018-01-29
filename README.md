@@ -333,10 +333,42 @@ Creates a view to get all views of the current database but excluding system vie
 SELECT * FROM pg_db_views;
 ```
 
-| view_catalog | view_schema | view_name               |
-| ------------ | ----------- | ----------------------- |
-| chinook      | public      | v_json_artist_data      |
-| chinook      | public      | v_prospect_infos_result |
+| view_catalog | view_schema | view_name               |  view_definition |
+| ------------ | ----------- | ----------------------- | ----------------------- |
+| chinook      | public      | v_json_artist_data      | WITH tracks AS ( |
+|              |             |                         |         SELECT "Track"."AlbumId" AS album_id, |
+|              |             |                         |             "Track"."TrackId" AS track_id, |
+|              |             |                         |             "Track"."Name" AS track_name, |
+|              |             |                         |             "Track"."MediaTypeId" AS media_type_id, |
+|              |             |                         |             "Track"."Milliseconds" AS milliseconds, |
+|              |             |                         |             "Track"."UnitPrice" AS unit_price |
+|              |             |                         |            FROM "Track" |
+|              |             |                         |         ), json_tracks AS ( |
+|              |             |                         |          SELECT row_to_json(tracks.*) AS tracks |
+|              |             |                         |            FROM tracks |
+|              |             |                         |         ), albums AS ( |
+|              |             |                         |          SELECT a."ArtistId" AS artist_id, |
+|              |             |                         |             a."AlbumId" AS album_id, |
+|              |             |                         |             a."Title" AS album_title, |
+|              |             |                         |             array_agg(t.tracks) AS album_tracks |
+|              |             |                         |            FROM ("Album" a |
+|              |             |                         |              JOIN json_tracks t ON ((a."AlbumId" = ((t.tracks ->> 'album_id'::text))::integer))) |
+|              |             |                         |           GROUP BY a."ArtistId", a."AlbumId", a."Title" |
+|              |             |                         |         ), json_albums AS ( |
+|              |             |                         |          SELECT albums.artist_id, |
+|              |             |                         |             array_agg(row_to_json(albums.*)) AS album |
+|              |             |                         |            FROM albums |
+|              |             |                         |           GROUP BY albums.artist_id |
+|              |             |                         |         ), artists AS ( |
+|              |             |                         |          SELECT a."ArtistId" AS artist_id, |
+|              |             |                         |             a."Name" AS artist, |
+|              |             |                         |             jsa.album AS albums |
+|              |             |                         |            FROM ("Artist" a |
+|              |             |                         |              JOIN json_albums jsa ON ((a."ArtistId" = jsa.artist_id))) |
+|              |             |                         |         ) |
+|              |             |                         |  SELECT (row_to_json(artists.*))::jsonb AS artist_data |
+|              |             |                         |    FROM artists; |
+
 
 
 ### VIEW pg_foreign_keys
