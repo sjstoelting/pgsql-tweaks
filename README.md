@@ -51,6 +51,9 @@ statements. Each test does raise division by zero if it fails.
 1.6.1 [FUNCTION date_de](#function-date_de)<br />
 1.6.2 [FUNCTION datetime_de](#function-datetime_de)
 
+1.7 [Conversion functions](#conversion-functions)
+1.7.1 [FUNCTION to_unix_timestamp](#function-to_unix_timestamp)
+
 # List of functions
 
 ## Functions to check data types
@@ -787,3 +790,34 @@ Result:
 | ts_de               |
 |:-------------------:|
 | 01.01.2018 14:30:30 |
+
+## Conversion functions
+
+### FUNCTION to_unix_timestamp
+
+Creates two functions which returns unix timestamp for the a given timestamp or
+a given timestamp with time zone.
+
+#### Examples
+
+```sql
+-- Timestamp without time zone, server uses German / Berlin time zone
+SELECT to_unix_timestamp('2018-01-01 00:00:00') AS unix_timestamp;
+```
+
+Result:
+
+| unix_timestamp |
+| --------------:|
+|     1514761200 |
+
+```sql
+-- Timestamp with time zone
+SELECT to_unix_timestamp('2018-01-01 00:00:00+01') AS unix_timestamp;
+```
+
+Result:
+
+| unix_timestamp |
+| --------------:|
+|     1514761200 |
