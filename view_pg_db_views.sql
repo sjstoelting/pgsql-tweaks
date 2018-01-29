@@ -5,6 +5,7 @@ CREATE OR REPLACE VIEW pg_db_views AS
 SELECT table_catalog AS view_catalog
 	, table_schema AS view_schema
 	, table_name AS view_name
+	, view_definition
 FROM INFORMATION_SCHEMA.views
 WHERE NOT table_name LIKE 'pg%'
 	AND NOT table_name LIKE '\\_pg%'
