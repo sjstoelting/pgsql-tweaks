@@ -12,7 +12,7 @@ COMMENT ON FUNCTION gap_fill_internal(s anyelement, v anyelement) IS 'The functi
 
 
 -- The Window function needs an aggregate
-DROP AGGREGATE gap_fill(anyelement) IF EXISTS;
+DROP AGGREGATE IF EXISTS gap_fill(anyelement);
 CREATE AGGREGATE gap_fill(anyelement) (
 	SFUNC=gap_fill_internal,
 	STYPE = anyelement
