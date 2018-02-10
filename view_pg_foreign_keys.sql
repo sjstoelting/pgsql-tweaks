@@ -15,4 +15,4 @@
  			ON ccu.CONSTRAINT_NAME = tc.CONSTRAINT_NAME
  WHERE tc.CONSTRAINT_TYPE = 'FOREIGN KEY'
  ;
- COMMENT ON VIEW pg_foreign_keys IS 'The view returns all foreign keys of the current database'
+ COMMENT ON VIEW pg_foreign_keys IS 'The view returns all foreign keys of the current database';
