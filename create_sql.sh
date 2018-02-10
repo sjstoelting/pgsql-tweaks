@@ -122,8 +122,6 @@ echo 'DROP FUNCTION IF EXISTS is_time(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_date(s VARCHAR, f VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_date(s VARCHAR);' >> $FILENAME
 
-
-
 echo '' >> $FILENAME
 echo 'END;' >> $FILENAME
 
