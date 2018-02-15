@@ -19,7 +19,8 @@ statements. Each test does raise division by zero if it fails.
 1.1.2 [FUNCTION is_time](#function-is_time)<br />
 1.1.3 [FUNCTION is_timestamp](#function-is_timestamp)<br />
 1.1.4 [FUNCTION is_numeric](#function-is_numeric)<br />
-1.1.5 [FUNCTION is_integer](#function-is_integer)
+1.1.5 [FUNCTION is_integer](#function-is_integer)<br />
+1.1.6 [FUNCTION is_empty](#function-is_empty)
 
 1.2 [Functions about encryption](#functions-about-encryption)<br />
 1.2.1 [FUNCTION sha256](#function-sha256)
@@ -275,6 +276,45 @@ Result:
 | res |
 |:---:|
 | f   |
+
+### FUNCTION is_empty
+
+The function checks a string variable for being either, NULL or ''.
+
+#### Examples
+
+```sql
+SELECT is_empty('abc');
+-- Result is false
+```
+
+Result:
+
+| res |
+|:---:|
+| f   |
+
+```sql
+SELECT is_empty('');
+-- Result is true
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_empty(NULL);
+-- Result is true
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
 
 
 ## Functions about encryption
