@@ -3,8 +3,14 @@
 
 # Starts with the script to create all objects
 # Define output file
+EXTENSION=$(grep -m 1 '"name":' META.json | \
+  sed -e 's/[[:space:]]*"name":[[:space:]]*"\([^"]*\)",/\1/')
+
+EXTVERSION=$(grep -m 1 '"version":' META.json | \
+  sed -e 's/[[:space:]]*"version":[[:space:]]*"\([^"]*\)",/\1/')
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/sql/"
-FILENAME="$DIR/pgsql_tweaks.sql"
+FILENAME="$DIR/$EXTENSION--$EXTVERSION.sql"
 
 # Array with all file names
 declare -a SQLFILES=(
