@@ -27,6 +27,7 @@ declare -a SQLFILES=(
   "function_date_de"
   "function_datetime_de"
   "function_to_unix_timestamp"
+  "function_is_empty"
   )
 arraylength=${#SQLFILES[@]}
 
