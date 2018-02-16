@@ -1,0 +1,45 @@
+{
+  "name": "pgsql_tweaks",
+  "abstract": "Contains PostgreSQL functions which I regularly needed.",
+  "description": "The package includes several functions and views to help daily work.",
+  "version": "0.1.0",
+  "maintainer": [
+     "Stefanie Janine Stölting <mail@stefanie-stoelting.de>"
+  ],
+  "license": "postgresql",
+  "provides": {
+    "pgsql_tweaks": {
+      "abstract": "Contains PostgreSQL functions which I regularly needed.",
+      "file": "sql/pgsql_tweaks.sql",
+      "docfile": "README.md",
+      "version": "0.1.0"
+    }
+  },
+  "resources": {
+      "bugtracker": {
+         "web": "http://github.com/sjstoelting/pgsql_tweaks/issues/"
+      },
+      "repository": {
+        "url":  "git://github.com/sjstoelting/pgsql_tweaks.git",
+        "web":  "http://github.com/sjstoelting/pgsql_tweaks/",
+        "type": "git"
+      }
+   },
+  "release_status": "stable",
+  "generated_by": "Stefanie Janine Stölting",
+  "meta-spec": {
+    "version": "1.0.0",
+    "url": "http://pgxn.org/meta/spec.txt"
+  },
+   "tags": [
+      "is_date",
+      "is_time",
+      "is_timestamp",
+      "is_integer",
+      "is_numeric",
+      "is_encoding",
+      "encoding",
+      "sha256",
+      "extended system views"
+   ]
+}
