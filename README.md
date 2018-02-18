@@ -716,6 +716,7 @@ Result:
 | -------- | -------- |
 | ağbƵcğeƵ | agbZcgeZ |
 
+
 ## User defined aggregates
 
 ### AGGREGATE gap_fil
@@ -792,6 +793,7 @@ Result:
 |  2 | value 2    |
 |  3 | value 3    |
 
+
 ### AGGREGATE array_min
 
 Calculate minimum values from arrays.
@@ -832,6 +834,48 @@ Result:
 | array_min |
 | --------- |
 | abc       |
+
+
+### AGGREGATE array_max
+
+Calculate minimum values from arrays.
+
+#### Examples
+```sql
+SELECT array_max(ARRAY[45, 60, 43, 99]::SMALLINT[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|        99 |
+
+```sql
+SELECT array_max(ARRAY[45, 60, 43, 99]::INTEGER[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|        99 |
+
+```sql
+SELECT array_max(ARRAY[45, 60, 43, 99]::BIGINT[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|        99 |
+
+```sql
+SELECT array_max(ARRAY['def', 'abc', 'ghi']::TEXT[]);
+```
+Result:
+
+| array_min |
+| --------- |
+| ghi       |
 
 
 ## Format functions
