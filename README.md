@@ -29,7 +29,8 @@ statements. Each test does raise division by zero if it fails.
 1.3.1 [FUNCTION pg_schema_size](#function-pg_schema_size)<br />
 1.3.2 [VIEW pg_db_views](#view-pg_db_views)<br />
 1.3.3 [VIEW pg_foreign_keys](#view-pg_foreign_keys)<br />
-1.3.4 [VIEW pg_functions](#view-pg_functions)
+1.3.4 [VIEW pg_functions](#view-pg_functions)<br />
+1.3.4 [VIEW pg_active_locks](#view-pg_active_locks)
 
 1.4 [Functions about encodings](#Functions-about-encodings)<br />
 1.4.1 [FUNCTION is_encoding](#function-is_encoding)<br />
@@ -46,7 +47,11 @@ statements. Each test does raise division by zero if it fails.
 1.4.6.3 [replace_encoding\(s VARCHAR, s_search VARCHAR\[\], s_replace VARCHAR\[\]\)](#replace_encoding-s-varchar-s_search-varchar-s_replace-varchar-)
 
 1.5 [User defined aggregates](#user-defined-aggregates)<br />
-1.5.1 [AGGREGATE gap_fil](#AGGREGATE-gap_fil)
+1.5.1 [AGGREGATE gap_fill](#aggregate-gap_fill)<br />
+1.5.2 [AGGREGATE array_min](#aggregate-array_min)<br />
+1.5.3 [AGGREGATE array_max](#aggregate-array_max)<br />
+1.5.4 [AGGREGATE array_avg](#aggregate-array_avg)<br />
+1.5.5 [AGGREGATE array_sum](#aggregate-array_sum)
 
 1.6 [Format functions](#format-functions)<br />
 1.6.1 [FUNCTION date_de](#function-date_de)<br />
@@ -451,6 +456,23 @@ SELECT * FROM pg_functions;
 | public      | datetime_de   | character varying   | t timestamp without time zone | function      | Creates a function which returns the given timestamp in German format |
 
 
+### VIEW pg_active_locks
+
+Creates a view to view all live locks with all necessary information about the connections and the query.<br />
+<span style="color:red">The view needs PostgreSQL 9.2 as minimum version. The column application_name was added in 9.2.</style>
+
+```sql
+SELECT * FROM pg_active_locks;
+```
+
+Result:
+
+| pid  | state  | datname | usename  | application_name | client_addr |          query_start          | wait_event_type | wait_event |  locktype  |      mode       |             query              |
+| ----:| ------ |-------- |--------- | ---------------- | ----------- | ----------------------------- | --------------- | ---------- | ---------- | --------------- | ------------------------------ |
+| 8872 | active | chinook | stefanie | psql             | 127.0.0.1   | 2018-02-18 14:45:53.943047+01 |                 |            | relation   | AccessShareLock | SELECT * FROM pg_active_locks; |
+| 8872 | active | chinook | stefanie | psql             | 127.0.0.1   | 2018-02-18 14:45:53.943047+01 |                 |            | virtualxid | ExclusiveLock   | SELECT * FROM pg_active_locks; |
+
+
 ## Functions about encodings
 
 ### FUNCTION is_encoding
@@ -715,9 +737,10 @@ Result:
 | -------- | -------- |
 | ağbƵcğeƵ | agbZcgeZ |
 
+
 ## User defined aggregates
 
-### AGGREGATE gap_fil
+### AGGREGATE gap_fill
 
 The aggregate is used in [Window Functions](https://www.postgresql.org/docs/current/static/tutorial-window.html)
 to show the last value in case the current value is null.
@@ -790,6 +813,157 @@ Result:
 |  2 | value 2    |
 |  2 | value 2    |
 |  3 | value 3    |
+
+
+### AGGREGATE array_min
+
+Calculate minimum values from arrays.
+
+#### Examples
+```sql
+SELECT array_min(ARRAY[45, 60, 43, 99]::SMALLINT[]);
+```
+Result:
+
+| array_min |
+| ---------:|
+|        43 |
+
+```sql
+SELECT array_min(ARRAY[45, 60, 43, 99]::INTEGER[]);
+```
+Result:
+
+| array_min |
+| ---------:|
+|        43 |
+
+```sql
+SELECT array_min(ARRAY[45, 60, 43, 99]::BIGINT[]);
+```
+Result:
+
+| array_min |
+| ---------:|
+|        43 |
+
+```sql
+SELECT array_min(ARRAY['def', 'abc', 'ghi']::TEXT[]);
+```
+Result:
+
+| array_min |
+| --------- |
+| abc       |
+
+
+### AGGREGATE array_max
+
+Calculate minimum values from arrays.
+
+#### Examples
+```sql
+SELECT array_max(ARRAY[45, 60, 43, 99]::SMALLINT[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|        99 |
+
+```sql
+SELECT array_max(ARRAY[45, 60, 43, 99]::INTEGER[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|        99 |
+
+```sql
+SELECT array_max(ARRAY[45, 60, 43, 99]::BIGINT[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|        99 |
+
+```sql
+SELECT array_max(ARRAY['def', 'abc', 'ghi']::TEXT[]);
+```
+Result:
+
+| array_min |
+| --------- |
+| ghi       |
+
+
+### AGGREGATE array_avg
+
+Calculate average values from arrays.
+
+#### Examples
+```sql
+SELECT array_avg(ARRAY[45, 60, 43, 99]::SMALLINT[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|        62 |
+
+```sql
+SELECT array_avg(ARRAY[45, 60, 43, 99]::INTEGER[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|        62 |
+
+```sql
+SELECT array_avg(ARRAY[45, 60, 43, 99]::BIGINT[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|        62 |
+
+
+### AGGREGATE array_sum
+
+Calculate sum of values from arrays.
+
+#### Examples
+```sql
+SELECT array_sum(ARRAY[45, 60, 43, 99]::SMALLINT[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|       247 |
+
+```sql
+SELECT array_sum(ARRAY[45, 60, 43, 99]::INTEGER[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|       247 |
+
+```sql
+SELECT array_sum(ARRAY[45, 60, 43, 99]::BIGINT[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|       247 |
+
 
 ## Format functions
 
