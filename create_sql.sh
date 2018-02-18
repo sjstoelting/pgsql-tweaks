@@ -34,6 +34,11 @@ declare -a SQLFILES=(
   "function_datetime_de"
   "function_to_unix_timestamp"
   "function_is_empty"
+  "function_array_max"
+  "function_array_min"
+  "function_array_avg"
+  "function_array_sum"
+  "view_pg_active_locks"
   )
 arraylength=${#SQLFILES[@]}
 
