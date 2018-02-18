@@ -29,7 +29,8 @@ statements. Each test does raise division by zero if it fails.
 1.3.1 [FUNCTION pg_schema_size](#function-pg_schema_size)<br />
 1.3.2 [VIEW pg_db_views](#view-pg_db_views)<br />
 1.3.3 [VIEW pg_foreign_keys](#view-pg_foreign_keys)<br />
-1.3.4 [VIEW pg_functions](#view-pg_functions)
+1.3.4 [VIEW pg_functions](#view-pg_functions)<br />
+1.3.4 [VIEW pg_active_locks](#view-pg_active_locks)
 
 1.4 [Functions about encodings](#Functions-about-encodings)<br />
 1.4.1 [FUNCTION is_encoding](#function-is_encoding)<br />
@@ -453,6 +454,23 @@ SELECT * FROM pg_functions;
 | ----------- | ------------- | ------------------- | ----------------------------- | ------------- | --------------------------------------------------------------------- |
 | public      | date_de       | character varying   | d date                        | function      | Creates a function which returns the given date in German format      |
 | public      | datetime_de   | character varying   | t timestamp without time zone | function      | Creates a function which returns the given timestamp in German format |
+
+
+### VIEW pg_active_locks
+
+Creates a view to view all live locks with all necessary information about the connections and the query.<br />
+<span style="color:red">The view needs PostgreSQL 9.2 as minimum version. The column application_name was added in 9.2.</style>
+
+```sql
+SELECT * FROM pg_active_locks;
+```
+
+Result:
+
+| pid  | state  | datname | usename  | application_name | client_addr |          query_start          | wait_event_type | wait_event |  locktype  |      mode       |             query              |
+| ----:| ------ |-------- |--------- | ---------------- | ----------- | ----------------------------- | --------------- | ---------- | ---------- | --------------- | ------------------------------ |
+| 8872 | active | chinook | stefanie | psql             | 127.0.0.1   | 2018-02-18 14:45:53.943047+01 |                 |            | relation   | AccessShareLock | SELECT * FROM pg_active_locks; |
+| 8872 | active | chinook | stefanie | psql             | 127.0.0.1   | 2018-02-18 14:45:53.943047+01 |                 |            | virtualxid | ExclusiveLock   | SELECT * FROM pg_active_locks; |
 
 
 ## Functions about encodings
