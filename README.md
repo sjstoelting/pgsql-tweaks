@@ -49,7 +49,8 @@ statements. Each test does raise division by zero if it fails.
 1.5.1 [AGGREGATE gap_fil](#AGGREGATE-gap_fil)<br />
 1.5.2 [AGGREGATE array_min](#AGGREGATE-array_min)<br />
 1.5.3 [AGGREGATE array_max](#AGGREGATE-array_max)<br />
-1.5.4 [AGGREGATE array_avg](#AGGREGATE-array_avg)
+1.5.4 [AGGREGATE array_avg](#AGGREGATE-array_avg)<br />
+1.5.5 [AGGREGATE array_sum](#AGGREGATE-array_sum)
 
 1.6 [Format functions](#format-functions)<br />
 1.6.1 [FUNCTION date_de](#function-date_de)<br />
@@ -911,6 +912,39 @@ Result:
 | array_max |
 | ---------:|
 |        62 |
+
+
+### AGGREGATE array_sum
+
+Calculate sum of values from arrays.
+
+#### Examples
+```sql
+SELECT array_sum(ARRAY[45, 60, 43, 99]::SMALLINT[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|       247 |
+
+```sql
+SELECT array_sum(ARRAY[45, 60, 43, 99]::INTEGER[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|       247 |
+
+```sql
+SELECT array_sum(ARRAY[45, 60, 43, 99]::BIGINT[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|       247 |
 
 
 ## Format functions
