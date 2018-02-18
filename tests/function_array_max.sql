@@ -85,7 +85,7 @@ SELECT
 FROM test
 ;
 
--- Test of the third implementation
+-- Test of the fourth implementation
 -- TEXT ARRAY
 WITH test AS
 	(
