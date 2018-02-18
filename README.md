@@ -882,7 +882,7 @@ Result:
 
 ### AGGREGATE array_avg
 
-Calculate minimum values from arrays.
+Calculate average values from arrays.
 
 #### Examples
 ```sql
