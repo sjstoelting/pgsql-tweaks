@@ -47,7 +47,8 @@ statements. Each test does raise division by zero if it fails.
 
 1.5 [User defined aggregates](#user-defined-aggregates)<br />
 1.5.1 [AGGREGATE gap_fil](#AGGREGATE-gap_fil)<br />
-1.5.1 [AGGREGATE array_min](#AGGREGATE-array_min)
+1.5.2 [AGGREGATE array_min](#AGGREGATE-array_min)<br />
+1.5.3 [AGGREGATE array_max](#AGGREGATE-array_max)
 
 1.6 [Format functions](#format-functions)<br />
 1.6.1 [FUNCTION date_de](#function-date_de)<br />
