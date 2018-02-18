@@ -103,6 +103,21 @@ echo '' >> $FILENAME
 echo 'BEGIN;' >> $FILENAME
 echo '' >> $FILENAME
 
+echo 'DROP VIEW IF EXISTS pg_active_locks;' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_sum(a BIGINT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_sum(a INTEGER);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_sum(a SMALLINT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_avg(a BIGINT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_avg(a INTEGER);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_avg(a SMALLINT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_min(a TEXT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_min(a BIGINT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_min(a INTEGER);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_min(a SMALLINT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_max(a TEXT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_max(a BIGINT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_max(a INTEGER);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_max(a SMALLINT);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS to_unix_timestamp(ts timestamp with time zone);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS to_unix_timestamp(ts timestamp);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS datetime_de(t TIMESTAMP WITH TIME ZONE, with_tz BOOLEAN);' >> $FILENAME
