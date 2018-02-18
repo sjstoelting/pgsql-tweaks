@@ -27,6 +27,7 @@ declare -a SQLFILES=(
   "function_is_encoding"
   "function_is_latin1"
   "function_return_not_part_of_latin1"
+  "function_replace_encoding"
   "function_replace_latin1"
   "function_return_not_part_of_encoding"
   "aggregate_function_gab_fill"
@@ -104,33 +105,33 @@ echo 'BEGIN;' >> $FILENAME
 echo '' >> $FILENAME
 
 echo 'DROP VIEW IF EXISTS pg_active_locks;' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_sum(a BIGINT);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_sum(a INTEGER);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_sum(a SMALLINT);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_avg(a BIGINT);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_avg(a INTEGER);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_avg(a SMALLINT);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_min(a TEXT);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_min(a BIGINT);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_min(a INTEGER);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_min(a SMALLINT);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_max(a TEXT);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_max(a BIGINT);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_max(a INTEGER);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_max(a SMALLINT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_sum(a BIGINT[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_sum(a INTEGER[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_sum(a SMALLINT[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_avg(a BIGINT[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_avg(a INTEGER[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_avg(a SMALLINT[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_min(a TEXT[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_min(a BIGINT[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_min(a INTEGER[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_min(a SMALLINT[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_max(a TEXT[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_max(a BIGINT[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_max(a INTEGER[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_max(a SMALLINT[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS to_unix_timestamp(ts timestamp with time zone);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS to_unix_timestamp(ts timestamp);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS datetime_de(t TIMESTAMP WITH TIME ZONE, with_tz BOOLEAN);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS date_de(d DATE);' >> $FILENAME
 echo 'DROP AGGREGATE IF EXISTS gap_fill(anyelement);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS gap_fill_internal(s anyelement, v anyelement);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS replace_latin1(s VARCHAR, s_search VARCHAR[], s_replace VARCHAR[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS replace_latin1(s VARCHAR, replacement VARCHAR);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS replace_latin1(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS replace_encoding(s VARCHAR, s_search VARCHAR[], s_replace VARCHAR[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS replace_encoding(s VARCHAR, e VARCHAR, replacement VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS replace_encoding(s VARCHAR, e VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS return_not_part_of_encoding(s VARCHAR, e VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS replace_latin1(s VARCHAR, s_search VARCHAR[], s_replace VARCHAR[]);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS replace_latin1(s VARCHAR, replacement VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS replace_latin1(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS return_not_part_of_latin1(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_latin1(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_encoding(s VARCHAR, enc VARCHAR, enc_from VARCHAR);' >> $FILENAME
