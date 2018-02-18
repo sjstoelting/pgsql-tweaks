@@ -19,7 +19,7 @@ declare -a SQLFILES=(
   "function_is_timestamp"
   "function_is_numeric"
   "function_is_integer"
-  "function_sha256"
+  #"function_sha256"
   "function_pg_schema_size"
   "view_pg_db_views"
   "view_pg_foreign_keys"
