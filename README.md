@@ -46,11 +46,11 @@ statements. Each test does raise division by zero if it fails.
 1.4.6.3 [replace_encoding\(s VARCHAR, s_search VARCHAR\[\], s_replace VARCHAR\[\]\)](#replace_encoding-s-varchar-s_search-varchar-s_replace-varchar-)
 
 1.5 [User defined aggregates](#user-defined-aggregates)<br />
-1.5.1 [AGGREGATE gap_fill](#AGGREGATE-gap_fill)<br />
-1.5.2 [AGGREGATE array_min](#AGGREGATE-array_min)<br />
-1.5.3 [AGGREGATE array_max](#AGGREGATE-array_max)<br />
-1.5.4 [AGGREGATE array_avg](#AGGREGATE-array_avg)<br />
-1.5.5 [AGGREGATE array_sum](#AGGREGATE-array_sum)
+1.5.1 [AGGREGATE gap_fill](#aggregate-gap_fill)<br />
+1.5.2 [AGGREGATE array_min](#aggregate-array_min)<br />
+1.5.3 [AGGREGATE array_max](#aggregate-array_max)<br />
+1.5.4 [AGGREGATE array_avg](#aggregate-array_avg)<br />
+1.5.5 [AGGREGATE array_sum](#aggregate-array_sum)
 
 1.6 [Format functions](#format-functions)<br />
 1.6.1 [FUNCTION date_de](#function-date_de)<br />
