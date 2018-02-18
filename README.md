@@ -46,7 +46,8 @@ statements. Each test does raise division by zero if it fails.
 1.4.6.3 [replace_encoding\(s VARCHAR, s_search VARCHAR\[\], s_replace VARCHAR\[\]\)](#replace_encoding-s-varchar-s_search-varchar-s_replace-varchar-)
 
 1.5 [User defined aggregates](#user-defined-aggregates)<br />
-1.5.1 [AGGREGATE gap_fil](#AGGREGATE-gap_fil)
+1.5.1 [AGGREGATE gap_fil](#AGGREGATE-gap_fil)<br />
+1.5.1 [AGGREGATE array_min](#AGGREGATE-array_min)
 
 1.6 [Format functions](#format-functions)<br />
 1.6.1 [FUNCTION date_de](#function-date_de)<br />
@@ -790,6 +791,48 @@ Result:
 |  2 | value 2    |
 |  2 | value 2    |
 |  3 | value 3    |
+
+### AGGREGATE array_min
+
+Calculate minimum values from arrays.
+
+#### Examples
+```sql
+SELECT array_min(ARRAY[45, 60, 43, 99]::SMALLINT[]);
+```
+Result:
+
+| array_min |
+| ---------:|
+|        43 |
+
+```sql
+SELECT array_min(ARRAY[45, 60, 43, 99]::INTEGER[]);
+```
+Result:
+
+| array_min |
+| ---------:|
+|        43 |
+
+```sql
+SELECT array_min(ARRAY[45, 60, 43, 99]::BIGINT[]);
+```
+Result:
+
+| array_min |
+| ---------:|
+|        43 |
+
+```sql
+SELECT array_min(ARRAY['def', 'abc', 'ghi']::TEXT[]);
+```
+Result:
+
+| array_min |
+| --------- |
+| abc       |
+
 
 ## Format functions
 
