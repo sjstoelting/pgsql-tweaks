@@ -10,11 +10,31 @@ a schema name.
 All functions and views are covered by tests. The tests are done in simple SQL
 statements. Each test does raise division by zero if it fails.
 
+# Installation
+
+You may either, install all functions as a package, or install single functions
+of your choice.
+
+## Install the Package
+
+Get the source by either, download the code as ZIP file, or by git clone.
+
+```bash
+cd pgsql_tweaks
+make install
+```
+Afterwards you are able to create the extension:
+
+```sql
+CREATE EXTENSION pgsql_tweaks;
+```
+
+
 # Table of content
 
 1 [List of functions](#list-of-functions)
 
-1.1 [Functions to check data types](#functions-to-check-data-types)<br />
+2.1 [Functions to check data types](#functions-to-check-data-types)<br />
 1.1.1 [FUNCTION is_date](#function-is_date)<br />
 1.1.2 [FUNCTION is_time](#function-is_time)<br />
 1.1.3 [FUNCTION is_timestamp](#function-is_timestamp)<br />
