@@ -65,7 +65,7 @@ done
 # Now the test script has to be generated
 # Define output file
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/test/sql/"
-FILENAME="$DIR/pgsql_tweaks_tests.sql"
+FILENAME="$DIR/$EXTENSION""_test--$EXTVERSION.sql"
 
 # Always start with an empty file
 truncate -s 0 $FILENAME
@@ -87,7 +87,7 @@ done
 
 # Uninstall file with drop statements
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/sql/"
-FILENAME="$DIR/pgsql_tweaks_uninstall.sql"
+FILENAME="$DIR/$EXTENSION""_uninstall--$EXTVERSION.sql"
 
 # Always start with an empty file
 truncate -s 0 $FILENAME
