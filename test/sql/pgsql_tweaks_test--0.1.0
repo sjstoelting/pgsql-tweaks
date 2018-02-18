@@ -1,0 +1,644 @@
+Zeit: 0,191 ms
+Zeit: 0,093 ms
+Zeit: 0,088 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 1,018 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 1,626 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,389 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,393 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,364 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,244 ms
+Zeit: 0,082 ms
+Zeit: 0,086 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,293 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,256 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,402 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,276 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,320 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,239 ms
+Zeit: 0,081 ms
+Zeit: 0,096 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,359 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,255 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,401 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,256 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,360 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,266 ms
+Zeit: 0,077 ms
+Zeit: 0,087 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,271 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 2,350 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,490 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,480 ms
+Zeit: 0,193 ms
+Zeit: 0,380 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,513 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,589 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,363 ms
+Zeit: 0,089 ms
+Zeit: 0,102 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,447 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,277 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,730 ms
+Zeit: 0,097 ms
+Zeit: 0,086 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,266 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 3,372 ms
+Zeit: 0,126 ms
+Zeit: 0,278 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,615 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 1,815 ms
+Zeit: 0,109 ms
+Zeit: 0,096 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,391 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 10,507 ms
+Zeit: 0,128 ms
+Zeit: 0,433 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,485 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 57,765 ms
+Zeit: 0,133 ms
+Zeit: 0,107 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,470 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,397 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,874 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,527 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,369 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,271 ms
+Zeit: 0,087 ms
+Zeit: 0,110 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,455 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,363 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,262 ms
+Zeit: 0,081 ms
+Zeit: 0,085 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,265 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 1,733 ms
+Zeit: 0,087 ms
+Zeit: 0,081 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,274 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,273 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 0,804 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 0,713 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 0,873 ms
+Zeit: 0,087 ms
+Zeit: 0,086 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,268 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,292 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 0,713 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 0,850 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 0,526 ms
+Zeit: 0,078 ms
+Zeit: 0,100 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,371 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 1,541 ms
+Zeit: 0,183 ms
+Zeit: 0,142 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,401 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 20,028 ms
+Zeit: 16,231 ms
+Zeit: 0,314 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,615 ms
+Zeit: 2,348 ms
+Zeit: 0,134 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,322 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,930 ms
+Zeit: 0,126 ms
+Zeit: 0,093 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,365 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,395 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,594 ms
+Zeit: 0,130 ms
+Zeit: 0,116 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,407 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,582 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,862 ms
+Zeit: 0,126 ms
+Zeit: 0,082 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,314 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,324 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,161 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,180 ms
+Zeit: 0,063 ms
+Zeit: 0,072 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 1,628 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,310 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,834 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,582 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,580 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,576 ms
+Zeit: 0,136 ms
+Zeit: 0,088 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,348 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,281 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,439 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,348 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,597 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,465 ms
+Zeit: 0,102 ms
+Zeit: 0,087 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,306 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,330 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,508 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,414 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,437 ms
+Zeit: 0,092 ms
+Zeit: 0,097 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,312 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,287 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,523 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,413 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,389 ms
+Zeit: 0,093 ms
+Zeit: 0,094 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 20,706 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 2,443 ms
+Zeit: 0,148 ms
