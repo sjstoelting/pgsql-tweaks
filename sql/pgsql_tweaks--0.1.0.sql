@@ -557,7 +557,7 @@ COMMENT ON AGGREGATE gap_fill(anyelement) IS 'Implements the aggregate function 
  $$
  STRICT
  LANGUAGE plpgsql IMMUTABLE;
- COMMENT ON FUNCTION datetime_de(t TIMESTAMP) IS 'Creates a function which returns the given timestamp in German format';
+ COMMENT ON FUNCTION datetime_de(t TIMESTAMP WITH TIME ZONE, with_tz BOOLEAN) IS 'Creates a function which returns the given timestamp in German format';
 
 /**
  * Creates two functions which returns unix timestamp for the a given timestamp
