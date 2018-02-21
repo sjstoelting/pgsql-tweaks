@@ -43,7 +43,7 @@ WITH test AS
 	)
 SELECT
 	CASE
-		WHEN avg_value = 62 THEN
+		WHEN avg_value = 61.75 THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
@@ -60,7 +60,7 @@ WITH test AS
 	)
 SELECT
 	CASE
-		WHEN avg_value = 62 THEN
+		WHEN avg_value = 61.75 THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
@@ -77,7 +77,7 @@ WITH test AS
 	)
 SELECT
 	CASE
-		WHEN avg_value = 62 THEN
+		WHEN avg_value = 61.75 THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
