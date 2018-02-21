@@ -12,18 +12,7 @@ WITH test AS
     FROM pg_catalog.pg_proc
     WHERE proname = 'datetime_de'
   )
-SELECT 2 / test.exist = 1 AS res
-FROM test
-;
-
--- Test if all implementations exists
-WITH test AS
-  (
-    SELECT COUNT(*) AS exist
-    FROM pg_catalog.pg_proc
-    WHERE proname = 'is_time'
-  )
-SELECT test.exist = 2 AS res
+SELECT 1 / test.exist = 1 AS res
 FROM test
 ;
 
