@@ -9,7 +9,7 @@ EXTENSION=$(grep -m 1 '"name":' META.json | \
 EXTVERSION=$(grep -m 1 '"version":' META.json | \
   sed -e 's/[[:space:]]*"version":[[:space:]]*"\([^"]*\)",/\1/')
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/sql/"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/sql"
 FILENAME="$DIR/$EXTENSION--$EXTVERSION.sql"
 
 # Array with all file names
@@ -58,7 +58,7 @@ echo '' >> $FILENAME
 
 for (( i=1; i<${arraylength}+1; i++ ));
 do
-  cat $DIR${SQLFILES[$i-1]}".sql" >> $FILENAME
+  cat $DIR/${SQLFILES[$i-1]}".sql" >> $FILENAME
   echo '' >> $FILENAME
 done
 
@@ -81,7 +81,8 @@ echo '' >> $FILENAME
 
 for (( i=1; i<${arraylength}+1; i++ ));
 do
-  cat $DIR${SQLFILES[$i-1]}".sql" >> $FILENAME
+  echo "SELECT 'Test starting: ${SQLFILES[$i-1]}' AS next_test;"  >> $FILENAME
+  cat $DIR/${SQLFILES[$i-1]}".sql" >> $FILENAME
   echo '' >> $FILENAME
 done
 
@@ -105,6 +106,7 @@ echo 'BEGIN;' >> $FILENAME
 echo '' >> $FILENAME
 
 echo 'DROP VIEW IF EXISTS pg_active_locks;' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_empty(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_sum(a BIGINT[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_sum(a INTEGER[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_sum(a SMALLINT[]);' >> $FILENAME
@@ -152,6 +154,31 @@ echo 'DROP FUNCTION IF EXISTS is_date(s VARCHAR);' >> $FILENAME
 
 echo '' >> $FILENAME
 echo 'END;' >> $FILENAME
+
+# Create control file
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+FILENAME="$DIR/pgsql_tweaks.control"
+
+# Always start with an empty file
+truncate -s 0 $FILENAME
+
+# Control data
+echo "# pgsql_tweaks extension" >> $FILENAME
+echo "comment = 'Some functions and views for daily usage'" >> $FILENAME
+echo "default_version = '$EXTVERSION'" >> $FILENAME
+echo "module_pathname = '\$libdir/pgsql_tweaks'" >> $FILENAME
+echo "relocatable = true" >> $FILENAME
+
+# Create the test data
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DBNAME=pgsql_tweaks_test
+
+psql -h localhost -p 5433 postgres -c "CREATE DATABASE $DBNAME;"
+psql -h localhost -p 5433 $DBNAME -f $DIR/sql/pgsql_tweaks--$EXTVERSION.sql
+
+psql -h localhost -p 5433 $DBNAME -f $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql > $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION
+
+psql -h localhost -p 5433 postgres -c "DROP DATABASE $DBNAME;"
 
 # Unset variables
 unset DIR
