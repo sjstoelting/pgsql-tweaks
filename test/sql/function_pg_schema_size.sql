@@ -16,6 +16,21 @@ SELECT 1 / test.exist = 1 AS res
 FROM test
 ;
 
+-- Prevent no result because of an empty database without any tables
+-- Create at table
+CREATE TABLE test_pg_schema_size(id INTEGER, some_value VARCHAR);
+
+-- Insert some data
+INSERT INTO test_pg_schema_size(id, some_value) VALUES
+  (1, 'value 1'),
+  (1, NULL),
+  (2, 'value 2'),
+  (2, NULL),
+  (2, NULL),
+  (3, 'value 3')
+;
+
+
 -- Test with date in default format
 WITH test AS
 	(
