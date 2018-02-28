@@ -46,4 +46,19 @@ SELECT
 FROM test
 ;
 
+-- Test a number with out of range value, not an integer
+WITH test AS
+	(
+		SELECT is_integer('3243546343') AS isnum, 0 AS zero
+	)
+SELECT
+	CASE
+		WHEN NOT isnum THEN
+			TRUE
+		ELSE
+			(1 / zero)::BOOLEAN
+	END AS res
+FROM test
+;
+
 ROLLBACK;
