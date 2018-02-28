@@ -32,6 +32,9 @@ echo 'DROP FUNCTION IF EXISTS is_empty(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_sum(a BIGINT[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_sum(a INTEGER[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_sum(a SMALLINT[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_sum(a REAL[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_sum(a DOUBLE PRECISION[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_sum(a NUMERIC[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_avg(a BIGINT[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_avg(a INTEGER[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_avg(a SMALLINT[]);' >> $FILENAME
@@ -42,6 +45,9 @@ echo 'DROP FUNCTION IF EXISTS array_min(a TEXT[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_min(a BIGINT[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_min(a INTEGER[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_min(a SMALLINT[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_min(a REAL[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_min(a DOUBLE PRECISION[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_min(a NUMERIC[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_max(a TEXT[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_max(a BIGINT[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_max(a INTEGER[]);' >> $FILENAME
@@ -71,7 +77,9 @@ echo 'DROP VIEW IF EXISTS pg_foreign_keys;' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_db_views;' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS pg_schema_size(text);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS sha256(bytea);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_bigint(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_integer(s VARCHAR);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_smallint(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_numeric(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_timestamp(s VARCHAR, f VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_timestamp(s VARCHAR);' >> $FILENAME
