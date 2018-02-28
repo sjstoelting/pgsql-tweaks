@@ -12,11 +12,11 @@ WITH test AS
 		FROM pg_catalog.pg_proc
 		WHERE proname = 'array_sum'
   )
-SELECT 3 / test.exist = 1 AS res
+SELECT 6 / test.exist = 1 AS res
 FROM test
 ;
 
--- Test if all three implementations exists
+-- Test if all six implementations exists
 WITH test AS
   (
     SELECT count(*) AS exist
@@ -26,7 +26,7 @@ WITH test AS
   )
 SELECT
 	CASE
-    	WHEN test.exist = 3 THEN
+    	WHEN test.exist = 6 THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
@@ -78,6 +78,57 @@ WITH test AS
 SELECT
 	CASE
 		WHEN sum_value = 247 THEN
+			TRUE
+		ELSE
+			(1 / test.zero)::BOOLEAN
+  END AS res_1
+FROM test
+;
+
+-- Test of the fourth implementation
+-- REAL ARRAY
+WITH test AS
+	(
+		SELECT array_sum(ARRAY[45.6, 60.8, 43.7, 99.3]::REAL[]) AS sum_value
+	    , 0 AS zero
+	)
+SELECT
+	CASE
+		WHEN sum_value = 249.4 THEN
+			TRUE
+		ELSE
+			(1 / test.zero)::BOOLEAN
+  END AS res_1
+FROM test
+;
+
+-- Test of the fifth implementation
+-- DOUBLE PRECISION ARRAY
+WITH test AS
+	(
+		SELECT array_sum(ARRAY[45.6, 60.8, 43.7, 99.3]::DOUBLE PRECISION[]) AS sum_value
+	    , 0 AS zero
+	)
+SELECT
+	CASE
+		WHEN sum_value = 249.4 THEN
+			TRUE
+		ELSE
+			(1 / test.zero)::BOOLEAN
+  END AS res_1
+FROM test
+;
+
+-- Test of the sixth implementation
+-- NUMERIC ARRAY
+WITH test AS
+	(
+		SELECT array_sum(ARRAY[45.6, 60.8, 43.7, 99.3]::NUMERIC[]) AS sum_value
+	    , 0 AS zero
+	)
+SELECT
+	CASE
+		WHEN sum_value = 249.4 THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
