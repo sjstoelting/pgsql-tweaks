@@ -88,9 +88,9 @@ LANGUAGE plpgsql IMMUTABLE
 COMMENT ON FUNCTION array_max(a TEXT[]) IS 'Returns the maximum value of a TEXT array';
 
 -- REAL implementation
-CREATE OR REPLACE FUNCTION array_max(a REAL[]) RETURNS REAL AS $$
+CREATE OR REPLACE FUNCTION array_max(a REAL[]) RETURNS NUMERIC AS $$
 DECLARE
-	res REAL;
+	res NUMERIC;
 BEGIN
 
 	WITH unnested AS
@@ -109,9 +109,9 @@ LANGUAGE plpgsql IMMUTABLE
 COMMENT ON FUNCTION array_max(a REAL[]) IS 'Returns the maximum value of a REAL array';
 
 -- DOUBLE PRECISION implementation
-CREATE OR REPLACE FUNCTION array_max(a DOUBLE PRECISION[]) RETURNS DOUBLE PRECISION AS $$
+CREATE OR REPLACE FUNCTION array_max(a DOUBLE PRECISION[]) RETURNS NUMERIC AS $$
 DECLARE
-	res DOUBLE PRECISION;
+	res NUMERIC;
 BEGIN
 
 	WITH unnested AS
