@@ -16,7 +16,7 @@ SELECT 7 / test.exist = 1 AS res
 FROM test
 ;
 
--- Test if all three implementations exists
+-- Test if all seven implementations exists
 WITH test AS
   (
     SELECT count(*) AS exist
