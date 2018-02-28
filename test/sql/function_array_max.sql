@@ -12,7 +12,7 @@ WITH test AS
 		FROM pg_catalog.pg_proc
 		WHERE proname = 'array_max'
   )
-SELECT 4 / test.exist = 1 AS res
+SELECT 7 / test.exist = 1 AS res
 FROM test
 ;
 
@@ -26,7 +26,7 @@ WITH test AS
   )
 SELECT
 	CASE
-    	WHEN test.exist = 4 THEN
+    	WHEN test.exist = 7 THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
@@ -38,12 +38,12 @@ FROM test
 -- SMALLINT ARRAY
 WITH test AS
 	(
-		SELECT array_max(ARRAY[45, 60, 43, 99]::SMALLINT[]) AS min_value
+		SELECT array_max(ARRAY[45, 60, 43, 99]::SMALLINT[]) AS max_value
 	    , 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN min_value = 99 THEN
+		WHEN max_value = 99 THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
@@ -55,12 +55,12 @@ FROM test
 -- INTEGER ARRAY
 WITH test AS
 	(
-		SELECT array_max(ARRAY[45, 60, 43, 99]::INTEGER[]) AS min_value
+		SELECT array_max(ARRAY[45, 60, 43, 99]::INTEGER[]) AS max_value
 	    , 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN min_value = 99 THEN
+		WHEN max_value = 99 THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
@@ -72,12 +72,12 @@ FROM test
 -- BIGINT ARRAY
 WITH test AS
 	(
-		SELECT array_max(ARRAY[45, 60, 43, 99]::BIGINT[]) AS min_value
+		SELECT array_max(ARRAY[45, 60, 43, 99]::BIGINT[]) AS max_value
 	    , 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN min_value = 99 THEN
+		WHEN max_value = 99 THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
@@ -89,12 +89,63 @@ FROM test
 -- TEXT ARRAY
 WITH test AS
 	(
-		SELECT array_max(ARRAY['def', 'abc', 'ghi']::TEXT[]) AS min_value
+		SELECT array_max(ARRAY['def', 'abc', 'ghi']::TEXT[]) AS max_value
 	    , 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN min_value = 'ghi' THEN
+		WHEN max_value = 'ghi' THEN
+			TRUE
+		ELSE
+			(1 / test.zero)::BOOLEAN
+  END AS res_1
+FROM test
+;
+
+-- Test of the fifth implementation
+-- REAL ARRAY
+WITH test AS
+	(
+		SELECT array_max(ARRAY[45.6, 60.8, 43, 99.3]::REAL[]) AS max_value
+	    , 0 AS zero
+	)
+SELECT
+	CASE
+		WHEN max_value = 99.3 THEN
+			TRUE
+		ELSE
+			(1 / test.zero)::BOOLEAN
+  END AS res_1
+FROM test
+;
+
+-- Test of the sixth implementation
+-- DOUBLE PRECISION ARRAY
+WITH test AS
+	(
+		SELECT array_max(ARRAY[45.6, 60.8, 43, 99.3]::DOUBLE PRECISION[]) AS max_value
+	    , 0 AS zero
+	)
+SELECT
+	CASE
+		WHEN max_value = 99.3 THEN
+			TRUE
+		ELSE
+			(1 / test.zero)::BOOLEAN
+  END AS res_1
+FROM test
+;
+
+-- Test of the seventh implementation
+-- NUMERIC ARRAY
+WITH test AS
+	(
+		SELECT array_max(ARRAY[45.6, 60.8, 43, 99.3]::NUMERIC[]) AS max_value
+	    , 0 AS zero
+	)
+SELECT
+	CASE
+		WHEN max_value = 99.3 THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
