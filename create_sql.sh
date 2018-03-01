@@ -81,6 +81,8 @@ echo 'DROP FUNCTION IF EXISTS is_bigint(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_integer(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_smallint(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_numeric(s VARCHAR);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_real(s VARCHAR);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_double_precision(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_timestamp(s VARCHAR, f VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_timestamp(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_time(s VARCHAR, f VARCHAR);' >> $FILENAME
@@ -107,6 +109,8 @@ declare -a SQLFILES=(
   "function_is_bigint"
   "function_is_integer"
   "function_is_smallint"
+  "function_is_real"
+  "function_is_double_precision"
   #"function_sha256"
   "function_pg_schema_size"
   "view_pg_db_views"
