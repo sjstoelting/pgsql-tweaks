@@ -16,11 +16,15 @@ FILENAME="$DIR/$EXTENSION""_uninstall--$EXTVERSION.sql"
 # Always start with an empty file
 truncate -s 0 $FILENAME
 
-# Add initial statements
-echo 'SET client_min_messages TO warning;' >> $FILENAME
-echo 'SET log_min_messages    TO warning;' >> $FILENAME
-echo '' >> $FILENAME
+# Add licencse information
+echo '/**' >> $FILENAME
+echo ' * PostgreSQL pgsql_tweaks extension' >> $FILENAME
+echo ' * Licence:    PostgreSQL Licence, see https://raw.githubusercontent.com/sjstoelting/pgsql-tweaks/master/LICENSE.md' >> $FILENAME
+echo ' * Author:     Stefanie Janine Stölting <mail@stefanie-stoelting.de>' >> $FILENAME
+echo ' * Repository: http://github.com/sjstoelting/pgsql_tweaks/' >> $FILENAME
+echo ' */' >> $FILENAME
 
+echo '' >> $FILENAME
 echo '/*** uninstall file to drop all objects created by the extension pgsql_tweaks ***/' >> $FILENAME
 echo '' >> $FILENAME
 
@@ -141,6 +145,7 @@ arraylength=${#SQLFILES[@]}
 truncate -s 0 $FILENAME
 
 # Add initial statements
+echo '' >> $FILENAME
 echo '/*** initial statements ***/' >> $FILENAME
 echo 'SET client_min_messages TO warning;' >> $FILENAME
 echo 'SET log_min_messages    TO warning;' >> $FILENAME
