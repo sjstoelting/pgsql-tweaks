@@ -39,8 +39,10 @@ CREATE EXTENSION pgsql_tweaks;
 1.1.2 [FUNCTION is_time](#function-is_time)<br />
 1.1.3 [FUNCTION is_timestamp](#function-is_timestamp)<br />
 1.1.4 [FUNCTION is_numeric](#function-is_numeric)<br />
-1.1.5 [FUNCTION is_integer](#function-is_integer)<br />
-1.1.6 [FUNCTION is_empty](#function-is_empty)
+1.1.5 [FUNCTION is_bigint](#function-is_bigint)<br />
+1.1.6 [FUNCTION is_integer](#function-is_integer)<br />
+1.1.7 [FUNCTION is_smallint](#function-is_smallint)<br />
+1.1.8 [FUNCTION is_empty](#function-is_empty)
 
 1.2 [Functions about encryption](#functions-about-encryption)<br />
 1.2.1 [FUNCTION sha256](#function-sha256)
@@ -250,7 +252,7 @@ Result:
 
 ### FUNCTION is_numeric
 
-The function checks strings for being numeric.
+The function checks strings for being of data type NUMERIC.
 
 #### Examples
 
@@ -274,9 +276,31 @@ Result:
 |:---:|
 | f   |
 
+### FUNCTION is_bigint
+
+The function checks strings for being of data type BIGINT.
+
+#### Examples
+
+```sql
+SELECT is_bigint('3243546343') AS res;
+-- Result is true
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_bigint('123.456') AS res;
+-- Result is false
+```
+
 ### FUNCTION is_integer
 
-The function checks strings for being an integer.
+The function checks strings for being of data type INTEGER.
 
 #### Examples
 
@@ -293,6 +317,28 @@ Result:
 
 ```sql
 SELECT is_integer('123.456') AS res;
+-- Result is false
+```
+
+### FUNCTION is_smallint
+
+The function checks strings for being of data type SMALLINT.
+
+#### Examples
+
+```sql
+SELECT is_smallint('123') AS res;
+-- Result is true
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_smallint('123.456') AS res;
 -- Result is false
 ```
 
