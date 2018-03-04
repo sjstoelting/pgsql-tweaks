@@ -941,6 +941,8 @@ Result:
 
 Calculate minimum values from arrays.
 
+Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, NUMERIC, and TEXT;
+
 #### Examples
 ```sql
 SELECT array_min(ARRAY[45, 60, 43, 99]::SMALLINT[]);
@@ -970,6 +972,33 @@ Result:
 |        43 |
 
 ```sql
+SELECT array_min(ARRAY[45.6, 60.8, 43.7, 99.3]::REAL[]);
+```
+Result:
+
+| array_min |
+| ---------:|
+|      43.7 |
+
+```sql
+SELECT array_min(ARRAY[45.6, 60.8, 43.7, 99.3]::DOUBLE PRECISION[]);
+```
+Result:
+
+| array_min |
+| ---------:|
+|      43.7 |
+
+```sql
+SELECT array_min(ARRAY[45.6, 60.8, 43.7, 99.3]::NUMERIC[]);
+```
+Result:
+
+| array_min |
+| ---------:|
+|      43.7 |
+
+```sql
 SELECT array_min(ARRAY['def', 'abc', 'ghi']::TEXT[]);
 ```
 Result:
@@ -982,6 +1011,8 @@ Result:
 ### AGGREGATE array_max
 
 Calculate minimum values from arrays.
+
+Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, NUMERIC, and TEXT;
 
 #### Examples
 ```sql
@@ -1012,11 +1043,38 @@ Result:
 |        99 |
 
 ```sql
+SELECT array_max(ARRAY[45.6, 60.8, 43, 99.3]::REAL[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|      99.3 |
+
+```sql
+SELECT array_max(ARRAY[45.6, 60.8, 43, 99.3]::DOUBLE PRECISION[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|      99.3 |
+
+```sql
+SELECT array_max(ARRAY[45.6, 60.8, 43, 99.3]::NUMERIC[]);
+```
+Result:
+
+| array_max |
+| ---------:|
+|      99.3 |
+
+```sql
 SELECT array_max(ARRAY['def', 'abc', 'ghi']::TEXT[]);
 ```
 Result:
 
-| array_min |
+| array_max |
 | --------- |
 | ghi       |
 
@@ -1025,13 +1083,15 @@ Result:
 
 Calculate average values from arrays.
 
+Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, and NUMERIC;
+
 #### Examples
 ```sql
 SELECT array_avg(ARRAY[45, 60, 43, 99]::SMALLINT[]);
 ```
 Result:
 
-| array_max |
+| array_avg |
 | ---------:|
 |        62 |
 
@@ -1040,7 +1100,7 @@ SELECT array_avg(ARRAY[45, 60, 43, 99]::INTEGER[]);
 ```
 Result:
 
-| array_max |
+| array_avg |
 | ---------:|
 |        62 |
 
@@ -1049,14 +1109,43 @@ SELECT array_avg(ARRAY[45, 60, 43, 99]::BIGINT[]);
 ```
 Result:
 
-| array_max |
+| array_avg |
 | ---------:|
 |        62 |
+
+```sql
+SELECT array_avg(ARRAY[45.6, 60.8, 43, 99.3]::REAL[]);
+```
+Result:
+
+| array_avg        |
+| ----------------:|
+| 62.1750001907349 |
+
+```sql
+SELECT array_avg(ARRAY[45.6, 60.8, 43, 99.3]::DOUBLE PRECISION[]);
+```
+Result:
+
+| array_avg |
+| ---------:|
+|    62.175 |
+
+```sql
+SELECT array_avg(ARRAY[45.6, 60.8, 43, 99.3]::NUMERIC[]);
+```
+Result:
+
+| array_avg           |
+| -------------------:|
+| 62.1750000000000000 |
 
 
 ### AGGREGATE array_sum
 
 Calculate sum of values from arrays.
+
+Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, and, NUMERIC;
 
 #### Examples
 ```sql
@@ -1064,7 +1153,7 @@ SELECT array_sum(ARRAY[45, 60, 43, 99]::SMALLINT[]);
 ```
 Result:
 
-| array_max |
+| array_sum |
 | ---------:|
 |       247 |
 
@@ -1073,7 +1162,7 @@ SELECT array_sum(ARRAY[45, 60, 43, 99]::INTEGER[]);
 ```
 Result:
 
-| array_max |
+| array_sum |
 | ---------:|
 |       247 |
 
@@ -1082,9 +1171,36 @@ SELECT array_sum(ARRAY[45, 60, 43, 99]::BIGINT[]);
 ```
 Result:
 
-| array_max |
+| array_sum |
 | ---------:|
 |       247 |
+
+```sql
+SELECT array_sum(ARRAY[45.6, 60.8, 43.7, 99.3]::REAL[]);
+```
+Result:
+
+| array_sum |
+| ---------:|
+|     249.4 |
+
+```sql
+SELECT array_sum(ARRAY[45.6, 60.8, 43.7, 99.3]::DOUBLE PRECISION[]);
+```
+Result:
+
+| array_sum |
+| ---------:|
+|     249.4 |
+
+```sql
+SELECT array_sum(ARRAY[45.6, 60.8, 43.7, 99.3]::NUMERIC[]);
+```
+Result:
+
+| array_sum |
+| ---------:|
+|     249.4 |
 
 
 ## Format functions
