@@ -19,11 +19,11 @@ FROM test
 -- Test integer
 WITH test AS
 	(
-		SELECT is_bigint('123') AS isnum, 0 AS zero
+		SELECT is_bigint('123') AS isbigint, 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN isnum THEN
+		WHEN isbigint THEN
 			TRUE
 		ELSE
 			(1 / zero)::BOOLEAN
@@ -34,11 +34,11 @@ FROM test
 -- Test a number with decimal separator, not a bigint
 WITH test AS
 	(
-		SELECT is_bigint('123.456') AS isnum, 0 AS zero
+		SELECT is_bigint('123.456') AS isbigint, 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN NOT isnum THEN
+		WHEN NOT isbigint THEN
 			TRUE
 		ELSE
 			(1 / zero)::BOOLEAN
@@ -49,11 +49,11 @@ FROM test
 -- Test a number with out of range value, not a bigint
 WITH test AS
 	(
-		SELECT is_bigint('32435463435745636545') AS isnum, 0 AS zero
+		SELECT is_bigint('32435463435745636545') AS isbigint, 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN NOT isnum THEN
+		WHEN NOT isbigint THEN
 			TRUE
 		ELSE
 			(1 / zero)::BOOLEAN

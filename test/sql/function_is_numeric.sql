@@ -19,11 +19,11 @@ FROM test
 -- Test integer
 WITH test AS
 	(
-		SELECT is_numeric('123') AS isnum, 0 AS zero
+		SELECT is_numeric('123') AS isnumeric, 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN isnum THEN
+		WHEN isnumeric THEN
 			TRUE
 		ELSE
 			(1 / zero)::BOOLEAN
@@ -34,11 +34,11 @@ FROM test
 -- Test a number with decimal separator
 WITH test AS
 	(
-		SELECT is_numeric('123.456') AS isnum, 0 AS zero
+		SELECT is_numeric('123.456') AS isnumeric, 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN isnum THEN
+		WHEN isnumeric THEN
 			TRUE
 		ELSE
 			(1 / zero)::BOOLEAN
@@ -49,11 +49,11 @@ FROM test
 -- Test not a number
 WITH test AS
 	(
-		SELECT is_numeric('1 2') AS isnum, 0 AS zero
+		SELECT is_numeric('1 2') AS isnumeric, 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN NOT isnum THEN
+		WHEN NOT isnumeric THEN
 			TRUE
 		ELSE
 			(1 / zero)::BOOLEAN
