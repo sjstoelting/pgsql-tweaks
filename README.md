@@ -38,11 +38,13 @@ CREATE EXTENSION pgsql_tweaks;
 1.1.1 [FUNCTION is_date](#function-is_date)<br />
 1.1.2 [FUNCTION is_time](#function-is_time)<br />
 1.1.3 [FUNCTION is_timestamp](#function-is_timestamp)<br />
-1.1.4 [FUNCTION is_numeric](#function-is_numeric)<br />
-1.1.5 [FUNCTION is_bigint](#function-is_bigint)<br />
-1.1.6 [FUNCTION is_integer](#function-is_integer)<br />
-1.1.7 [FUNCTION is_smallint](#function-is_smallint)<br />
-1.1.8 [FUNCTION is_empty](#function-is_empty)
+1.1.4 [FUNCTION is_real](#function-is_real)<br />
+1.1.5 [FUNCTION is_double_precision](#function-is_double_precision)<br />
+1.1.6 [FUNCTION is_numeric](#function-is_numeric)<br />
+1.1.7 [FUNCTION is_bigint](#function-is_bigint)<br />
+1.1.8 [FUNCTION is_integer](#function-is_integer)<br />
+1.1.9 [FUNCTION is_smallint](#function-is_smallint)<br />
+1.1.10 [FUNCTION is_empty](#function-is_empty)
 
 1.2 [Functions about encryption](#functions-about-encryption)<br />
 1.2.1 [FUNCTION sha256](#function-sha256)
@@ -242,6 +244,58 @@ Result:
 
 ```sql
 SELECT is_timestamp('01.01.2018 25:00:00', 'DD.MM.YYYY HH24.MI.SS') AS res;
+```
+
+Result:
+
+| res |
+|:---:|
+| f   |
+
+### FUNCTION is_real
+
+The function checks strings for being of data type REAL.
+
+#### Examples
+
+```sql
+SELECT is_real('123.456') AS res;
+```
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_real('123,456') AS res;
+-- Result is false
+```
+
+Result:
+
+| res |
+|:---:|
+| f   |
+
+### FUNCTION is_double_precision
+
+The function checks strings for being of data type DOUBLE PRECISION.
+
+#### Examples
+
+```sql
+SELECT is_double_precision('123.456') AS res;
+```
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_double_precision('123,456') AS res;
+-- Result is false
 ```
 
 Result:
