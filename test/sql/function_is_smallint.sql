@@ -19,11 +19,11 @@ FROM test
 -- Test integer
 WITH test AS
 	(
-		SELECT is_smallint('123') AS isnum, 0 AS zero
+		SELECT is_smallint('123') AS issmallint, 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN isnum THEN
+		WHEN issmallint THEN
 			TRUE
 		ELSE
 			(1 / zero)::BOOLEAN
@@ -34,11 +34,11 @@ FROM test
 -- Test a number with decimal separator, not a smallint
 WITH test AS
 	(
-		SELECT is_smallint('123.456') AS isnum, 0 AS zero
+		SELECT is_smallint('123.456') AS issmallint, 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN NOT isnum THEN
+		WHEN NOT issmallint THEN
 			TRUE
 		ELSE
 			(1 / zero)::BOOLEAN
@@ -49,11 +49,11 @@ FROM test
 -- Test a number with out of range value, not a smallint
 WITH test AS
 	(
-		SELECT is_smallint('3243546343') AS isnum, 0 AS zero
+		SELECT is_smallint('3243546343') AS issmallint, 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN NOT isnum THEN
+		WHEN NOT issmallint THEN
 			TRUE
 		ELSE
 			(1 / zero)::BOOLEAN
