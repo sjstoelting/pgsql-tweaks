@@ -7,7 +7,7 @@ EXTVERSION   = $(shell grep -m 1 '"version":' META.json | \
 NUMVERSION   = $(shell echo $(EXTVERSION) | sed -e 's/\([[:digit:]]*[.][[:digit:]]*\).*/\1/')
 DATA         = sql/$(EXTENSION)--$(EXTVERSION).sql
 TESTS        = test/$(EXTENSION)_test--$(EXTVERSION).sql
-REGRESS		 = test/$(EXTENSION)_test--$(EXTVERSION)
+REGRESS		 = test/$(EXTENSION)_test--$(EXTVERSION).out
 DOCS         = README.md
 
 PG_CONFIG    = pg_config
