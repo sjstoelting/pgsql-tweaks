@@ -44,7 +44,8 @@ CREATE EXTENSION pgsql_tweaks;
 1.1.7 [FUNCTION is_bigint](#function-is_bigint)<br />
 1.1.8 [FUNCTION is_integer](#function-is_integer)<br />
 1.1.9 [FUNCTION is_smallint](#function-is_smallint)<br />
-1.1.10 [FUNCTION is_empty](#function-is_empty)
+1.1.10 [FUNCTION is_boolean](#function-is_boolean)<br />
+1.1.11 [FUNCTION is_empty](#function-is_empty)
 
 1.2 [Functions about encryption](#functions-about-encryption)<br />
 1.2.1 [FUNCTION sha256](#function-sha256)
@@ -401,6 +402,111 @@ Result:
 | res |
 |:---:|
 | f   |
+
+### FUNCTION is_boolean
+
+The function checks a string variable for containing valid BOOLEAN values.
+
+| boolean strings |
+| --------------- |
+| t |
+| f |
+| T |
+| F |
+| y |
+| n |
+| Y |
+| N |
+| true |
+| false |
+| TRUE |
+| FALSE |
+| yes |
+| no |
+| YES |
+| NO |
+| 0 |
+| 1 |
+
+#### Examples
+
+```sql
+SELECT is_boolean('t');
+-- Result is true
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_boolean('F');
+-- Result is true
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_boolean('True');
+-- Result is true
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_boolean('False');
+-- Result is true
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_boolean('0');
+-- Result is true
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_boolean('1');
+-- Result is true
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_boolean('-1');
+-- Result is false
+```
+
+Result:
+
+| res |
+|:---:|
+| f   |
+
 
 ### FUNCTION is_empty
 
