@@ -7,22 +7,22 @@ BEGIN;
 
 -- Test if the function exists
 WITH test AS
-  (
-    SELECT COUNT(*) AS exist
-    FROM pg_catalog.pg_proc
-    WHERE proname = 'is_encoding'
-  )
+	(
+		SELECT COUNT(*) AS exist
+		FROM pg_catalog.pg_proc
+		WHERE proname = 'is_encoding'
+	)
 SELECT 2 / test.exist = 1 AS res
 FROM test
 ;
 
 -- Test if all implementations exists
 WITH test AS
-  (
-    SELECT COUNT(*) AS exist
-    FROM pg_catalog.pg_proc
-    WHERE proname = 'is_encoding'
-  )
+	(
+		SELECT COUNT(*) AS exist
+		FROM pg_catalog.pg_proc
+		WHERE proname = 'is_encoding'
+	)
 SELECT test.exist = 2 AS res
 FROM test
 ;

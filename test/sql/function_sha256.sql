@@ -7,22 +7,22 @@ BEGIN;
 
 -- Test if the pgcrypto package is installed
 WITH test AS
-  (
-    SELECT COUNT(*) AS exist
-    FROM pg_catalog.pg_extension
-    WHERE extname = 'pgcrypto'
-  )
+	(
+		SELECT COUNT(*) AS exist
+		FROM pg_catalog.pg_extension
+		WHERE extname = 'pgcrypto'
+	)
 SELECT 1 / test.exist = 1 AS res
 FROM test
 ;
 
 -- Test if the function exists
 WITH test AS
-  (
-    SELECT COUNT(*) AS exist
-    FROM pg_catalog.pg_proc
-    WHERE proname = 'sha256'
-  )
+	(
+		SELECT COUNT(*) AS exist
+		FROM pg_catalog.pg_proc
+		WHERE proname = 'sha256'
+	)
 SELECT 1 / test.exist = 1 AS res
 FROM test
 ;

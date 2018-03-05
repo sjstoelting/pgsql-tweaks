@@ -11,22 +11,22 @@ WITH test AS
 		SELECT count(*) AS exist
 		FROM pg_catalog.pg_proc
 		WHERE proname = 'array_avg'
-  )
+		)
 SELECT 6 / test.exist = 1 AS res
 FROM test
 ;
 
 -- Test if all six implementations exists
 WITH test AS
-  (
-    SELECT count(*) AS exist
-      , 0 AS zero
-    FROM pg_catalog.pg_proc
-    WHERE proname = 'array_avg'
-  )
+	(
+		SELECT count(*) AS exist
+			, 0 AS zero
+		FROM pg_catalog.pg_proc
+		WHERE proname = 'array_avg'
+	)
 SELECT
 	CASE
-    	WHEN test.exist = 6 THEN
+		WHEN test.exist = 6 THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
@@ -39,7 +39,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_avg(ARRAY[45, 60, 43, 99]::SMALLINT[]) AS avg_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -47,7 +47,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+		END AS res_1
 FROM test
 ;
 
@@ -56,7 +56,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_avg(ARRAY[45, 60, 43, 99]::INTEGER[]) AS avg_value
-	    , 0 AS zero
+			, 0 AS zero
 	)
 SELECT
 	CASE
@@ -64,7 +64,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -73,7 +73,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_avg(ARRAY[45, 60, 43, 99]::BIGINT[]) AS avg_value
-	    , 0 AS zero
+			, 0 AS zero
 	)
 SELECT
 	CASE
@@ -81,7 +81,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -100,7 +100,7 @@ WITH test_data AS
 , test AS
 	(
 		SELECT array_avg(ARRAY[45.6, 60.8, 43, 99.3]::REAL[]) AS avg_value
-	    	, 0 AS zero
+			, 0 AS zero
 			, avg(val) AS test_val
 		FROM test_data
 	)
@@ -110,7 +110,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+		END AS res_1
 FROM test
 ;
 
@@ -129,7 +129,7 @@ WITH test_data AS
 , test AS
 	(
 		SELECT array_avg(ARRAY[45.6, 60.8, 43, 99.3]::DOUBLE PRECISION[]) AS avg_value
-		    , 0 AS zero
+			, 0 AS zero
 			, avg(val) AS test_val
 			FROM test_data
 	)
@@ -139,7 +139,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -158,7 +158,7 @@ WITH test_data AS
 , test AS
 	(
 		SELECT array_avg(ARRAY[45.6, 60.8, 43, 99.3]::NUMERIC[]) AS avg_value
-		    , 0 AS zero
+			, 0 AS zero
 			, avg(val) AS test_val
 			FROM test_data
 	)
@@ -168,7 +168,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 

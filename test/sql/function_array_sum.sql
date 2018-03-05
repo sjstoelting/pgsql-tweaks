@@ -11,22 +11,22 @@ WITH test AS
 		SELECT count(*) AS exist
 		FROM pg_catalog.pg_proc
 		WHERE proname = 'array_sum'
-  )
+	)
 SELECT 6 / test.exist = 1 AS res
 FROM test
 ;
 
 -- Test if all six implementations exists
 WITH test AS
-  (
-    SELECT count(*) AS exist
-      , 0 AS zero
-    FROM pg_catalog.pg_proc
-    WHERE proname = 'array_sum'
-  )
+	(
+		SELECT count(*) AS exist
+			, 0 AS zero
+		FROM pg_catalog.pg_proc
+		WHERE proname = 'array_sum'
+		)
 SELECT
 	CASE
-    	WHEN test.exist = 6 THEN
+		WHEN test.exist = 6 THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
@@ -39,7 +39,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_sum(ARRAY[45, 60, 43, 99]::SMALLINT[]) AS sum_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -47,7 +47,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -56,7 +56,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_sum(ARRAY[45, 60, 43, 99]::INTEGER[]) AS sum_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -64,7 +64,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -73,7 +73,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_sum(ARRAY[45, 60, 43, 99]::BIGINT[]) AS sum_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -81,7 +81,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -90,7 +90,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_sum(ARRAY[45.6, 60.8, 43.7, 99.3]::REAL[]) AS sum_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -98,7 +98,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -107,7 +107,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_sum(ARRAY[45.6, 60.8, 43.7, 99.3]::DOUBLE PRECISION[]) AS sum_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -115,7 +115,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -124,7 +124,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_sum(ARRAY[45.6, 60.8, 43.7, 99.3]::NUMERIC[]) AS sum_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -132,7 +132,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 

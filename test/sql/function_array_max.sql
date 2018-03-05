@@ -11,22 +11,22 @@ WITH test AS
 		SELECT count(*) AS exist
 		FROM pg_catalog.pg_proc
 		WHERE proname = 'array_max'
-  )
+	)
 SELECT 7 / test.exist = 1 AS res
 FROM test
 ;
 
 -- Test if all seven implementations exists
 WITH test AS
-  (
-    SELECT count(*) AS exist
-      , 0 AS zero
-    FROM pg_catalog.pg_proc
-    WHERE proname = 'array_max'
-  )
+	(
+		SELECT count(*) AS exist
+			, 0 AS zero
+		FROM pg_catalog.pg_proc
+		WHERE proname = 'array_max'
+	)
 SELECT
 	CASE
-    	WHEN test.exist = 7 THEN
+		WHEN test.exist = 7 THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
@@ -39,7 +39,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_max(ARRAY[45, 60, 43, 99]::SMALLINT[]) AS max_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -47,7 +47,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -56,7 +56,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_max(ARRAY[45, 60, 43, 99]::INTEGER[]) AS max_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -64,7 +64,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -73,7 +73,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_max(ARRAY[45, 60, 43, 99]::BIGINT[]) AS max_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -81,7 +81,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -90,7 +90,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_max(ARRAY['def', 'abc', 'ghi']::TEXT[]) AS max_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -98,7 +98,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -107,7 +107,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_max(ARRAY[45.6, 60.8, 43, 99.3]::REAL[]) AS max_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -115,7 +115,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -124,7 +124,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_max(ARRAY[45.6, 60.8, 43, 99.3]::DOUBLE PRECISION[]) AS max_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -132,7 +132,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 
@@ -141,7 +141,7 @@ FROM test
 WITH test AS
 	(
 		SELECT array_max(ARRAY[45.6, 60.8, 43, 99.3]::NUMERIC[]) AS max_value
-	    , 0 AS zero
+		, 0 AS zero
 	)
 SELECT
 	CASE
@@ -149,7 +149,7 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
+	END AS res_1
 FROM test
 ;
 

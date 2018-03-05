@@ -7,11 +7,11 @@ BEGIN;
 
 -- Test if the function exists
 WITH test AS
-  (
-    SELECT COUNT(*) AS exist
-    FROM pg_catalog.pg_views
-    WHERE viewname = 'pg_functions'
-  )
+	(
+		SELECT COUNT(*) AS exist
+		FROM pg_catalog.pg_views
+		WHERE viewname = 'pg_functions'
+	)
 SELECT 1 / test.exist = 1 AS res
 FROM test
 ;
@@ -19,9 +19,9 @@ FROM test
 -- Test if the view runs without errors
 WITH test AS
 	(
-    SELECT count(*) as key_count
+	SELECT count(*) as key_count
 			, 0 AS zero
-    FROM pg_functions
+	FROM pg_functions
 	)
 SELECT
 	CASE

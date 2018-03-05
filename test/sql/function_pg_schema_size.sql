@@ -7,11 +7,11 @@ BEGIN;
 
 -- Test if the function exists
 WITH test AS
-  (
-    SELECT COUNT(*) AS exist
-    FROM pg_catalog.pg_proc
-    WHERE proname = 'pg_schema_size'
-  )
+	(
+		SELECT COUNT(*) AS exist
+		FROM pg_catalog.pg_proc
+		WHERE proname = 'pg_schema_size'
+	)
 SELECT 1 / test.exist = 1 AS res
 FROM test
 ;
@@ -22,12 +22,12 @@ CREATE TABLE test_pg_schema_size(id INTEGER, some_value VARCHAR);
 
 -- Insert some data
 INSERT INTO test_pg_schema_size(id, some_value) VALUES
-  (1, 'value 1'),
-  (1, NULL),
-  (2, 'value 2'),
-  (2, NULL),
-  (2, NULL),
-  (3, 'value 3')
+	(1, 'value 1'),
+	(1, NULL),
+	(2, 'value 2'),
+	(2, NULL),
+	(2, NULL),
+	(3, 'value 3')
 ;
 
 

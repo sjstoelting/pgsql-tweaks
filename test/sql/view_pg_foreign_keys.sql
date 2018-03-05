@@ -7,11 +7,11 @@ BEGIN;
 
 -- Test if the function exists
 WITH test AS
-  (
-    SELECT COUNT(*) AS exist
-    FROM pg_catalog.pg_views
-    WHERE viewname = 'pg_foreign_keys'
-  )
+	(
+		SELECT COUNT(*) AS exist
+		FROM pg_catalog.pg_views
+		WHERE viewname = 'pg_foreign_keys'
+	)
 SELECT 1 / test.exist = 1 AS res
 FROM test
 ;
@@ -20,8 +20,8 @@ FROM test
 WITH test AS
 	(
 		SELECT count(*) as key_count
-      , 0 AS zero
-    FROM pg_foreign_keys
+			, 0 AS zero
+	FROM pg_foreign_keys
 	)
 SELECT
 	CASE

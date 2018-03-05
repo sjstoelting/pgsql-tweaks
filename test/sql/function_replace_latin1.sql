@@ -7,30 +7,30 @@ BEGIN;
 
 -- Test if the function exists
 WITH test AS
-  (
-    SELECT count(*) AS exist
-    FROM pg_catalog.pg_proc
-    WHERE proname = 'replace_latin1'
-  )
+	(
+		SELECT count(*) AS exist
+		FROM pg_catalog.pg_proc
+		WHERE proname = 'replace_latin1'
+	)
 SELECT 3 / test.exist = 1 AS res
 FROM test
 ;
 
 -- Test if all three implementations exists
 WITH test AS
-  (
-    SELECT count(*) AS exist
-      , 0 AS zero
-    FROM pg_catalog.pg_proc
-    WHERE proname = 'replace_latin1'
-  )
+	(
+		SELECT count(*) AS exist
+			, 0 AS zero
+		FROM pg_catalog.pg_proc
+		WHERE proname = 'replace_latin1'
+	)
 SELECT
-  CASE
-    WHEN test.exist = 3 THEN
-      TRUE
-    ELSE
-      (1 / test.zero)::BOOLEAN
-  END AS res
+	CASE
+		WHEN test.exist = 3 THEN
+			TRUE
+		ELSE
+			(1 / test.zero)::BOOLEAN
+	END AS res
 FROM test
 ;
 
@@ -47,12 +47,12 @@ SELECT
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
-  END AS res_1
-  , CASE
+		END AS res_1
+	, CASE
 		WHEN is_latin1(replace_latin1(test_string)) THEN
 			TRUE
 		ELSE
-    (1 / test.zero)::BOOLEAN
+			(1 / test.zero)::BOOLEAN
 	END AS res_2
 FROM test
 ;
@@ -70,13 +70,13 @@ SELECT
 		WHEN length(test_string) = length(replace_latin1(test_string, replacement)) THEN
 			TRUE
 		ELSE
-    (1 / test.zero)::BOOLEAN
+			(1 / test.zero)::BOOLEAN
 	END AS res_1
-  , CASE
+	, CASE
 		WHEN is_latin1(replace_latin1(test_string, replacement)) THEN
 			TRUE
 		ELSE
-    (1 / test.zero)::BOOLEAN
+			(1 / test.zero)::BOOLEAN
 	END AS res_2
 FROM test
 ;
@@ -96,13 +96,13 @@ SELECT
 		WHEN length(test_string) = length(replace_latin1(test_string, to_replace, replacement)) THEN
 			TRUE
 		ELSE
-    (1 / test.zero)::BOOLEAN
+			(1 / test.zero)::BOOLEAN
 	END AS res_1
 	, CASE
 		WHEN is_latin1(replace_latin1(test_string, to_replace, replacement)) THEN
 			TRUE
 		ELSE
-    (1 / test.zero)::BOOLEAN
+			(1 / test.zero)::BOOLEAN
 	END AS res_2
 FROM test
 ;

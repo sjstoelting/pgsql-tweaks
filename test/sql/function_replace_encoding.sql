@@ -7,30 +7,30 @@ BEGIN;
 
 -- Test if the function exists
 WITH test AS
-  (
-    SELECT count(*) AS exist
-    FROM pg_catalog.pg_proc
-    WHERE proname = 'replace_encoding'
-  )
+	(
+		SELECT count(*) AS exist
+		FROM pg_catalog.pg_proc
+		WHERE proname = 'replace_encoding'
+	)
 SELECT 3 / test.exist = 1 AS res
 FROM test
 ;
 
 -- Test if all three implementations exists
 WITH test AS
-  (
-    SELECT count(*) AS exist
-      , 0 AS zero
-    FROM pg_catalog.pg_proc
-    WHERE proname = 'replace_encoding'
-  )
+	(
+		SELECT count(*) AS exist
+			, 0 AS zero
+		FROM pg_catalog.pg_proc
+		WHERE proname = 'replace_encoding'
+	)
 SELECT
-  CASE
-    WHEN test.exist = 3 THEN
-      TRUE
-    ELSE
-      (1 / test.zero)::BOOLEAN
-  END AS res
+	CASE
+		WHEN test.exist = 3 THEN
+			TRUE
+		ELSE
+			(1 / test.zero)::BOOLEAN
+	END AS res
 FROM test
 ;
 
@@ -39,17 +39,17 @@ FROM test
 WITH test AS
 	(
 		SELECT 'ağbƵcğeƵ' AS test_string
-      , 'latin1' AS enc
-	    , 0 AS zero
+			, 'latin1' AS enc
+		, 0 AS zero
 	)
 SELECT
 	CASE
 		WHEN length(test_string) = 8 AND length(replace_encoding(test_string, enc)) = 4 THEN
 			TRUE
 		ELSE
-      (1 / test.zero)::BOOLEAN
-  END AS res_1
-  , CASE
+			(1 / test.zero)::BOOLEAN
+	END AS res_1
+	, CASE
 		WHEN is_encoding(replace_encoding(test_string, enc), enc) THEN
 			TRUE
 		ELSE
@@ -63,7 +63,7 @@ FROM test
 WITH test AS
 	(
 		SELECT 'ağbcğe' AS test_string
-      , 'latin1' AS enc
+			, 'latin1' AS enc
 			, 'g' AS replacement
 			, 0 AS zero
 	)
@@ -74,7 +74,7 @@ SELECT
 		ELSE
 			(1 / test.zero)::BOOLEAN
 	END AS res_1
-  , CASE
+	, CASE
 		WHEN is_encoding(replace_encoding(test_string, enc, replacement), enc) THEN
 			TRUE
 		ELSE

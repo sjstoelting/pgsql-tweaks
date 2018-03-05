@@ -7,11 +7,11 @@ BEGIN;
 
 -- Test if the function exists
 WITH test AS
-  (
-    SELECT COUNT(*) AS exist
-    FROM pg_catalog.pg_proc
-    WHERE proname = 'is_latin1'
-  )
+	(
+		SELECT COUNT(*) AS exist
+		FROM pg_catalog.pg_proc
+		WHERE proname = 'is_latin1'
+	)
 SELECT 1 / test.exist = 1 AS res
 FROM test
 ;
