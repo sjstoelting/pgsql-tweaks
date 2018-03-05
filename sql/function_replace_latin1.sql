@@ -18,7 +18,7 @@ BEGIN
 		END IF;
 	END LOOP;
 
-    RETURN res;
+	RETURN res;
 END;
 $$
 STRICT
@@ -42,7 +42,7 @@ BEGIN
 		END IF;
 	END LOOP;
 
-    RETURN res;
+	RETURN res;
 END;
 $$
 STRICT
@@ -58,7 +58,7 @@ BEGIN
 
 	SELECT replace_encoding(s, s_search, s_replace) INTO res;
 
-  RETURN res;
+	RETURN res;
 
 END;
 $$

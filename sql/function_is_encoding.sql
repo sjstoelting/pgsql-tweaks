@@ -8,10 +8,10 @@
  */
 CREATE OR REPLACE FUNCTION is_encoding(s VARCHAR, enc VARCHAR) RETURNS BOOLEAN AS $$
 BEGIN
-    PERFORM convert(s::bytea, 'UTF8', enc);
-    RETURN TRUE;
+	PERFORM convert(s::bytea, 'UTF8', enc);
+	RETURN TRUE;
 EXCEPTION WHEN others THEN
-    RETURN FALSE;
+	RETURN FALSE;
 END;
 $$
 STRICT
@@ -22,10 +22,10 @@ COMMENT ON FUNCTION is_encoding(s VARCHAR, enc VARCHAR) IS 'Checks, whether the 
 
 CREATE OR REPLACE FUNCTION is_encoding(s VARCHAR, enc VARCHAR, enc_from VARCHAR) RETURNS BOOLEAN AS $$
 BEGIN
-    PERFORM convert(s::bytea, enc_from, enc);
-    RETURN TRUE;
+	PERFORM convert(s::bytea, enc_from, enc);
+	RETURN TRUE;
 EXCEPTION WHEN others THEN
-    RETURN FALSE;
+	RETURN FALSE;
 END;
 $$
 STRICT

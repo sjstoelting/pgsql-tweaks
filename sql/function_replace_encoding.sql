@@ -19,7 +19,7 @@ BEGIN
 		END IF;
 	END LOOP;
 
-    RETURN res;
+	RETURN res;
 END;
 $$
 STRICT
@@ -43,7 +43,7 @@ BEGIN
 		END IF;
 	END LOOP;
 
-    RETURN res;
+	RETURN res;
 END;
 $$
 STRICT
@@ -77,7 +77,7 @@ BEGIN
 
 	END LOOP;
 
-  RETURN res;
+	RETURN res;
 
 END;
 $$

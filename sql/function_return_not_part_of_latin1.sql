@@ -24,8 +24,8 @@ BEGIN
 		)
 	, t2 AS
 		(
-		    SELECT DISTINCT c1
-		    FROM t1
+			SELECT DISTINCT c1
+			FROM t1
 		)
 	, t3 AS
 		(
@@ -36,7 +36,7 @@ BEGIN
 	FROM t3
 	INTO res;
 
-    RETURN res;
+	RETURN res;
 END;
 $$
 STRICT
