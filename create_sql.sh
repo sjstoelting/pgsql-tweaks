@@ -206,12 +206,12 @@ echo "relocatable = true" >> $FILENAME
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DBNAME=pgsql_tweaks_test
 
-psql -h localhost -p 5433 postgres -c "CREATE DATABASE $DBNAME;"
-psql -h localhost -p 5433 $DBNAME -f $DIR/sql/pgsql_tweaks--$EXTVERSION.sql
+psql -h localhost -p 5432 postgres -c "CREATE DATABASE $DBNAME;"
+psql -h localhost -p 5432 $DBNAME -f $DIR/sql/pgsql_tweaks--$EXTVERSION.sql
 
-psql -h localhost -p 5433 $DBNAME -f $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql > $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.out
+psql -h localhost -p 5432 $DBNAME -f $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql > $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.out
 
-psql -h localhost -p 5433 postgres -c "DROP DATABASE $DBNAME;"
+psql -h localhost -p 5432 postgres -c "DROP DATABASE $DBNAME;"
 
 # Unset variables
 unset DIR
