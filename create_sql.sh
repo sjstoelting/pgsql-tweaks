@@ -22,6 +22,7 @@ echo ' * PostgreSQL pgsql_tweaks extension' >> $FILENAME
 echo ' * Licence:    PostgreSQL Licence, see https://raw.githubusercontent.com/sjstoelting/pgsql-tweaks/master/LICENSE.md' >> $FILENAME
 echo ' * Author:     Stefanie Janine Stölting <mail@stefanie-stoelting.de>' >> $FILENAME
 echo ' * Repository: http://github.com/sjstoelting/pgsql_tweaks/' >> $FILENAME
+echo ' * Version:    '$EXTVERSION >> $FILENAME
 echo ' */' >> $FILENAME
 
 echo '' >> $FILENAME
@@ -153,6 +154,7 @@ echo '' >> $FILENAME
 
 cat $DROPFILE >> $FILENAME
 
+echo '' >> $FILENAME
 echo '/*** files with creation statements ***/' >> $FILENAME
 echo '' >> $FILENAME
 
