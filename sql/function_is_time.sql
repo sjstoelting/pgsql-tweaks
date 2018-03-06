@@ -19,7 +19,7 @@ COMMENT ON FUNCTION is_time(s VARCHAR) IS 'Takes a varchar and checks if it is a
 
 CREATE OR REPLACE FUNCTION is_time(s VARCHAR, f VARCHAR) RETURNS BOOLEAN AS $$
 BEGIN
-	PERFORM to_date(s, f);
+	PERFORM to_timestamp(s, f)::TIME;
 	RETURN TRUE;
 EXCEPTION WHEN OTHERS THEN
 	RETURN FALSE;
