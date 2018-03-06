@@ -155,7 +155,8 @@ echo 'SET client_min_messages TO warning;' >> $FILENAME
 echo 'SET log_min_messages    TO warning;' >> $FILENAME
 echo '' >> $FILENAME
 
-cat $DROPFILE >> $FILENAME
+# It is not allowed to drop functions in the script to create the extension 
+# cat $DROPFILE >> $FILENAME
 
 echo '' >> $FILENAME
 echo '/*** files with creation statements ***/' >> $FILENAME
