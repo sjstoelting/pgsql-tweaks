@@ -10,6 +10,27 @@ a schema name.
 All functions and views are covered by tests. The tests are done in simple SQL
 statements. Each test does raise division by zero if it fails.
 
+The tests have been done with PostgreSQL 9.6 and 10. There have been some
+changes in the behaviour in PostgreSQL 10, Timestamp and Date functions and
+conversions have become more strict.
+
+All examples have been done with PostgreSQL 10, differences in the behaviour of
+previous versions are noted.
+
+
+# Building the extension
+
+All functions and tests are located in single files.
+
+The files for the extension are build by the shell script "create-sql.sh".
+To be able to run the script, you need to have a configuration with the
+connection information. Please copy "build.cfg.example" to "build.cfg" and
+change the configuration to fit your environment.<br />
+The script assumes, that you have a
+[.pgpass](https://www.postgresql.org/docs/current/static/libpq-pgpass.html)
+file with login information matching the configuration.
+
+
 # Installation
 
 You may either, install all functions as a package, or install single functions
@@ -95,6 +116,23 @@ The function checks strings for being a date.<br />
 You might pass a second parameter to use a format string. Without the format,
 the default format of PostgreSQL is used.
 
+There has been a behaviour change in PostgreSQL 10. A conversion is now handled
+strict, as in previous versions the conversion tried to calculate dates.
+
+#### Example PostgreSQL < 10
+
+```sql
+SELECT is_date('31.02.2018', 'DD.MM.YYYY') AS res;
+-- Result is true because the conversion would return a valid result for
+SELECT to_date('31.02.2018', 'DD.MM.YYYY');
+```
+
+Result PostgreSQL 9.6 and previous versions:
+
+| to_date    |
+| ---------- |
+| 2018-03-03 |
+
 #### Examples
 
 ```sql
@@ -150,6 +188,23 @@ The function checks strings for being a time.<br />
 You might pass a second parameter to use a format string. Without the format,
 the default format of PostgreSQL is used.
 
+There has been a behaviour change in PostgreSQL 10. A conversion is now handled
+strict, as in previous versions the conversion tried to calculate time.
+
+#### Example PostgreSQL < 10
+
+```sql
+SELECT is_time('25.33.55,456574', 'HH24.MI.SS,US') AS res;
+-- Result is true because the conversion would return a valid result for
+SELECT to_timestamp('25.33.55,456574', 'HH24.MI.SS,US')::TIME;
+```
+
+Result PostgreSQL 9.6 and previous versions:
+
+| to_timestamp    |
+| --------------- |
+| 01:33:55.456574 |
+
 #### Examples
 
 ```sql
@@ -204,6 +259,23 @@ The function checks strings for being a timestamp.<br />
 You might pass a second parameter to use a format string. Without the format,
 the default format of PostgreSQL is used.
 
+There has been a behaviour change in PostgreSQL 10. A conversion is now handled
+strict, as in previous versions the conversion tried to calculate a date.
+
+#### Example PostgreSQL < 10
+
+```sql
+SELECT is_timestamp('2018-01-01 25:00:00') AS res;
+-- Result is true because the conversion would return a valid result for
+SELECT to_timestamp('01.01.2018 25:00:00', 'DD.MM.YYYY HH24.MI.SS')::TIMESTAMP;
+```
+
+Result PostgreSQL 9.6 and previous versions:
+
+| to_timestamp        |
+| ------------------- |
+| 2018-01-02 01:00:00 |
+
 #### Examples
 
 ```sql
@@ -221,7 +293,7 @@ Result:
 
 ```sql
 SELECT is_timestamp('2018-01-01 25:00:00') AS res;
--- Result is false
+-- Result is false in PostgreSQL >= 10
 ```
 
 Result:
