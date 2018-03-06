@@ -1,0 +1,3 @@
+DBNAME=pgsql_tweaks_test
+DBPORT=5432
+DBHOST=localhost

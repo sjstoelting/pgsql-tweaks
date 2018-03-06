@@ -1,6 +1,10 @@
 #!/bin/bash
 # The script creates the SQL script to create the files needed for PGXN
 
+# Copy the build.cfg.example to build.cfg and edit the configuration to match your nees
+# Include the local configuration
+source ./build.cfg
+
 # Starts with the script to create all objects
 # Define output file
 EXTENSION=$(grep -m 1 '"name":' META.json | \
@@ -108,7 +112,7 @@ declare -a SQLFILES=(
   "function_is_real"
   "function_is_double_precision"
   "function_is_boolean"
-  #"function_sha256"
+  #"function_sha256" The function is not part of the package, it does need pg_crypto
   "function_pg_schema_size"
   "view_pg_db_views"
   "view_pg_foreign_keys"
@@ -204,14 +208,13 @@ echo "relocatable = true" >> $FILENAME
 
 # Create the test data
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-DBNAME=pgsql_tweaks_test
 
-psql -h localhost -p 5432 postgres -c "CREATE DATABASE $DBNAME;"
-psql -h localhost -p 5432 $DBNAME -f $DIR/sql/pgsql_tweaks--$EXTVERSION.sql
+psql -h $DBHOST -p $DBPORT postgres -c "CREATE DATABASE $DBNAME;"
+psql -h $DBHOST -p $DBPORT $DBNAME -f $DIR/sql/pgsql_tweaks--$EXTVERSION.sql
 
-psql -h localhost -p 5432 $DBNAME -f $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql > $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.out
+psql -h $DBHOST -p $DBPORT $DBNAME -f $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql > $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.out
 
-psql -h localhost -p 5432 postgres -c "DROP DATABASE $DBNAME;"
+psql -h $DBHOST -p $DBPORT postgres -c "DROP DATABASE $DBNAME;"
 
 # Unset variables
 unset DIR
