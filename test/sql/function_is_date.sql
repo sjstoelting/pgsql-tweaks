@@ -19,7 +19,8 @@ FROM test
 -- Test with date in default format
 WITH test AS
 	(
-		SELECT is_date('2018-01-01') AS isdate, 0 AS zero
+		SELECT is_date('2018-01-01') AS isdate
+			, 0 AS zero
 	)
 SELECT
 	CASE
@@ -45,7 +46,8 @@ FROM test
 -- Test with wrong date in default format
 WITH test AS
 	(
-		SELECT is_date('2018-02-31') AS isdate, 0 AS zero
+		SELECT is_date('2018-02-31') AS isdate
+			, 0 AS zero
 	)
 SELECT
 	CASE
@@ -60,7 +62,8 @@ FROM test
 -- Test with date in German format
 WITH test AS
 	(
-		SELECT is_date('01.01.2018', 'DD.MM.YYYY') AS isdate, 0 AS zero
+		SELECT is_date('01.01.2018', 'DD.MM.YYYY') AS isdate
+			, 0 AS zero
 	)
 SELECT
 	CASE
@@ -73,16 +76,34 @@ FROM test
 ;
 
 -- Test with wrong date in German format
+/**
+ * As there has been a behaviour change in PostgreSQL 10, the result is only
+ * false with version 10 in <9 it would be true a call to
+ * SELECT to_date('31.02.2018', 'DD.MM.YYYY')::DATE;
+ * would return 2018-03-03
+ */
 WITH test AS
 	(
-		SELECT is_date('31.02.2018', 'DD.MM.YYYY') AS isdate, 0 AS zero
+		SELECT is_date('31.02.2018', 'DD.MM.YYYY') AS isdate
+			, 0 AS zero
+			, current_setting('server_version_num')::INTEGER as version_num
 	)
 SELECT
 	CASE
-		WHEN NOT isdate THEN
-			TRUE
+		WHEN version_num >= 100000 THEN
+			CASE
+				WHEN NOT isdate THEN
+					TRUE
+				ELSE
+					(1 / zero)::BOOLEAN
+			END
 		ELSE
-			(1 / zero)::BOOLEAN
+			CASE
+				WHEN isdate THEN
+					TRUE
+				ELSE
+					(1 / zero)::BOOLEAN
+			END
 	END AS res
 FROM test
 ;

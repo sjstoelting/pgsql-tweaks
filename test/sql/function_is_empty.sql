@@ -49,7 +49,7 @@ FROM test
 -- Test NULL
 WITH test_data AS
 	(
-		SELECT NULL AS test_value
+		SELECT NULL::TEXT AS test_value
 	)
 , test AS
 	(

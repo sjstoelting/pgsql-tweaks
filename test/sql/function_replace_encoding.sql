@@ -38,8 +38,8 @@ FROM test
 -- empty strings
 WITH test AS
 	(
-		SELECT 'ağbƵcğeƵ' AS test_string
-			, 'latin1' AS enc
+		SELECT 'ağbƵcğeƵ'::TEXT AS test_string
+			, 'latin1'::TEXT AS enc
 		, 0 AS zero
 	)
 SELECT
@@ -62,9 +62,9 @@ FROM test
 -- second parameter
 WITH test AS
 	(
-		SELECT 'ağbcğe' AS test_string
-			, 'latin1' AS enc
-			, 'g' AS replacement
+		SELECT 'ağbcğe'::TEXT AS test_string
+			, 'latin1'::TEXT AS enc
+			, 'g'::TEXT AS replacement
 			, 0 AS zero
 	)
 SELECT
@@ -88,9 +88,9 @@ FROM test
 -- the third paramater
 WITH test AS
 	(
-		SELECT 'ağbƵcğeƵ' AS test_string
-			, string_to_array('ğ,Ƶ', ',') AS to_replace
-			, string_to_array('g,Z', ',') AS replacement
+		SELECT 'ağbƵcğeƵ'::TEXT AS test_string
+			, string_to_array('ğ,Ƶ'::TEXT, ',') AS to_replace
+			, string_to_array('g,Z'::TEXT, ',') AS replacement
 			, 0 AS zero
 	)
 SELECT
