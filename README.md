@@ -759,7 +759,7 @@ SELECT * FROM pg_functions;
 ### VIEW pg_active_locks
 
 Creates a view to view all live locks with all necessary information about the connections and the query.<br />
-<span style="color:red">The view needs PostgreSQL 9.2 as minimum version. The column application_name was added in 9.2.</style>
+<span style="color:red">The view needs PostgreSQL 9.2 as minimum version. The column application_name was added in 9.2.</span>
 
 ```sql
 SELECT * FROM pg_active_locks;
