@@ -155,7 +155,7 @@ echo 'SET client_min_messages TO warning;' >> $FILENAME
 echo 'SET log_min_messages    TO warning;' >> $FILENAME
 echo '' >> $FILENAME
 
-# It is not allowed to drop functions in the script to create the extension 
+# It is not allowed to drop functions in the script to create the extension
 # cat $DROPFILE >> $FILENAME
 
 echo '' >> $FILENAME
@@ -216,6 +216,9 @@ psql -h $DBHOST -p $DBPORT $DBNAME -f $DIR/sql/pgsql_tweaks--$EXTVERSION.sql
 psql -h $DBHOST -p $DBPORT $DBNAME -f $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql > $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.out
 
 psql -h $DBHOST -p $DBPORT postgres -c "DROP DATABASE $DBNAME;"
+
+# Create the PGXN package, output path is users tmp
+git archive --format zip --prefix=pgsql-tweaks-$EXTVERSION/ --output ~/tmp/pgsql-tweaks-$EXTVERSION.zip master
 
 # Unset variables
 unset DIR
