@@ -53,58 +53,58 @@ CREATE EXTENSION pgsql_tweaks;
 
 # Table of content
 
-1 [List of functions](#List-of functions)
+1 [List of functions](#List.of functions)
 
-2.1 [Functions to check data types](#Functions-to check data types)<br />
-1.1.1 [FUNCTION is_date](#FUNCTION-is_date)<br />
-1.1.2 [FUNCTION is_time](#FUNCTION-is_time)<br />
-1.1.3 [FUNCTION is_timestamp](#FUNCTION-is_timestamp)<br />
-1.1.4 [FUNCTION is_real](#FUNCTION-is_real)<br />
-1.1.5 [FUNCTION is_double_precision](#FUNCTION-is_double_precision)<br />
-1.1.6 [FUNCTION is_numeric](#FUNCTION-is_numeric)<br />
-1.1.7 [FUNCTION is_bigint](#FUNCTION-is_bigint)<br />
-1.1.8 [FUNCTION is_integer](#FUNCTION-is_integer)<br />
-1.1.9 [FUNCTION is_smallint](#FUNCTION-is_smallint)<br />
-1.1.10 [FUNCTION is_boolean](#FUNCTION-is_boolean)<br />
-1.1.11 [FUNCTION is_empty](#FUNCTION-is_empty)
+2.1 [Functions to check data types](#Functions.to check data types)<br />
+1.1.1 [FUNCTION is_date](#FUNCTION.is_date)<br />
+1.1.2 [FUNCTION is_time](#FUNCTION.is_time)<br />
+1.1.3 [FUNCTION is_timestamp](#FUNCTION.is_timestamp)<br />
+1.1.4 [FUNCTION is_real](#FUNCTION.is_real)<br />
+1.1.5 [FUNCTION is_double_precision](#FUNCTION.is_double_precision)<br />
+1.1.6 [FUNCTION is_numeric](#FUNCTION.is_numeric)<br />
+1.1.7 [FUNCTION is_bigint](#FUNCTION.is_bigint)<br />
+1.1.8 [FUNCTION is_integer](#FUNCTION.is_integer)<br />
+1.1.9 [FUNCTION is_smallint](#FUNCTION.is_smallint)<br />
+1.1.10 [FUNCTION is_boolean](#FUNCTION.is_boolean)<br />
+1.1.11 [FUNCTION is_empty](#FUNCTION.is_empty)
 
-1.2 [Functions about encryption](#Functions-about encryption)<br />
-1.2.1 [FUNCTION sha256](#FUNCTION-sha256)
+1.2 [Functions about encryption](#Functions.about encryption)<br />
+1.2.1 [FUNCTION sha256](#FUNCTION.sha256)
 
-1.3 [Functions and views to get extended system information](#Functions-and views to get extended system information)<br />
-1.3.1 [FUNCTION pg_schema_size](#FUNCTION-pg_schema_size)<br />
-1.3.2 [VIEW pg_db_views](#VIEW-pg_db_views)<br />
-1.3.3 [VIEW pg_foreign_keys](#VIEW-pg_foreign_keys)<br />
-1.3.4 [VIEW pg_functions](#VIEW-pg_functions)<br />
-1.3.4 [VIEW pg_active_locks](#VIEW-pg_active_locks)
+1.3 [Functions and views to get extended system information](#Functions.and views to get extended system information)<br />
+1.3.1 [FUNCTION pg_schema_size](#FUNCTION.pg_schema_size)<br />
+1.3.2 [VIEW pg_db_views](#VIEW.pg_db_views)<br />
+1.3.3 [VIEW pg_foreign_keys](#VIEW.pg_foreign_keys)<br />
+1.3.4 [VIEW pg_functions](#VIEW.pg_functions)<br />
+1.3.4 [VIEW pg_active_locks](#VIEW.pg_active_locks)
 
-1.4 [Functions about encodings](#Functions-about encodings)<br />
-1.4.1 [FUNCTION is_encoding](#FUNCTION-is_encoding)<br />
-1.4.2 [FUNCTION is_latin1](#FUNCTION-is_latin1)<br />
-1.4.3 [FUNCTION return_not_part_of_latin1](#FUNCTION-return_not_part_of_latin1)<br />
-1.4.4 [FUNCTION replace_latin1](#FUNCTION-replace_latin1)<br />
-1.4.4.1 [replace_latin1\(s VARCHAR\)](#replace_latin1\(s-VARCHAR\)br />
-1.4.4.2 [replace_latin1\(s VARCHAR, replacement VARCHAR\)](#replace_latin1\(s-VARCHAR, replacement VARCHAR\)r />
+1.4 [Functions about encodings](#Functions.about encodings)<br />
+1.4.1 [FUNCTION is_encoding](#FUNCTION.is_encoding)<br />
+1.4.2 [FUNCTION is_latin1](#FUNCTION.is_latin1)<br />
+1.4.3 [FUNCTION return_not_part_of_latin1](#FUNCTION.return_not_part_of_latin1)<br />
+1.4.4 [FUNCTION replace_latin1](#FUNCTION.replace_latin1)<br />
+1.4.4.1 [replace_latin1\(s VARCHAR\)](#replace_latin1\(s.VARCHAR\)br />
+1.4.4.2 [replace_latin1\(s VARCHAR, replacement VARCHAR\)](#replace_latin1\(s.VARCHAR, replacement VARCHAR\)r />
 1.4.4.3 [replace_latin1\(s VARCHAR, s_search VARCHAR\[\], s_replace VARCHAR\[\]\)](#replace_latin1-s-varchar-s_search-varchar-s_replace-varchar-)<br />
-1.4.5 [FUNCTION return_not_part_of_encoding](#FUNCTION-return_not_part_of_encoding)<br />
-1.4.6 [FUNCTION replace_encoding](#FUNCTION-replace_encoding)<br />
-1.4.6.1 [replace_encoding\(s VARCHAR, e VARCHAR\)](#replace_encoding\(s-VARCHAR, e VARCHAR\)r />
-1.4.6.2 [replace_encoding\(s VARCHAR, e VARCHAR, replacement VARCHAR\)](#replace_encoding\(s-VARCHAR, e VARCHAR, replacement VARCHAR\) />
+1.4.5 [FUNCTION return_not_part_of_encoding](#FUNCTION.return_not_part_of_encoding)<br />
+1.4.6 [FUNCTION replace_encoding](#FUNCTION.replace_encoding)<br />
+1.4.6.1 [replace_encoding\(s VARCHAR, e VARCHAR\)](#replace_encoding\(s.VARCHAR, e VARCHAR\)r />
+1.4.6.2 [replace_encoding\(s VARCHAR, e VARCHAR, replacement VARCHAR\)](#replace_encoding\(s.VARCHAR, e VARCHAR, replacement VARCHAR\) />
 1.4.6.3 [replace_encoding\(s VARCHAR, s_search VARCHAR\[\], s_replace VARCHAR\[\]\)](#replace_encoding-s-varchar-s_search-varchar-s_replace-varchar-)
 
-1.5 [User defined aggregates](#User-defined aggregates)<br />
-1.5.1 [AGGREGATE gap_fill](#AGGREGATE-gap_fill)<br />
-1.5.2 [AGGREGATE array_min](#AGGREGATE-array_min)<br />
-1.5.3 [AGGREGATE array_max](#AGGREGATE-array_max)<br />
-1.5.4 [AGGREGATE array_avg](#AGGREGATE-array_avg)<br />
-1.5.5 [AGGREGATE array_sum](#AGGREGATE-array_sum)
+1.5 [User defined aggregates](#User.defined aggregates)<br />
+1.5.1 [AGGREGATE gap_fill](#AGGREGATE.gap_fill)<br />
+1.5.2 [AGGREGATE array_min](#AGGREGATE.array_min)<br />
+1.5.3 [AGGREGATE array_max](#AGGREGATE.array_max)<br />
+1.5.4 [AGGREGATE array_avg](#AGGREGATE.array_avg)<br />
+1.5.5 [AGGREGATE array_sum](#AGGREGATE.array_sum)
 
-1.6 [Format functions](#Format-functions)<br />
-1.6.1 [FUNCTION date_de](#FUNCTION-date_de)<br />
-1.6.2 [FUNCTION datetime_de](#FUNCTION-datetime_de)
+1.6 [Format functions](#Format.functions)<br />
+1.6.1 [FUNCTION date_de](#FUNCTION.date_de)<br />
+1.6.2 [FUNCTION datetime_de](#FUNCTION.datetime_de)
 
-1.7 [Conversion functions](#Conversion-functions)<br />
-1.7.1 [FUNCTION to_unix_timestamp](#FUNCTION-to_unix_timestamp)
+1.7 [Conversion functions](#Conversion.functions)<br />
+1.7.1 [FUNCTION to_unix_timestamp](#FUNCTION.to_unix_timestamp)
 
 # List of functions
 
