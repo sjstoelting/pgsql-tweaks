@@ -1,5 +1,5 @@
 # pgsql_tweaks extension
 comment = 'Some functions and views for daily usage'
-default_version = '0.2.0'
+default_version = '0.2.1'
 module_pathname = '$libdir/pgsql_tweaks'
 relocatable = true
