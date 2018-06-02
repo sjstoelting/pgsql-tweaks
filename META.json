@@ -2,7 +2,7 @@
   "name": "pgsql_tweaks",
   "abstract": "Contains PostgreSQL functions which I regularly needed.",
   "description": "The package includes several functions and views to help daily work.",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "maintainer": [
      "Stefanie Janine Stölting <mail@stefanie-stoelting.de>"
   ],
@@ -12,16 +12,16 @@
       "abstract": "Contains PostgreSQL functions which I regularly needed.",
       "file": "sql/pgsql_tweaks.sql",
       "docfile": "PGXNREADME.md",
-      "version": "0.2.2"
+      "version": "0.2.3"
     }
   },
   "resources": {
       "bugtracker": {
-         "web": "http://github.com/sjstoelting/pgsql_tweaks/issues/"
+         "web": "https://github.com/sjstoelting/pgsql-tweaks/issues"
       },
       "repository": {
-        "url":  "git://github.com/sjstoelting/pgsql_tweaks.git",
-        "web":  "http://github.com/sjstoelting/pgsql_tweaks/",
+        "url":  "https://github.com/sjstoelting/pgsql-tweaks.git",
+        "web":  "https://github.com/sjstoelting/pgsql-tweaks",
         "type": "git"
       }
    },
