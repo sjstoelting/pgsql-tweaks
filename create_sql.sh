@@ -178,6 +178,7 @@ FILENAME="$DIR/$EXTENSION""_test--$EXTVERSION.sql"
 truncate -s 0 $FILENAME
 
 # Add initial statements
+echo '\timing' >> $FILENAME
 echo 'SET client_min_messages TO warning;' >> $FILENAME
 echo 'SET log_min_messages    TO warning;' >> $FILENAME
 echo '' >> $FILENAME
@@ -212,10 +213,14 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 psql -h $DBHOST -p $DBPORT postgres -c "CREATE DATABASE $DBNAME;"
 psql -h $DBHOST -p $DBPORT $DBNAME -f $DIR/sql/pgsql_tweaks--$EXTVERSION.sql
-
+psql -h $DBHOST -p $DBPORT $DBNAME -f $DIR/sql/pgsql_tweaks--$EXTVERSION.sql
 psql -h $DBHOST -p $DBPORT $DBNAME -f $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql > $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.out
 
 psql -h $DBHOST -p $DBPORT postgres -c "DROP DATABASE $DBNAME;"
+
+
+# Create a documentation  for PGXN, the link differ from GitHun to PGXN
+./create_pgxn_doc.sh
 
 # Create the PGXN package, output path is users tmp
 git archive --format zip --prefix=pgsql-tweaks-$EXTVERSION/ --output ~/tmp/pgsql-tweaks-$EXTVERSION.zip master
