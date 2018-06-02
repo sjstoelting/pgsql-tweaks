@@ -19,7 +19,7 @@ do
 		POS2=`expr index "$line" ]`
 		SUB=$POS2-$POS1-1
 		TXT=${line:$POS1:$SUB}
-		TXT=${TXT/ /-}
+		TXT=${TXT/ /.}
 
 		POS1=$POS2+2
 		TXT2=${line:$POS1:$SUB}
