@@ -36,7 +36,7 @@ file with login information matching the configuration.
 You may either, install all functions as a package, or install single functions
 of your choice.
 
-## Install the Package
+## Install the package from source
 
 Get the source by either, download the code as ZIP file, or by git clone.
 
@@ -44,12 +44,23 @@ Get the source by either, download the code as ZIP file, or by git clone.
 cd pgsql_tweaks
 make install
 ```
-Afterwards you are able to create the extension:
+Afterwards you are able to create the extension in a database:
 
 ```sql
 CREATE EXTENSION pgsql_tweaks;
 ```
 
+## Install the package with PGXN
+
+pgsql_tweaks is now available over the PostgreSQL extension management, [PGXN](https://pgxn.org/dist/pgsql_tweaks/).
+
+The installation is done with the PGXN installer.
+
+```bash
+pgxn install pgsql_tweaks
+```
+
+Afterwards you are able to create the extension in a database:
 
 # Table of content
 
