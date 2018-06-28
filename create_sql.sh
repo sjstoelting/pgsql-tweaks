@@ -83,6 +83,7 @@ echo 'DROP FUNCTION IF EXISTS is_numeric(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_real(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_double_precision(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_boolean(s VARCHAR);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_json(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_timestamp(s VARCHAR, f VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_timestamp(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_time(s VARCHAR, f VARCHAR);' >> $FILENAME
@@ -112,6 +113,7 @@ declare -a SQLFILES=(
   "function_is_real"
   "function_is_double_precision"
   "function_is_boolean"
+  "function_is_json"
   #"function_sha256" The function is not part of the package, it does need pg_crypto
   "function_pg_schema_size"
   "view_pg_db_views"
@@ -221,6 +223,9 @@ psql -h $DBHOST -p $DBPORT postgres -c "DROP DATABASE $DBNAME;"
 
 # Create a documentation  for PGXN, the link differ from GitHun to PGXN
 ./create_pgxn_doc.sh
+
+# Create a documentation in HTML
+./create_html_doc.sh
 
 # Create the PGXN package, output path is users tmp
 git archive --format zip --prefix=pgsql-tweaks-$EXTVERSION/ --output ~/tmp/pgsql-tweaks-$EXTVERSION.zip master
