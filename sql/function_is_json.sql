@@ -1,5 +1,5 @@
 /**
- * Creates a function to check strings for being INTEGER.
+ * Creates a function to check strings for being JSON.
  */
 CREATE OR REPLACE FUNCTION is_json(s VARCHAR) RETURNS BOOLEAN AS $$
 BEGIN
