@@ -66,7 +66,7 @@ Afterwards you are able to create the extension in a database:
 
 1 [List of functions](#list-of-functions)
 
-2.1 [Functions to check data types](#functions-to-check-data-types)<br />
+1.1 [Functions to check data types](#functions-to-check-data-types)<br />
 1.1.1 [FUNCTION is_date](#function-is_date)<br />
 1.1.2 [FUNCTION is_time](#function-is_time)<br />
 1.1.3 [FUNCTION is_timestamp](#function-is_timestamp)<br />
@@ -77,9 +77,9 @@ Afterwards you are able to create the extension in a database:
 1.1.8 [FUNCTION is_integer](#function-is_integer)<br />
 1.1.9 [FUNCTION is_smallint](#function-is_smallint)<br />
 1.1.10 [FUNCTION is_boolean](#function-is_boolean)<br />
-1.1.11 [FUNCTION is_json](#FUNCTION.is_json)<br />
-1.1.12 [FUNCTION is_jsonb](#FUNCTION.is_jsonb)<br />
-1.1.13 [FUNCTION is_empty](#FUNCTION.is_empty)
+1.1.11 [FUNCTION is_json](#function-is_json)<br />
+1.1.12 [FUNCTION is_jsonb](#function-is_jsonb)<br />
+1.1.13 [FUNCTION is_empty](#function-is_empty)
 
 1.2 [Functions about encryption](#functions-about-encryption)<br />
 1.2.1 [FUNCTION sha256](#function-sha256)
@@ -91,7 +91,7 @@ Afterwards you are able to create the extension in a database:
 1.3.4 [VIEW pg_functions](#view-pg_functions)<br />
 1.3.4 [VIEW pg_active_locks](#view-pg_active_locks)
 
-1.4 [Functions about encodings](#Functions-about-encodings)<br />
+1.4 [Functions about encodings](#functions-about-encodings)<br />
 1.4.1 [FUNCTION is_encoding](#function-is_encoding)<br />
 1.4.2 [FUNCTION is_latin1](#function-is_latin1)<br />
 1.4.3 [FUNCTION return_not_part_of_latin1](#function-return_not_part_of_latin1)<br />
