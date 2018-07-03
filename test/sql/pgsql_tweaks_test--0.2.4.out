@@ -1,0 +1,835 @@
+            next_test            
+---------------------------------
+ Test starting: function_is_date
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+            next_test            
+---------------------------------
+ Test starting: function_is_time
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+              next_test               
+--------------------------------------
+ Test starting: function_is_timestamp
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+             next_test              
+------------------------------------
+ Test starting: function_is_numeric
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+             next_test             
+-----------------------------------
+ Test starting: function_is_bigint
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+             next_test              
+------------------------------------
+ Test starting: function_is_integer
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+              next_test              
+-------------------------------------
+ Test starting: function_is_smallint
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+            next_test            
+---------------------------------
+ Test starting: function_is_real
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+                  next_test                  
+---------------------------------------------
+ Test starting: function_is_double_precision
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+             next_test              
+------------------------------------
+ Test starting: function_is_boolean
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+            next_test            
+---------------------------------
+ Test starting: function_is_json
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+            next_test             
+----------------------------------
+ Test starting: function_is_jsonb
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+               next_test                
+----------------------------------------
+ Test starting: function_pg_schema_size
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+            next_test            
+---------------------------------
+ Test starting: view_pg_db_views
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+              next_test              
+-------------------------------------
+ Test starting: view_pg_foreign_keys
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+            next_test             
+----------------------------------
+ Test starting: view_pg_functions
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+              next_test              
+-------------------------------------
+ Test starting: function_is_encoding
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+             next_test             
+-----------------------------------
+ Test starting: function_is_latin1
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+                     next_test                     
+---------------------------------------------------
+ Test starting: function_return_not_part_of_latin1
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+                next_test                 
+------------------------------------------
+ Test starting: function_replace_encoding
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+               next_test                
+----------------------------------------
+ Test starting: function_replace_latin1
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+                      next_test                      
+-----------------------------------------------------
+ Test starting: function_return_not_part_of_encoding
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+                 next_test                  
+--------------------------------------------
+ Test starting: aggregate_function_gab_fill
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+            next_test            
+---------------------------------
+ Test starting: function_date_de
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+              next_test              
+-------------------------------------
+ Test starting: function_datetime_de
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+                 next_test                 
+-------------------------------------------
+ Test starting: function_to_unix_timestamp
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+            next_test             
+----------------------------------
+ Test starting: function_is_empty
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+             next_test             
+-----------------------------------
+ Test starting: function_array_max
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+             next_test             
+-----------------------------------
+ Test starting: function_array_min
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+             next_test             
+-----------------------------------
+ Test starting: function_array_avg
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+             next_test             
+-----------------------------------
+ Test starting: function_array_sum
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+ res_1 
+-------
+ t
+(1 Zeile)
+
+              next_test              
+-------------------------------------
+ Test starting: view_pg_active_locks
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
+ res 
+-----
+ t
+(1 Zeile)
+
