@@ -37,7 +37,7 @@
       "is_timestamp",
       "is_integer",
       "is_numeric",
-      "is_boolean"
+      "is_boolean",
       "is_json",
       "is_encoding",
       "encoding",
