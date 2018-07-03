@@ -36,7 +36,7 @@ file with login information matching the configuration.
 You may either, install all functions as a package, or install single functions
 of your choice.
 
-## Install the Package
+## Install the package from source
 
 Get the source by either, download the code as ZIP file, or by git clone.
 
@@ -44,18 +44,29 @@ Get the source by either, download the code as ZIP file, or by git clone.
 cd pgsql_tweaks
 make install
 ```
-Afterwards you are able to create the extension:
+Afterwards you are able to create the extension in a database:
 
 ```sql
 CREATE EXTENSION pgsql_tweaks;
 ```
 
+## Install the package with PGXN
+
+pgsql_tweaks is now available over the PostgreSQL extension management, [PGXN](https://pgxn.org/dist/pgsql_tweaks/).
+
+The installation is done with the PGXN installer.
+
+```bash
+pgxn install pgsql_tweaks
+```
+
+Afterwards you are able to create the extension in a database:
 
 # Table of content
 
 1 [List of functions](#List.of functions)
 
-2.1 [Functions to check data types](#Functions.to check data types)<br />
+1.1 [Functions to check data types](#Functions.to check data types)<br />
 1.1.1 [FUNCTION is_date](#FUNCTION.is_date)<br />
 1.1.2 [FUNCTION is_time](#FUNCTION.is_time)<br />
 1.1.3 [FUNCTION is_timestamp](#FUNCTION.is_timestamp)<br />
@@ -66,7 +77,9 @@ CREATE EXTENSION pgsql_tweaks;
 1.1.8 [FUNCTION is_integer](#FUNCTION.is_integer)<br />
 1.1.9 [FUNCTION is_smallint](#FUNCTION.is_smallint)<br />
 1.1.10 [FUNCTION is_boolean](#FUNCTION.is_boolean)<br />
-1.1.11 [FUNCTION is_empty](#FUNCTION.is_empty)
+1.1.11 [FUNCTION is_json](#FUNCTION.is_json)<br />
+1.1.12 [FUNCTION is_jsonb](#FUNCTION.is_jsonb)<br />
+1.1.13 [FUNCTION is_empty](#FUNCTION.is_empty)
 
 1.2 [Functions about encryption](#Functions.about encryption)<br />
 1.2.1 [FUNCTION sha256](#FUNCTION.sha256)
@@ -579,6 +592,58 @@ Result:
 |:---:|
 | f   |
 
+
+### FUNCTION is_json
+
+The function checks a string variable for containing a valid JSON.
+
+#### Examples
+
+```sql
+SELECT is_json('{"review": {"date": "1970-12-30", "votes": 10, "rating": 5, "helpful_votes": 0}, "product": {"id": "1551803542", "group": "Book", "title": "Start and Run a Coffee Bar (Start & Run a)", "category": "Business & Investing", "sales_rank": 11611, "similar_ids": ["0471136174", "0910627312", "047112138X", "0786883561", "0201570483"], "subcategory": "General"}, "customer_id": "AE22YDHSBFYIP"}') AS res;
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_json('Not a JSON') AS
+```
+
+Result:
+
+| res |
+|:---:|
+| f   |
+
+### FUNCTION is_jsonb
+
+The function checks a string variable for containing a valid JSONB.
+
+#### Example
+
+```sql
+SELECT is_jsonb('{"review": {"date": "1970-12-30", "votes": 10, "rating": 5, "helpful_votes": 0}, "product": {"id": "1551803542", "group": "Book", "title": "Start and Run a Coffee Bar (Start & Run a)", "category": "Business & Investing", "sales_rank": 11611, "similar_ids": ["0471136174", "0910627312", "047112138X", "0786883561", "0201570483"], "subcategory": "General"}, "customer_id": "AE22YDHSBFYIP"}') AS res;
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_jsonb('Not a JSONB') AS
+```
+
+Result:
+
+| res |
+|:---:|
+| f   |
 
 ### FUNCTION is_empty
 
