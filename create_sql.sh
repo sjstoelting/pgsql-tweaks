@@ -74,6 +74,7 @@ echo 'DROP FUNCTION IF EXISTS is_encoding(s VARCHAR, enc VARCHAR);' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_functions;' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_foreign_keys;' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_db_views;' >> $FILENAME
+echo 'DROP VIEW IF EXISTS pg_table_matview_infos;' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS pg_schema_size(text);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS sha256(bytea);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_bigint(s VARCHAR);' >> $FILENAME
@@ -121,6 +122,7 @@ declare -a SQLFILES=(
   "view_pg_db_views"
   "view_pg_foreign_keys"
   "view_pg_functions"
+  "view_pg_table_matview_infos"
   "function_is_encoding"
   "function_is_latin1"
   "function_return_not_part_of_latin1"
