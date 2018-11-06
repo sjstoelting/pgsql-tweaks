@@ -89,7 +89,8 @@ Afterwards you are able to create the extension in a database:
 1.3.2 [VIEW pg_db_views](#view-pg_db_views)<br />
 1.3.3 [VIEW pg_foreign_keys](#view-pg_foreign_keys)<br />
 1.3.4 [VIEW pg_functions](#view-pg_functions)<br />
-1.3.4 [VIEW pg_active_locks](#view-pg_active_locks)
+1.3.4 [VIEW pg_active_locks](#view-pg_active_locks)<br />
+1.3.5 [VIEW pg_table_matview_infos](#view-pg_table_matview_infos)
 
 1.4 [Functions about encodings](#functions-about-encodings)<br />
 1.4.1 [FUNCTION is_encoding](#function-is_encoding)<br />
@@ -837,6 +838,21 @@ Result:
 | 8872 | active | chinook | stefanie | psql             | 127.0.0.1   | 2018-02-18 14:45:53.943047+01 |                 |            | relation   | AccessShareLock | SELECT * FROM pg_active_locks; |
 | 8872 | active | chinook | stefanie | psql             | 127.0.0.1   | 2018-02-18 14:45:53.943047+01 |                 |            | virtualxid | ExclusiveLock   | SELECT * FROM pg_active_locks; |
 
+### VIEW pg_table_matview_infos
+
+Creates a view with information about the size of the table/materialized view and sizes of indexes on that table/materialized view.
+It does also list all indexes on that table in an array.
+
+```sql
+SELECT * FROM pg_table_matview_infos;
+```
+
+Result:
+
+| type | schemaname | tablename | tableowner | tablespace | indexes | table_size | indexes_size | total_relation_size | table_size_pretty | indexes_size_pretty | total_relation_size_pretty |
+| ---- | ---------- | --------- | ---------- | ---------- | ------- | ----------:| ------------:| -------------------:| -----------------:| -------------------:| --------------------------:|
+| table | public | MediaType | stefanie | [NULL] | {PK_MediaType} | 8192 | 16384 | 24576 | 8192 bytes | 16 kB | 24 kB |
+| table | public | Playlist | stefanie | [NULL] | {PK_Playlist} | 8192 | 16384 | 24576 | 8192 bytes | 16 kB | 24 kB |
 
 ## Functions about encodings
 
