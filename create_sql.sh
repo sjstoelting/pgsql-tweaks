@@ -228,12 +228,13 @@ echo "relocatable = true" >> $FILENAME
 # Create the test data
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-psql -h $DBHOST -p $DBPORT postgres -c "CREATE DATABASE $DBNAME;"
-psql -h $DBHOST -p $DBPORT $DBNAME -f $DIR/sql/pgsql_tweaks--$EXTVERSION.sql
+psql -h $DBHOST -p $DBPORT -X -q -b postgres -c "CREATE DATABASE $DBNAME;"
 
-psql -h $DBHOST -p $DBPORT $DBNAME -f $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql > $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.out
+psql -h $DBHOST -p $DBPORT -X -q -b $DBNAME -f $DIR/sql/pgsql_tweaks--$EXTVERSION.sql
 
-psql -h $DBHOST -p $DBPORT postgres -c "DROP DATABASE $DBNAME;"
+psql -h $DBHOST -p $DBPORT -X -q -b $DBNAME -f $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql > $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.out
+
+psql -h $DBHOST -p $DBPORT -X -q -b postgres -c "DROP DATABASE $DBNAME;"
 
 
 # Create a documentation  for PGXN, the link differ from GitHun to PGXN
