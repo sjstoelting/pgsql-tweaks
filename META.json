@@ -17,11 +17,11 @@
   },
   "resources": {
       "bugtracker": {
-         "web": "https://github.com/sjstoelting/pgsql-tweaks/issues"
+         "web": "https://gitlab.com/sjstoelting/pgsql-tweaks/issues"
       },
       "repository": {
-        "url":  "https://github.com/sjstoelting/pgsql-tweaks.git",
-        "web":  "https://github.com/sjstoelting/pgsql-tweaks",
+        "url":  "https://gitlab.com/sjstoelting/pgsql-tweaks.git",
+        "web":  "https://gitlab.com/sjstoelting/pgsql-tweaks",
         "type": "git"
       }
    },
