@@ -120,6 +120,9 @@ Afterwards you are able to create the extension in a database:
 1.7 [Conversion functions](#conversion-functions)<br />
 1.7.1 [FUNCTION to_unix_timestamp](#function-to_unix_timestamp)
 
+1.8 [Other functions](#other-functions)<br />
+1.8.1 [FUNCTION array_trim](#function-array_trim)
+
 # List of functions
 
 ## Functions to check data types
@@ -1532,3 +1535,46 @@ Result:
 | unix_timestamp |
 | --------------:|
 |     1514761200 |
+
+## Other functions
+
+### FUNCTION array_trim
+
+Removes empty strings and null entries from a given array. In addition the
+function can remove duplicate entries. The function supports strings, numbers,
+dates, and timestamps with or without time zone.
+
+#### Examples
+
+```sql
+-- Untrimmed timestamp array with time zone with duplicates
+SELECT array_trim(ARRAY['2018-11-11 11:00:00 MEZ',NULL,'2018-11-11 11:00:00 MEZ']::TIMESTAMP WITH TIME ZONE[]) AS trimmed_array;
+```
+
+Result:
+
+| untrimmed_array                                        |
+| ------------------------------------------------------ |
+| {'2018-11-11 11:00:00.000',,'2018-11-11 11:00:00.000'} |
+
+```sql
+-- Timestamp array with time zone with duplicates
+SELECT ARRAY['2018-11-11 11:00:00 MEZ',NULL,'2018-11-11 11:00:00 MEZ']::TIMESTAMP WITH TIME ZONE[] AS untrimmed_array;
+```
+
+Result:
+
+| trimmed_array                                         |
+| ----------------------------------------------------- |
+| {'2018-11-11 11:00:00.000','2018-11-11 11:00:00.000'} |
+
+```sql
+-- Timestamp array with time zone without duplicates
+SELECT array_trim(ARRAY['2018-11-11 11:00:00 MEZ',NULL,'2018-11-11 11:00:00 MEZ']::TIMESTAMP WITH TIME ZONE[], TRUE) AS trimmed_array_distinct;
+```
+
+Result:
+
+| trimmed_array_distinct      |
+| --------------------------- |
+| {'2018-11-11 11:00:00.000'} |
