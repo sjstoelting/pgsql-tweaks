@@ -54,6 +54,16 @@ echo 'DROP FUNCTION IF EXISTS array_max(a NUMERIC[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_max(a REAL[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_max(a DOUBLE PRECISION[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_max(a SMALLINT[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_trim(a VARCHAR[], rd BOOLEAN);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_trim(a SMALLINT[], rd BOOLEAN);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_trim(a INTEGER[], rd BOOLEAN);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_trim(a BIGINT[], rd BOOLEAN);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_trim(a NUMERIC[], rd BOOLEAN);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_trim(a REAL[], rd BOOLEAN);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_trim(a DOUBLE PRECISION[], rd BOOLEAN);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_trim(a DATE[], rd BOOLEAN);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_trim(a TIMESTAMP[], rd BOOLEAN);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_trim(a TIMESTAMP WITH TIME ZONE[], rd BOOLEAN);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS to_unix_timestamp(ts timestamp with time zone);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS to_unix_timestamp(ts timestamp);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS datetime_de(t TIMESTAMP WITH TIME ZONE, with_tz BOOLEAN);' >> $FILENAME
@@ -138,6 +148,7 @@ declare -a SQLFILES=(
   "function_array_min"
   "function_array_avg"
   "function_array_sum"
+  "function_array_trim"
   "view_pg_active_locks"
   )
 arraylength=${#SQLFILES[@]}
