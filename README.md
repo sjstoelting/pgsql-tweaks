@@ -17,6 +17,14 @@ conversions have become more strict.
 All examples have been done with PostgreSQL 10, differences in the behaviour of
 previous versions are noted.
 
+# Repositories
+
+The main repository is now on
+[GitLab](https://gitlab.com/sjstoelting/pgsql-tweaks.git). A mirror will stay on
+[GitHub](https://github.com/sjstoelting/pgsql-tweaks).
+
+If you discover any issue, please file them on
+https://gitlab.com/sjstoelting/pgsql-tweaks/issues. 
 
 # Building the extension
 
