@@ -24,7 +24,7 @@ The main repository is now on
 [GitHub](https://github.com/sjstoelting/pgsql-tweaks).
 
 If you discover any issue, please file them on
-https://gitlab.com/sjstoelting/pgsql-tweaks/issues. 
+https://gitlab.com/sjstoelting/pgsql-tweaks/issues.
 
 # Building the extension
 
@@ -822,6 +822,11 @@ SELECT * FROM pg_foreign_keys;
 ### VIEW pg_functions
 
 Creates a view to get all functions of the current database, excluding those in the schema pg_catalog and information_schema.
+
+As there have been changes to the system tables used in this view, there are now two scripts dependend on the PostgreSQL version on which it has to be used:
+
+* view_pg_functions: For PostgreSQL 11 or newer
+* view_pg_functions-10: For PostgreSQL 10 or older
 
 ```sql
 SELECT * FROM pg_functions;
