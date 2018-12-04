@@ -127,11 +127,11 @@ declare -a SQLFILES=(
   "function_is_boolean"
   "function_is_json"
   "function_is_jsonb"
-  #"function_sha256" The function is not part of the package, it does need pg_crypto
+  # "function_sha256" The function is not part of the package, it does need pg_crypto
   "function_pg_schema_size"
   "view_pg_db_views"
   "view_pg_foreign_keys"
-  "view_pg_functions"
+  # "view_pg_functions" The view has different implemantations: >= PostgreSQL 11 and < PostgreSQL 11 (10 or older)
   "view_pg_table_matview_infos"
   "function_is_encoding"
   "function_is_latin1"
@@ -184,6 +184,9 @@ do
   cat $DIR/${SQLFILES[$i-1]}".sql" >> $FILENAME
   echo '' >> $FILENAME
 done
+
+# Add version dependend views and functions
+cat $DIR/system_function_create_version_dependend.sql >> $FILENAME
 
 
 # Now the test script has to be generated
