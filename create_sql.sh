@@ -131,7 +131,6 @@ declare -a SQLFILES=(
   "function_pg_schema_size"
   "view_pg_db_views"
   "view_pg_foreign_keys"
-  # "view_pg_functions" The view has different implemantations: >= PostgreSQL 11 and < PostgreSQL 11 (10 or older)
   "view_pg_functions"
   "view_pg_table_matview_infos"
   "function_is_encoding"
