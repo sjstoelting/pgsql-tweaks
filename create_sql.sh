@@ -132,6 +132,7 @@ declare -a SQLFILES=(
   "view_pg_db_views"
   "view_pg_foreign_keys"
   # "view_pg_functions" The view has different implemantations: >= PostgreSQL 11 and < PostgreSQL 11 (10 or older)
+  "view_pg_functions"
   "view_pg_table_matview_infos"
   "function_is_encoding"
   "function_is_latin1"
@@ -184,10 +185,6 @@ do
   cat $DIR/${SQLFILES[$i-1]}".sql" >> $FILENAME
   echo '' >> $FILENAME
 done
-
-# Add version dependend views and functions
-cat $DIR/system_function_create_version_dependend.sql >> $FILENAME
-
 
 # Now the test script has to be generated
 # Define output file

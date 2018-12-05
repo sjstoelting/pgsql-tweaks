@@ -823,10 +823,8 @@ SELECT * FROM pg_foreign_keys;
 
 Creates a view to get all functions of the current database, excluding those in the schema pg_catalog and information_schema.
 
-As there have been changes to the system tables used in this view, there are now two scripts dependend on the PostgreSQL version on which it has to be used:
-
-* view_pg_functions: For PostgreSQL 11 or newer
-* view_pg_functions-10: For PostgreSQL 10 or older
+As there have been changes to the system tables used in this view, there are now two scripts dependend on the PostgreSQL version on which it has to be used,
+one for PostgreSQL 11 or newer and one for PostgreSQL 10 or older. This is handled in the script that creates the view.
 
 ```sql
 SELECT * FROM pg_functions;
