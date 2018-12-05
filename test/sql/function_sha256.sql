@@ -39,6 +39,4 @@ BEGIN
 
 	END IF;
 
-	ROLLBACK;
-
 END $$;
