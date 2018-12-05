@@ -705,7 +705,7 @@ Creates a function which returns a SHA256 hash for the given string.<br />
 The parameter has to be converted into a binary string of [bytea](https://www.postgresql.org/docs/current/static/datatype-binary.html).</br>
 :heavy_exclamation_mark:<span style="color:red">The function needs the [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) package</span>:heavy_exclamation_mark:
 
-:heavy_exclamation_mark:This function is not part of the package because of the external dependencies.:heavy_exclamation_mark:
+:heavy_exclamation_mark:This function has an external dependencies and is only installed, if the package pgcrypto is installed:heavy_exclamation_mark:
 
 #### Example
 

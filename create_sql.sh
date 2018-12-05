@@ -127,7 +127,7 @@ declare -a SQLFILES=(
   "function_is_boolean"
   "function_is_json"
   "function_is_jsonb"
-  # "function_sha256" The function is not part of the package, it does need pg_crypto
+  "function_sha256"
   "function_pg_schema_size"
   "view_pg_db_views"
   "view_pg_foreign_keys"
