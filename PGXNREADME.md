@@ -17,6 +17,14 @@ conversions have become more strict.
 All examples have been done with PostgreSQL 10, differences in the behaviour of
 previous versions are noted.
 
+# Repositories
+
+The main repository is now on
+[GitLab](https://gitlab.com/sjstoelting/pgsql-tweaks.git). A mirror will stay on
+[GitHub](https://github.com/sjstoelting/pgsql-tweaks).
+
+If you discover any issue, please file them on
+https://gitlab.com/sjstoelting/pgsql-tweaks/issues.
 
 # Building the extension
 
@@ -89,7 +97,8 @@ Afterwards you are able to create the extension in a database:
 1.3.2 [VIEW pg_db_views](#VIEW.pg_db_views)<br />
 1.3.3 [VIEW pg_foreign_keys](#VIEW.pg_foreign_keys)<br />
 1.3.4 [VIEW pg_functions](#VIEW.pg_functions)<br />
-1.3.4 [VIEW pg_active_locks](#VIEW.pg_active_locks)
+1.3.4 [VIEW pg_active_locks](#VIEW.pg_active_locks)<br />
+1.3.5 [VIEW pg_table_matview_infos](#VIEW.pg_table_matview_infos)
 
 1.4 [Functions about encodings](#Functions.about encodings)<br />
 1.4.1 [FUNCTION is_encoding](#FUNCTION.is_encoding)<br />
@@ -118,6 +127,9 @@ Afterwards you are able to create the extension in a database:
 
 1.7 [Conversion functions](#Conversion.functions)<br />
 1.7.1 [FUNCTION to_unix_timestamp](#FUNCTION.to_unix_timestamp)
+
+1.8 [Other functions](#Other.functions)<br />
+1.8.1 [FUNCTION array_trim](#FUNCTION.array_trim)
 
 # List of functions
 
@@ -693,7 +705,7 @@ Creates a function which returns a SHA256 hash for the given string.<br />
 The parameter has to be converted into a binary string of [bytea](https://www.postgresql.org/docs/current/static/datatype-binary.html).</br>
 :heavy_exclamation_mark:<span style="color:red">The function needs the [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) package</span>:heavy_exclamation_mark:
 
-:heavy_exclamation_mark:This function is not part of the package because of the external dependencies.:heavy_exclamation_mark:
+:heavy_exclamation_mark:This function has an external dependencies and is only installed, if the package pgcrypto is installed:heavy_exclamation_mark:
 
 #### Example
 
@@ -811,6 +823,9 @@ SELECT * FROM pg_foreign_keys;
 
 Creates a view to get all functions of the current database, excluding those in the schema pg_catalog and information_schema.
 
+As there have been changes to the system tables used in this view, there are now two scripts dependend on the PostgreSQL version on which it has to be used,
+one for PostgreSQL 11 or newer and one for PostgreSQL 10 or older. This is handled in the script that creates the view.
+
 ```sql
 SELECT * FROM pg_functions;
 ```
@@ -837,6 +852,21 @@ Result:
 | 8872 | active | chinook | stefanie | psql             | 127.0.0.1   | 2018-02-18 14:45:53.943047+01 |                 |            | relation   | AccessShareLock | SELECT * FROM pg_active_locks; |
 | 8872 | active | chinook | stefanie | psql             | 127.0.0.1   | 2018-02-18 14:45:53.943047+01 |                 |            | virtualxid | ExclusiveLock   | SELECT * FROM pg_active_locks; |
 
+### VIEW pg_table_matview_infos
+
+Creates a view with information about the size of the table/materialized view and sizes of indexes on that table/materialized view.
+It does also list all indexes on that table in an array.
+
+```sql
+SELECT * FROM pg_table_matview_infos;
+```
+
+Result:
+
+| type | schemaname | tablename | tableowner | tablespace | indexes | table_size | indexes_size | total_relation_size | table_size_pretty | indexes_size_pretty | total_relation_size_pretty |
+| ---- | ---------- | --------- | ---------- | ---------- | ------- | ----------:| ------------:| -------------------:| -----------------:| -------------------:| --------------------------:|
+| table | public | MediaType | stefanie | [NULL] | {PK_MediaType} | 8192 | 16384 | 24576 | 8192 bytes | 16 kB | 24 kB |
+| table | public | Playlist | stefanie | [NULL] | {PK_Playlist} | 8192 | 16384 | 24576 | 8192 bytes | 16 kB | 24 kB |
 
 ## Functions about encodings
 
@@ -1516,3 +1546,46 @@ Result:
 | unix_timestamp |
 | --------------:|
 |     1514761200 |
+
+## Other functions
+
+### FUNCTION array_trim
+
+Removes empty strings and null entries from a given array. In addition the
+function can remove duplicate entries. The function supports strings, numbers,
+dates, and timestamps with or without time zone.
+
+#### Examples
+
+```sql
+-- Untrimmed timestamp array with time zone with duplicates
+SELECT array_trim(ARRAY['2018-11-11 11:00:00 MEZ',NULL,'2018-11-11 11:00:00 MEZ']::TIMESTAMP WITH TIME ZONE[]) AS trimmed_array;
+```
+
+Result:
+
+| untrimmed_array                                        |
+| ------------------------------------------------------ |
+| {'2018-11-11 11:00:00.000',,'2018-11-11 11:00:00.000'} |
+
+```sql
+-- Timestamp array with time zone with duplicates
+SELECT ARRAY['2018-11-11 11:00:00 MEZ',NULL,'2018-11-11 11:00:00 MEZ']::TIMESTAMP WITH TIME ZONE[] AS untrimmed_array;
+```
+
+Result:
+
+| trimmed_array                                         |
+| ----------------------------------------------------- |
+| {'2018-11-11 11:00:00.000','2018-11-11 11:00:00.000'} |
+
+```sql
+-- Timestamp array with time zone without duplicates
+SELECT array_trim(ARRAY['2018-11-11 11:00:00 MEZ',NULL,'2018-11-11 11:00:00 MEZ']::TIMESTAMP WITH TIME ZONE[], TRUE) AS trimmed_array_distinct;
+```
+
+Result:
+
+| trimmed_array_distinct      |
+| --------------------------- |
+| {'2018-11-11 11:00:00.000'} |

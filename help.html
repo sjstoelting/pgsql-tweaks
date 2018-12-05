@@ -13,6 +13,13 @@ conversions have become more strict.</p>
 <p>All examples have been done with PostgreSQL 10, differences in the behaviour of
 previous versions are noted.</p>
 <h1>
+<a id="user-content-repositories" class="anchor" href="#repositories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Repositories</h1>
+<p>The main repository is now on
+<a href="https://gitlab.com/sjstoelting/pgsql-tweaks.git" rel="nofollow">GitLab</a>. A mirror will stay on
+<a href="https://github.com/sjstoelting/pgsql-tweaks">GitHub</a>.</p>
+<p>If you discover any issue, please file them on
+<a href="https://gitlab.com/sjstoelting/pgsql-tweaks/issues" rel="nofollow">https://gitlab.com/sjstoelting/pgsql-tweaks/issues</a>.</p>
+<h1>
 <a id="user-content-building-the-extension" class="anchor" href="#building-the-extension" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building the extension</h1>
 <p>All functions and tests are located in single files.</p>
 <p>The files for the extension are build by the shell script "create-sql.sh".
@@ -63,7 +70,8 @@ make install</pre></div>
 1.3.2 <a href="#user-content-view-pg_db_views">VIEW pg_db_views</a><br>
 1.3.3 <a href="#user-content-view-pg_foreign_keys">VIEW pg_foreign_keys</a><br>
 1.3.4 <a href="#user-content-view-pg_functions">VIEW pg_functions</a><br>
-1.3.4 <a href="#user-content-view-pg_active_locks">VIEW pg_active_locks</a></p>
+1.3.4 <a href="#user-content-view-pg_active_locks">VIEW pg_active_locks</a><br>
+1.3.5 <a href="#user-content-view-pg_table_matview_infos">VIEW pg_table_matview_infos</a></p>
 <p>1.4 <a href="#user-content-functions-about-encodings">Functions about encodings</a><br>
 1.4.1 <a href="#user-content-function-is_encoding">FUNCTION is_encoding</a><br>
 1.4.2 <a href="#user-content-function-is_latin1">FUNCTION is_latin1</a><br>
@@ -88,6 +96,8 @@ make install</pre></div>
 1.6.2 <a href="#user-content-function-datetime_de">FUNCTION datetime_de</a></p>
 <p>1.7 <a href="#user-content-conversion-functions">Conversion functions</a><br>
 1.7.1 <a href="#user-content-function-to_unix_timestamp">FUNCTION to_unix_timestamp</a></p>
+<p>1.8 <a href="#user-content-other-functions">Other functions</a><br>
+1.8.1 <a href="#user-content-function-array_trim">FUNCTION array_trim</a></p>
 <h1>
 <a id="user-content-list-of-functions" class="anchor" href="#list-of-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List of functions</h1>
 <h2>
@@ -836,8 +846,8 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 <a id="user-content-function-sha256" class="anchor" href="#function-sha256" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION sha256</h3>
 <p>Creates a function which returns a SHA256 hash for the given string.<br>
 The parameter has to be converted into a binary string of <a href="https://www.postgresql.org/docs/current/static/datatype-binary.html" rel="nofollow">bytea</a>.
-<g-emoji class="g-emoji" alias="exclamation" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji>The function needs the <a href="https://www.postgresql.org/docs/current/static/pgcrypto.html" rel="nofollow">pgcrypto</a> package<g-emoji class="g-emoji" alias="exclamation" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji></p>
-<p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji>This function is not part of the package because of the external dependencies.<g-emoji class="g-emoji" alias="exclamation" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji></p>
+<g-emoji class="g-emoji" alias="exclamation" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji><span>The function needs the <a href="https://www.postgresql.org/docs/current/static/pgcrypto.html" rel="nofollow">pgcrypto</a> package</span><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji></p>
+<p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji>This function has an external dependencies and is only installed, if the package pgcrypto is installed<g-emoji class="g-emoji" alias="exclamation" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji></p>
 <h4>
 <a id="user-content-example-1" class="anchor" href="#example-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> sha256(<span class="pl-s"><span class="pl-pds">'</span>test-string<span class="pl-pds">'</span></span>::<span class="pl-k">bytea</span>) <span class="pl-k">AS</span> res;</pre></div>
@@ -1214,6 +1224,8 @@ The parameter has to be converted into a binary string of <a href="https://www.p
 <h3>
 <a id="user-content-view-pg_functions" class="anchor" href="#view-pg_functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_functions</h3>
 <p>Creates a view to get all functions of the current database, excluding those in the schema pg_catalog and information_schema.</p>
+<p>As there have been changes to the system tables used in this view, there are now two scripts dependend on the PostgreSQL version on which it has to be used,
+one for PostgreSQL 11 or newer and one for PostgreSQL 10 or older. This is handled in the script that creates the view.</p>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span> <span class="pl-k">FROM</span> pg_functions;</pre></div>
 <table>
 <thead>
@@ -1248,7 +1260,7 @@ The parameter has to be converted into a binary string of <a href="https://www.p
 <h3>
 <a id="user-content-view-pg_active_locks" class="anchor" href="#view-pg_active_locks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_active_locks</h3>
 <p>Creates a view to view all live locks with all necessary information about the connections and the query.<br>
-The view needs PostgreSQL 9.2 as minimum version. The column application_name was added in 9.2.</p>
+<span>The view needs PostgreSQL 9.2 as minimum version. The column application_name was added in 9.2.</span></p>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span> <span class="pl-k">FROM</span> pg_active_locks;</pre></div>
 <p>Result:</p>
 <table>
@@ -1296,6 +1308,60 @@ The view needs PostgreSQL 9.2 as minimum version. The column application_name wa
 <td>virtualxid</td>
 <td>ExclusiveLock</td>
 <td>SELECT * FROM pg_active_locks;</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="user-content-view-pg_table_matview_infos" class="anchor" href="#view-pg_table_matview_infos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_table_matview_infos</h3>
+<p>Creates a view with information about the size of the table/materialized view and sizes of indexes on that table/materialized view.
+It does also list all indexes on that table in an array.</p>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span> <span class="pl-k">FROM</span> pg_table_matview_infos;</pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>schemaname</th>
+<th>tablename</th>
+<th>tableowner</th>
+<th>tablespace</th>
+<th>indexes</th>
+<th align="right">table_size</th>
+<th align="right">indexes_size</th>
+<th align="right">total_relation_size</th>
+<th align="right">table_size_pretty</th>
+<th align="right">indexes_size_pretty</th>
+<th align="right">total_relation_size_pretty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>table</td>
+<td>public</td>
+<td>MediaType</td>
+<td>stefanie</td>
+<td>[NULL]</td>
+<td>{PK_MediaType}</td>
+<td align="right">8192</td>
+<td align="right">16384</td>
+<td align="right">24576</td>
+<td align="right">8192 bytes</td>
+<td align="right">16 kB</td>
+<td align="right">24 kB</td>
+</tr>
+<tr>
+<td>table</td>
+<td>public</td>
+<td>Playlist</td>
+<td>stefanie</td>
+<td>[NULL]</td>
+<td>{PK_Playlist}</td>
+<td align="right">8192</td>
+<td align="right">16384</td>
+<td align="right">24576</td>
+<td align="right">8192 bytes</td>
+<td align="right">16 kB</td>
+<td align="right">24 kB</td>
 </tr>
 </tbody>
 </table>
@@ -1406,7 +1472,7 @@ don't have to give the target encoding.</p>
 <h3>
 <a id="user-content-function-return_not_part_of_latin1" class="anchor" href="#function-return_not_part_of_latin1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION return_not_part_of_latin1</h3>
 <p>The function returns a distinct array containing all characters, which are not defined in latin1.<br>
-The function depends on is_latin1 which is part of this repository.</p>
+The function <span>depends on is_latin1</span> which is part of this repository.</p>
 <h4>
 <a id="user-content-example-2" class="anchor" href="#example-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Returns an array containing the characters ğ and Ƶ each one time</span>
@@ -1426,7 +1492,7 @@ The function depends on is_latin1 which is part of this repository.</p>
 </table>
 <h3>
 <a id="user-content-function-replace_latin1" class="anchor" href="#function-replace_latin1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION replace_latin1</h3>
-<p>The function has three implementations. All implementations depend on the function is_latin1, the function is included in this repository.</p>
+<p>The function has three implementations. All implementations <span>depend on the function is_latin1</span>, the function is included in this repository.</p>
 <h4>
 <a id="user-content-replace_latin1s-varchar" class="anchor" href="#replace_latin1s-varchar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_latin1(s VARCHAR)</h4>
 <p>The function takes one parameter with characters to be checked and replaced with
@@ -1508,7 +1574,7 @@ one.</p>
 <h3>
 <a id="user-content-function-return_not_part_of_encoding" class="anchor" href="#function-return_not_part_of_encoding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION return_not_part_of_encoding</h3>
 <p>The function returns a distinct array containing all characters, which are not defined in the second parameter as encoding.<br>
-The function depends on is_encoding which is part of this repository.</p>
+The function <span>depends on is_encoding</span> which is part of this repository.</p>
 <h4>
 <a id="user-content-example-6" class="anchor" href="#example-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Returns an array containing the characters ğ and Ƶ each one time</span>
@@ -1528,7 +1594,7 @@ The function depends on is_encoding which is part of this repository.</p>
 </table>
 <h3>
 <a id="user-content-function-replace_encoding" class="anchor" href="#function-replace_encoding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION replace_encoding</h3>
-<p>The function has three implementations. All implementations depend on the function is_encoding, the function is included in this repository.</p>
+<p>The function has three implementations. All implementations <span>depend on the function is_encoding</span>, the function is included in this repository.</p>
 <h4>
 <a id="user-content-replace_encodings-varchar-e-varchar" class="anchor" href="#replace_encodings-varchar-e-varchar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_encoding(s VARCHAR, e VARCHAR)</h4>
 <p>The function takes one parameter with characters to be checked and replaced with
@@ -2197,6 +2263,60 @@ a given timestamp with time zone.</p>
 <tbody>
 <tr>
 <td align="right">1514761200</td>
+</tr>
+</tbody>
+</table>
+<h2>
+<a id="user-content-other-functions" class="anchor" href="#other-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other functions</h2>
+<h3>
+<a id="user-content-function-array_trim" class="anchor" href="#function-array_trim" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION array_trim</h3>
+<p>Removes empty strings and null entries from a given array. In addition the
+function can remove duplicate entries. The function supports strings, numbers,
+dates, and timestamps with or without time zone.</p>
+<h4>
+<a id="user-content-examples-20" class="anchor" href="#examples-20" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Untrimmed timestamp array with time zone with duplicates</span>
+<span class="pl-k">SELECT</span> array_trim(ARRAY[<span class="pl-s"><span class="pl-pds">'</span>2018-11-11 11:00:00 MEZ<span class="pl-pds">'</span></span>,<span class="pl-k">NULL</span>,<span class="pl-s"><span class="pl-pds">'</span>2018-11-11 11:00:00 MEZ<span class="pl-pds">'</span></span>]::<span class="pl-k">TIMESTAMP WITH TIME ZONE</span>[]) <span class="pl-k">AS</span> trimmed_array;</pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>untrimmed_array</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{'2018-11-11 11:00:00.000',,'2018-11-11 11:00:00.000'}</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Timestamp array with time zone with duplicates</span>
+<span class="pl-k">SELECT</span> ARRAY[<span class="pl-s"><span class="pl-pds">'</span>2018-11-11 11:00:00 MEZ<span class="pl-pds">'</span></span>,<span class="pl-k">NULL</span>,<span class="pl-s"><span class="pl-pds">'</span>2018-11-11 11:00:00 MEZ<span class="pl-pds">'</span></span>]::<span class="pl-k">TIMESTAMP WITH TIME ZONE</span>[] <span class="pl-k">AS</span> untrimmed_array;</pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>trimmed_array</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{'2018-11-11 11:00:00.000','2018-11-11 11:00:00.000'}</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Timestamp array with time zone without duplicates</span>
+<span class="pl-k">SELECT</span> array_trim(ARRAY[<span class="pl-s"><span class="pl-pds">'</span>2018-11-11 11:00:00 MEZ<span class="pl-pds">'</span></span>,<span class="pl-k">NULL</span>,<span class="pl-s"><span class="pl-pds">'</span>2018-11-11 11:00:00 MEZ<span class="pl-pds">'</span></span>]::<span class="pl-k">TIMESTAMP WITH TIME ZONE</span>[], TRUE) <span class="pl-k">AS</span> trimmed_array_distinct;</pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th>trimmed_array_distinct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{'2018-11-11 11:00:00.000'}</td>
 </tr>
 </tbody>
 </table>
