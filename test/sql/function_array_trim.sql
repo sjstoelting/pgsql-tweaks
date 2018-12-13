@@ -9,10 +9,17 @@ BEGIN;
 WITH test AS
 	(
 		SELECT count(*) AS exist
+			, 0 AS zero
 		FROM pg_catalog.pg_proc
 		WHERE proname = 'array_trim'
 	)
-SELECT 10 / test.exist = 1 AS res
+SELECT
+	CASE
+		WHEN 10 / test.exist = 1 THEN
+			TRUE
+		ELSE
+			(1 / zero)::BOOLEAN
+	END AS res
 FROM test
 ;
 

@@ -9,10 +9,17 @@ BEGIN;
 WITH test AS
 	(
 		SELECT count(*) AS exist
+			, 0 AS zero
 		FROM pg_catalog.pg_proc
 		WHERE proname = 'gap_fill_internal'
 	)
-SELECT 1 / test.exist = 1 AS res
+SELECT
+	CASE
+		WHEN 1 / test.exist = 1 THEN
+			TRUE
+		ELSE
+			(1 / zero)::BOOLEAN
+	END AS res
 FROM test
 ;
 
@@ -20,10 +27,17 @@ FROM test
 WITH test AS
 	(
 		SELECT count(*) AS exist
+			, 0 AS zero
 		FROM pg_catalog.pg_proc
 		WHERE proname = 'gap_fill'
 	)
-SELECT 1 / test.exist = 1 AS res
+SELECT
+	CASE
+		WHEN 1 / test.exist = 1 THEN
+			TRUE
+		ELSE
+			(1 / zero)::BOOLEAN
+	END AS res
 FROM test
 ;
 
@@ -45,10 +59,18 @@ WITH t1 AS
 	(
 		SELECT id
 			, gap_fill(some_value) OVER (ORDER BY id) AS some_value
+			, 0 AS zero
 		FROM test_gap_fill
 	)
-SELECT count(*) / count(*) FILTER (WHERE NOT some_value IS NULL) = 1 AS res
+SELECT
+	CASE
+		WHEN count(*) / count(*) FILTER (WHERE NOT some_value IS NULL) = 1 THEN
+			TRUE
+		ELSE
+			(1 / zero)::BOOLEAN
+	END AS res
 FROM t1
+GROUP BY zero
 ;
 
 ROLLBACK;

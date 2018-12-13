@@ -9,10 +9,17 @@ BEGIN;
 WITH test AS
 	(
 		SELECT count(*) AS exist
+			, 0 AS zero
 		FROM pg_catalog.pg_proc
 		WHERE proname = 'return_not_part_of_latin1'
 	)
-SELECT 1 / test.exist = 1 AS res
+SELECT
+	CASE
+		WHEN 1 / test.exist = 1 THEN
+			TRUE
+		ELSE
+			(1 / test.zero)::BOOLEAN
+	END AS res
 FROM test
 ;
 
@@ -38,4 +45,4 @@ SELECT
 FROM test
 ;
 
-END;
+ROLLBACK;

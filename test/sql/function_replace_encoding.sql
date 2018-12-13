@@ -9,10 +9,17 @@ BEGIN;
 WITH test AS
 	(
 		SELECT count(*) AS exist
+			, 0 AS zero
 		FROM pg_catalog.pg_proc
 		WHERE proname = 'replace_encoding'
 	)
-SELECT 3 / test.exist = 1 AS res
+SELECT
+	CASE
+		WHEN 3 / test.exist = 1 THEN
+			TRUE
+		ELSE
+			(1 / zero)::BOOLEAN
+	END AS res
 FROM test
 ;
 
@@ -40,7 +47,7 @@ WITH test AS
 	(
 		SELECT 'ağbƵcğeƵ'::TEXT AS test_string
 			, 'latin1'::TEXT AS enc
-		, 0 AS zero
+			, 0 AS zero
 	)
 SELECT
 	CASE

@@ -9,17 +9,25 @@ BEGIN;
 WITH test AS
 	(
 		SELECT COUNT(*) AS exist
+			, 0 AS zero
 		FROM pg_catalog.pg_proc
 		WHERE proname = 'is_double_precision'
 	)
-SELECT 1 / test.exist = 1 AS res
+SELECT
+	CASE
+		WHEN 1 / test.exist = 1 THEN
+			TRUE
+		ELSE
+			(1 / zero)::BOOLEAN
+	END AS res
 FROM test
 ;
 
 -- Test integer
 WITH test AS
 	(
-		SELECT is_double_precision('123') AS isdoubleprecision, 0 AS zero
+		SELECT is_double_precision('123') AS isdoubleprecision
+			, 0 AS zero
 	)
 SELECT
 	CASE
@@ -34,7 +42,8 @@ FROM test
 -- Test a number with decimal separator
 WITH test AS
 	(
-		SELECT is_double_precision('123.456') AS isdoubleprecision, 0 AS zero
+		SELECT is_double_precision('123.456') AS isdoubleprecision
+			, 0 AS zero
 	)
 SELECT
 	CASE
@@ -49,7 +58,8 @@ FROM test
 -- Test a number with out of range value, not an integer
 WITH test AS
 	(
-		SELECT is_double_precision('123,456') AS isdoubleprecision, 0 AS zero
+		SELECT is_double_precision('123,456') AS isdoubleprecision
+			, 0 AS zero
 	)
 SELECT
 	CASE

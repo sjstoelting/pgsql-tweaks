@@ -9,10 +9,17 @@ BEGIN;
 WITH test AS
 	(
 		SELECT COUNT(*) AS exist
+			, 0 AS zero
 		FROM pg_catalog.pg_views
 		WHERE viewname = 'pg_functions'
 	)
-SELECT 1 / test.exist = 1 AS res
+SELECT
+	CASE
+		WHEN 1 / test.exist = 1 THEN
+			TRUE
+		ELSE
+			(1 / zero)::BOOLEAN
+	END AS res
 FROM test
 ;
 
