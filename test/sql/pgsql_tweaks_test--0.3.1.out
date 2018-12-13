@@ -1,0 +1,1239 @@
+Zeit: 0,095 ms
+Zeit: 0,053 ms
+            next_test            
+---------------------------------
+ Test starting: function_is_date
+(1 Zeile)
+
+Zeit: 0,190 ms
+Zeit: 0,089 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,907 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 1,162 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,231 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,258 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,201 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,202 ms
+Zeit: 0,049 ms
+            next_test            
+---------------------------------
+ Test starting: function_is_time
+(1 Zeile)
+
+Zeit: 0,059 ms
+Zeit: 0,041 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,176 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,133 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,217 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,135 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,196 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,171 ms
+Zeit: 0,050 ms
+              next_test               
+--------------------------------------
+ Test starting: function_is_timestamp
+(1 Zeile)
+
+Zeit: 0,060 ms
+Zeit: 0,042 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,183 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,144 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,211 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,135 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,189 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,164 ms
+Zeit: 0,046 ms
+             next_test              
+------------------------------------
+ Test starting: function_is_numeric
+(1 Zeile)
+
+Zeit: 0,057 ms
+Zeit: 0,039 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,167 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,194 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,105 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,132 ms
+Zeit: 0,047 ms
+             next_test             
+-----------------------------------
+ Test starting: function_is_bigint
+(1 Zeile)
+
+Zeit: 0,060 ms
+Zeit: 0,044 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,173 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,186 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,137 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,111 ms
+Zeit: 0,060 ms
+             next_test              
+------------------------------------
+ Test starting: function_is_integer
+(1 Zeile)
+
+Zeit: 0,060 ms
+Zeit: 0,041 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,170 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,223 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,123 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,125 ms
+Zeit: 0,052 ms
+              next_test              
+-------------------------------------
+ Test starting: function_is_smallint
+(1 Zeile)
+
+Zeit: 0,063 ms
+Zeit: 0,043 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,191 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,198 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,124 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,101 ms
+Zeit: 0,046 ms
+            next_test            
+---------------------------------
+ Test starting: function_is_real
+(1 Zeile)
+
+Zeit: 0,058 ms
+Zeit: 0,041 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,172 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,186 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,115 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,125 ms
+Zeit: 0,046 ms
+                  next_test                  
+---------------------------------------------
+ Test starting: function_is_double_precision
+(1 Zeile)
+
+Zeit: 0,059 ms
+Zeit: 0,041 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,183 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,191 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,119 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,113 ms
+Zeit: 0,045 ms
+             next_test              
+------------------------------------
+ Test starting: function_is_boolean
+(1 Zeile)
+
+Zeit: 0,057 ms
+Zeit: 0,041 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,161 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,246 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,158 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,138 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,104 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,102 ms
+Zeit: 0,048 ms
+            next_test            
+---------------------------------
+ Test starting: function_is_json
+(1 Zeile)
+
+Zeit: 0,059 ms
+Zeit: 0,041 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,190 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,228 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,124 ms
+Zeit: 0,045 ms
+            next_test             
+----------------------------------
+ Test starting: function_is_jsonb
+(1 Zeile)
+
+Zeit: 0,058 ms
+Zeit: 0,041 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,169 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,208 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,136 ms
+Zeit: 0,046 ms
+           next_test            
+--------------------------------
+ Test starting: function_sha256
+(1 Zeile)
+
+Zeit: 0,059 ms
+Zeit: 0,356 ms
+               next_test                
+----------------------------------------
+ Test starting: function_pg_schema_size
+(1 Zeile)
+
+Zeit: 0,063 ms
+Zeit: 0,043 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,186 ms
+Zeit: 10,756 ms
+Zeit: 0,179 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 1,272 ms
+Zeit: 0,271 ms
+            next_test            
+---------------------------------
+ Test starting: view_pg_db_views
+(1 Zeile)
+
+Zeit: 0,080 ms
+Zeit: 0,042 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,365 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 1,046 ms
+Zeit: 0,067 ms
+              next_test              
+-------------------------------------
+ Test starting: view_pg_foreign_keys
+(1 Zeile)
+
+Zeit: 0,076 ms
+Zeit: 0,049 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,240 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 4,447 ms
+Zeit: 0,070 ms
+            next_test             
+----------------------------------
+ Test starting: view_pg_functions
+(1 Zeile)
+
+Zeit: 0,073 ms
+Zeit: 0,045 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,244 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 47,146 ms
+Zeit: 0,074 ms
+                 next_test                  
+--------------------------------------------
+ Test starting: view_pg_table_matview_infos
+(1 Zeile)
+
+Zeit: 0,082 ms
+Zeit: 0,045 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,290 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 2,119 ms
+Zeit: 0,090 ms
+              next_test              
+-------------------------------------
+ Test starting: function_is_encoding
+(1 Zeile)
+
+Zeit: 0,078 ms
+Zeit: 0,047 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,187 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,152 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,462 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,154 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,156 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,127 ms
+Zeit: 0,048 ms
+             next_test             
+-----------------------------------
+ Test starting: function_is_latin1
+(1 Zeile)
+
+Zeit: 0,059 ms
+Zeit: 0,042 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,155 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,171 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,127 ms
+Zeit: 0,046 ms
+                     next_test                     
+---------------------------------------------------
+ Test starting: function_return_not_part_of_latin1
+(1 Zeile)
+
+Zeit: 0,058 ms
+Zeit: 0,040 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,148 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 1,199 ms
+Zeit: 0,057 ms
+                next_test                 
+------------------------------------------
+ Test starting: function_replace_encoding
+(1 Zeile)
+
+Zeit: 0,063 ms
+Zeit: 0,046 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,167 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,145 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 0,506 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 0,385 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 0,510 ms
+Zeit: 0,057 ms
+               next_test                
+----------------------------------------
+ Test starting: function_replace_latin1
+(1 Zeile)
+
+Zeit: 0,065 ms
+Zeit: 0,046 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,175 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,146 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 0,411 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 0,360 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 0,271 ms
+Zeit: 0,049 ms
+                      next_test                      
+-----------------------------------------------------
+ Test starting: function_return_not_part_of_encoding
+(1 Zeile)
+
+Zeit: 0,059 ms
+Zeit: 0,042 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,160 ms
+ res_1 | res_2 
+-------+-------
+ t     | t
+(1 Zeile)
+
+Zeit: 0,508 ms
+Zeit: 0,054 ms
+                 next_test                  
+--------------------------------------------
+ Test starting: aggregate_function_gab_fill
+(1 Zeile)
+
+Zeit: 0,064 ms
+Zeit: 0,043 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,167 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,143 ms
+Zeit: 9,188 ms
+Zeit: 0,177 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,413 ms
+Zeit: 0,248 ms
+            next_test            
+---------------------------------
+ Test starting: function_date_de
+(1 Zeile)
+
+Zeit: 0,073 ms
+Zeit: 0,044 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,168 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,504 ms
+Zeit: 0,054 ms
+              next_test              
+-------------------------------------
+ Test starting: function_datetime_de
+(1 Zeile)
+
+Zeit: 0,062 ms
+Zeit: 0,041 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,168 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,260 ms
+Zeit: 0,047 ms
+                 next_test                 
+-------------------------------------------
+ Test starting: function_to_unix_timestamp
+(1 Zeile)
+
+Zeit: 0,059 ms
+Zeit: 0,041 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,145 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,216 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,195 ms
+Zeit: 0,051 ms
+            next_test             
+----------------------------------
+ Test starting: function_is_empty
+(1 Zeile)
+
+Zeit: 0,064 ms
+Zeit: 0,046 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,164 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,172 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,103 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,108 ms
+Zeit: 0,044 ms
+             next_test             
+-----------------------------------
+ Test starting: function_array_max
+(1 Zeile)
+
+Zeit: 0,055 ms
+Zeit: 0,041 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,145 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,140 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,267 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,199 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,195 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,212 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,249 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,207 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,190 ms
+Zeit: 0,052 ms
+             next_test             
+-----------------------------------
+ Test starting: function_array_min
+(1 Zeile)
+
+Zeit: 0,062 ms
+Zeit: 0,044 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,163 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,144 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,237 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,180 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,185 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,184 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,315 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,211 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,194 ms
+Zeit: 0,051 ms
+             next_test             
+-----------------------------------
+ Test starting: function_array_avg
+(1 Zeile)
+
+Zeit: 0,062 ms
+Zeit: 0,043 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,161 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,139 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,252 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,207 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,205 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,293 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,290 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,237 ms
+Zeit: 0,051 ms
+             next_test             
+-----------------------------------
+ Test starting: function_array_sum
+(1 Zeile)
+
+Zeit: 0,063 ms
+Zeit: 0,056 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,208 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,184 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,348 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,248 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,245 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,266 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,235 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,213 ms
+Zeit: 0,047 ms
+             next_test              
+------------------------------------
+ Test starting: function_array_trim
+(1 Zeile)
+
+Zeit: 0,058 ms
+Zeit: 0,038 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,192 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,186 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,620 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,262 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,473 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,311 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,457 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,248 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,515 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,341 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,557 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,349 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,530 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,327 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,574 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,353 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,539 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,327 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,572 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,348 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,586 ms
+ res_1 
+-------
+ t
+(1 Zeile)
+
+Zeit: 0,334 ms
+Zeit: 0,079 ms
+              next_test              
+-------------------------------------
+ Test starting: view_pg_active_locks
+(1 Zeile)
+
+Zeit: 0,085 ms
+Zeit: 0,043 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 0,307 ms
+ res 
+-----
+ t
+(1 Zeile)
+
+Zeit: 1,941 ms
+Zeit: 0,117 ms
