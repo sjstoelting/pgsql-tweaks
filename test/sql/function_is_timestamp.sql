@@ -111,15 +111,37 @@ SELECT
 				ELSE
 					(1 / zero)::BOOLEAN
 			END
+/*			
 		ELSE
 			CASE
-			WHEN istimestamp THEN
-				TRUE
-			ELSE
-				(1 / zero)::BOOLEAN
+				WHEN istimestamp THEN
+					TRUE
+				ELSE
+					(1 / zero)::BOOLEAN
+		END
+*/
+	END AS res
+FROM test
+;
+WITH test AS
+	(
+		SELECT is_timestamp('01.01.2018 25:00:00', 'DD.MM.YYYY HH24.MI.SS') AS istimestamp
+			, 0 AS zero
+			, current_setting('server_version_num')::INTEGER as version_num
+	)
+SELECT
+	CASE
+		WHEN version_num < 100000 THEN
+			CASE
+				WHEN istimestamp THEN
+					TRUE
+				ELSE
+					NULL--(1 / zero)::BOOLEAN
 		END
 	END AS res
 FROM test
 ;
 
+
+ 
 ROLLBACK;

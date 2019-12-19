@@ -40,18 +40,22 @@ FROM test
 ;
 
 -- Test with timestamp with time zone
-WITH test AS
+WITH t1 AS
 	(
 		SELECT to_unix_timestamp(now()) AS unix_timestamp
-			, 0 AS zero
 	)
-SELECT
-	CASE
-		WHEN unix_timestamp > 0 THEN
-			TRUE
-		ELSE
-			(1 / zero)::BOOLEAN
-	END AS res
+, test AS
+	(
+		SELECT
+			CASE
+				WHEN unix_timestamp > 0 THEN
+					1
+				ELSE
+					0
+			END AS res
+		FROM t1
+	)
+SELECT (1 / res)::BOOLEAN AS res
 FROM test
 ;
 

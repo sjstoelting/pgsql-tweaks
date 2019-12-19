@@ -90,29 +90,43 @@ FROM test
  * SELECT to_timestamp('25:33:55.456574', 'HH24.MI.SS,US')::TIME;
  * would return 01:33:55.456574
  */
-WITH test AS
+WITH t1 AS
 	(
 	SELECT is_time('25.33.55,456574', 'HH24.MI.SS,US') AS istime
-		, 0 AS zero
 		, current_setting('server_version_num')::INTEGER as version_num
 	)
-SELECT
-	CASE
-		WHEN version_num >= 100000 THEN
+, test AS
+	(
+		SELECT
 			CASE
-				WHEN NOT istime THEN
-					TRUE
+				WHEN (NOT istime AND version_num >= 100000) OR (istime AND version_num < 100000) THEN
+					1
 				ELSE
-					(1 / zero)::BOOLEAN
-			END
-		ELSE
+					0
+			END AS res
+		FROM t1
+	)
+SELECT (1 / res)::BOOLEAN AS res
+FROM test
+;
+
+WITH t1 AS
+	(
+	SELECT is_time('25.33.55,456574', 'HH24.MI.SS,US') AS istime
+		, current_setting('server_version_num')::INTEGER as version_num
+	)
+, test AS
+	(
+		SELECT
 			CASE
-				WHEN istime THEN
-					TRUE
+				WHEN (NOT istime AND version_num >= 100000) OR (istime AND version_num < 100000) THEN
+					1
 				ELSE
-					(1 / zero)::BOOLEAN
-			END
-	END AS res
+					0
+			END AS res
+		FROM t1
+	)
+SELECT (1 / res)::BOOLEAN AS res
 FROM test
 ;
 
