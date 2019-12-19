@@ -3,7 +3,7 @@
  * Licence:    PostgreSQL Licence, see https://raw.githubusercontent.com/sjstoelting/pgsql-tweaks/master/LICENSE.md
  * Author:     Stefanie Janine Stölting <mail@stefanie-stoelting.de>
  * Repository: http://github.com/sjstoelting/pgsql_tweaks/
- * Version:    0.4.1
+ * Version:    0.4.2
  */
 
 /*** initial statements ***/
@@ -259,14 +259,14 @@ COMMENT ON FUNCTION is_jsonb(s VARCHAR) IS 'Checks, whether the given text is a 
 DO $$
 DECLARE
 	pg_extension_installed BOOLEAN;
-	function_source TEXT; 
+	function_source TEXT;
 BEGIN
 
 	SELECT count(*) = 1 AS pgcrypto_installed FROM pg_extension WHERE extname = 'pgcrypto' INTO pg_extension_installed;
 
 	IF pg_extension_installed THEN
 		-- The pgcrypto extension is installed, sha256 will be installed
-		function_source :=  
+		function_source :=
 $string$
 CREATE OR REPLACE FUNCTION sha256(bytea) RETURNS text AS $f1$
 	SELECT ENCODE(digest($1, 'sha256'), 'hex')
@@ -1420,7 +1420,7 @@ CREATE OR REPLACE FUNCTION array_trim(a VARCHAR[], rd BOOLEAN DEFAULT FALSE) RET
 DECLARE
 	res VARCHAR[];
 BEGIN
-	
+
 	IF rd THEN
 		WITH t1 AS
 			(
@@ -1453,7 +1453,7 @@ CREATE OR REPLACE FUNCTION array_trim(a SMALLINT[], rd BOOLEAN DEFAULT FALSE) RE
 DECLARE
 	res SMALLINT[];
 BEGIN
-	
+
 	IF rd THEN
 		WITH t1 AS
 			(
@@ -1486,7 +1486,7 @@ CREATE OR REPLACE FUNCTION array_trim(a INTEGER[], rd BOOLEAN DEFAULT FALSE) RET
 DECLARE
 	res INTEGER[];
 BEGIN
-	
+
 	IF rd THEN
 		WITH t1 AS
 			(
@@ -1519,7 +1519,7 @@ CREATE OR REPLACE FUNCTION array_trim(a BIGINT[], rd BOOLEAN DEFAULT FALSE) RETU
 DECLARE
 	res BIGINT[];
 BEGIN
-	
+
 	IF rd THEN
 		WITH t1 AS
 			(
@@ -1552,7 +1552,7 @@ CREATE OR REPLACE FUNCTION array_trim(a NUMERIC[], rd BOOLEAN DEFAULT FALSE) RET
 DECLARE
 	res NUMERIC[];
 BEGIN
-	
+
 	IF rd THEN
 		WITH t1 AS
 			(
@@ -1585,7 +1585,7 @@ CREATE OR REPLACE FUNCTION array_trim(a REAL[], rd BOOLEAN DEFAULT FALSE) RETURN
 DECLARE
 	res REAL[];
 BEGIN
-	
+
 	IF rd THEN
 		WITH t1 AS
 			(
@@ -1618,7 +1618,7 @@ CREATE OR REPLACE FUNCTION array_trim(a DOUBLE PRECISION[], rd BOOLEAN DEFAULT F
 DECLARE
 	res DOUBLE PRECISION[];
 BEGIN
-	
+
 	IF rd THEN
 		WITH t1 AS
 			(
@@ -1651,7 +1651,7 @@ CREATE OR REPLACE FUNCTION array_trim(a DATE[], rd BOOLEAN DEFAULT FALSE) RETURN
 DECLARE
 	res DATE[];
 BEGIN
-	
+
 	IF rd THEN
 		WITH t1 AS
 			(
@@ -1684,7 +1684,7 @@ CREATE OR REPLACE FUNCTION array_trim(a TIMESTAMP[], rd BOOLEAN DEFAULT FALSE) R
 DECLARE
 	res TIMESTAMP[];
 BEGIN
-	
+
 	IF rd THEN
 		WITH t1 AS
 			(
@@ -1717,7 +1717,7 @@ CREATE OR REPLACE FUNCTION array_trim(a TIMESTAMP WITH TIME ZONE[], rd BOOLEAN D
 DECLARE
 	res TIMESTAMP WITH TIME ZONE[];
 BEGIN
-	
+
 	IF rd THEN
 		WITH t1 AS
 			(
@@ -1767,4 +1767,3 @@ COMMENT ON FUNCTION array_trim(a TIMESTAMP WITH TIME ZONE[], rd BOOLEAN) IS 'Rem
  	USING(pid)
  ;
 COMMENT ON VIEW pg_active_locks IS 'Creates a view to get all connections and their locks';
-
