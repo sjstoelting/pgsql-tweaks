@@ -97,20 +97,10 @@ WITH test AS
 	)
 SELECT
 	CASE
-		WHEN version_num >= 100000 THEN
-			CASE
-				WHEN NOT isdate THEN
-					TRUE
-				ELSE
-					(1 / zero)::BOOLEAN
-			END
+		WHEN (version_num >= 100000 AND NOT isdate) OR (version_num < 100000 AND isdate) THEN
+			TRUE
 		ELSE
-			CASE
-				WHEN isdate THEN
-					TRUE
-				ELSE
-					(1 / zero)::BOOLEAN
-			END
+			NULL --(1 / zero)::BOOLEAN
 	END AS res
 FROM test
 ;
