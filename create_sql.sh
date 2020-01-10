@@ -229,9 +229,9 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 psql -h $DBHOST -p $DBPORT -X -q -b postgres -c "CREATE DATABASE $DBNAME;"
 
-psql -h $DBHOST -p $DBPORT -X -q -b $DBNAME -f $DIR/sql/pgsql_tweaks--$EXTVERSION.sql
+psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f $DIR/sql/pgsql_tweaks--$EXTVERSION.sql
 
-psql -h $DBHOST -p $DBPORT -X -q -b $DBNAME -f $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql > $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.out
+psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql > $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.out
 
 psql -h $DBHOST -p $DBPORT -X -q -b postgres -c "DROP DATABASE $DBNAME;"
 
