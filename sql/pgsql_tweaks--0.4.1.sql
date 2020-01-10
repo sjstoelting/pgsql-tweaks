@@ -3,7 +3,7 @@
  * Licence:    PostgreSQL Licence, see https://raw.githubusercontent.com/sjstoelting/pgsql-tweaks/master/LICENSE.md
  * Author:     Stefanie Janine Stölting <mail@stefanie-stoelting.de>
  * Repository: http://github.com/sjstoelting/pgsql_tweaks/
- * Version:    0.4.2
+ * Version:    0.4.1
  */
 
 /*** initial statements ***/
