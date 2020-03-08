@@ -85,6 +85,7 @@ echo 'DROP VIEW IF EXISTS pg_functions;' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_foreign_keys;' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_db_views;' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_table_matview_infos;' >> $FILENAME
+echo 'DROP VIEW IF EXISTS pg_object_ownership;' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS pg_schema_size(text);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS sha256(bytea);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_bigint(s VARCHAR);' >> $FILENAME
@@ -150,6 +151,7 @@ declare -a SQLFILES=(
   "function_array_sum"
   "function_array_trim"
   "view_pg_active_locks"
+  "view_pg_object_ownership"
   )
 arraylength=${#SQLFILES[@]}
 

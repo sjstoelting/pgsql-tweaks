@@ -121,6 +121,46 @@ BEGIN
 					ON pro.proowner = rol.oid
 				INNER JOIN pg_catalog.pg_namespace nsp
 					ON pro.pronamespace = nsp.oid
+				UNION ALL
+				SELECT NULL AS object_schema
+					, col.collname AS object_name
+					, rol.rolname AS owner
+					, 'COLLATION' AS object_type
+				FROM pg_catalog.pg_collation AS col
+				INNER JOIN pg_roles AS rol
+					ON col.collowner = rol.oid
+				UNION ALL
+				SELECT NULL AS object_schema
+					, con.conname AS object_name
+					, rol.rolname AS owner
+					, 'CONVERSION' AS object_type
+				FROM pg_catalog.pg_conversion AS con
+				INNER JOIN pg_roles AS rol
+					ON con.conowner = rol.oid
+					UNION ALL
+				SELECT NULL AS object_schema
+					, evt.evtname AS object_name
+					, rol.rolname AS owner
+					, 'EVENT TRIGGER' AS object_type
+				FROM pg_catalog.pg_event_trigger AS evt
+				INNER JOIN pg_roles AS rol
+					ON evt.evtowner = rol.oid
+				UNION ALL
+				SELECT NULL AS object_schema
+					, opf.opfname AS object_name
+					, rol.rolname AS owner
+					, 'OPERATION FAMILY' AS object_type
+				FROM pg_catalog.pg_opfamily AS opf
+				INNER JOIN pg_roles AS rol
+					ON opf.opfowner = rol.oid
+				UNION ALL
+				SELECT NULL AS object_schema
+					, pub.pubname AS object_name
+					, rol.rolname AS owner
+					, 'PUBLICATIONS' AS object_type
+				FROM pg_catalog.pg_publication AS pub
+				INNER JOIN pg_roles AS rol
+					ON pub.pubowner = rol.oid
 			)
 		SELECT *
 		FROM dbobjects
@@ -228,6 +268,46 @@ BEGIN
 					ON pro.proowner = rol.oid
 				INNER JOIN pg_catalog.pg_namespace nsp
 					ON pro.pronamespace = nsp.oid
+					UNION ALL
+				SELECT NULL AS object_schema
+					, col.collname AS object_name
+					, rol.rolname AS owner
+					, 'COLLATION' AS object_type
+				FROM pg_catalog.pg_collation AS col
+				INNER JOIN pg_roles AS rol
+					ON col.collowner = rol.oid
+				UNION ALL
+				SELECT NULL AS object_schema
+					, con.conname AS object_name
+					, rol.rolname AS owner
+					, 'CONVERSION' AS object_type
+				FROM pg_catalog.pg_conversion AS con
+				INNER JOIN pg_roles AS rol
+					ON con.conowner = rol.oid
+				UNION ALL
+				SELECT NULL AS object_schema
+					, evt.evtname AS object_name
+					, rol.rolname AS owner
+					, 'EVENT TRIGGER' AS object_type
+				FROM pg_catalog.pg_event_trigger AS evt
+				INNER JOIN pg_roles AS rol
+					ON evt.evtowner = rol.oid
+				UNION ALL
+				SELECT NULL AS object_schema
+					, opf.opfname AS object_name
+					, rol.rolname AS owner
+					, 'OPERATION FAMILY' AS object_type
+				FROM pg_catalog.pg_opfamily AS opf
+				INNER JOIN pg_roles AS rol
+					ON opf.opfowner = rol.oid
+				UNION ALL
+				SELECT NULL AS object_schema
+					, pub.pubname AS object_name
+					, rol.rolname AS owner
+					, 'PUBLICATIONS' AS object_type
+				FROM pg_catalog.pg_publication AS pub
+				INNER JOIN pg_roles AS rol
+					ON pub.pubowner = rol.oid
 			)
 		SELECT *
 		FROM dbobjects
