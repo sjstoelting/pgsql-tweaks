@@ -98,7 +98,8 @@ Afterwards you are able to create the extension in a database:
 1.3.3 [VIEW pg_foreign_keys](#view-pg_foreign_keys)<br />
 1.3.4 [VIEW pg_functions](#view-pg_functions)<br />
 1.3.4 [VIEW pg_active_locks](#view-pg_active_locks)<br />
-1.3.5 [VIEW pg_table_matview_infos](#view-pg_table_matview_infos)
+1.3.5 [VIEW pg_table_matview_infos](#view-pg_table_matview_infos)<br />
+1.3.6 [VIEW pg_object_ownership](#view-pg_object_ownership)
 
 1.4 [Functions about encodings](#functions-about-encodings)<br />
 1.4.1 [FUNCTION is_encoding](#function-is_encoding)<br />
@@ -867,6 +868,25 @@ Result:
 | ---- | ---------- | --------- | ---------- | ---------- | ------- | ----------:| ------------:| -------------------:| -----------------:| -------------------:| --------------------------:|
 | table | public | MediaType | stefanie | [NULL] | {PK_MediaType} | 8192 | 16384 | 24576 | 8192 bytes | 16 kB | 24 kB |
 | table | public | Playlist | stefanie | [NULL] | {PK_Playlist} | 8192 | 16384 | 24576 | 8192 bytes | 16 kB | 24 kB |
+
+### VIEW pg_object_ownership
+
+Creates a view with information about the ownership of objects.
+Since PostgreSQL 11 supports procedures, therefore there is one version vor PostgreSQL 10 and older and another one for PostgreSQL 11 and newer.
+
+```sql
+SELECT * FROM pg_object_ownership;
+```
+
+Result:
+
+|  object_schema | object_name | owner | object_type |
+| -------------- | ----------- | ----- | ----------- |
+|  public        | pg_object_ownership | stefanie | VIEW |
+|  public        | gapfillinternal     | stefanie | FUNCTION |
+|  public        | gapfill             | stefanie | AGGREGATE FUNCTION |
+|  public        | to_unix_timestamp   | stefanie | FUNCTION |
+|  public        | to_unix_timestamp   | stefanie | FUNCTION |
 
 ## Functions about encodings
 
