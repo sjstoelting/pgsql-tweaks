@@ -29,7 +29,7 @@ BEGIN
 						WHEN 'i' THEN
 							'INDEX'
 						WHEN 'm' THEN
-							'MATERIALIZED_VIEW'
+							'MATERIALIZED VIEW'
 						WHEN 'p' THEN
 							'PARTITIONED TABLE'
 						WHEN 'r' THEN
@@ -187,7 +187,7 @@ BEGIN
 						WHEN 'i' THEN
 							'INDEX'
 						WHEN 'm' THEN
-							'MATERIALIZED_VIEW'
+							'MATERIALIZED VIEW'
 						WHEN 'p' THEN
 							'PARTITIONED TABLE'
 						WHEN 'r' THEN
