@@ -756,7 +756,8 @@ Result:
 Creates a view to get all views of the current database but excluding system views and all views which do start with "pg" or "\_pg".
 
 ```sql
-SELECT * FROM pg_db_views;
+SELECT *
+FROM pg_db_views;
 ```
 
 | view_catalog | view_schema | view_name               |  view_definition |
@@ -802,7 +803,8 @@ SELECT * FROM pg_db_views;
 Creates a view to get all views of the current database but excluding system views and all views which do start with "pg" or "\_pg".
 
 ```sql
-SELECT * FROM pg_foreign_keys;
+SELECT *
+FROM pg_foreign_keys;
 ```
 
 | table_catalog | table_schema |  table_name   | column_name  | foreign_table_name | foreign_column_name |
@@ -828,7 +830,8 @@ As there have been changes to the system tables used in this view, there are now
 one for PostgreSQL 11 or newer and one for PostgreSQL 10 or older. This is handled in the script that creates the view.
 
 ```sql
-SELECT * FROM pg_functions;
+SELECT *
+FROM pg_functions;
 ```
 
 | schema_name | function_name | returning_data_type | parameters                    | function_type | function_comment                                                      |
@@ -843,7 +846,8 @@ Creates a view to view all live locks with all necessary information about the c
 <span style="color:red">The view needs PostgreSQL 9.2 as minimum version. The column application_name was added in 9.2.</span>
 
 ```sql
-SELECT * FROM pg_active_locks;
+SELECT *
+FROM pg_active_locks;
 ```
 
 Result:
@@ -858,8 +862,38 @@ Result:
 Creates a view with information about the size of the table/materialized view and sizes of indexes on that table/materialized view.
 It does also list all indexes on that table in an array.
 
+#### List of supported object types
+
+| object type | <=10 | >=11 |
+| ----------- |:----:|:----:|
+| PARTITIONED INDEX | | X |
+| SEQUENCE  | X | X |
+| COMPOSITE TYPE | X | X |
+| FOREIGN TABLE | X | X |
+| INDEX | X | X |
+| MATERIALIZED VIEW | X | X |
+| PARTITIONED TABLE | X | X |
+| TABLE | X | X |
+| VIEW | X | X |
+| DATABASE | X | X |
+| EXTENSION | X | X |
+| FOREIGN DATA WRAPPER | X | X |
+| FOREIGN SERVER | X | X |
+| LANGUAGE | X | X |
+| SCHEMA | X | X |
+| OPERATOR CLASS | | X |
+| PROCEDURE | | X |
+| AGGREGATE FUNCTION | | X |
+| WINDOW FUNCTION | | X |
+| COLLATION | X | X |
+| CONVERSION | X | X |
+| EVENT TRIGGER | X | X |
+| OPERATION FAMILY | X | X |
+| PUBLICATIONS | X | X |
+
 ```sql
-SELECT * FROM pg_table_matview_infos;
+SELECT *
+FROM pg_table_matview_infos;
 ```
 
 Result:
@@ -875,7 +909,9 @@ Creates a view with information about the ownership of objects.
 Since PostgreSQL 11 supports procedures, therefore there is one version vor PostgreSQL 10 and older and another one for PostgreSQL 11 and newer.
 
 ```sql
-SELECT * FROM pg_object_ownership;
+SELECT *
+FROM pg_object_ownership
+WHERE owner = 'stefanie';
 ```
 
 Result:
