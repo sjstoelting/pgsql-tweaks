@@ -14,7 +14,8 @@ BEGIN
 		CREATE OR REPLACE VIEW pg_object_ownership AS
 		WITH dbobjects AS
 			(
-				SELECT nsp.nspname AS object_schema
+				SELECT cls.oid
+					, nsp.nspname AS object_schema
 					, cls.relname AS object_name
 					, rol.rolname AS owner
 					, CASE cls.relkind
@@ -29,7 +30,7 @@ BEGIN
 						WHEN 'i' THEN
 							'INDEX'
 						WHEN 'm' THEN
-							'MATERIALIZED VIEW'
+							'MATERIALIZED_VIEW'
 						WHEN 'p' THEN
 							'PARTITIONED TABLE'
 						WHEN 'r' THEN
@@ -45,7 +46,8 @@ BEGIN
 				INNER JOIN pg_catalog.pg_namespace AS nsp
 					ON cls.relnamespace = nsp.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT db.oid
+					, NULL AS object_schema
 					, db.datname AS object_name
 					, rol.rolname AS owner
 					, 'DATABASE' AS object_type
@@ -53,7 +55,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON db.datdba = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT ext.oid
+					, NULL AS object_schema
 					, ext.extname
 					, rol.rolname AS owner
 					, 'EXTENSION' AS object_type
@@ -61,7 +64,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON ext.extowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT fdw.oid
+					, NULL AS object_schema
 					, fdw.fdwname AS object_name
 					, rol.rolname AS owner
 					, 'FOREIGN DATA WRAPPER' AS object_type
@@ -69,7 +73,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON fdw.fdwowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT srv.oid
+					, NULL AS object_schema
 					, srv.srvname AS object_name
 					, rol.rolname AS owner
 					, 'FOREIGN SERVER' AS object_type
@@ -77,7 +82,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON srv.srvowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT lang.oid
+					, NULL AS object_schema
 					, lang.lanname AS object_name
 					, rol.rolname AS owner
 					, 'LANGUAGE' AS object_type
@@ -85,7 +91,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON lang.lanowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT nsp.oid
+					, NULL AS object_schema
 					, nsp.nspname AS object_name
 					, rol.rolname AS owner
 					, 'SCHEMA' AS object_type
@@ -93,15 +100,18 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON nsp.nspowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT opc.oid
+					, NULL AS object_schema
 					, opc.opcname AS object_name
 					, rol.rolname AS owner
 					, 'OPERATOR CLASS' AS object_type
 				FROM pg_catalog.pg_opclass AS opc
 				INNER JOIN pg_roles AS rol
 					ON opc.opcowner = rol.oid
+/*
 				UNION ALL
-				SELECT nsp.nspname AS object_schema
+				SELECT pro.oid
+					, nsp.nspname AS object_schema
 					, pro.proname AS object_name
 					, rol.rolname AS owner
 					, CASE lower(pro.prokind)
@@ -121,8 +131,10 @@ BEGIN
 					ON pro.proowner = rol.oid
 				INNER JOIN pg_catalog.pg_namespace nsp
 					ON pro.pronamespace = nsp.oid
+*/
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT col.oid
+					, NULL AS object_schema
 					, col.collname AS object_name
 					, rol.rolname AS owner
 					, 'COLLATION' AS object_type
@@ -130,15 +142,17 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON col.collowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT con.oid
+					, NULL AS object_schema
 					, con.conname AS object_name
 					, rol.rolname AS owner
 					, 'CONVERSION' AS object_type
 				FROM pg_catalog.pg_conversion AS con
 				INNER JOIN pg_roles AS rol
 					ON con.conowner = rol.oid
-					UNION ALL
-				SELECT NULL AS object_schema
+				UNION ALL
+				SELECT evt.oid
+					, NULL AS object_schema
 					, evt.evtname AS object_name
 					, rol.rolname AS owner
 					, 'EVENT TRIGGER' AS object_type
@@ -146,7 +160,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON evt.evtowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT opf.oid
+					, NULL AS object_schema
 					, opf.opfname AS object_name
 					, rol.rolname AS owner
 					, 'OPERATION FAMILY' AS object_type
@@ -154,7 +169,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON opf.opfowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT pub.oid
+					, NULL AS object_schema
 					, pub.pubname AS object_name
 					, rol.rolname AS owner
 					, 'PUBLICATIONS' AS object_type
@@ -162,8 +178,34 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON pub.pubowner = rol.oid
 			)
-		SELECT *
+		SELECT dbobjects.oid
+			, dbobjects.object_schema
+			, dbobjects.owner
+			, dbobjects.object_type
+			, depend.deptype
+			, CASE depend.deptype
+				WHEN 'n' THEN
+					'DEPENDENCY_NORMAL'
+				WHEN 'a' THEN
+					'DEPENDENCY_AUTO'
+				WHEN 'i' THEN
+					'DEPENDENCY_INTERNAL'
+				WHEN 'P' THEN
+					'DEPENDENCY_PARTITION_PRI'
+				WHEN 'S' THEN
+					'DEPENDENCY_PARTITION_SEC'
+				WHEN 'e' THEN
+					'DEPENDENCY_EXTENSION'
+				WHEN 'x' THEN
+					'DEPENDENCY_EXTENSION'
+				WHEN 'p' THEN
+					'DEPENDENCY_PIN'
+				ELSE
+					'NOT DEFINED, SEE DOCUMENTATION'
+			END AS dependency_type
 		FROM dbobjects
+		LEFT OUTER JOIN pg_catalog.pg_depend AS depend
+			ON dbobjects.oid = depend.objid
 		WHERE object_schema NOT IN ('information_schema', 'pg_catalog')
 			AND object_schema NOT LIKE 'pg_toast%'
 		;
@@ -172,7 +214,8 @@ BEGIN
 		CREATE OR REPLACE VIEW pg_object_ownership AS
 		WITH dbobjects AS
 			(
-				SELECT nsp.nspname AS object_schema
+				SELECT cls.oid
+					, nsp.nspname AS object_schema
 					, cls.relname AS object_name
 					, rol.rolname AS owner
 					, CASE cls.relkind
@@ -187,7 +230,7 @@ BEGIN
 						WHEN 'i' THEN
 							'INDEX'
 						WHEN 'm' THEN
-							'MATERIALIZED VIEW'
+							'MATERIALIZED_VIEW'
 						WHEN 'p' THEN
 							'PARTITIONED TABLE'
 						WHEN 'r' THEN
@@ -203,7 +246,8 @@ BEGIN
 				INNER JOIN pg_catalog.pg_namespace AS nsp
 					ON cls.relnamespace = nsp.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT db.oid
+					, NULL AS object_schema
 					, db.datname AS object_name
 					, rol.rolname AS owner
 					, 'DATABASE' AS object_type
@@ -211,7 +255,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON db.datdba = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT ext.oid
+					, NULL AS object_schema
 					, ext.extname
 					, rol.rolname AS owner
 					, 'EXTENSION' AS object_type
@@ -219,7 +264,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON ext.extowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT fdw.oid
+					, NULL AS object_schema
 					, fdw.fdwname AS object_name
 					, rol.rolname AS owner
 					, 'FOREIGN DATA WRAPPER' AS object_type
@@ -227,7 +273,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON fdw.fdwowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT srv.oid
+					, NULL AS object_schema
 					, srv.srvname AS object_name
 					, rol.rolname AS owner
 					, 'FOREIGN SERVER' AS object_type
@@ -235,7 +282,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON srv.srvowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT lang.oid
+					, NULL AS object_schema
 					, lang.lanname AS object_name
 					, rol.rolname AS owner
 					, 'LANGUAGE' AS object_type
@@ -243,7 +291,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON lang.lanowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT nsp.oid
+					, NULL AS object_schema
 					, nsp.nspname AS object_name
 					, rol.rolname AS owner
 					, 'SCHEMA' AS object_type
@@ -251,7 +300,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON nsp.nspowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT opc.oid
+					, NULL AS object_schema
 					, opc.opcname AS object_name
 					, rol.rolname AS owner
 					, 'OPERATOR CLASS' AS object_type
@@ -259,17 +309,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON opc.opcowner = rol.oid
 				UNION ALL
-				SELECT nsp.nspname AS object_schema
-					, pro.proname AS object_name
-					, rol.rolname AS owner
-					, 'FUNCTION' AS object_type
-				FROM pg_catalog.pg_proc AS pro
-				INNER JOIN pg_roles AS rol
-					ON pro.proowner = rol.oid
-				INNER JOIN pg_catalog.pg_namespace nsp
-					ON pro.pronamespace = nsp.oid
-					UNION ALL
-				SELECT NULL AS object_schema
+				SELECT col.oid
+					, NULL AS object_schema
 					, col.collname AS object_name
 					, rol.rolname AS owner
 					, 'COLLATION' AS object_type
@@ -277,7 +318,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON col.collowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT con.oid
+					, NULL AS object_schema
 					, con.conname AS object_name
 					, rol.rolname AS owner
 					, 'CONVERSION' AS object_type
@@ -285,7 +327,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON con.conowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT evt.oid
+					, NULL AS object_schema
 					, evt.evtname AS object_name
 					, rol.rolname AS owner
 					, 'EVENT TRIGGER' AS object_type
@@ -293,7 +336,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON evt.evtowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT opf.oid
+					, NULL AS object_schema
 					, opf.opfname AS object_name
 					, rol.rolname AS owner
 					, 'OPERATION FAMILY' AS object_type
@@ -301,7 +345,8 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON opf.opfowner = rol.oid
 				UNION ALL
-				SELECT NULL AS object_schema
+				SELECT pub.oid
+					, NULL AS object_schema
 					, pub.pubname AS object_name
 					, rol.rolname AS owner
 					, 'PUBLICATIONS' AS object_type
@@ -309,8 +354,34 @@ BEGIN
 				INNER JOIN pg_roles AS rol
 					ON pub.pubowner = rol.oid
 			)
-		SELECT *
+		SELECT dbobjects.oid
+			, dbobjects.object_schema
+			, dbobjects.owner
+			, dbobjects.object_type
+			, depend.deptype
+			, CASE depend.deptype
+				WHEN 'n' THEN
+					'DEPENDENCY_NORMAL'
+				WHEN 'a' THEN
+					'DEPENDENCY_AUTO'
+				WHEN 'i' THEN
+					'DEPENDENCY_INTERNAL'
+				WHEN 'P' THEN
+					'DEPENDENCY_PARTITION_PRI'
+				WHEN 'S' THEN
+					'DEPENDENCY_PARTITION_SEC'
+				WHEN 'e' THEN
+					'DEPENDENCY_EXTENSION'
+				WHEN 'x' THEN
+					'DEPENDENCY_EXTENSION'
+				WHEN 'p' THEN
+					'DEPENDENCY_PIN'
+				ELSE
+					'NOT DEFINED, SEE DOCUMENTATION'
+			END AS dependency_type
 		FROM dbobjects
+		LEFT OUTER JOIN pg_catalog.pg_depend AS depend
+			ON dbobjects.oid = depend.objid
 		WHERE object_schema NOT IN ('information_schema', 'pg_catalog')
 			AND object_schema NOT LIKE 'pg_toast%'
 		;

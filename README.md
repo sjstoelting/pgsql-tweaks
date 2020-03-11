@@ -916,13 +916,13 @@ WHERE owner = 'stefanie';
 
 Result:
 
-|  object_schema | object_name | owner | object_type |
-| -------------- | ----------- | ----- | ----------- |
-|  public        | pg_object_ownership | stefanie | VIEW |
-|  public        | gapfillinternal     | stefanie | FUNCTION |
-|  public        | gapfill             | stefanie | AGGREGATE FUNCTION |
-|  public        | to_unix_timestamp   | stefanie | FUNCTION |
-|  public        | to_unix_timestamp   | stefanie | FUNCTION |
+| oid |  object_schema | object_name | owner | object_type | deptype | dependency_type |
+| ---:| -------------- | ----------- | ----- | ----------- |:-------:| --------------- |
+| 17078 | public | pg_object_ownership | stefanie | VIEW | n | DEPENDENCY_NORMAL |
+| 17079 | public | gapfillinternal | stefanie | FUNCTION | n | DEPENDENCY_NORMAL |
+| 18028 | public | gapfill | stefanie | AGGREGATE FUNCTION | n | DEPENDENCY_NORMAL |
+| 18039 | public | to_unix_timestamp | stefanie | FUNCTION | n | DEPENDENCY_NORMAL |
+| 18068 | public | to_unix_timestamp | stefanie | FUNCTION | n | DEPENDENCY_NORMAL |
 
 ## Functions about encodings
 
