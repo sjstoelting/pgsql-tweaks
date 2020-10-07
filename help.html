@@ -71,7 +71,8 @@ make install</pre></div>
 1.3.3 <a href="#user-content-view-pg_foreign_keys">VIEW pg_foreign_keys</a><br>
 1.3.4 <a href="#user-content-view-pg_functions">VIEW pg_functions</a><br>
 1.3.4 <a href="#user-content-view-pg_active_locks">VIEW pg_active_locks</a><br>
-1.3.5 <a href="#user-content-view-pg_table_matview_infos">VIEW pg_table_matview_infos</a></p>
+1.3.5 <a href="#user-content-view-pg_table_matview_infos">VIEW pg_table_matview_infos</a><br>
+1.3.6 <a href="#user-content-view-pg_object_ownership">VIEW pg_object_ownership</a></p>
 <p>1.4 <a href="#user-content-functions-about-encodings">Functions about encodings</a><br>
 1.4.1 <a href="#user-content-function-is_encoding">FUNCTION is_encoding</a><br>
 1.4.2 <a href="#user-content-function-is_latin1">FUNCTION is_latin1</a><br>
@@ -846,8 +847,8 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 <a id="user-content-function-sha256" class="anchor" href="#function-sha256" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION sha256</h3>
 <p>Creates a function which returns a SHA256 hash for the given string.<br>
 The parameter has to be converted into a binary string of <a href="https://www.postgresql.org/docs/current/static/datatype-binary.html" rel="nofollow">bytea</a>.
-<g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji><span>The function needs the <a href="https://www.postgresql.org/docs/current/static/pgcrypto.html" rel="nofollow">pgcrypto</a> package</span><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji></p>
-<p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji>This function has an external dependency and is only installed, if the package pgcrypto is installed<g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗️</g-emoji></p>
+<g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji><span>The function needs the <a href="https://www.postgresql.org/docs/current/static/pgcrypto.html" rel="nofollow">pgcrypto</a> package</span><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji></p>
+<p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji>This function has an external dependency and is only installed, if the package pgcrypto is installed<g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji></p>
 <h4>
 <a id="user-content-example-1" class="anchor" href="#example-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> sha256(<span class="pl-s"><span class="pl-pds">'</span>test-string<span class="pl-pds">'</span></span>::<span class="pl-k">bytea</span>) <span class="pl-k">AS</span> res;</pre></div>
@@ -904,7 +905,8 @@ The parameter has to be converted into a binary string of <a href="https://www.p
 <h3>
 <a id="user-content-view-pg_db_views" class="anchor" href="#view-pg_db_views" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_db_views</h3>
 <p>Creates a view to get all views of the current database but excluding system views and all views which do start with "pg" or "_pg".</p>
-<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span> <span class="pl-k">FROM</span> pg_db_views;</pre></div>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
+<span class="pl-k">FROM</span> pg_db_views;</pre></div>
 <table>
 <thead>
 <tr>
@@ -1118,7 +1120,8 @@ The parameter has to be converted into a binary string of <a href="https://www.p
 <h3>
 <a id="user-content-view-pg_foreign_keys" class="anchor" href="#view-pg_foreign_keys" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_foreign_keys</h3>
 <p>Creates a view to get all views of the current database but excluding system views and all views which do start with "pg" or "_pg".</p>
-<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span> <span class="pl-k">FROM</span> pg_foreign_keys;</pre></div>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
+<span class="pl-k">FROM</span> pg_foreign_keys;</pre></div>
 <table>
 <thead>
 <tr>
@@ -1226,7 +1229,8 @@ The parameter has to be converted into a binary string of <a href="https://www.p
 <p>Creates a view to get all functions of the current database, excluding those in the schema pg_catalog and information_schema.</p>
 <p>As there have been changes to the system tables used in this view, there are now two scripts dependend on the PostgreSQL version on which it has to be used,
 one for PostgreSQL 11 or newer and one for PostgreSQL 10 or older. This is handled in the script that creates the view.</p>
-<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span> <span class="pl-k">FROM</span> pg_functions;</pre></div>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
+<span class="pl-k">FROM</span> pg_functions;</pre></div>
 <table>
 <thead>
 <tr>
@@ -1261,7 +1265,8 @@ one for PostgreSQL 11 or newer and one for PostgreSQL 10 or older. This is handl
 <a id="user-content-view-pg_active_locks" class="anchor" href="#view-pg_active_locks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_active_locks</h3>
 <p>Creates a view to view all live locks with all necessary information about the connections and the query.<br>
 <span>The view needs PostgreSQL 9.2 as minimum version. The column application_name was added in 9.2.</span></p>
-<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span> <span class="pl-k">FROM</span> pg_active_locks;</pre></div>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
+<span class="pl-k">FROM</span> pg_active_locks;</pre></div>
 <p>Result:</p>
 <table>
 <thead>
@@ -1315,7 +1320,141 @@ one for PostgreSQL 11 or newer and one for PostgreSQL 10 or older. This is handl
 <a id="user-content-view-pg_table_matview_infos" class="anchor" href="#view-pg_table_matview_infos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_table_matview_infos</h3>
 <p>Creates a view with information about the size of the table/materialized view and sizes of indexes on that table/materialized view.
 It does also list all indexes on that table in an array.</p>
-<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span> <span class="pl-k">FROM</span> pg_table_matview_infos;</pre></div>
+<h4>
+<a id="user-content-list-of-supported-object-types" class="anchor" href="#list-of-supported-object-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List of supported object types</h4>
+<table>
+<thead>
+<tr>
+<th>object type</th>
+<th align="center">&lt;=10</th>
+<th align="center">&gt;=11</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PARTITIONED INDEX</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>SEQUENCE</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>COMPOSITE TYPE</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>FOREIGN TABLE</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>INDEX</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>MATERIALIZED VIEW</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>PARTITIONED TABLE</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>TABLE</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>VIEW</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>DATABASE</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>EXTENSION</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>FOREIGN DATA WRAPPER</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>FOREIGN SERVER</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>LANGUAGE</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>SCHEMA</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>OPERATOR CLASS</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>PROCEDURE</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>AGGREGATE FUNCTION</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>WINDOW FUNCTION</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>COLLATION</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>CONVERSION</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>EVENT TRIGGER</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>OPERATION FAMILY</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>PUBLICATIONS</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
+<span class="pl-k">FROM</span> pg_table_matview_infos;</pre></div>
 <p>Result:</p>
 <table>
 <thead>
@@ -1362,6 +1501,74 @@ It does also list all indexes on that table in an array.</p>
 <td align="right">8192 bytes</td>
 <td align="right">16 kB</td>
 <td align="right">24 kB</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="user-content-view-pg_object_ownership" class="anchor" href="#view-pg_object_ownership" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_object_ownership</h3>
+<p>Creates a view with information about the ownership of objects.
+Since PostgreSQL 11 supports procedures, therefore there is one version vor PostgreSQL 10 and older and another one for PostgreSQL 11 and newer.</p>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
+<span class="pl-k">FROM</span> pg_object_ownership
+<span class="pl-k">WHERE</span> owner <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>stefanie<span class="pl-pds">'</span></span>;</pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="right">oid</th>
+<th>object_schema</th>
+<th>object_name</th>
+<th>owner</th>
+<th>object_type</th>
+<th align="center">deptype</th>
+<th>dependency_type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">17078</td>
+<td>public</td>
+<td>pg_object_ownership</td>
+<td>stefanie</td>
+<td>VIEW</td>
+<td align="center">n</td>
+<td>DEPENDENCY_NORMAL</td>
+</tr>
+<tr>
+<td align="right">17079</td>
+<td>public</td>
+<td>gapfillinternal</td>
+<td>stefanie</td>
+<td>FUNCTION</td>
+<td align="center">n</td>
+<td>DEPENDENCY_NORMAL</td>
+</tr>
+<tr>
+<td align="right">18028</td>
+<td>public</td>
+<td>gapfill</td>
+<td>stefanie</td>
+<td>AGGREGATE FUNCTION</td>
+<td align="center">n</td>
+<td>DEPENDENCY_NORMAL</td>
+</tr>
+<tr>
+<td align="right">18039</td>
+<td>public</td>
+<td>to_unix_timestamp</td>
+<td>stefanie</td>
+<td>FUNCTION</td>
+<td align="center">n</td>
+<td>DEPENDENCY_NORMAL</td>
+</tr>
+<tr>
+<td align="right">18068</td>
+<td>public</td>
+<td>to_unix_timestamp</td>
+<td>stefanie</td>
+<td>FUNCTION</td>
+<td align="center">n</td>
+<td>DEPENDENCY_NORMAL</td>
 </tr>
 </tbody>
 </table>
