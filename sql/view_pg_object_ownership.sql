@@ -108,7 +108,6 @@ BEGIN
 				FROM pg_catalog.pg_opclass AS opc
 				INNER JOIN pg_roles AS rol
 					ON opc.opcowner = rol.oid
-/*
 				UNION ALL
 				SELECT pro.oid
 					, nsp.nspname AS object_schema
@@ -131,7 +130,7 @@ BEGIN
 					ON pro.proowner = rol.oid
 				INNER JOIN pg_catalog.pg_namespace nsp
 					ON pro.pronamespace = nsp.oid
-*/
+					WHERE nsp.nspname NOT IN ('pg_catalog', 'information_schema')
 				UNION ALL
 				SELECT col.oid
 					, NULL AS object_schema
