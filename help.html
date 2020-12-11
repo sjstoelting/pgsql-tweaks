@@ -62,7 +62,8 @@ make install</pre></div>
 1.1.10 <a href="#user-content-function-is_boolean">FUNCTION is_boolean</a><br>
 1.1.11 <a href="#user-content-function-is_json">FUNCTION is_json</a><br>
 1.1.12 <a href="#user-content-function-is_jsonb">FUNCTION is_jsonb</a><br>
-1.1.13 <a href="#user-content-function-is_empty">FUNCTION is_empty</a></p>
+1.1.13 <a href="#user-content-function-is_empty">FUNCTION is_empty</a>
+1.1.14 <a href="#user-content-function-is_hex">FUNCTION is_hex</a></p>
 <p>1.2 <a href="#user-content-functions-about-encryption">Functions about encryption</a><br>
 1.2.1 <a href="#user-content-function-sha256">FUNCTION sha256</a></p>
 <p>1.3 <a href="#user-content-functions-and-views-to-get-extended-system-information">Functions and views to get extended system information</a><br>
@@ -96,7 +97,8 @@ make install</pre></div>
 1.6.1 <a href="#user-content-function-date_de">FUNCTION date_de</a><br>
 1.6.2 <a href="#user-content-function-datetime_de">FUNCTION datetime_de</a></p>
 <p>1.7 <a href="#user-content-conversion-functions">Conversion functions</a><br>
-1.7.1 <a href="#user-content-function-to_unix_timestamp">FUNCTION to_unix_timestamp</a></p>
+1.7.1 <a href="#user-content-function-to_unix_timestamp">FUNCTION to_unix_timestamp</a>
+1.7.2 <a href="#user-content-hex2bigint">FUNCTION hex2bigint</a></p>
 <p>1.8 <a href="#user-content-other-functions">Other functions</a><br>
 1.8.1 <a href="#user-content-function-array_trim">FUNCTION array_trim</a></p>
 <h1>
@@ -841,6 +843,57 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
+<h3>
+<a id="user-content-function-is_hex" class="anchor" href="#function-is_hex" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_hex</h3>
+<p>The function checks a string variable for being a hexadecimal number being a
+bigint.</p>
+<h4>
+<a id="user-content-examples-12" class="anchor" href="#examples-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_hex(<span class="pl-s"><span class="pl-pds">'</span>a1b0<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is true</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">t</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_hex(<span class="pl-s"><span class="pl-pds">'</span>a1b0w<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is false</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">f</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_hex(<span class="pl-s"><span class="pl-pds">'</span>a1b0c3c3c3c4b5d3<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is false (does not fit into a bigint)</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">f</td>
+</tr>
+</tbody>
+</table>
 <h2>
 <a id="user-content-functions-about-encryption" class="anchor" href="#functions-about-encryption" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions about encryption</h2>
 <h3>
@@ -871,7 +924,7 @@ The parameter has to be converted into a binary string of <a href="https://www.p
 <a id="user-content-function-pg_schema_size" class="anchor" href="#function-pg_schema_size" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION pg_schema_size</h3>
 <p>The function returns the size for schema given as parameter in bytes.</p>
 <h4>
-<a id="user-content-examples-12" class="anchor" href="#examples-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-13" class="anchor" href="#examples-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Returns the size of the schema public in bytes</span>
 <span class="pl-k">SELECT</span> pg_schema_size(<span class="pl-s"><span class="pl-pds">'</span>public<span class="pl-pds">'</span></span>);</pre></div>
 <p>Result:</p>
@@ -1582,7 +1635,7 @@ encodings than the database encoding.</p>
 <p>The function with two parameters uses UTF-8 as source encoding,<br>
 The one with three parameters uses the third parameter as source encoding.</p>
 <h4>
-<a id="user-content-examples-13" class="anchor" href="#examples-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-14" class="anchor" href="#examples-14" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_encoding(<span class="pl-s"><span class="pl-pds">'</span>Some characters<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>LATIN1<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
@@ -1646,7 +1699,7 @@ The one with three parameters uses the third parameter as source encoding.</p>
 <p>The function is a shortcut for is_encoding('Some characters', 'LATIN1'), you
 don't have to give the target encoding.</p>
 <h4>
-<a id="user-content-examples-14" class="anchor" href="#examples-14" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-15" class="anchor" href="#examples-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_latin1(<span class="pl-s"><span class="pl-pds">'</span>Some characters<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
@@ -2007,7 +2060,7 @@ to show the last value in case the current value is null.</p>
 <p>Calculate minimum values from arrays.</p>
 <p>Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, NUMERIC, and TEXT;</p>
 <h4>
-<a id="user-content-examples-15" class="anchor" href="#examples-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-16" class="anchor" href="#examples-16" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> array_min(ARRAY[<span class="pl-c1">45</span>, <span class="pl-c1">60</span>, <span class="pl-c1">43</span>, <span class="pl-c1">99</span>]::<span class="pl-k">SMALLINT</span>[]);</pre></div>
 <p>Result:</p>
 <table>
@@ -2111,7 +2164,7 @@ to show the last value in case the current value is null.</p>
 <p>Calculate minimum values from arrays.</p>
 <p>Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, NUMERIC, and TEXT;</p>
 <h4>
-<a id="user-content-examples-16" class="anchor" href="#examples-16" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-17" class="anchor" href="#examples-17" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> array_max(ARRAY[<span class="pl-c1">45</span>, <span class="pl-c1">60</span>, <span class="pl-c1">43</span>, <span class="pl-c1">99</span>]::<span class="pl-k">SMALLINT</span>[]);</pre></div>
 <p>Result:</p>
 <table>
@@ -2215,7 +2268,7 @@ to show the last value in case the current value is null.</p>
 <p>Calculate average values from arrays.</p>
 <p>Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, and NUMERIC;</p>
 <h4>
-<a id="user-content-examples-17" class="anchor" href="#examples-17" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-18" class="anchor" href="#examples-18" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> array_avg(ARRAY[<span class="pl-c1">45</span>, <span class="pl-c1">60</span>, <span class="pl-c1">43</span>, <span class="pl-c1">99</span>]::<span class="pl-k">SMALLINT</span>[]);</pre></div>
 <p>Result:</p>
 <table>
@@ -2305,7 +2358,7 @@ to show the last value in case the current value is null.</p>
 <p>Calculate sum of values from arrays.</p>
 <p>Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, and, NUMERIC;</p>
 <h4>
-<a id="user-content-examples-18" class="anchor" href="#examples-18" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-19" class="anchor" href="#examples-19" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> array_sum(ARRAY[<span class="pl-c1">45</span>, <span class="pl-c1">60</span>, <span class="pl-c1">43</span>, <span class="pl-c1">99</span>]::<span class="pl-k">SMALLINT</span>[]);</pre></div>
 <p>Result:</p>
 <table>
@@ -2442,7 +2495,7 @@ codes which differ in different programming languages.</p>
 <p>Creates two functions which returns unix timestamp for the a given timestamp or
 a given timestamp with time zone.</p>
 <h4>
-<a id="user-content-examples-19" class="anchor" href="#examples-19" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-20" class="anchor" href="#examples-20" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Timestamp without time zone, server uses German / Berlin time zone</span>
 <span class="pl-k">SELECT</span> to_unix_timestamp(<span class="pl-s"><span class="pl-pds">'</span>2018-01-01 00:00:00<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> unix_timestamp;</pre></div>
 <p>Result:</p>
@@ -2473,6 +2526,25 @@ a given timestamp with time zone.</p>
 </tr>
 </tbody>
 </table>
+<h3>
+<a id="user-content-function-hex2bigint" class="anchor" href="#function-hex2bigint" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION hex2bigint</h3>
+<p>Creates a functions which returns a hexadecimal number given as text as bigint.</p>
+<h5>
+<a id="user-content-example-13" class="anchor" href="#example-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> hex2bigint(<span class="pl-s"><span class="pl-pds">'</span>a1b0<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> hex_as_bigint;</pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">hex_as_bigint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">41392</td>
+</tr>
+</tbody>
+</table>
 <h2>
 <a id="user-content-other-functions" class="anchor" href="#other-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other functions</h2>
 <h3>
@@ -2481,7 +2553,7 @@ a given timestamp with time zone.</p>
 function can remove duplicate entries. The function supports strings, numbers,
 dates, and timestamps with or without time zone.</p>
 <h4>
-<a id="user-content-examples-20" class="anchor" href="#examples-20" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-21" class="anchor" href="#examples-21" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Untrimmed timestamp array with time zone with duplicates</span>
 <span class="pl-k">SELECT</span> array_trim(ARRAY[<span class="pl-s"><span class="pl-pds">'</span>2018-11-11 11:00:00 MEZ<span class="pl-pds">'</span></span>,<span class="pl-k">NULL</span>,<span class="pl-s"><span class="pl-pds">'</span>2018-11-11 11:00:00 MEZ<span class="pl-pds">'</span></span>]::<span class="pl-k">TIMESTAMP WITH TIME ZONE</span>[]) <span class="pl-k">AS</span> trimmed_array;</pre></div>
 <p>Result:</p>

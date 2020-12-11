@@ -88,6 +88,7 @@ Afterwards you are able to create the extension in a database:
 1.1.11 [FUNCTION is_json](#FUNCTION.is_json)<br />
 1.1.12 [FUNCTION is_jsonb](#FUNCTION.is_jsonb)<br />
 1.1.13 [FUNCTION is_empty](#FUNCTION.is_empty)
+1.1.14 [FUNCTION is_hex](#FUNCTION.is_hex)
 
 1.2 [Functions about encryption](#Functions.about encryption)<br />
 1.2.1 [FUNCTION sha256](#FUNCTION.sha256)
@@ -128,6 +129,7 @@ Afterwards you are able to create the extension in a database:
 
 1.7 [Conversion functions](#Conversion.functions)<br />
 1.7.1 [FUNCTION to_unix_timestamp](#FUNCTION.to_unix_timestamp)
+1.7.2 [FUNCTION hex2bigint](#FUNCTION.hex2bigint
 
 1.8 [Other functions](#Other.functions)<br />
 1.8.1 [FUNCTION array_trim](#FUNCTION.array_trim)
@@ -696,6 +698,48 @@ Result:
 | res |
 |:---:|
 | t   |
+
+### FUNCTION is_hex
+
+The function checks a string variable for being a hexadecimal number being a
+bigint.
+
+
+#### Examples
+
+```sql
+SELECT is_hex('a1b0') AS res;
+-- Result is true
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_hex('a1b0w') AS res;
+-- Result is false
+```
+
+Result:
+
+| res |
+|:---:|
+| f   |
+
+```sql
+SELECT is_hex('a1b0c3c3c3c4b5d3') AS res;
+-- Result is false (does not fit into a bigint)
+```
+
+Result:
+
+| res |
+|:---:|
+| f   |
+
 
 
 ## Functions about encryption
@@ -1602,6 +1646,22 @@ Result:
 | unix_timestamp |
 | --------------:|
 |     1514761200 |
+
+### FUNCTION hex2bigint
+
+Creates a functions which returns a hexadecimal number given as text as bigint.
+
+##### Example
+
+```sql
+SELECT hex2bigint('a1b0') AS hex_as_bigint;
+```
+
+Result:
+
+| hex_as_bigint|
+|:------------:|
+|        41392 |
 
 ## Other functions
 
