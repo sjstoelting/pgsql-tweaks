@@ -103,6 +103,8 @@ echo 'DROP FUNCTION IF EXISTS is_time(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_date(s VARCHAR, f VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_json(s VARCHAR);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_jsonb(s VARCHAR);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_hex(s TEXT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS hex2bigint(s TEXT);' >> $FILENAME
 
 echo '' >> $FILENAME
 echo 'END;' >> $FILENAME
@@ -152,6 +154,8 @@ declare -a SQLFILES=(
   "function_array_trim"
   "view_pg_active_locks"
   "view_pg_object_ownership"
+  "function_hex2bigint"
+  "function_is_hex"
   )
 arraylength=${#SQLFILES[@]}
 
