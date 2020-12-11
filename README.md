@@ -88,6 +88,7 @@ Afterwards you are able to create the extension in a database:
 1.1.11 [FUNCTION is_json](#function-is_json)<br />
 1.1.12 [FUNCTION is_jsonb](#function-is_jsonb)<br />
 1.1.13 [FUNCTION is_empty](#function-is_empty)
+1.1.14 [FUNCTION is_hex](#function-is_hex)
 
 1.2 [Functions about encryption](#functions-about-encryption)<br />
 1.2.1 [FUNCTION sha256](#function-sha256)
@@ -697,6 +698,48 @@ Result:
 | res |
 |:---:|
 | t   |
+
+### FUNCTION is_hex
+
+The function checks a string variable for being a hexadecimal number being a
+bigint.
+
+
+#### Examples
+
+```sql
+SELECT is_hex('a1b0') AS res;
+-- Result is true
+```
+
+Result:
+
+| res |
+|:---:|
+| t   |
+
+```sql
+SELECT is_hex('a1b0w') AS res;
+-- Result is false
+```
+
+Result:
+
+| res |
+|:---:|
+| f   |
+
+```sql
+SELECT is_hex('a1b0c3c3c3c4b5d3') AS res;
+-- Result is false (does not fit into a bigint)
+```
+
+Result:
+
+| res |
+|:---:|
+| f   |
+
 
 
 ## Functions about encryption
@@ -1606,7 +1649,7 @@ Result:
 
 ### FUNCTION hex2bigint
 
-Creates a functions which returns a hexadicimal number given as text as bigint.
+Creates a functions which returns a hexadecimal number given as text as bigint.
 
 ##### Example
 
