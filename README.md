@@ -531,7 +531,7 @@ The function checks a string variable for containing valid BOOLEAN values.
 #### Examples
 
 ```sql
-SELECT is_boolean('t');
+SELECT is_boolean('t') AS res;
 -- Result is true
 ```
 
@@ -542,7 +542,7 @@ Result:
 | t   |
 
 ```sql
-SELECT is_boolean('F');
+SELECT is_boolean('F') AS res;
 -- Result is true
 ```
 
@@ -553,7 +553,7 @@ Result:
 | t   |
 
 ```sql
-SELECT is_boolean('True');
+SELECT is_boolean('True') AS res;
 -- Result is true
 ```
 
@@ -575,7 +575,7 @@ Result:
 | t   |
 
 ```sql
-SELECT is_boolean('0');
+SELECT is_boolean('0') AS res;
 -- Result is true
 ```
 
@@ -586,7 +586,7 @@ Result:
 | t   |
 
 ```sql
-SELECT is_boolean('1');
+SELECT is_boolean('1') AS res;
 -- Result is true
 ```
 
@@ -597,7 +597,7 @@ Result:
 | t   |
 
 ```sql
-SELECT is_boolean('-1');
+SELECT is_boolean('-1') AS res;
 -- Result is false
 ```
 
@@ -625,7 +625,7 @@ Result:
 | t   |
 
 ```sql
-SELECT is_json('Not a JSON') AS
+SELECT is_json('Not a JSON') AS res
 ```
 
 Result:
@@ -651,7 +651,7 @@ Result:
 | t   |
 
 ```sql
-SELECT is_jsonb('Not a JSONB') AS
+SELECT is_jsonb('Not a JSONB') AS res
 ```
 
 Result:
@@ -667,7 +667,7 @@ The function checks a string variable for being either, NULL or ''.
 #### Examples
 
 ```sql
-SELECT is_empty('abc');
+SELECT is_empty('abc') AS res;
 -- Result is false
 ```
 
@@ -678,7 +678,7 @@ Result:
 | f   |
 
 ```sql
-SELECT is_empty('');
+SELECT is_empty('') AS res;
 -- Result is true
 ```
 
@@ -689,7 +689,7 @@ Result:
 | t   |
 
 ```sql
-SELECT is_empty(NULL);
+SELECT is_empty(NULL) AS res;
 -- Result is true
 ```
 
