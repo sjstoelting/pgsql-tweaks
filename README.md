@@ -106,14 +106,14 @@ Afterwards you are able to create the extension in a database:
 1.4.2 [FUNCTION is_latin1](#function-is_latin1)<br />
 1.4.3 [FUNCTION return_not_part_of_latin1](#function-return_not_part_of_latin1)<br />
 1.4.4 [FUNCTION replace_latin1](#function-replace_latin1)<br />
-1.4.4.1 [replace_latin1\(s VARCHAR\)](#replace_latin1-s-varchar-)<br />
-1.4.4.2 [replace_latin1\(s VARCHAR, replacement VARCHAR\)](#replace_latin1-s-varchar-replacement-varchar-)<br />
-1.4.4.3 [replace_latin1\(s VARCHAR, s_search VARCHAR\[\], s_replace VARCHAR\[\]\)](#replace_latin1-s-varchar-s_search-varchar-s_replace-varchar-)<br />
+1.4.4.1 [replace_latin1\(s text\)](#replace_latin1-s-text-)<br />
+1.4.4.2 [replace_latin1\(s text, replacement text\)](#replace_latin1-s-text-replacement-text-)<br />
+1.4.4.3 [replace_latin1\(s text, s_search text\[\], s_replace text\[\]\)](#replace_latin1-s-text-s_search-text-s_replace-text-)<br />
 1.4.5 [FUNCTION return_not_part_of_encoding](#function-return_not_part_of_encoding)<br />
 1.4.6 [FUNCTION replace_encoding](#function-replace_encoding)<br />
-1.4.6.1 [replace_encoding\(s VARCHAR, e VARCHAR\)](#replace_encoding-s-varchar-e-varchar-)<br />
-1.4.6.2 [replace_encoding\(s VARCHAR, e VARCHAR, replacement VARCHAR\)](#replace_encoding-s-varchar-e-varchar-replacement-varchar-)<br />
-1.4.6.3 [replace_encoding\(s VARCHAR, s_search VARCHAR\[\], s_replace VARCHAR\[\]\)](#replace_encoding-s-varchar-s_search-varchar-s_replace-varchar-)
+1.4.6.1 [replace_encoding\(s text, e text\)](#replace_encoding-s-text-e-text-)<br />
+1.4.6.2 [replace_encoding\(s text, e text, replacement text\)](#replace_encoding-s-text-e-text-replacement-text-)<br />
+1.4.6.3 [replace_encoding\(s text, s_search text\[\], s_replace text\[\]\)](#replace_encoding-s-text-s_search-text-s_replace-text-)
 
 1.5 [User defined aggregates](#user-defined-aggregates)<br />
 1.5.1 [AGGREGATE gap_fill](#aggregate-gap_fill)<br />
@@ -1030,7 +1030,7 @@ Result:
 
 The function has three implementations. All implementations <span style="color:red">depend on the function is_latin1</span>, the function is included in this repository.
 
-#### replace_latin1(s VARCHAR)
+#### replace_latin1(s text)
 
 The function takes one parameter with characters to be checked and replaced with
 an empty string, if they are not part of latin1.
@@ -1047,7 +1047,7 @@ Result:
 | ------------------------------------------- |
 | Some characters,  is Turkish and not latin1 |
 
-#### replace_latin1(s VARCHAR, replacement VARCHAR)
+#### replace_latin1(s text, replacement text)
 The function takes a second parameter which is used to replace _all_ characters,
 which are not part of latin1.
 
@@ -1066,7 +1066,7 @@ Result:
 | ------------------------------------------------------------------ |
 | Some characters, g is Turkish and not latin1 and replaced with a g |
 
-#### replace_latin1(s VARCHAR, s_search VARCHAR[], s_replace VARCHAR[])
+#### replace_latin1(s text, s_search text[], s_replace text[])
 
 The function takes as first parameter a string which may or may not have none
 latin1 characters. The second parameter is an arrays containing all characters,
@@ -1118,7 +1118,7 @@ Result:
 
 The function has three implementations. All implementations <span style="color:red">depend on the function is_encoding</span>, the function is included in this repository.
 
-#### replace_encoding(s VARCHAR, e VARCHAR)
+#### replace_encoding(s text, e text)
 
 The function takes one parameter with characters to be checked and replaced with
 an empty string, if they are not part of the encoding given in the second
@@ -1139,7 +1139,7 @@ Result:
 | ------------------------------------------- |
 | Some characters,  is Turkish and not latin1 |
 
-#### replace_encoding(s VARCHAR, e VARCHAR, replacement VARCHAR)
+#### replace_encoding(s text, e text, replacement text)
 The function takes a third parameter which is used to replace _all_ characters
 which are not part of the encoding given in parameter 2.
 
@@ -1159,7 +1159,7 @@ Result:
 | ------------------------------------------------------------------ |
 | Some characters, g is Turkish and not latin1 and replaced with a g |
 
-#### replace_encoding(s VARCHAR, s_search VARCHAR[], s_replace VARCHAR[])
+#### replace_encoding(s text, s_search text[], s_replace text[])
 
 The function takes as first parameter a string which may or may not have none
 latin1 characters. The second parameter is an arrays containing all characters,
@@ -1200,7 +1200,7 @@ to show the last value in case the current value is null.
 ```sql
 BEGIN;
 
-CREATE TABLE test_gap_fill(id INTEGER, some_value VARCHAR);
+CREATE TABLE test_gap_fill(id INTEGER, some_value text);
 
 INSERT INTO test_gap_fill(id, some_value) VALUES
   (1, 'value 1'),
@@ -1234,7 +1234,7 @@ Result:
 ```sql
 BEGIN;
 
-CREATE TABLE test_gap_fill(id INTEGER, some_value VARCHAR);
+CREATE TABLE test_gap_fill(id INTEGER, some_value text);
 
 INSERT INTO test_gap_fill(id, some_value) VALUES
   (1, 'value 1'),

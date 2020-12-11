@@ -25,7 +25,7 @@ FROM test
 
 -- Prevent no result because of an empty database without any tables
 -- Create at table
-CREATE TABLE test_pg_schema_size(id INTEGER, some_value VARCHAR);
+CREATE TABLE test_pg_schema_size(id INTEGER, some_value text);
 
 -- Insert some data
 INSERT INTO test_pg_schema_size(id, some_value) VALUES

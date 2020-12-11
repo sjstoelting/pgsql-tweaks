@@ -1,7 +1,7 @@
 /**
  * Creates a function to check strings for being INTEGER.
  */
-CREATE OR REPLACE FUNCTION is_real(s VARCHAR) RETURNS BOOLEAN AS $$
+CREATE OR REPLACE FUNCTION is_real(s text) RETURNS BOOLEAN AS $$
 BEGIN
 	PERFORM s::REAL;
 	RETURN TRUE;
@@ -12,4 +12,4 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION is_real(s VARCHAR) IS 'Checks, whether the given parameter is a REAL';
+COMMENT ON FUNCTION is_real(s text) IS 'Checks, whether the given parameter is a REAL';

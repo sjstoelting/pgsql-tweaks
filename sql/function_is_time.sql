@@ -3,7 +3,7 @@
  * The first function checks it with the default format, the second with the
  * format given as parameter.
  */
-CREATE OR REPLACE FUNCTION is_time(s VARCHAR) RETURNS BOOLEAN AS $$
+CREATE OR REPLACE FUNCTION is_time(s text) RETURNS BOOLEAN AS $$
 BEGIN
 	PERFORM s::TIME;
 	RETURN TRUE;
@@ -14,10 +14,10 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION is_time(s VARCHAR) IS 'Takes a varchar and checks if it is a time, uses standard date format HH24:MI:SS.US';
+COMMENT ON FUNCTION is_time(s text) IS 'Takes a text and checks if it is a time, uses standard date format HH24:MI:SS.US';
 
 
-CREATE OR REPLACE FUNCTION is_time(s VARCHAR, f VARCHAR) RETURNS BOOLEAN AS $$
+CREATE OR REPLACE FUNCTION is_time(s text, f text) RETURNS BOOLEAN AS $$
 BEGIN
 	PERFORM to_timestamp(s, f)::TIME;
 	RETURN TRUE;
@@ -28,4 +28,4 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION is_time(s VARCHAR, f VARCHAR) IS 'Takes a varchar and checks if it is a time by taking the second varchar as time format';
+COMMENT ON FUNCTION is_time(s text, f text) IS 'Takes a text and checks if it is a time by taking the second text as time format';

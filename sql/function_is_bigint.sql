@@ -1,7 +1,7 @@
 /**
  * Creates a function to check strings for being BIGINT.
  */
-CREATE OR REPLACE FUNCTION is_bigint(s VARCHAR) RETURNS BOOLEAN AS $$
+CREATE OR REPLACE FUNCTION is_bigint(s text) RETURNS BOOLEAN AS $$
 BEGIN
 	PERFORM s::BIGINT;
 	RETURN TRUE;
@@ -12,4 +12,4 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION is_bigint(s VARCHAR) IS 'Checks, whether the given parameter is a BIGINT';
+COMMENT ON FUNCTION is_bigint(s text) IS 'Checks, whether the given parameter is a BIGINT';

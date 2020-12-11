@@ -3,7 +3,7 @@
  * The second parameter indicates, if the result is with or without time zone,
  * default is with thime zone
  */
- CREATE OR REPLACE FUNCTION datetime_de(t TIMESTAMP WITH TIME ZONE, with_tz BOOLEAN DEFAULT TRUE) RETURNS VARCHAR AS $$
+ CREATE OR REPLACE FUNCTION datetime_de(t TIMESTAMP WITH TIME ZONE, with_tz BOOLEAN DEFAULT TRUE) RETURNS text AS $$
  BEGIN
  	IF with_tz THEN
  		RETURN to_char(t, 'DD.MM.YYYY HH24:MI:SS TZ');

@@ -2,11 +2,11 @@
  * Creates a function which returns a distinct array with all non latin1
  * characters . Depends on function is_latin1 which is part of this repository.
  */
-CREATE OR REPLACE FUNCTION return_not_part_of_latin1(s VARCHAR) RETURNS VARCHAR[] AS $$
+CREATE OR REPLACE FUNCTION return_not_part_of_latin1(s text) RETURNS text[] AS $$
 DECLARE
 	i INTEGER := 0;
-	res VARCHAR[];
-	current_s VARCHAR := NULL::VARCHAR[];
+	res text[];
+	current_s text := NULL::text[];
 BEGIN
 
 	LOOP
@@ -42,4 +42,4 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION return_not_part_of_latin1(s VARCHAR) IS 'Creates a function which returns a distinct array with all non latin1 characters';
+COMMENT ON FUNCTION return_not_part_of_latin1(s text) IS 'Creates a function which returns a distinct array with all non latin1 characters';

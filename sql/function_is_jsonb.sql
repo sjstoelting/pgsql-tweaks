@@ -1,7 +1,7 @@
 /**
  * Creates a function to check strings for being JSONB.
  */
-CREATE OR REPLACE FUNCTION is_jsonb(s VARCHAR) RETURNS BOOLEAN AS $$
+CREATE OR REPLACE FUNCTION is_jsonb(s text) RETURNS BOOLEAN AS $$
 BEGIN
 	PERFORM s::JSONB;
 	RETURN TRUE;
@@ -12,4 +12,4 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION is_jsonb(s VARCHAR) IS 'Checks, whether the given text is a JSONB';
+COMMENT ON FUNCTION is_jsonb(s text) IS 'Checks, whether the given text is a JSONB';

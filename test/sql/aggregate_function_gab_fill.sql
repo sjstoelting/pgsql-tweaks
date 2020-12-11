@@ -42,7 +42,7 @@ FROM test
 ;
 
 -- Create a table with some test values
-CREATE TABLE test_gap_fill(id INTEGER, some_value VARCHAR);
+CREATE TABLE test_gap_fill(id INTEGER, some_value text);
 
 INSERT INTO test_gap_fill(id, some_value) VALUES
 	(1, 'value 1'),

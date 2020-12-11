@@ -1,6 +1,6 @@
-CREATE OR REPLACE FUNCTION array_trim(a VARCHAR[], rd BOOLEAN DEFAULT FALSE) RETURNS VARCHAR[] AS $$
+CREATE OR REPLACE FUNCTION array_trim(a text[], rd BOOLEAN DEFAULT FALSE) RETURNS text[] AS $$
 DECLARE
-	res VARCHAR[];
+	res text[];
 BEGIN
 	
 	IF rd THEN
@@ -29,7 +29,7 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION array_trim(a VARCHAR[], rd BOOLEAN) IS 'Removes empty entries from a VARCHAR array, can remove duplicates, too';
+COMMENT ON FUNCTION array_trim(a text[], rd BOOLEAN) IS 'Removes empty entries from a text array, can remove duplicates, too';
 
 CREATE OR REPLACE FUNCTION array_trim(a SMALLINT[], rd BOOLEAN DEFAULT FALSE) RETURNS SMALLINT[] AS $$
 DECLARE

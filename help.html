@@ -78,14 +78,14 @@ make install</pre></div>
 1.4.2 <a href="#user-content-function-is_latin1">FUNCTION is_latin1</a><br>
 1.4.3 <a href="#user-content-function-return_not_part_of_latin1">FUNCTION return_not_part_of_latin1</a><br>
 1.4.4 <a href="#user-content-function-replace_latin1">FUNCTION replace_latin1</a><br>
-1.4.4.1 <a href="#user-content-replace_latin1-s-varchar-">replace_latin1(s VARCHAR)</a><br>
-1.4.4.2 <a href="#user-content-replace_latin1-s-varchar-replacement-varchar-">replace_latin1(s VARCHAR, replacement VARCHAR)</a><br>
-1.4.4.3 <a href="#user-content-replace_latin1-s-varchar-s_search-varchar-s_replace-varchar-">replace_latin1(s VARCHAR, s_search VARCHAR[], s_replace VARCHAR[])</a><br>
+1.4.4.1 <a href="#user-content-replace_latin1-s-text-">replace_latin1(s text)</a><br>
+1.4.4.2 <a href="#user-content-replace_latin1-s-text-replacement-text-">replace_latin1(s text, replacement text)</a><br>
+1.4.4.3 <a href="#user-content-replace_latin1-s-text-s_search-text-s_replace-text-">replace_latin1(s text, s_search text[], s_replace text[])</a><br>
 1.4.5 <a href="#user-content-function-return_not_part_of_encoding">FUNCTION return_not_part_of_encoding</a><br>
 1.4.6 <a href="#user-content-function-replace_encoding">FUNCTION replace_encoding</a><br>
-1.4.6.1 <a href="#user-content-replace_encoding-s-varchar-e-varchar-">replace_encoding(s VARCHAR, e VARCHAR)</a><br>
-1.4.6.2 <a href="#user-content-replace_encoding-s-varchar-e-varchar-replacement-varchar-">replace_encoding(s VARCHAR, e VARCHAR, replacement VARCHAR)</a><br>
-1.4.6.3 <a href="#user-content-replace_encoding-s-varchar-s_search-varchar-s_replace-varchar-">replace_encoding(s VARCHAR, s_search VARCHAR[], s_replace VARCHAR[])</a></p>
+1.4.6.1 <a href="#user-content-replace_encoding-s-text-e-text-">replace_encoding(s text, e text)</a><br>
+1.4.6.2 <a href="#user-content-replace_encoding-s-text-e-text-replacement-text-">replace_encoding(s text, e text, replacement text)</a><br>
+1.4.6.3 <a href="#user-content-replace_encoding-s-text-s_search-text-s_replace-text-">replace_encoding(s text, s_search text[], s_replace text[])</a></p>
 <p>1.5 <a href="#user-content-user-defined-aggregates">User defined aggregates</a><br>
 1.5.1 <a href="#user-content-aggregate-gap_fill">AGGREGATE gap_fill</a><br>
 1.5.2 <a href="#user-content-aggregate-array_min">AGGREGATE array_min</a><br>
@@ -1701,7 +1701,7 @@ The function <span>depends on is_latin1</span> which is part of this repository.
 <a id="user-content-function-replace_latin1" class="anchor" href="#function-replace_latin1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION replace_latin1</h3>
 <p>The function has three implementations. All implementations <span>depend on the function is_latin1</span>, the function is included in this repository.</p>
 <h4>
-<a id="user-content-replace_latin1s-varchar" class="anchor" href="#replace_latin1s-varchar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_latin1(s VARCHAR)</h4>
+<a id="user-content-replace_latin1s-text" class="anchor" href="#replace_latin1s-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_latin1(s text)</h4>
 <p>The function takes one parameter with characters to be checked and replaced with
 an empty string, if they are not part of latin1.</p>
 <h5>
@@ -1721,7 +1721,7 @@ an empty string, if they are not part of latin1.</p>
 </tbody>
 </table>
 <h4>
-<a id="user-content-replace_latin1s-varchar-replacement-varchar" class="anchor" href="#replace_latin1s-varchar-replacement-varchar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_latin1(s VARCHAR, replacement VARCHAR)</h4>
+<a id="user-content-replace_latin1s-text-replacement-text" class="anchor" href="#replace_latin1s-text-replacement-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_latin1(s text, replacement text)</h4>
 <p>The function takes a second parameter which is used to replace <em>all</em> characters,
 which are not part of latin1.</p>
 <h5>
@@ -1744,7 +1744,7 @@ which are not part of latin1.</p>
 </tbody>
 </table>
 <h4>
-<a id="user-content-replace_latin1s-varchar-s_search-varchar-s_replace-varchar" class="anchor" href="#replace_latin1s-varchar-s_search-varchar-s_replace-varchar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_latin1(s VARCHAR, s_search VARCHAR[], s_replace VARCHAR[])</h4>
+<a id="user-content-replace_latin1s-text-s_search-text-s_replace-text" class="anchor" href="#replace_latin1s-text-s_search-text-s_replace-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_latin1(s text, s_search text[], s_replace text[])</h4>
 <p>The function takes as first parameter a string which may or may not have none
 latin1 characters. The second parameter is an arrays containing all characters,
 that should be replaced. The third parameter is an array, too. The characters
@@ -1803,7 +1803,7 @@ The function <span>depends on is_encoding</span> which is part of this repositor
 <a id="user-content-function-replace_encoding" class="anchor" href="#function-replace_encoding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION replace_encoding</h3>
 <p>The function has three implementations. All implementations <span>depend on the function is_encoding</span>, the function is included in this repository.</p>
 <h4>
-<a id="user-content-replace_encodings-varchar-e-varchar" class="anchor" href="#replace_encodings-varchar-e-varchar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_encoding(s VARCHAR, e VARCHAR)</h4>
+<a id="user-content-replace_encodings-text-e-text" class="anchor" href="#replace_encodings-text-e-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_encoding(s text, e text)</h4>
 <p>The function takes one parameter with characters to be checked and replaced with
 an empty string, if they are not part of the encoding given in the second
 parameter.</p>
@@ -1827,7 +1827,7 @@ parameter.</p>
 </tbody>
 </table>
 <h4>
-<a id="user-content-replace_encodings-varchar-e-varchar-replacement-varchar" class="anchor" href="#replace_encodings-varchar-e-varchar-replacement-varchar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_encoding(s VARCHAR, e VARCHAR, replacement VARCHAR)</h4>
+<a id="user-content-replace_encodings-text-e-text-replacement-text" class="anchor" href="#replace_encodings-text-e-text-replacement-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_encoding(s text, e text, replacement text)</h4>
 <p>The function takes a third parameter which is used to replace <em>all</em> characters
 which are not part of the encoding given in parameter 2.</p>
 <h5>
@@ -1851,7 +1851,7 @@ which are not part of the encoding given in parameter 2.</p>
 </tbody>
 </table>
 <h4>
-<a id="user-content-replace_encodings-varchar-s_search-varchar-s_replace-varchar" class="anchor" href="#replace_encodings-varchar-s_search-varchar-s_replace-varchar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_encoding(s VARCHAR, s_search VARCHAR[], s_replace VARCHAR[])</h4>
+<a id="user-content-replace_encodings-text-s_search-text-s_replace-text" class="anchor" href="#replace_encodings-text-s_search-text-s_replace-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_encoding(s text, s_search text[], s_replace text[])</h4>
 <p>The function takes as first parameter a string which may or may not have none
 latin1 characters. The second parameter is an arrays containing all characters,
 that should be replaced. The third parameter is an array, too. The characters
@@ -1895,7 +1895,7 @@ to show the last value in case the current value is null.</p>
 <a id="user-content-example-10" class="anchor" href="#example-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">BEGIN</span>;
 
-<span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">test_gap_fill</span>(id <span class="pl-k">INTEGER</span>, some_value <span class="pl-k">VARCHAR</span>);
+<span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">test_gap_fill</span>(id <span class="pl-k">INTEGER</span>, some_value <span class="pl-k">text</span>);
 
 <span class="pl-k">INSERT INTO</span> test_gap_fill(id, some_value) <span class="pl-k">VALUES</span>
   (<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">'</span>value 1<span class="pl-pds">'</span></span>),
@@ -1949,7 +1949,7 @@ to show the last value in case the current value is null.</p>
 </table>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">BEGIN</span>;
 
-<span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">test_gap_fill</span>(id <span class="pl-k">INTEGER</span>, some_value <span class="pl-k">VARCHAR</span>);
+<span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">test_gap_fill</span>(id <span class="pl-k">INTEGER</span>, some_value <span class="pl-k">text</span>);
 
 <span class="pl-k">INSERT INTO</span> test_gap_fill(id, some_value) <span class="pl-k">VALUES</span>
   (<span class="pl-c1">1</span>, <span class="pl-s"><span class="pl-pds">'</span>value 1<span class="pl-pds">'</span></span>),

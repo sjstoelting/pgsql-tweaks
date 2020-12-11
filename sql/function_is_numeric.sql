@@ -1,7 +1,7 @@
 /**
  * Creates a function to check strings for being nunbers.
  */
-CREATE OR REPLACE FUNCTION is_numeric(s VARCHAR) RETURNS BOOLEAN AS $$
+CREATE OR REPLACE FUNCTION is_numeric(s text) RETURNS BOOLEAN AS $$
 BEGIN
 	PERFORM s::NUMERIC;
 	RETURN TRUE;
@@ -12,4 +12,4 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION is_numeric(s VARCHAR) IS 'Checks, whether the given parameter is a number';
+COMMENT ON FUNCTION is_numeric(s text) IS 'Checks, whether the given parameter is a number';

@@ -1,7 +1,7 @@
 /**
  * Creates a function to check strings for being SMALLINT.
  */
-CREATE OR REPLACE FUNCTION is_smallint(s VARCHAR) RETURNS BOOLEAN AS $$
+CREATE OR REPLACE FUNCTION is_smallint(s text) RETURNS BOOLEAN AS $$
 BEGIN
 	PERFORM s::SMALLINT;
 	RETURN TRUE;
@@ -12,4 +12,4 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION is_smallint(s VARCHAR) IS 'Checks, whether the given parameter is a is_smallint';
+COMMENT ON FUNCTION is_smallint(s text) IS 'Checks, whether the given parameter is a is_smallint';

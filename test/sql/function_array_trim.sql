@@ -42,7 +42,7 @@ FROM test
 ;
 
 -- Test of the first implementation
--- VARCHAR ARRAY
+-- text ARRAY
 WITH test AS
 	(
 		SELECT array_trim(ARRAY['test',NULL,'test']) AS trim_value
@@ -50,14 +50,14 @@ WITH test AS
 	)
 SELECT
 	CASE
-		WHEN trim_value = ARRAY['test','test']::VARCHAR[] THEN
+		WHEN trim_value = ARRAY['test','test']::text[] THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN
 	END AS res_1
 FROM test
 ;
--- VARCHAR ARRAY WITHOUT DUPLICATES
+-- text ARRAY WITHOUT DUPLICATES
 WITH test AS
 	(
 		SELECT array_trim(ARRAY['test',NULL,'test'], TRUE) AS trim_value
@@ -65,7 +65,7 @@ WITH test AS
 	)
 SELECT
 	CASE
-		WHEN trim_value = ARRAY['test']::VARCHAR[] THEN
+		WHEN trim_value = ARRAY['test']::text[] THEN
 			TRUE
 		ELSE
 			(1 / test.zero)::BOOLEAN

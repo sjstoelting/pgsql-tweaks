@@ -27,7 +27,7 @@ echo 'BEGIN;' >> $FILENAME
 echo '' >> $FILENAME
 
 echo 'DROP VIEW IF EXISTS pg_active_locks;' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_empty(s VARCHAR);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_empty(s text);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_sum(a BIGINT[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_sum(a INTEGER[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_sum(a SMALLINT[]);' >> $FILENAME
@@ -54,7 +54,7 @@ echo 'DROP FUNCTION IF EXISTS array_max(a NUMERIC[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_max(a REAL[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_max(a DOUBLE PRECISION[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_max(a SMALLINT[]);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS array_trim(a VARCHAR[], rd BOOLEAN);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS array_trim(a text[], rd BOOLEAN);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_trim(a SMALLINT[], rd BOOLEAN);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_trim(a INTEGER[], rd BOOLEAN);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_trim(a BIGINT[], rd BOOLEAN);' >> $FILENAME
@@ -70,17 +70,17 @@ echo 'DROP FUNCTION IF EXISTS datetime_de(t TIMESTAMP WITH TIME ZONE, with_tz BO
 echo 'DROP FUNCTION IF EXISTS date_de(d DATE);' >> $FILENAME
 echo 'DROP AGGREGATE IF EXISTS gap_fill(anyelement);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS gap_fill_internal(s anyelement, v anyelement);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS replace_latin1(s VARCHAR, s_search VARCHAR[], s_replace VARCHAR[]);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS replace_latin1(s VARCHAR, replacement VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS replace_latin1(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS replace_encoding(s VARCHAR, s_search VARCHAR[], s_replace VARCHAR[]);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS replace_encoding(s VARCHAR, e VARCHAR, replacement VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS replace_encoding(s VARCHAR, e VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS return_not_part_of_encoding(s VARCHAR, e VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS return_not_part_of_latin1(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_latin1(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_encoding(s VARCHAR, enc VARCHAR, enc_from VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_encoding(s VARCHAR, enc VARCHAR);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS replace_latin1(s text, s_search text[], s_replace text[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS replace_latin1(s text, replacement text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS replace_latin1(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS replace_encoding(s text, s_search text[], s_replace text[]);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS replace_encoding(s text, e text, replacement text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS replace_encoding(s text, e text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS return_not_part_of_encoding(s text, e text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS return_not_part_of_latin1(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_latin1(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_encoding(s text, enc text, enc_from text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_encoding(s text, enc text);' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_functions;' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_foreign_keys;' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_db_views;' >> $FILENAME
@@ -88,21 +88,21 @@ echo 'DROP VIEW IF EXISTS pg_table_matview_infos;' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_object_ownership;' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS pg_schema_size(text);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS sha256(bytea);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_bigint(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_integer(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_smallint(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_numeric(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_real(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_double_precision(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_boolean(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_json(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_timestamp(s VARCHAR, f VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_timestamp(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_time(s VARCHAR, f VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_time(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_date(s VARCHAR, f VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_json(s VARCHAR);' >> $FILENAME
-echo 'DROP FUNCTION IF EXISTS is_jsonb(s VARCHAR);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_bigint(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_integer(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_smallint(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_numeric(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_real(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_double_precision(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_boolean(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_json(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_timestamp(s text, f text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_timestamp(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_time(s text, f text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_time(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_date(s text, f text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_json(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_jsonb(s text);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_hex(s TEXT);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS hex2bigint(s TEXT);' >> $FILENAME
 

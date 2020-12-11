@@ -6,7 +6,7 @@
  * string is and checks if the string does only contain characters as given in
  * the second parameter.
  */
-CREATE OR REPLACE FUNCTION is_encoding(s VARCHAR, enc VARCHAR) RETURNS BOOLEAN AS $$
+CREATE OR REPLACE FUNCTION is_encoding(s text, enc text) RETURNS BOOLEAN AS $$
 BEGIN
 	PERFORM convert(s::bytea, 'UTF8', enc);
 	RETURN TRUE;
@@ -17,10 +17,10 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION is_encoding(s VARCHAR, enc VARCHAR) IS 'Checks, whether the given UTF8 sting contains only encodings in the given encoding characters';
+COMMENT ON FUNCTION is_encoding(s text, enc text) IS 'Checks, whether the given UTF8 sting contains only encodings in the given encoding characters';
 
 
-CREATE OR REPLACE FUNCTION is_encoding(s VARCHAR, enc VARCHAR, enc_from VARCHAR) RETURNS BOOLEAN AS $$
+CREATE OR REPLACE FUNCTION is_encoding(s text, enc text, enc_from text) RETURNS BOOLEAN AS $$
 BEGIN
 	PERFORM convert(s::bytea, enc_from, enc);
 	RETURN TRUE;
@@ -31,4 +31,4 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION is_encoding(s VARCHAR, enc VARCHAR, enc_from VARCHAR) IS 'Checks, whether the given encoding sting contains only encodings in the given encoding characters';
+COMMENT ON FUNCTION is_encoding(s text, enc text, enc_from text) IS 'Checks, whether the given encoding sting contains only encodings in the given encoding characters';

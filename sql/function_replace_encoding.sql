@@ -4,10 +4,10 @@
  * The function does depend on the function is_encoding which is part of this
  * repository.
  */
-CREATE OR REPLACE FUNCTION replace_encoding(s VARCHAR, e VARCHAR) RETURNS VARCHAR AS $$
+CREATE OR REPLACE FUNCTION replace_encoding(s text, e text) RETURNS text AS $$
 DECLARE
 	i INTEGER := 0;
-	res VARCHAR;
+	res text;
 BEGIN
 	res := s;
 
@@ -25,13 +25,13 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION replace_encoding(s VARCHAR, e VARCHAR) IS 'Replaces all characters, which are not part of the given encoding, with spaces and returns the result only with characters which are part of the given encoding';
+COMMENT ON FUNCTION replace_encoding(s text, e text) IS 'Replaces all characters, which are not part of the given encoding, with spaces and returns the result only with characters which are part of the given encoding';
 
 
-CREATE OR REPLACE FUNCTION replace_encoding(s VARCHAR, e VARCHAR, replacement VARCHAR) RETURNS VARCHAR AS $$
+CREATE OR REPLACE FUNCTION replace_encoding(s text, e text, replacement text) RETURNS text AS $$
 DECLARE
 	i INTEGER := 0;
-	res VARCHAR;
+	res text;
 BEGIN
 	res := s;
 
@@ -49,13 +49,13 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION replace_encoding(s VARCHAR, e VARCHAR, replacement VARCHAR) IS 'Replaces all characters, which are not part of the given encoding, with the given replacement in the third parameter and returns the result only with characters which are part of the given encoding';
+COMMENT ON FUNCTION replace_encoding(s text, e text, replacement text) IS 'Replaces all characters, which are not part of the given encoding, with the given replacement in the third parameter and returns the result only with characters which are part of the given encoding';
 
 
-CREATE OR REPLACE FUNCTION replace_encoding(s VARCHAR, s_search VARCHAR[], s_replace VARCHAR[]) RETURNS VARCHAR AS $$
+CREATE OR REPLACE FUNCTION replace_encoding(s text, s_search text[], s_replace text[]) RETURNS text AS $$
 DECLARE
 	i INTEGER := 0;
-	res VARCHAR;
+	res text;
 	length_equal BOOLEAN;
 	a_count INTEGER;
 BEGIN
@@ -84,4 +84,4 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION replace_encoding(s VARCHAR, s_search VARCHAR[], s_replace VARCHAR[]) IS 'Replaces charactes given in s_search with characters given in s_replace at the same array position';
+COMMENT ON FUNCTION replace_encoding(s text, s_search text[], s_replace text[]) IS 'Replaces charactes given in s_search with characters given in s_replace at the same array position';

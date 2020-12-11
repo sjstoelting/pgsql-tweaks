@@ -1,11 +1,11 @@
 /**
  * Creates a function which returns a distinct array with all non latin1 characters .
  */
-CREATE OR REPLACE FUNCTION return_not_part_of_encoding(s VARCHAR, e VARCHAR) RETURNS VARCHAR[] AS $$
+CREATE OR REPLACE FUNCTION return_not_part_of_encoding(s text, e text) RETURNS text[] AS $$
 DECLARE
 	i INTEGER := 0;
-	res VARCHAR[];
-	current_s VARCHAR := NULL::VARCHAR[];
+	res text[];
+	current_s text := NULL::text[];
 BEGIN
 
 	LOOP
@@ -41,4 +41,4 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION return_not_part_of_encoding(s VARCHAR, e VARCHAR) IS 'Creates a function which returns a distinct array with all characters which are not part of the encoding give in e';
+COMMENT ON FUNCTION return_not_part_of_encoding(s text, e text) IS 'Creates a function which returns a distinct array with all characters which are not part of the encoding give in e';
