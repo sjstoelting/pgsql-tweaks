@@ -129,7 +129,7 @@ Afterwards you are able to create the extension in a database:
 
 1.7 [Conversion functions](#conversion-functions)<br />
 1.7.1 [FUNCTION to_unix_timestamp](#function-to_unix_timestamp)<br />
-1.7.2 [FUNCTION hex2bigint](#hex2bigint)
+1.7.2 [FUNCTION hex2bigint](#function-hex2bigint)
 
 1.8 [Other functions](#other-functions)<br />
 1.8.1 [FUNCTION array_trim](#function-array_trim)
