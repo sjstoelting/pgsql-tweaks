@@ -1664,7 +1664,7 @@ SELECT hex2bigint('a1b0') AS hex_as_bigint;
 Result:
 
 | hex_as_bigint|
-|:------------:|
+| ------------:|
 |        41392 |
 
 ## Other functions
