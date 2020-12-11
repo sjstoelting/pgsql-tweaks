@@ -62,7 +62,7 @@ make install</pre></div>
 1.1.10 <a href="#user-content-function-is_boolean">FUNCTION is_boolean</a><br>
 1.1.11 <a href="#user-content-function-is_json">FUNCTION is_json</a><br>
 1.1.12 <a href="#user-content-function-is_jsonb">FUNCTION is_jsonb</a><br>
-1.1.13 <a href="#user-content-function-is_empty">FUNCTION is_empty</a>
+1.1.13 <a href="#user-content-function-is_empty">FUNCTION is_empty</a><br>
 1.1.14 <a href="#user-content-function-is_hex">FUNCTION is_hex</a></p>
 <p>1.2 <a href="#user-content-functions-about-encryption">Functions about encryption</a><br>
 1.2.1 <a href="#user-content-function-sha256">FUNCTION sha256</a></p>
@@ -97,7 +97,7 @@ make install</pre></div>
 1.6.1 <a href="#user-content-function-date_de">FUNCTION date_de</a><br>
 1.6.2 <a href="#user-content-function-datetime_de">FUNCTION datetime_de</a></p>
 <p>1.7 <a href="#user-content-conversion-functions">Conversion functions</a><br>
-1.7.1 <a href="#user-content-function-to_unix_timestamp">FUNCTION to_unix_timestamp</a>
+1.7.1 <a href="#user-content-function-to_unix_timestamp">FUNCTION to_unix_timestamp</a><br>
 1.7.2 <a href="#user-content-hex2bigint">FUNCTION hex2bigint</a></p>
 <p>1.8 <a href="#user-content-other-functions">Other functions</a><br>
 1.8.1 <a href="#user-content-function-array_trim">FUNCTION array_trim</a></p>
@@ -847,6 +847,9 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 <a id="user-content-function-is_hex" class="anchor" href="#function-is_hex" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_hex</h3>
 <p>The function checks a string variable for being a hexadecimal number being a
 bigint.</p>
+<p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji><span>This function needs to have
+hex2bigint being installed!</span><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji></p>
+<p>If you use the package, both functions are installed in the correct sort order.</p>
 <h4>
 <a id="user-content-examples-12" class="anchor" href="#examples-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_hex(<span class="pl-s"><span class="pl-pds">'</span>a1b0<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;

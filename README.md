@@ -87,7 +87,7 @@ Afterwards you are able to create the extension in a database:
 1.1.10 [FUNCTION is_boolean](#function-is_boolean)<br />
 1.1.11 [FUNCTION is_json](#function-is_json)<br />
 1.1.12 [FUNCTION is_jsonb](#function-is_jsonb)<br />
-1.1.13 [FUNCTION is_empty](#function-is_empty)
+1.1.13 [FUNCTION is_empty](#function-is_empty)<br />
 1.1.14 [FUNCTION is_hex](#function-is_hex)
 
 1.2 [Functions about encryption](#functions-about-encryption)<br />
@@ -128,7 +128,7 @@ Afterwards you are able to create the extension in a database:
 1.6.2 [FUNCTION datetime_de](#function-datetime_de)
 
 1.7 [Conversion functions](#conversion-functions)<br />
-1.7.1 [FUNCTION to_unix_timestamp](#function-to_unix_timestamp)
+1.7.1 [FUNCTION to_unix_timestamp](#function-to_unix_timestamp)<br />
 1.7.2 [FUNCTION hex2bigint](#hex2bigint)
 
 1.8 [Other functions](#other-functions)<br />
@@ -704,6 +704,10 @@ Result:
 The function checks a string variable for being a hexadecimal number being a
 bigint.
 
+:heavy_exclamation_mark:<span style="color:red">This function needs to have
+hex2bigint being installed!</span>:heavy_exclamation_mark:
+
+If you use the package, both functions are installed in the correct sort order.
 
 #### Examples
 
