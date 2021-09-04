@@ -104,6 +104,7 @@ echo 'DROP FUNCTION IF EXISTS is_date(s text, f text);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_json(s text);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_jsonb(s text);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_hex(s TEXT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_uuid(s TEXT);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS hex2bigint(s TEXT);' >> $FILENAME
 
 echo '' >> $FILENAME
@@ -130,6 +131,7 @@ declare -a SQLFILES=(
   "function_is_boolean"
   "function_is_json"
   "function_is_jsonb"
+  "function_is_uuid"
   "function_sha256"
   "function_pg_schema_size"
   "view_pg_db_views"
