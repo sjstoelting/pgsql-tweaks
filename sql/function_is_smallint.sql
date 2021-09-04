@@ -12,4 +12,4 @@ $$
 STRICT
 LANGUAGE plpgsql IMMUTABLE
 ;
-COMMENT ON FUNCTION is_smallint(s text) IS 'Checks, whether the given parameter is a is_smallint';
+COMMENT ON FUNCTION is_smallint(s text) IS 'Checks, whether the given parameter is a smallint';
