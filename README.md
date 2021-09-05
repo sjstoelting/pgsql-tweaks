@@ -88,7 +88,7 @@ Afterwards you are able to create the extension in a database:
 1.1.11 [FUNCTION is_json](#function-is_json)<br />
 1.1.12 [FUNCTION is_jsonb](#function-is_jsonb)<br />
 1.1.13 [FUNCTION is_empty](#function-is_empty)<br />
-1.1.14 [FUNCTION is_hex](#function-is_hex)
+1.1.14 [FUNCTION is_hex](#function-is_hex)<br />
 1.1.15 [FUNCTION is_uid](#function-is_uuid)
 
 1.2 [Functions about encryption](#functions-about-encryption)<br />
@@ -101,7 +101,8 @@ Afterwards you are able to create the extension in a database:
 1.3.4 [VIEW pg_functions](#view-pg_functions)<br />
 1.3.4 [VIEW pg_active_locks](#view-pg_active_locks)<br />
 1.3.5 [VIEW pg_table_matview_infos](#view-pg_table_matview_infos)<br />
-1.3.6 [VIEW pg_object_ownership](#view-pg_object_ownership)
+1.3.6 [VIEW pg_object_ownership](#view-pg_object_ownership)<br />
+1.3.7 [VIEW pg_bloat_info](#view-pg_bloat_info)
 
 1.4 [Functions about encodings](#functions-about-encodings)<br />
 1.4.1 [FUNCTION is_encoding](#function-is_encoding)<br />
@@ -1011,6 +1012,22 @@ Result:
 | 18028 | public | gapfill | stefanie | AGGREGATE FUNCTION | n | DEPENDENCY_NORMAL |
 | 18039 | public | to_unix_timestamp | stefanie | FUNCTION | n | DEPENDENCY_NORMAL |
 | 18068 | public | to_unix_timestamp | stefanie | FUNCTION | n | DEPENDENCY_NORMAL |
+
+### VIEW pg_bloat_info
+
+Creates a view with about the bloat of tables and indexes inside a database.
+
+```sql
+SELECT *
+FROM pg_bloat_info;
+```
+
+Result:
+
+| type  | schemaname | object_name                     | bloat | waste   |
+| :---- | ---------- | ------------------------------- | ----- | ------- |
+| table | public     | reviews                         | 1     | 9048 kB |
+| index | public     | PlaylistTrack::PK_PlaylistTrack | 1.7   | 120 kB  |
 
 ## Functions about encodings
 
