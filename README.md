@@ -89,6 +89,7 @@ Afterwards you are able to create the extension in a database:
 1.1.12 [FUNCTION is_jsonb](#function-is_jsonb)<br />
 1.1.13 [FUNCTION is_empty](#function-is_empty)<br />
 1.1.14 [FUNCTION is_hex](#function-is_hex)
+1.1.15 [FUNCTION is_uid](#function-is_uuid)
 
 1.2 [Functions about encryption](#functions-about-encryption)<br />
 1.2.1 [FUNCTION sha256](#function-sha256)
@@ -743,6 +744,45 @@ Result:
 | res |
 |:---:|
 | f   |
+
+### FUNCTION is_uuid
+
+The function checks a string variable for being a unique identifier (UUID)
+
+#### Examples
+
+```sql
+SELECT is_uuid('6a448514-cac9-487c-ac1a-a1a299a35050') AS res;
+-- Result is true
+```
+
+Result:
+
+| res  |
+| :--: |
+|  t   |
+
+```sql
+SELECT is_hex('123456') AS res;
+-- Result is false
+```
+
+Result:
+
+| res  |
+| :--: |
+|  f   |
+
+```sql
+SELECT is_hex('a1b0c3c3c3c4b5d3') AS res;
+-- Result is false (does not fit into a bigint)
+```
+
+Result:
+
+| res  |
+| :--: |
+|  f   |
 
 
 
