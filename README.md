@@ -17,6 +17,16 @@ conversions have become more strict.
 All examples have been done with PostgreSQL 10, differences in the behaviour of
 previous versions are noted.
 
+## Tested against the following PostgreSQL versions
+
+[![version](https://img.shields.io/badge/PostgreSQL-9.5-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-9.6-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-10-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-11-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-12-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-13-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-14beta3-blue.svg)]()
+
 # Repositories
 
 The main repository is now on [GitLab](https://gitlab.com/sjstoelting/pgsql-tweaks.git).
