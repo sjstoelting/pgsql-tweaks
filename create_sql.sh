@@ -86,7 +86,8 @@ echo 'DROP VIEW IF EXISTS pg_foreign_keys;' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_db_views;' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_table_matview_infos;' >> $FILENAME
 echo 'DROP VIEW IF EXISTS pg_object_ownership;' >> $FILENAME
-echo 'DROP VIEW IF EXISTS view_pg_bloat_info;' >> $FILENAME
+echo 'DROP VIEW IF EXISTS pg_bloat_info;' >> $FILENAME
+echo 'DROP VIEW IF EXISTS pg_unused_indexes;' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS pg_schema_size(text);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS sha256(bytea);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_bigint(s text);' >> $FILENAME
@@ -158,6 +159,7 @@ declare -a SQLFILES=(
   "view_pg_active_locks"
   "view_pg_object_ownership"
   "view_pg_bloat_info"
+  "view_pg_unused_indexes"
   "function_hex2bigint"
   "function_is_hex"
   )

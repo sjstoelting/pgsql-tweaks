@@ -1015,7 +1015,7 @@ Result:
 
 ### VIEW pg_bloat_info
 
-Creates a view with about the bloat of tables and indexes inside a database.
+Creates a view returning information about the bloat of tables and indexes inside a database.
 
 ```sql
 SELECT *
@@ -1024,10 +1024,26 @@ FROM pg_bloat_info;
 
 Result:
 
-| type  | schemaname | object_name                     | bloat | waste   |
-| :---- | ---------- | ------------------------------- | ----- | ------- |
-| table | public     | reviews                         | 1     | 9048 kB |
-| index | public     | PlaylistTrack::PK_PlaylistTrack | 1.7   | 120 kB  |
+| type  | schemaname | object_name                     | bloat |   waste |
+| :---- | ---------- | ------------------------------- | ----: | ------: |
+| table | public     | reviews                         |     1 | 9048 kB |
+| index | public     | PlaylistTrack::PK_PlaylistTrack |   1.7 |  120 kB |
+
+### VIEW pg_unused_indexes
+
+Creates a view returning unused indexes indexes inside a database. The column size_of_all_indexes contains the size of all indexes inside the database.
+
+```sql
+SELECT *
+FROM pg_unused_indexes;
+```
+
+Result:
+
+| schemaname | table_name | index_name | idx_scan | table_size | table_total_size | all_indexes_size | index_size | size_of_all_indexes |
+| :--------- | ---------- | ---------- | -------: | ---------: | ---------------: | ---------------: | ---------: | ------------------: |
+| public     | Album      | PK_Album   |        0 |      48 kB |            80 kB |            32 kB |      16 kB |               76 MB |
+| public     | Artist     | Artist     |        0 |      40 kB |            56 kB |            16 kB |      16 kB |               76 MB |
 
 ## Functions about encodings
 
