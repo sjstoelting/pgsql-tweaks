@@ -19,9 +19,8 @@ previous versions are noted.
 
 # Repositories
 
-The main repository is now on
-[GitLab](https://gitlab.com/sjstoelting/pgsql-tweaks.git). A mirror will stay on
-[GitHub](https://github.com/sjstoelting/pgsql-tweaks).
+The main repository is now on [GitLab](https://gitlab.com/sjstoelting/pgsql-tweaks.git).
+A mirror will stay on [GitHub](https://github.com/sjstoelting/pgsql-tweaks).
 
 If you discover any issue, please file them on
 https://gitlab.com/sjstoelting/pgsql-tweaks/issues.
