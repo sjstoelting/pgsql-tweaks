@@ -19,8 +19,7 @@ previous versions are noted.
 
 ## Tested against the following PostgreSQL versions
 
-[![version](https://img.shields.io/badge/PostgreSQL-9.5-blue.svg)]()
-[![version](https://img.shields.io/badge/PostgreSQL-9.6-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-9.6-blue.svg)]() 
 [![version](https://img.shields.io/badge/PostgreSQL-10-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-11-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-12-blue.svg)]()
