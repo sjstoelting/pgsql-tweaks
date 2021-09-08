@@ -3,21 +3,16 @@
 The functions and views published in this repository are some of those, which I
 regularly need in my daily job.
 
-As these procedures are sort of essential, at least to me, I install them in the
+As these functions and views are sort of essential, at least to me, I install them in the
 public schema. That way they are available for everyone without having to know
 a schema name.
 
-All functions and views are covered by tests. The tests are done in simple SQL
-statements. Each test does raise division by zero if it fails.
 
-The tests have been done with PostgreSQL 9.6 and 10. There have been some
-changes in the behaviour in PostgreSQL 10, Timestamp and Date functions and
-conversions have become more strict.
-
-All examples have been done with PostgreSQL 10, differences in the behaviour of
-previous versions are noted.
 
 ## Tested against the following PostgreSQL versions
+
+[All functions and views are covered by tests. The tests are done in simple SQL
+statements. Each test does raise division by zero if it fails.
 
 [![version](https://img.shields.io/badge/PostgreSQL-9.6-blue.svg)]() 
 [![version](https://img.shields.io/badge/PostgreSQL-10-blue.svg)]()
