@@ -108,6 +108,7 @@ echo 'DROP FUNCTION IF EXISTS is_jsonb(s text);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_hex(s TEXT);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_uuid(s TEXT);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS hex2bigint(s TEXT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_bigint_array(s TEXT);' >> $FILENAME
 
 echo '' >> $FILENAME
 echo 'END;' >> $FILENAME
@@ -162,6 +163,7 @@ declare -a SQLFILES=(
   "view_pg_unused_indexes"
   "function_hex2bigint"
   "function_is_hex"
+  "function_is_bigint_array"
   )
 arraylength=${#SQLFILES[@]}
 
