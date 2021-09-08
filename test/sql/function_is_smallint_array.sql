@@ -11,7 +11,7 @@ WITH test AS
 		SELECT COUNT(*) AS exist
 			, 0 AS zero
 		FROM pg_catalog.pg_proc
-		WHERE proname = 'is_integer_array'
+		WHERE proname = 'is_smallint_array'
 	)
 SELECT
 	CASE
@@ -26,12 +26,12 @@ FROM test
 -- Test smallint array
 WITH test AS
 	(
-		SELECT is_integer_array('{1,2,3}') AS isinteger_array
+		SELECT is_smallint_array('{1,2,3}') AS issmallint_array
 			, 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN isinteger_array THEN
+		WHEN issmallint_array THEN
 			TRUE
 		ELSE
 			(1 / zero)::BOOLEAN
@@ -42,12 +42,12 @@ FROM test
 -- Test a with wrong brackets, not an integer array
 WITH test AS
 	(
-		SELECT is_integer_array('[123,456]') AS isinteger_array
+		SELECT is_smallint_array('[123,456]') AS issmallint_array
 			, 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN NOT isinteger_array THEN
+		WHEN NOT issmallint_array THEN
 			TRUE
 		ELSE
 			(1 / zero)::BOOLEAN
@@ -58,12 +58,12 @@ FROM test
 -- Test a number with out of range value, not an integer array
 WITH test AS
 	(
-		SELECT is_integer_array('{3243546343,789879}') AS isinteger_array
+		SELECT is_smallint_array('{3243546343,789879}') AS issmallint_array
 			, 0 AS zero
 	)
 SELECT
 	CASE
-		WHEN NOT isinteger_array THEN
+		WHEN NOT issmallint_array THEN
 			TRUE
 		ELSE
 			(1 / zero)::BOOLEAN
