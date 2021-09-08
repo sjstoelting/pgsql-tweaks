@@ -110,6 +110,7 @@ echo 'DROP FUNCTION IF EXISTS is_uuid(s TEXT);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS hex2bigint(s TEXT);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_bigint_array(s TEXT);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_integer_array(s TEXT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_smallint_array(s TEXT);' >> $FILENAME
 
 echo '' >> $FILENAME
 echo 'END;' >> $FILENAME
@@ -166,6 +167,7 @@ declare -a SQLFILES=(
   "function_is_hex"
   "function_is_bigint_array"
   "function_is_integer_array"
+  "function_is_smallint_array"
   )
 arraylength=${#SQLFILES[@]}
 
