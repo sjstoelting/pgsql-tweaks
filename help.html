@@ -2,21 +2,23 @@
 <a id="user-content-postgresql-views-and-functions" class="anchor" href="#postgresql-views-and-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://www.postgresql.org" rel="nofollow">PostgreSQL</a> Views and Functions</h1>
 <p>The functions and views published in this repository are some of those, which I
 regularly need in my daily job.</p>
-<p>As these procedures are sort of essential, at least to me, I install them in the
+<p>As these functions and views are sort of essential, at least to me, I install them in the
 public schema. That way they are available for everyone without having to know
 a schema name.</p>
-<p>All functions and views are covered by tests. The tests are done in simple SQL
+<h2>
+<a id="user-content-tested-against-the-following-postgresql-versions" class="anchor" href="#tested-against-the-following-postgresql-versions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tested against the following PostgreSQL versions</h2>
+<p>[All functions and views are covered by tests. The tests are done in simple SQL
 statements. Each test does raise division by zero if it fails.</p>
-<p>The tests have been done with PostgreSQL 9.6 and 10. There have been some
-changes in the behaviour in PostgreSQL 10, Timestamp and Date functions and
-conversions have become more strict.</p>
-<p>All examples have been done with PostgreSQL 10, differences in the behaviour of
-previous versions are noted.</p>
+<p><a href=""><img src="https://camo.githubusercontent.com/84b4e2374613871da9a611a04d17febb14d83ec98f59c3828c351fe5bacda5d6/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d392e362d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-9.6-blue.svg" style="max-width:100%;"></a>
+<a href=""><img src="https://camo.githubusercontent.com/687e43b3aff8e81444d18bc72c144e59ade872a06af80a4c6a0cd50ccb07ca8a/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31302d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-10-blue.svg" style="max-width:100%;"></a>
+<a href=""><img src="https://camo.githubusercontent.com/b4dc4473a16e74b216452d3b345f68ea78fdabfc99f594c15f1bfeb5cac7d792/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31312d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-11-blue.svg" style="max-width:100%;"></a>
+<a href=""><img src="https://camo.githubusercontent.com/a1e5b3b64044fba3b779024e1b584eadc9414f4ea13840c231b07d78a37bcc92/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31322d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-12-blue.svg" style="max-width:100%;"></a>
+<a href=""><img src="https://camo.githubusercontent.com/8c567218410fdedca9e2739d83e798b8689dea5dc953e2bd981c7c49168f15a0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31332d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-13-blue.svg" style="max-width:100%;"></a>
+<a href=""><img src="https://camo.githubusercontent.com/b1753f91831f0b39070272efde9a4f30f63b9b116d9b76f5b3f57dbc91d72c2c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d313462657461332d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-14beta3-blue.svg" style="max-width:100%;"></a></p>
 <h1>
 <a id="user-content-repositories" class="anchor" href="#repositories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Repositories</h1>
-<p>The main repository is now on
-<a href="https://gitlab.com/sjstoelting/pgsql-tweaks.git" rel="nofollow">GitLab</a>. A mirror will stay on
-<a href="https://github.com/sjstoelting/pgsql-tweaks">GitHub</a>.</p>
+<p>The main repository is now on <a href="https://gitlab.com/sjstoelting/pgsql-tweaks.git" rel="nofollow">GitLab</a>.
+A mirror will stay on <a href="https://github.com/sjstoelting/pgsql-tweaks">GitHub</a>.</p>
 <p>If you discover any issue, please file them on
 <a href="https://gitlab.com/sjstoelting/pgsql-tweaks/issues" rel="nofollow">https://gitlab.com/sjstoelting/pgsql-tweaks/issues</a>.</p>
 <h1>
@@ -63,7 +65,12 @@ make install</pre></div>
 1.1.11 <a href="#user-content-function-is_json">FUNCTION is_json</a><br>
 1.1.12 <a href="#user-content-function-is_jsonb">FUNCTION is_jsonb</a><br>
 1.1.13 <a href="#user-content-function-is_empty">FUNCTION is_empty</a><br>
-1.1.14 <a href="#user-content-function-is_hex">FUNCTION is_hex</a></p>
+1.1.14 <a href="#user-content-function-is_hex">FUNCTION is_hex</a><br>
+1.1.15 <a href="#user-content-function-is_uuid">FUNCTION is_uid</a><br>
+1.1.16 <a href="#user-content-function-is_bigint_array">FUNCTION_is_bigint_array</a><br>
+1.1.17 <a href="#user-content-function-is_integer_array">FUNCTION_is_integer_array</a><br>
+1.1.18 <a href="#user-content-function-is_smallint_array">FUNCTION_is_smallint_array</a><br>
+1.1.19 <a href="#user-content-function-is_text_array">FUNCTION_is_text_array</a></p>
 <p>1.2 <a href="#user-content-functions-about-encryption">Functions about encryption</a><br>
 1.2.1 <a href="#user-content-function-sha256">FUNCTION sha256</a></p>
 <p>1.3 <a href="#user-content-functions-and-views-to-get-extended-system-information">Functions and views to get extended system information</a><br>
@@ -73,7 +80,8 @@ make install</pre></div>
 1.3.4 <a href="#user-content-view-pg_functions">VIEW pg_functions</a><br>
 1.3.4 <a href="#user-content-view-pg_active_locks">VIEW pg_active_locks</a><br>
 1.3.5 <a href="#user-content-view-pg_table_matview_infos">VIEW pg_table_matview_infos</a><br>
-1.3.6 <a href="#user-content-view-pg_object_ownership">VIEW pg_object_ownership</a></p>
+1.3.6 <a href="#user-content-view-pg_object_ownership">VIEW pg_object_ownership</a><br>
+1.3.7 <a href="#user-content-view-pg_bloat_info">VIEW pg_bloat_info</a></p>
 <p>1.4 <a href="#user-content-functions-about-encodings">Functions about encodings</a><br>
 1.4.1 <a href="#user-content-function-is_encoding">FUNCTION is_encoding</a><br>
 1.4.2 <a href="#user-content-function-is_latin1">FUNCTION is_latin1</a><br>
@@ -897,6 +905,256 @@ hex2bigint being installed!</span><g-emoji class="g-emoji" alias="exclamation" f
 </tr>
 </tbody>
 </table>
+<h3>
+<a id="user-content-function-is_uuid" class="anchor" href="#function-is_uuid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_uuid</h3>
+<p>The function checks a string variable for being a unique identifier (UUID).</p>
+<h4>
+<a id="user-content-examples-13" class="anchor" href="#examples-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_uuid(<span class="pl-s"><span class="pl-pds">'</span>6a448514-cac9-487c-ac1a-a1a299a35050<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is true</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">t</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_hex(<span class="pl-s"><span class="pl-pds">'</span>123456<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is false</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">f</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_hex(<span class="pl-s"><span class="pl-pds">'</span>a1b0c3c3c3c4b5d3<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is false (does not fit into a bigint)</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">f</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="user-content-function-is_bigint_array" class="anchor" href="#function-is_bigint_array" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_bigint_array</h3>
+<p>The function checks a string variable for being a bigint array</p>
+<h4>
+<a id="user-content-examples-14" class="anchor" href="#examples-14" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_bigint_array(<span class="pl-s"><span class="pl-pds">'</span>{1,2}<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is true</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">t</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_bigint_array(<span class="pl-s"><span class="pl-pds">'</span>[123,456]<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is false</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">f</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_bigint_array(<span class="pl-s"><span class="pl-pds">'</span>{32435463435745636545,1}<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is false (array element 1 does not fit into a bigint)</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">f</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="user-content-function-is_integer_array" class="anchor" href="#function-is_integer_array" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_integer_array</h3>
+<p>The function checks a string variable for being an integer array</p>
+<h4>
+<a id="user-content-examples-15" class="anchor" href="#examples-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_integer_array(<span class="pl-s"><span class="pl-pds">'</span>{1,2,3}<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is true</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">t</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_integer_array(<span class="pl-s"><span class="pl-pds">'</span>[123,456]<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is false</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">f</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_integer_array(<span class="pl-s"><span class="pl-pds">'</span>{3243546343,789879}<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is false (array element 1 does not fit into an integer)</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">f</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="user-content-function-is_smallint_array" class="anchor" href="#function-is_smallint_array" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_smallint_array</h3>
+<p>The function checks a string variable for being a smallint array</p>
+<h4>
+<a id="user-content-examples-16" class="anchor" href="#examples-16" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_smallint_array(<span class="pl-s"><span class="pl-pds">'</span>{1,2,3}<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is true</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">t</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_smallint_array(<span class="pl-s"><span class="pl-pds">'</span>[123,456]<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is false</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">f</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_smallint_array(<span class="pl-s"><span class="pl-pds">'</span>{3243546343,789879}<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is false (array element 1 does not fit into an integer)</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">f</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="user-content-function-is_text_array" class="anchor" href="#function-is_text_array" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_text_array</h3>
+<p>The function checks a string variable for being a text array</p>
+<h4>
+<a id="user-content-examples-17" class="anchor" href="#examples-17" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_text_array(<span class="pl-s"><span class="pl-pds">'</span>{a,b,c}<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is true</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">t</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_text_array(<span class="pl-s"><span class="pl-pds">'</span>[123,456]<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is false</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">f</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_text_array(<span class="pl-s"><span class="pl-pds">'</span>{3243546343,789879}<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
+<span class="pl-c"><span class="pl-c">--</span> Result is true</span></pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="center">res</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">f</td>
+</tr>
+</tbody>
+</table>
 <h2>
 <a id="user-content-functions-about-encryption" class="anchor" href="#functions-about-encryption" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions about encryption</h2>
 <h3>
@@ -927,7 +1185,7 @@ The parameter has to be converted into a binary string of <a href="https://www.p
 <a id="user-content-function-pg_schema_size" class="anchor" href="#function-pg_schema_size" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION pg_schema_size</h3>
 <p>The function returns the size for schema given as parameter in bytes.</p>
 <h4>
-<a id="user-content-examples-13" class="anchor" href="#examples-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-18" class="anchor" href="#examples-18" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Returns the size of the schema public in bytes</span>
 <span class="pl-k">SELECT</span> pg_schema_size(<span class="pl-s"><span class="pl-pds">'</span>public<span class="pl-pds">'</span></span>);</pre></div>
 <p>Result:</p>
@@ -1628,6 +1886,84 @@ Since PostgreSQL 11 supports procedures, therefore there is one version vor Post
 </tr>
 </tbody>
 </table>
+<h3>
+<a id="user-content-view-pg_bloat_info" class="anchor" href="#view-pg_bloat_info" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_bloat_info</h3>
+<p>Creates a view returning information about the bloat of tables and indexes inside a database.</p>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
+<span class="pl-k">FROM</span> pg_bloat_info;</pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="left">type</th>
+<th>schemaname</th>
+<th>object_name</th>
+<th align="right">bloat</th>
+<th align="right">waste</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">table</td>
+<td>public</td>
+<td>reviews</td>
+<td align="right">1</td>
+<td align="right">9048 kB</td>
+</tr>
+<tr>
+<td align="left">index</td>
+<td>public</td>
+<td>PlaylistTrack::PK_PlaylistTrack</td>
+<td align="right">1.7</td>
+<td align="right">120 kB</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="user-content-view-pg_unused_indexes" class="anchor" href="#view-pg_unused_indexes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_unused_indexes</h3>
+<p>Creates a view returning unused indexes indexes inside a database. The column size_of_all_indexes contains the size of all indexes inside the database.</p>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
+<span class="pl-k">FROM</span> pg_unused_indexes;</pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="left">schemaname</th>
+<th>table_name</th>
+<th>index_name</th>
+<th align="right">idx_scan</th>
+<th align="right">table_size</th>
+<th align="right">table_total_size</th>
+<th align="right">all_indexes_size</th>
+<th align="right">index_size</th>
+<th align="right">size_of_all_indexes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">public</td>
+<td>Album</td>
+<td>PK_Album</td>
+<td align="right">0</td>
+<td align="right">48 kB</td>
+<td align="right">80 kB</td>
+<td align="right">32 kB</td>
+<td align="right">16 kB</td>
+<td align="right">76 MB</td>
+</tr>
+<tr>
+<td align="left">public</td>
+<td>Artist</td>
+<td>Artist</td>
+<td align="right">0</td>
+<td align="right">40 kB</td>
+<td align="right">56 kB</td>
+<td align="right">16 kB</td>
+<td align="right">16 kB</td>
+<td align="right">76 MB</td>
+</tr>
+</tbody>
+</table>
 <h2>
 <a id="user-content-functions-about-encodings" class="anchor" href="#functions-about-encodings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions about encodings</h2>
 <h3>
@@ -1638,7 +1974,7 @@ encodings than the database encoding.</p>
 <p>The function with two parameters uses UTF-8 as source encoding,<br>
 The one with three parameters uses the third parameter as source encoding.</p>
 <h4>
-<a id="user-content-examples-14" class="anchor" href="#examples-14" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-19" class="anchor" href="#examples-19" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_encoding(<span class="pl-s"><span class="pl-pds">'</span>Some characters<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>LATIN1<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
@@ -1702,7 +2038,7 @@ The one with three parameters uses the third parameter as source encoding.</p>
 <p>The function is a shortcut for is_encoding('Some characters', 'LATIN1'), you
 don't have to give the target encoding.</p>
 <h4>
-<a id="user-content-examples-15" class="anchor" href="#examples-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-20" class="anchor" href="#examples-20" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_latin1(<span class="pl-s"><span class="pl-pds">'</span>Some characters<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
@@ -2063,7 +2399,7 @@ to show the last value in case the current value is null.</p>
 <p>Calculate minimum values from arrays.</p>
 <p>Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, NUMERIC, and TEXT;</p>
 <h4>
-<a id="user-content-examples-16" class="anchor" href="#examples-16" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-21" class="anchor" href="#examples-21" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> array_min(ARRAY[<span class="pl-c1">45</span>, <span class="pl-c1">60</span>, <span class="pl-c1">43</span>, <span class="pl-c1">99</span>]::<span class="pl-k">SMALLINT</span>[]);</pre></div>
 <p>Result:</p>
 <table>
@@ -2167,7 +2503,7 @@ to show the last value in case the current value is null.</p>
 <p>Calculate minimum values from arrays.</p>
 <p>Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, NUMERIC, and TEXT;</p>
 <h4>
-<a id="user-content-examples-17" class="anchor" href="#examples-17" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-22" class="anchor" href="#examples-22" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> array_max(ARRAY[<span class="pl-c1">45</span>, <span class="pl-c1">60</span>, <span class="pl-c1">43</span>, <span class="pl-c1">99</span>]::<span class="pl-k">SMALLINT</span>[]);</pre></div>
 <p>Result:</p>
 <table>
@@ -2271,7 +2607,7 @@ to show the last value in case the current value is null.</p>
 <p>Calculate average values from arrays.</p>
 <p>Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, and NUMERIC;</p>
 <h4>
-<a id="user-content-examples-18" class="anchor" href="#examples-18" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-23" class="anchor" href="#examples-23" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> array_avg(ARRAY[<span class="pl-c1">45</span>, <span class="pl-c1">60</span>, <span class="pl-c1">43</span>, <span class="pl-c1">99</span>]::<span class="pl-k">SMALLINT</span>[]);</pre></div>
 <p>Result:</p>
 <table>
@@ -2361,7 +2697,7 @@ to show the last value in case the current value is null.</p>
 <p>Calculate sum of values from arrays.</p>
 <p>Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, and, NUMERIC;</p>
 <h4>
-<a id="user-content-examples-19" class="anchor" href="#examples-19" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-24" class="anchor" href="#examples-24" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> array_sum(ARRAY[<span class="pl-c1">45</span>, <span class="pl-c1">60</span>, <span class="pl-c1">43</span>, <span class="pl-c1">99</span>]::<span class="pl-k">SMALLINT</span>[]);</pre></div>
 <p>Result:</p>
 <table>
@@ -2498,7 +2834,7 @@ codes which differ in different programming languages.</p>
 <p>Creates two functions which returns unix timestamp for the a given timestamp or
 a given timestamp with time zone.</p>
 <h4>
-<a id="user-content-examples-20" class="anchor" href="#examples-20" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-25" class="anchor" href="#examples-25" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Timestamp without time zone, server uses German / Berlin time zone</span>
 <span class="pl-k">SELECT</span> to_unix_timestamp(<span class="pl-s"><span class="pl-pds">'</span>2018-01-01 00:00:00<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> unix_timestamp;</pre></div>
 <p>Result:</p>
@@ -2556,7 +2892,7 @@ a given timestamp with time zone.</p>
 function can remove duplicate entries. The function supports strings, numbers,
 dates, and timestamps with or without time zone.</p>
 <h4>
-<a id="user-content-examples-21" class="anchor" href="#examples-21" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<a id="user-content-examples-26" class="anchor" href="#examples-26" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Untrimmed timestamp array with time zone with duplicates</span>
 <span class="pl-k">SELECT</span> array_trim(ARRAY[<span class="pl-s"><span class="pl-pds">'</span>2018-11-11 11:00:00 MEZ<span class="pl-pds">'</span></span>,<span class="pl-k">NULL</span>,<span class="pl-s"><span class="pl-pds">'</span>2018-11-11 11:00:00 MEZ<span class="pl-pds">'</span></span>]::<span class="pl-k">TIMESTAMP WITH TIME ZONE</span>[]) <span class="pl-k">AS</span> trimmed_array;</pre></div>
 <p>Result:</p>
