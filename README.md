@@ -98,7 +98,8 @@ Afterwards you are able to create the extension in a database:
 1.1.13 [FUNCTION is_empty](#function-is_empty)<br />
 1.1.14 [FUNCTION is_hex](#function-is_hex)<br />
 1.1.15 [FUNCTION is_uid](#function-is_uuid)<br />
-1.1.16 FUNCTION_is_bigint_array(#function-is_bigint_array)
+1.1.16 [FUNCTION_is_bigint_array](#function-is_bigint_array)<br />
+1.1.16 [FUNCTION_is_integer_array](#function-is_integer_array)
 
 1.2 [Functions about encryption](#functions-about-encryption)<br />
 1.2.1 [FUNCTION sha256](#function-sha256)
@@ -829,6 +830,49 @@ Result:
 ```sql
 SELECT is_bigint_array('{32435463435745636545,1}') AS res;
 -- Result is false (array element 1 does not fit into a bigint)
+```
+
+Result:
+
+| res  |
+| :--: |
+|  f   |
+
+### FUNCTION is_integer_array
+
+The function checks a string variable for being an integer array
+
+#### Examples
+
+```sql
+SELECT is_integer_array('{1,2,3}') AS res;
+-- Result is true
+```
+
+Result:
+
+| res  |
+| :--: |
+|  t   |
+
+
+
+```sql
+SELECT is_integer_array('[123,456]') AS res;
+-- Result is false
+```
+
+Result:
+
+| res  |
+| :--: |
+|  f   |
+
+
+
+```sql
+SELECT is_integer_array('{3243546343,789879}') AS res;
+-- Result is false (array element 1 does not fit into an integer)
 ```
 
 Result:
