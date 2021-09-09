@@ -3,28 +3,25 @@
 The functions and views published in this repository are some of those, which I
 regularly need in my daily job.
 
-As these functions and views are sort of essential, at least to me, I install them in the
+As these procedures are sort of essential, at least to me, I install them in the
 public schema. That way they are available for everyone without having to know
 a schema name.
 
-
-
-## Tested against the following PostgreSQL versions
-
-[All functions and views are covered by tests. The tests are done in simple SQL
+All functions and views are covered by tests. The tests are done in simple SQL
 statements. Each test does raise division by zero if it fails.
 
-[![version](https://img.shields.io/badge/PostgreSQL-9.6-blue.svg)]()
-[![version](https://img.shields.io/badge/PostgreSQL-10-blue.svg)]()
-[![version](https://img.shields.io/badge/PostgreSQL-11-blue.svg)]()
-[![version](https://img.shields.io/badge/PostgreSQL-12-blue.svg)]()
-[![version](https://img.shields.io/badge/PostgreSQL-13-blue.svg)]()
-[![version](https://img.shields.io/badge/PostgreSQL-14beta3-blue.svg)]()
+The tests have been done with PostgreSQL 9.6 and 10. There have been some
+changes in the behaviour in PostgreSQL 10, Timestamp and Date functions and
+conversions have become more strict.
+
+All examples have been done with PostgreSQL 10, differences in the behaviour of
+previous versions are noted.
 
 # Repositories
 
-The main repository is now on [GitLab](https://gitlab.com/sjstoelting/pgsql-tweaks.git).
-A mirror will stay on [GitHub](https://github.com/sjstoelting/pgsql-tweaks).
+The main repository is now on
+[GitLab](https://gitlab.com/sjstoelting/pgsql-tweaks.git). A mirror will stay on
+[GitHub](https://github.com/sjstoelting/pgsql-tweaks).
 
 If you discover any issue, please file them on
 https://gitlab.com/sjstoelting/pgsql-tweaks/issues.
@@ -91,12 +88,7 @@ Afterwards you are able to create the extension in a database:
 1.1.11 [FUNCTION is_json](#FUNCTION.is_json)<br />
 1.1.12 [FUNCTION is_jsonb](#FUNCTION.is_jsonb)<br />
 1.1.13 [FUNCTION is_empty](#FUNCTION.is_empty)<br />
-1.1.14 [FUNCTION is_hex](#FUNCTION.is_hex)<br />
-1.1.15 [FUNCTION is_uid](#FUNCTION.is_uidd)<br />
-1.1.16 [FUNCTION_is_bigint_array](#FUNCTION_is_bigint_array)<br />
-1.1.17 [FUNCTION_is_integer_array](#FUNCTION_is_integer_array)<br />
-1.1.18 [FUNCTION_is_smallint_array](#FUNCTION_is_smallint_array)<br />
-1.1.19 [FUNCTION_is_text_array](#FUNCTION_is_text_array)
+1.1.14 [FUNCTION is_hex](#FUNCTION.is_hex)
 
 1.2 [Functions about encryption](#Functions.about encryption)<br />
 1.2.1 [FUNCTION sha256](#FUNCTION.sha256)
@@ -108,8 +100,7 @@ Afterwards you are able to create the extension in a database:
 1.3.4 [VIEW pg_functions](#VIEW.pg_functions)<br />
 1.3.4 [VIEW pg_active_locks](#VIEW.pg_active_locks)<br />
 1.3.5 [VIEW pg_table_matview_infos](#VIEW.pg_table_matview_infos)<br />
-1.3.6 [VIEW pg_object_ownership](#VIEW.pg_object_ownership)<br />
-1.3.7 [VIEW pg_bloat_info](#VIEW.pg_bloat_info)
+1.3.6 [VIEW pg_object_ownership](#VIEW.pg_object_ownership)
 
 1.4 [Functions about encodings](#Functions.about encodings)<br />
 1.4.1 [FUNCTION is_encoding](#FUNCTION.is_encoding)<br />
@@ -753,217 +744,6 @@ Result:
 |:---:|
 | f   |
 
-### FUNCTION is_uuid
-
-The function checks a string variable for being a unique identifier (UUID).
-
-#### Examples
-
-```sql
-SELECT is_uuid('6a448514-cac9-487c-ac1a-a1a299a35050') AS res;
--- Result is true
-```
-
-Result:
-
-| res  |
-| :--: |
-|  t   |
-
-```sql
-SELECT is_hex('123456') AS res;
--- Result is false
-```
-
-Result:
-
-| res  |
-| :--: |
-|  f   |
-
-```sql
-SELECT is_hex('a1b0c3c3c3c4b5d3') AS res;
--- Result is false (does not fit into a bigint)
-```
-
-Result:
-
-| res  |
-| :--: |
-|  f   |
-
-### FUNCTION is_bigint_array
-
-The function checks a string variable for being a bigint array
-
-#### Examples
-
-```sql
-SELECT is_bigint_array('{1,2}') AS res;
--- Result is true
-```
-
-Result:
-
-| res  |
-| :--: |
-|  t   |
-
-
-
-```sql
-SELECT is_bigint_array('[123,456]') AS res;
--- Result is false
-```
-
-Result:
-
-| res  |
-| :--: |
-|  f   |
-
-
-
-```sql
-SELECT is_bigint_array('{32435463435745636545,1}') AS res;
--- Result is false (array element 1 does not fit into a bigint)
-```
-
-Result:
-
-| res  |
-| :--: |
-|  f   |
-
-### FUNCTION is_integer_array
-
-The function checks a string variable for being an integer array
-
-#### Examples
-
-```sql
-SELECT is_integer_array('{1,2,3}') AS res;
--- Result is true
-```
-
-Result:
-
-| res  |
-| :--: |
-|  t   |
-
-
-
-```sql
-SELECT is_integer_array('[123,456]') AS res;
--- Result is false
-```
-
-Result:
-
-| res  |
-| :--: |
-|  f   |
-
-
-
-```sql
-SELECT is_integer_array('{3243546343,789879}') AS res;
--- Result is false (array element 1 does not fit into an integer)
-```
-
-Result:
-
-| res  |
-| :--: |
-|  f   |
-
-### FUNCTION is_smallint_array
-
-The function checks a string variable for being a smallint array
-
-#### Examples
-
-```sql
-SELECT is_smallint_array('{1,2,3}') AS res;
--- Result is true
-```
-
-Result:
-
-| res  |
-| :--: |
-|  t   |
-
-
-
-```sql
-SELECT is_smallint_array('[123,456]') AS res;
--- Result is false
-```
-
-Result:
-
-| res  |
-| :--: |
-|  f   |
-
-
-
-```sql
-SELECT is_smallint_array('{3243546343,789879}') AS res;
--- Result is false (array element 1 does not fit into an integer)
-```
-
-Result:
-
-| res  |
-| :--: |
-|  f   |
-
-### FUNCTION is_text_array
-
-The function checks a string variable for being a text array
-
-#### Examples
-
-```sql
-SELECT is_text_array('{a,b,c}') AS res;
--- Result is true
-```
-
-Result:
-
-| res  |
-| :--: |
-|  t   |
-
-
-
-```sql
-SELECT is_text_array('[123,456]') AS res;
--- Result is false
-```
-
-Result:
-
-| res  |
-| :--: |
-|  f   |
-
-
-
-```sql
-SELECT is_text_array('{3243546343,789879}') AS res;
--- Result is true
-```
-
-Result:
-
-| res  |
-| :--: |
-|  f   |
-
 
 
 ## Functions about encryption
@@ -1068,26 +848,28 @@ FROM pg_db_views;
 
 ### VIEW pg_foreign_keys
 
-Creates a view to get all views of the current database but excluding system views and all views which do start with "pg" or "\_pg".
+Creates a view to get a list of foreign keys in the database.
 
 ```sql
 SELECT *
 FROM pg_foreign_keys;
 ```
 
-| table_catalog | table_schema |  table_name   | column_name  | foreign_table_name | foreign_column_name |
-| ------------- | ------------ | ------------- | ------------ | ------------------ | ------------------- |
-|chinook        | public       | Album         | ArtistId     | Artist             | ArtistId            |
-|chinook        | public       | Customer      | SupportRepId | Employee           | EmployeeId          |
-|chinook        | public       | Employee      | ReportsTo    | Employee           | EmployeeId          |
-|chinook        | public       | Invoice       | CustomerId   | Customer           | CustomerId          |
-|chinook        | public       | InvoiceLine   | InvoiceId    | Invoice            | InvoiceId           |
-|chinook        | public       | InvoiceLine   | TrackId      | Track              | TrackId             |
-|chinook        | public       | PlaylistTrack | PlaylistId   | Playlist           | PlaylistId          |
-|chinook        | public       | PlaylistTrack | TrackId      | Track              | TrackId             |
-|chinook        | public       | Track         | AlbumId      | Album              | AlbumId             |
-|chinook        | public       | Track         | GenreId      | Genre              | GenreId             |
-|chinook        | public       | Track         | MediaTypeId  | MediaType          | MediaTypeId         |
+
+
+| table_catalog | table_schema | table_name    | column_name  | foreign_table_schema | foreign_table_name | foreign_column_name |
+| ------------- | ------------ | ------------- | ------------ | -------------------- | ------------------ | ------------------- |
+| chinook       | public       | Album         | ArtistId     | public               | Artist             | ArtistId            |
+| chinook       | public       | Customer      | SupportRepId | public               | Employee           | EmployeeId          |
+| chinook       | public       | Employee      | ReportsTo    | public               | Employee           | EmployeeId          |
+| chinook       | public       | Invoice       | CustomerId   | public               | Customer           | CustomerId          |
+| chinook       | public       | InvoiceLine   | InvoiceId    | public               | Invoice            | InvoiceId           |
+| chinook       | public       | InvoiceLine   | TrackId      | public               | Track              | TrackId             |
+| chinook       | public       | PlaylistTrack | PlaylistId   | public               | Playlist           | PlaylistId          |
+| chinook       | public       | PlaylistTrack | TrackId      | public               | Track              | TrackId             |
+| chinook       | public       | Track         | AlbumId      | public               | Album              | AlbumId             |
+| chinook       | public       | Track         | GenreId      | public               | Genre              | GenreId             |
+| chinook       | public       | Track         | MediaTypeId  | public               | MediaType          | MediaTypeId         |
 
 
 ### VIEW pg_functions
@@ -1191,38 +973,6 @@ Result:
 | 18028 | public | gapfill | stefanie | AGGREGATE FUNCTION | n | DEPENDENCY_NORMAL |
 | 18039 | public | to_unix_timestamp | stefanie | FUNCTION | n | DEPENDENCY_NORMAL |
 | 18068 | public | to_unix_timestamp | stefanie | FUNCTION | n | DEPENDENCY_NORMAL |
-
-### VIEW pg_bloat_info
-
-Creates a view returning information about the bloat of tables and indexes inside a database.
-
-```sql
-SELECT *
-FROM pg_bloat_info;
-```
-
-Result:
-
-| type  | schemaname | object_name                     | bloat |   waste |
-| :---- | ---------- | ------------------------------- | ----: | ------: |
-| table | public     | reviews                         |     1 | 9048 kB |
-| index | public     | PlaylistTrack::PK_PlaylistTrack |   1.7 |  120 kB |
-
-### VIEW pg_unused_indexes
-
-Creates a view returning unused indexes indexes inside a database. The column size_of_all_indexes contains the size of all indexes inside the database.
-
-```sql
-SELECT *
-FROM pg_unused_indexes;
-```
-
-Result:
-
-| schemaname | table_name | index_name | idx_scan | table_size | table_total_size | all_indexes_size | index_size | size_of_all_indexes |
-| :--------- | ---------- | ---------- | -------: | ---------: | ---------------: | ---------------: | ---------: | ------------------: |
-| public     | Album      | PK_Album   |        0 |      48 kB |            80 kB |            32 kB |      16 kB |               76 MB |
-| public     | Artist     | Artist     |        0 |      40 kB |            56 kB |            16 kB |      16 kB |               76 MB |
 
 ## Functions about encodings
 
