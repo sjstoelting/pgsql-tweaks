@@ -1,6 +1,13 @@
 #!/bin/bash
 # The script creates the SQL script to create the files needed for PGXN
 
+# Accept an argument whether the zip file for pgxn.org should be overridden
+if [ -z "$1" ]; then
+  PGXN='N'
+else
+  PGXN=$1
+fi
+
 # Copy the build.cfg.example to build.cfg and edit the configuration to match your nees
 # Include the local configuration
 source ./build.cfg
@@ -265,7 +272,13 @@ psql -h $DBHOST -p $DBPORT -X -q -b postgres -c "DROP DATABASE $DBNAME;"
 ./create_html_doc.sh
 
 # Create the PGXN package, output path is users tmp
-git archive --format zip --prefix=pgsql-tweaks-$EXTVERSION/ --output ~/tmp/pgsql-tweaks-$EXTVERSION.zip main
+if [ "$PGXN" = "y" ]; then
+  echo "Creating pgxn zip file"
+  rm -f ~/tmp/pgsql-tweaks-$EXTVERSION.zip
+  git archive --format zip --prefix=pgsql-tweaks-$EXTVERSION/ --output ~/tmp/pgsql-tweaks-$EXTVERSION.zip main
+else
+  echo "No pgxn zip file has been created"
+fi
 
 # Unset variables
 unset DIR
