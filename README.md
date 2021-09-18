@@ -100,7 +100,8 @@ Afterwards you are able to create the extension in a database:
 1.3.4 [VIEW pg_functions](#view-pg_functions)<br />
 1.3.4 [VIEW pg_active_locks](#view-pg_active_locks)<br />
 1.3.5 [VIEW pg_table_matview_infos](#view-pg_table_matview_infos)<br />
-1.3.6 [VIEW pg_object_ownership](#view-pg_object_ownership)
+1.3.6 [VIEW pg_object_ownership](#view-pg_object_ownership)<br />
+1.3.7 [VIEW pg_partitioned_tables_infos](#view-pg_partitioned_tables_infos)
 
 1.4 [Functions about encodings](#functions-about-encodings)<br />
 1.4.1 [FUNCTION is_encoding](#function-is_encoding)<br />
@@ -956,7 +957,7 @@ Result:
 ### VIEW pg_object_ownership
 
 Creates a view with information about the ownership of objects.
-Since PostgreSQL 11 supports procedures, therefore there is one version vor PostgreSQL 10 and older and another one for PostgreSQL 11 and newer.
+Since PostgreSQL 11 supports procedures, therefore there is one version vor PostgreSQL 10. This view is supported in PostgreSQL 10 or newer.  Older versions are not supported.
 
 ```sql
 SELECT *
@@ -973,6 +974,25 @@ Result:
 | 18028 | public | gapfill | stefanie | AGGREGATE FUNCTION | n | DEPENDENCY_NORMAL |
 | 18039 | public | to_unix_timestamp | stefanie | FUNCTION | n | DEPENDENCY_NORMAL |
 | 18068 | public | to_unix_timestamp | stefanie | FUNCTION | n | DEPENDENCY_NORMAL |
+
+### VIEW pg_partitioned_tables_infos
+
+Creates a view to get information about partitioned tables.
+Since PostgreSQL 10 supports partitions, but they became usable only in later versions. A system table to identify partitions has been added in PostgreSQL 11. Therefore this view is only available on systems with PostgreSQL 11 or newer.
+
+```sql
+SELECT *
+FROM pg_partitioned_tables_infos;
+```
+
+Result:
+
+| parent_relid | parent_schemaname | parent_tablename | parent_owner | partition_strategy | count_o_partitions | overall_size | child_relid | child_schemaname | child_tablename | child_owner | child_size |
+| -----------: | ----------------- | ---------------- | ------------ | ------------------ | -----------------: | -----------: | ----------- | ---------------- | --------------- | ----------- | ---------- |
+|        16389 | test              | parted           | stefanie     | LIST               |                  3 |            0 | 16396       | test             | parted_part_1   | stefanie    | 0          |
+|        16389 | test              | parted           | stefanie     | LIST               |                  3 |            0 | 16406       | test             | parted_part_2   | stefanie    | 0          |
+|        16389 | test              | parted           | stefanie     | LIST               |                  3 |            0 | 16416       | test             | parted_part_3   | stefanie    | 0          |
+|        16441 | test              | parted_test2     | stefanie     | HASH               |                  0 |            0 |             |                  |                 |             |            |
 
 ## Functions about encodings
 
