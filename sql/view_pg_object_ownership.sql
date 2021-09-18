@@ -6,8 +6,10 @@
 DO $$
 DECLARE
 	version_greater_11 BOOLEAN;
+	version_greater_10 BOOLEAN;
 BEGIN
 	SELECT to_number((string_to_array(version(), ' '))[2], '999.99') >= 11 INTO version_greater_11;
+	SELECT to_number((string_to_array(version(), ' '))[2], '999.99') >= 10 INTO version_greater_10;
 
 	IF version_greater_11 THEN
 		-- Create the view pg_object_ownership for PostgreSQL 11 or newer
@@ -208,7 +210,11 @@ BEGIN
 		WHERE object_schema NOT IN ('information_schema', 'pg_catalog')
 			AND object_schema NOT LIKE 'pg_toast%'
 		;
-	ELSE
+
+		-- Add a comment
+		COMMENT ON VIEW pg_object_ownership IS 'The view returns all objects, its type, and its ownership in the current database, excluding those in the schema pg_catalog and information_schema';
+
+	ELSIF version_greater_10 THEN
 		-- Create the view pg_object_ownership for PostgreSQL older than 11
 		CREATE OR REPLACE VIEW pg_object_ownership AS
 		WITH dbobjects AS
@@ -384,9 +390,10 @@ BEGIN
 		WHERE object_schema NOT IN ('information_schema', 'pg_catalog')
 			AND object_schema NOT LIKE 'pg_toast%'
 		;
-	END IF;
 
--- Add a comment
-COMMENT ON VIEW pg_object_ownership IS 'The view returns all objects, its type, and its ownership in the current database, excluding those in the schema pg_catalog and information_schema';
+
+		-- Add a comment
+		COMMENT ON VIEW pg_object_ownership IS 'The view returns all objects, its type, and its ownership in the current database, excluding those in the schema pg_catalog and information_schema';
+	END IF;
 
 END $$;
