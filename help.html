@@ -73,7 +73,8 @@ make install</pre></div>
 1.3.4 <a href="#user-content-view-pg_functions">VIEW pg_functions</a><br>
 1.3.4 <a href="#user-content-view-pg_active_locks">VIEW pg_active_locks</a><br>
 1.3.5 <a href="#user-content-view-pg_table_matview_infos">VIEW pg_table_matview_infos</a><br>
-1.3.6 <a href="#user-content-view-pg_object_ownership">VIEW pg_object_ownership</a></p>
+1.3.6 <a href="#user-content-view-pg_object_ownership">VIEW pg_object_ownership</a><br>
+1.3.7 <a href="#user-content-view-pg_partitioned_tables_infos">VIEW pg_partitioned_tables_infos</a></p>
 <p>1.4 <a href="#user-content-functions-about-encodings">Functions about encodings</a><br>
 1.4.1 <a href="#user-content-function-is_encoding">FUNCTION is_encoding</a><br>
 1.4.2 <a href="#user-content-function-is_latin1">FUNCTION is_latin1</a><br>
@@ -1637,6 +1638,89 @@ Since PostgreSQL 11 supports procedures, therefore there is one version vor Post
 <td>FUNCTION</td>
 <td align="center">n</td>
 <td>DEPENDENCY_NORMAL</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="user-content-view-pg_partitioned_tables_infos" class="anchor" href="#view-pg_partitioned_tables_infos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_partitioned_tables_infos</h3>
+<p>Creates a view to get information about partitioned tables.
+Since PostgreSQL 10 supports partitions, but they became usable only in later versions. A system table to identify partitions has been added in PostgreSQL 11. Therefore this view is only available on systems with PostgreSQL 11 or newer.</p>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
+<span class="pl-k">FROM</span> pg_partitioned_tables_infos;</pre></div>
+<p>Result:</p>
+<table>
+<thead>
+<tr>
+<th align="right">parent_relid</th>
+<th>parent_schemaname</th>
+<th>parent_tablename</th>
+<th>parent_owner</th>
+<th>partition_strategy</th>
+<th align="right">count_o_partitions</th>
+<th align="right">overall_size</th>
+<th>child_relid</th>
+<th>child_schemaname</th>
+<th>child_tablename</th>
+<th>child_owner</th>
+<th>child_size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">16389</td>
+<td>test</td>
+<td>parted</td>
+<td>stefanie</td>
+<td>LIST</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td>16396</td>
+<td>test</td>
+<td>parted_part_1</td>
+<td>stefanie</td>
+<td>0</td>
+</tr>
+<tr>
+<td align="right">16389</td>
+<td>test</td>
+<td>parted</td>
+<td>stefanie</td>
+<td>LIST</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td>16406</td>
+<td>test</td>
+<td>parted_part_2</td>
+<td>stefanie</td>
+<td>0</td>
+</tr>
+<tr>
+<td align="right">16389</td>
+<td>test</td>
+<td>parted</td>
+<td>stefanie</td>
+<td>LIST</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td>16416</td>
+<td>test</td>
+<td>parted_part_3</td>
+<td>stefanie</td>
+<td>0</td>
+</tr>
+<tr>
+<td align="right">16441</td>
+<td>test</td>
+<td>parted_test2</td>
+<td>stefanie</td>
+<td>HASH</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
