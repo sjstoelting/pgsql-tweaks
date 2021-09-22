@@ -10,18 +10,17 @@ a schema name.
 All functions and views are covered by tests. The tests are done in simple SQL
 statements. Each test does raise division by zero if it fails.
 
-The tests have been done with PostgreSQL 9.6 and 10. There have been some
+The tests have been done with PostgreSQL 9.6 and 14 beta 3. There have been some
 changes in the behaviour in PostgreSQL 10, Timestamp and Date functions and
 conversions have become more strict.
 
-All examples have been done with PostgreSQL 10, differences in the behaviour of
+All examples have been tested with PostgreSQL 13, differences in the behavior of
 previous versions are noted.
 
 # Repositories
 
 The main repository is now on
-[GitLab](https://gitlab.com/sjstoelting/pgsql-tweaks.git). A mirror will stay on
-[GitHub](https://github.com/sjstoelting/pgsql-tweaks).
+[GitLab](https://gitlab.com/sjstoelting/pgsql-tweaks.git). A mirror will stay on [GitHub](https://github.com/sjstoelting/pgsql-tweaks).
 
 If you discover any issue, please file them on
 https://gitlab.com/sjstoelting/pgsql-tweaks/issues.
@@ -34,8 +33,7 @@ The files for the extension are build by the shell script "create-sql.sh".
 To be able to run the script, you need to have a configuration with the
 connection information. Please copy "build.cfg.example" to "build.cfg" and
 change the configuration to fit your environment.<br />
-The script assumes, that you have a
-[.pgpass](https://www.postgresql.org/docs/current/static/libpq-pgpass.html)
+The script assumes, that you have a [.pgpass](https://www.postgresql.org/docs/current/static/libpq-pgpass.html)
 file with login information matching the configuration.
 
 
