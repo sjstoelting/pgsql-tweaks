@@ -10,11 +10,11 @@ a schema name.
 All functions and views are covered by tests. The tests are done in simple SQL
 statements. Each test does raise division by zero if it fails.
 
-The tests have been done with PostgreSQL 9.6 and 14 beta 3. There have been some
+The tests have been done with PostgreSQL 9.6 and 15 beta 2. There have been some
 changes in the behaviour in PostgreSQL 10, Timestamp and Date functions and
 conversions have become more strict.
 
-All examples have been tested with PostgreSQL 13, differences in the behavior of
+All examples have been tested with PostgreSQL 15 beta 2, differences in the behavior of
 previous versions are noted.
 
 # Repositories
@@ -624,7 +624,7 @@ Result:
 | t   |
 
 ```sql
-SELECT is_json('Not a JSON') AS res
+SELECT is_json('Not a JSON') AS res;
 ```
 
 Result:
@@ -650,7 +650,7 @@ Result:
 | t   |
 
 ```sql
-SELECT is_jsonb('Not a JSONB') AS res
+SELECT is_jsonb('Not a JSONB') AS res;
 ```
 
 Result:
