@@ -7,16 +7,15 @@ public schema. That way they are available for everyone without having to know
 a schema name.</p>
 <p>All functions and views are covered by tests. The tests are done in simple SQL
 statements. Each test does raise division by zero if it fails.</p>
-<p>The tests have been done with PostgreSQL 9.6 and 10. There have been some
+<p>The tests have been done with PostgreSQL 9.6 and 15 beta 2. There have been some
 changes in the behaviour in PostgreSQL 10, Timestamp and Date functions and
 conversions have become more strict.</p>
-<p>All examples have been done with PostgreSQL 10, differences in the behaviour of
+<p>All examples have been tested with PostgreSQL 15 beta 2, differences in the behavior of
 previous versions are noted.</p>
 <h1>
 <a id="user-content-repositories" class="anchor" href="#repositories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Repositories</h1>
 <p>The main repository is now on
-<a href="https://gitlab.com/sjstoelting/pgsql-tweaks.git" rel="nofollow">GitLab</a>. A mirror will stay on
-<a href="https://github.com/sjstoelting/pgsql-tweaks">GitHub</a>.</p>
+<a href="https://gitlab.com/sjstoelting/pgsql-tweaks.git" rel="nofollow">GitLab</a>. A mirror will stay on <a href="https://github.com/sjstoelting/pgsql-tweaks">GitHub</a>.</p>
 <p>If you discover any issue, please file them on
 <a href="https://gitlab.com/sjstoelting/pgsql-tweaks/issues" rel="nofollow">https://gitlab.com/sjstoelting/pgsql-tweaks/issues</a>.</p>
 <h1>
@@ -26,8 +25,7 @@ previous versions are noted.</p>
 To be able to run the script, you need to have a configuration with the
 connection information. Please copy "build.cfg.example" to "build.cfg" and
 change the configuration to fit your environment.<br>
-The script assumes, that you have a
-<a href="https://www.postgresql.org/docs/current/static/libpq-pgpass.html" rel="nofollow">.pgpass</a>
+The script assumes, that you have a <a href="https://www.postgresql.org/docs/current/static/libpq-pgpass.html" rel="nofollow">.pgpass</a>
 file with login information matching the configuration.</p>
 <h1>
 <a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h1>
@@ -747,7 +745,7 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_json(<span class="pl-s"><span class="pl-pds">'</span>Not a JSON<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res</pre></div>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_json(<span class="pl-s"><span class="pl-pds">'</span>Not a JSON<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
 <thead>
@@ -780,7 +778,7 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_jsonb(<span class="pl-s"><span class="pl-pds">'</span>Not a JSONB<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res</pre></div>
+<div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_jsonb(<span class="pl-s"><span class="pl-pds">'</span>Not a JSONB<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
 <thead>
@@ -1576,7 +1574,7 @@ It does also list all indexes on that table in an array.</p>
 <h3>
 <a id="user-content-view-pg_object_ownership" class="anchor" href="#view-pg_object_ownership" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_object_ownership</h3>
 <p>Creates a view with information about the ownership of objects.
-Since PostgreSQL 11 supports procedures, therefore there is one version vor PostgreSQL 10 and older and another one for PostgreSQL 11 and newer.</p>
+Since PostgreSQL 11 supports procedures, therefore there is one version vor PostgreSQL 10. This view is supported in PostgreSQL 10 or newer.  Older versions are not supported.</p>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
 <span class="pl-k">FROM</span> pg_object_ownership
 <span class="pl-k">WHERE</span> owner <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>stefanie<span class="pl-pds">'</span></span>;</pre></div>
