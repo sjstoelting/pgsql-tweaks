@@ -260,15 +260,14 @@ psql -h $DBHOST -p $DBPORT -X -q -b postgres -c "CREATE DATABASE $DBNAME;"
 
 psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -c "SELECT version ();"
 
-psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f $DIR/sql/pgsql_tweaks--$EXTVERSION.sql
+psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/sql/pgsql_tweaks--$EXTVERSION.sql"
 
-psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql > $DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.out
+psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql" > "$DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.out"
 
 # Check the statements used in the README
-psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f $DIR/test/sql/examples.sql > /dev/null
+psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/test/sql/examples.sql" > "/dev/null"
 
 psql -h $DBHOST -p $DBPORT -X -q -b postgres -c "DROP DATABASE $DBNAME;"
-
 
 # Create a documentation  for PGXN, the link differ from GitHun to PGXN
 ./create_pgxn_doc.sh
@@ -279,7 +278,7 @@ psql -h $DBHOST -p $DBPORT -X -q -b postgres -c "DROP DATABASE $DBNAME;"
 # Create the PGXN package, output path is users tmp
 if [ "$PGXN" = "y" ]; then
   echo "Creating pgxn zip file"
-  rm -f ~/tmp/pgsql-tweaks-$EXTVERSION.zip
+  rm -f "~/tmp/pgsql-tweaks-$EXTVERSION.zip"
   git archive --format zip --prefix=pgsql-tweaks-$EXTVERSION/ --output ~/tmp/pgsql-tweaks-$EXTVERSION.zip main
 else
   echo "No pgxn zip file has been created"
