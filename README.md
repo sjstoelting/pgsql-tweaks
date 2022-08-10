@@ -859,7 +859,9 @@ FROM pg_db_views;
 
 ### VIEW pg_foreign_keys
 
-Creates a view to get a list of foreign keys in the database.
+Creates a view to get a list of foreign keys in the database. That includes the check for an existing single index, see boolean result of column "is_indexed".
+
+<span style="color:red">Below PostgreSQL 11 the column "enforced" is not available and therefore not part of the result.</span>
 
 ```sql
 SELECT *
