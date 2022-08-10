@@ -3,15 +3,7 @@
  *
  * Every test does raise division by zero if it failes
  */
-DO $$
-DECLARE
-	version_greater_10 BOOLEAN;
-	res BOOLEAN;
-BEGIN
-	SELECT to_number((string_to_array(version(), ' '))[2], '999.99') >= 10 INTO version_greater_10;
-
-	IF version_greater_10 THEN
-		-- Test if the view exists
+BEGIN;
 		WITH test AS
 			(
 				SELECT COUNT(*) AS exist
@@ -27,7 +19,6 @@ BEGIN
 					(1 / zero)::BOOLEAN
 			END AS res
 		FROM test
-		INTO res
 		;
 
 		-- Test if the view runs without errors
@@ -45,10 +36,6 @@ BEGIN
 					(1 / zero)::BOOLEAN
 			END AS res
 		FROM test
-		INTO res
 		;
 
-		ROLLBACK;
-	END IF;
-
-END $$;
+ROLLBACK;
