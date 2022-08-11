@@ -10,7 +10,7 @@
   "provides": {
     "pgsql_tweaks": {
       "abstract": "Contains PostgreSQL functions which I regularly needed.",
-      "file": "sql/pgsql_tweaks.sql",
+      "file": "sql/out/versions/pgsql_tweaks.sql",
       "docfile": "PGXNREADME.md",
       "version": "0.10.0"
     }
