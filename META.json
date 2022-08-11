@@ -9,8 +9,8 @@
   "license": "postgresql",
   "provides": {
     "pgsql_tweaks": {
-      "abstract": "Contains PostgreSQL functions which I regularly needed.",
-      "file": "sql/out/versions/pgsql_tweaks.sql",
+      "abstract": "Contains PostgreSQL functions and views which I regularly needed and might help others, too.",
+      "file": "sql/out/versions/pgsql_tweaks--0.10.0.sql",
       "docfile": "PGXNREADME.md",
       "version": "0.10.0"
     }
