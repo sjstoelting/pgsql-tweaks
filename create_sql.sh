@@ -20,9 +20,14 @@ EXTENSION=$(grep -m 1 '"name":' META.json | \
 EXTVERSION=$(grep -m 1 '"version":' META.json | \
   sed -e 's/[[:space:]]*"version":[[:space:]]*"\([^"]*\)",/\1/')
 
+# Folders
+UNINSTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/sql/out/uninstall"
+VERSIONDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/sql/out/versions"
+TESTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/test/sql/out"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/sql"
+
 # Uninstall file with drop statements
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/sql/"
-FILENAME="$DIR/$EXTENSION""_uninstall--$EXTVERSION.sql"
+FILENAME="$UNINSTDIR/$EXTENSION""_uninstall--$EXTVERSION.sql"
 
 # Always start with an empty file
 truncate -s 0 $FILENAME
@@ -129,7 +134,7 @@ DROPFILE=$FILENAME
 
 # Installation file
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/sql"
-FILENAME="$DIR/$EXTENSION--$EXTVERSION.sql"
+FILENAME="$VERSIONDIR/$EXTENSION--$EXTVERSION.sql"
 
 # Array with all file names
 declare -a SQLFILES=(
@@ -216,8 +221,8 @@ done
 
 # Now the test script has to be generated
 # Define output file
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/test/sql/"
-FILENAME="$DIR/$EXTENSION""_test--$EXTVERSION.sql"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/test/sql"
+FILENAME="$TESTDIR/$EXTENSION""_test--$EXTVERSION.sql"
 
 # Always start with an empty file
 truncate -s 0 $FILENAME
@@ -260,9 +265,9 @@ psql -h $DBHOST -p $DBPORT -X -q -b postgres -c "CREATE DATABASE $DBNAME;"
 
 psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -c "SELECT version ();"
 
-psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/sql/pgsql_tweaks--$EXTVERSION.sql"
+psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/sql/out/versions/pgsql_tweaks--$EXTVERSION.sql"
 
-psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.sql" > "$DIR/test/sql/pgsql_tweaks_test--$EXTVERSION.out"
+psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/test/sql/out/pgsql_tweaks_test--$EXTVERSION.sql" > "$DIR/test/out/sql/pgsql_tweaks_test--$EXTVERSION.out"
 
 # Check the statements used in the README
 psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/test/sql/examples.sql" > "/dev/null"
