@@ -1,5 +1,5 @@
-<h1>
-<a id="user-content-postgresql-views-and-functions" class="anchor" href="#postgresql-views-and-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://www.postgresql.org" rel="nofollow">PostgreSQL</a> Views and Functions</h1>
+<h1><a id="user-content-postgresql-views-and-functions" class="anchor" aria-hidden="true" href="#postgresql-views-and-functions"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+<a href="https://www.postgresql.org" rel="nofollow">PostgreSQL</a> Views and Functions</h1>
 <p>The functions and views published in this repository are some of those, which I
 regularly need in my daily job.</p>
 <p>As these procedures are sort of essential, at least to me, I install them in the
@@ -12,14 +12,21 @@ changes in the behaviour in PostgreSQL 10, Timestamp and Date functions and
 conversions have become more strict.</p>
 <p>All examples have been tested with PostgreSQL 15 beta 2, differences in the behavior of
 previous versions are noted.</p>
-<h1>
-<a id="user-content-repositories" class="anchor" href="#repositories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Repositories</h1>
+<p><a href=""><img src="https://camo.githubusercontent.com/687e43b3aff8e81444d18bc72c144e59ade872a06af80a4c6a0cd50ccb07ca8a/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31302d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-10-blue.svg" style="max-width: 100%;"></a>
+<a href=""><img src="https://camo.githubusercontent.com/b4dc4473a16e74b216452d3b345f68ea78fdabfc99f594c15f1bfeb5cac7d792/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31312d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-11-blue.svg" style="max-width: 100%;"></a>
+<a href=""><img src="https://camo.githubusercontent.com/a1e5b3b64044fba3b779024e1b584eadc9414f4ea13840c231b07d78a37bcc92/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31322d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-12-blue.svg" style="max-width: 100%;"></a>
+<a href=""><img src="https://camo.githubusercontent.com/8c567218410fdedca9e2739d83e798b8689dea5dc953e2bd981c7c49168f15a0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31332d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-13-blue.svg" style="max-width: 100%;"></a>
+<a href=""><img src="https://camo.githubusercontent.com/474fb82e6ed03f596ad0d9c045059e5c56a604732811b90802a455c2cb674cee/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31342d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-14-blue.svg" style="max-width: 100%;"></a>
+<a href=""><img src="https://camo.githubusercontent.com/44429403d03217cec47639000159af8a246c98f057b3c79283e2be54131c820c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d313562657461332d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-15beta3-blue.svg" style="max-width: 100%;"></a></p>
+<p><a href=""><img src="https://camo.githubusercontent.com/6ad34b5968d68d7bc0e7f1694e6650bad3fa461dffac0a753e8444fd634fc6e9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c616e67756167652d706c2f706753514c2d677265656e2e737667" alt="Lang" data-canonical-src="https://img.shields.io/badge/Language-pl/pgSQL-green.svg" style="max-width: 100%;"></a>
+<a href=""><img src="https://camo.githubusercontent.com/aaacdb4c39f05a8b90b4431ef682ae84f7c1d46a95b955b43b356026fd367886/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d506f737467726553514c2d677265656e2e737667" alt="PostgreSQL" data-canonical-src="https://img.shields.io/badge/License-PostgreSQL-green.svg" style="max-width: 100%;"></a>
+<a href=""><img src="https://camo.githubusercontent.com/81a509d40ac299349d343e04764831af34f8df12ad74491622d48e616e138d0e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f457874656e73696f6e2d506f737467726553514c2d677265656e2e737667" alt="Extension" data-canonical-src="https://img.shields.io/badge/Extension-PostgreSQL-green.svg" style="max-width: 100%;"></a></p>
+<h1><a id="user-content-repositories" class="anchor" aria-hidden="true" href="#repositories"><span aria-hidden="true" class="octicon octicon-link"></span></a>Repositories</h1>
 <p>The main repository is now on
 <a href="https://gitlab.com/sjstoelting/pgsql-tweaks.git" rel="nofollow">GitLab</a>. A mirror will stay on <a href="https://github.com/sjstoelting/pgsql-tweaks">GitHub</a>.</p>
 <p>If you discover any issue, please file them on
 <a href="https://gitlab.com/sjstoelting/pgsql-tweaks/issues" rel="nofollow">https://gitlab.com/sjstoelting/pgsql-tweaks/issues</a>.</p>
-<h1>
-<a id="user-content-building-the-extension" class="anchor" href="#building-the-extension" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building the extension</h1>
+<h1><a id="user-content-building-the-extension" class="anchor" aria-hidden="true" href="#building-the-extension"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building the extension</h1>
 <p>All functions and tests are located in single files.</p>
 <p>The files for the extension are build by the shell script "create-sql.sh".
 To be able to run the script, you need to have a configuration with the
@@ -27,25 +34,21 @@ connection information. Please copy "build.cfg.example" to "build.cfg" and
 change the configuration to fit your environment.<br>
 The script assumes, that you have a <a href="https://www.postgresql.org/docs/current/static/libpq-pgpass.html" rel="nofollow">.pgpass</a>
 file with login information matching the configuration.</p>
-<h1>
-<a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h1>
+<h1><a id="user-content-installation" class="anchor" aria-hidden="true" href="#installation"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h1>
 <p>You may either, install all functions as a package, or install single functions
 of your choice.</p>
-<h2>
-<a id="user-content-install-the-package-from-source" class="anchor" href="#install-the-package-from-source" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install the package from source</h2>
+<h2><a id="user-content-install-the-package-from-source" class="anchor" aria-hidden="true" href="#install-the-package-from-source"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install the package from source</h2>
 <p>Get the source by either, download the code as ZIP file, or by git clone.</p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> pgsql_tweaks
 make install</pre></div>
 <p>Afterwards you are able to create the extension in a database:</p>
 <div class="highlight highlight-source-sql"><pre>CREATE EXTENSION pgsql_tweaks;</pre></div>
-<h2>
-<a id="user-content-install-the-package-with-pgxn" class="anchor" href="#install-the-package-with-pgxn" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install the package with PGXN</h2>
+<h2><a id="user-content-install-the-package-with-pgxn" class="anchor" aria-hidden="true" href="#install-the-package-with-pgxn"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install the package with PGXN</h2>
 <p>pgsql_tweaks is now available over the PostgreSQL extension management, <a href="https://pgxn.org/dist/pgsql_tweaks/" rel="nofollow">PGXN</a>.</p>
 <p>The installation is done with the PGXN installer.</p>
 <div class="highlight highlight-source-shell"><pre>pgxn install pgsql_tweaks</pre></div>
 <p>Afterwards you are able to create the extension in a database:</p>
-<h1>
-<a id="user-content-table-of-content" class="anchor" href="#table-of-content" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of content</h1>
+<h1><a id="user-content-table-of-content" class="anchor" aria-hidden="true" href="#table-of-content"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of content</h1>
 <p>1 <a href="#user-content-list-of-functions">List of functions</a></p>
 <p>1.1 <a href="#user-content-functions-to-check-data-types">Functions to check data types</a><br>
 1.1.1 <a href="#user-content-function-is_date">FUNCTION is_date</a><br>
@@ -100,19 +103,15 @@ make install</pre></div>
 1.7.2 <a href="#user-content-function-hex2bigint">FUNCTION hex2bigint</a></p>
 <p>1.8 <a href="#user-content-other-functions">Other functions</a><br>
 1.8.1 <a href="#user-content-function-array_trim">FUNCTION array_trim</a></p>
-<h1>
-<a id="user-content-list-of-functions" class="anchor" href="#list-of-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List of functions</h1>
-<h2>
-<a id="user-content-functions-to-check-data-types" class="anchor" href="#functions-to-check-data-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions to check data types</h2>
-<h3>
-<a id="user-content-function-is_date" class="anchor" href="#function-is_date" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_date</h3>
+<h1><a id="user-content-list-of-functions" class="anchor" aria-hidden="true" href="#list-of-functions"><span aria-hidden="true" class="octicon octicon-link"></span></a>List of functions</h1>
+<h2><a id="user-content-functions-to-check-data-types" class="anchor" aria-hidden="true" href="#functions-to-check-data-types"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions to check data types</h2>
+<h3><a id="user-content-function-is_date" class="anchor" aria-hidden="true" href="#function-is_date"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_date</h3>
 <p>The function checks strings for being a date.<br>
 You might pass a second parameter to use a format string. Without the format,
 the default format of PostgreSQL is used.</p>
 <p>There has been a behaviour change in PostgreSQL 10. A conversion is now handled
 strict, as in previous versions the conversion tried to calculate dates.</p>
-<h4>
-<a id="user-content-example-postgresql--10" class="anchor" href="#example-postgresql--10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example PostgreSQL &lt; 10</h4>
+<h4><a id="user-content-example-postgresql--10" class="anchor" aria-hidden="true" href="#example-postgresql--10"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example PostgreSQL &lt; 10</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_date(<span class="pl-s"><span class="pl-pds">'</span>31.02.2018<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>DD.MM.YYYY<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 <span class="pl-c"><span class="pl-c">--</span> Result is true because the conversion would return a valid result for</span>
 <span class="pl-k">SELECT</span> to_date(<span class="pl-s"><span class="pl-pds">'</span>31.02.2018<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>DD.MM.YYYY<span class="pl-pds">'</span></span>);</pre></div>
@@ -129,8 +128,7 @@ strict, as in previous versions the conversion tried to calculate dates.</p>
 </tr>
 </tbody>
 </table>
-<h4>
-<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples" class="anchor" aria-hidden="true" href="#examples"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">/*</span>*</span>
 <span class="pl-c"> * Parameter is in PostgreSQL default format</span>
 <span class="pl-c"> <span class="pl-c">*/</span></span>
@@ -193,15 +191,13 @@ strict, as in previous versions the conversion tried to calculate dates.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-is_time" class="anchor" href="#function-is_time" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_time</h3>
+<h3><a id="user-content-function-is_time" class="anchor" aria-hidden="true" href="#function-is_time"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_time</h3>
 <p>The function checks strings for being a time.<br>
 You might pass a second parameter to use a format string. Without the format,
 the default format of PostgreSQL is used.</p>
 <p>There has been a behaviour change in PostgreSQL 10. A conversion is now handled
 strict, as in previous versions the conversion tried to calculate time.</p>
-<h4>
-<a id="user-content-example-postgresql--10-1" class="anchor" href="#example-postgresql--10-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example PostgreSQL &lt; 10</h4>
+<h4><a id="user-content-example-postgresql--10-1" class="anchor" aria-hidden="true" href="#example-postgresql--10-1"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example PostgreSQL &lt; 10</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_time(<span class="pl-s"><span class="pl-pds">'</span>25.33.55,456574<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>HH24.MI.SS,US<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 <span class="pl-c"><span class="pl-c">--</span> Result is true because the conversion would return a valid result for</span>
 <span class="pl-k">SELECT</span> to_timestamp(<span class="pl-s"><span class="pl-pds">'</span>25.33.55,456574<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>HH24.MI.SS,US<span class="pl-pds">'</span></span>)::<span class="pl-k">TIME</span>;</pre></div>
@@ -218,8 +214,7 @@ strict, as in previous versions the conversion tried to calculate time.</p>
 </tr>
 </tbody>
 </table>
-<h4>
-<a id="user-content-examples-1" class="anchor" href="#examples-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-1" class="anchor" aria-hidden="true" href="#examples-1"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">/*</span>*</span>
 <span class="pl-c"> * Parameter is in PostgreSQL default format</span>
 <span class="pl-c"> <span class="pl-c">*/</span></span>
@@ -282,15 +277,13 @@ strict, as in previous versions the conversion tried to calculate time.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-is_timestamp" class="anchor" href="#function-is_timestamp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_timestamp</h3>
+<h3><a id="user-content-function-is_timestamp" class="anchor" aria-hidden="true" href="#function-is_timestamp"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_timestamp</h3>
 <p>The function checks strings for being a timestamp.<br>
 You might pass a second parameter to use a format string. Without the format,
 the default format of PostgreSQL is used.</p>
 <p>There has been a behaviour change in PostgreSQL 10. A conversion is now handled
 strict, as in previous versions the conversion tried to calculate a date.</p>
-<h4>
-<a id="user-content-example-postgresql--10-2" class="anchor" href="#example-postgresql--10-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example PostgreSQL &lt; 10</h4>
+<h4><a id="user-content-example-postgresql--10-2" class="anchor" aria-hidden="true" href="#example-postgresql--10-2"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example PostgreSQL &lt; 10</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_timestamp(<span class="pl-s"><span class="pl-pds">'</span>2018-01-01 25:00:00<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 <span class="pl-c"><span class="pl-c">--</span> Result is true because the conversion would return a valid result for</span>
 <span class="pl-k">SELECT</span> to_timestamp(<span class="pl-s"><span class="pl-pds">'</span>01.01.2018 25:00:00<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>DD.MM.YYYY HH24.MI.SS<span class="pl-pds">'</span></span>)::<span class="pl-k">TIMESTAMP</span>;</pre></div>
@@ -307,8 +300,7 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<h4>
-<a id="user-content-examples-2" class="anchor" href="#examples-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-2" class="anchor" aria-hidden="true" href="#examples-2"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">/*</span>*</span>
 <span class="pl-c"> * Parameter is in PostgreSQL default format</span>
 <span class="pl-c"> <span class="pl-c">*/</span></span>
@@ -372,11 +364,9 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-is_real" class="anchor" href="#function-is_real" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_real</h3>
+<h3><a id="user-content-function-is_real" class="anchor" aria-hidden="true" href="#function-is_real"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_real</h3>
 <p>The function checks strings for being of data type REAL.</p>
-<h4>
-<a id="user-content-examples-3" class="anchor" href="#examples-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-3" class="anchor" aria-hidden="true" href="#examples-3"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_real(<span class="pl-s"><span class="pl-pds">'</span>123.456<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
@@ -406,11 +396,9 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-is_double_precision" class="anchor" href="#function-is_double_precision" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_double_precision</h3>
+<h3><a id="user-content-function-is_double_precision" class="anchor" aria-hidden="true" href="#function-is_double_precision"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_double_precision</h3>
 <p>The function checks strings for being of data type DOUBLE PRECISION.</p>
-<h4>
-<a id="user-content-examples-4" class="anchor" href="#examples-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-4" class="anchor" aria-hidden="true" href="#examples-4"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_double_precision(<span class="pl-s"><span class="pl-pds">'</span>123.456<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
@@ -440,11 +428,9 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-is_numeric" class="anchor" href="#function-is_numeric" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_numeric</h3>
+<h3><a id="user-content-function-is_numeric" class="anchor" aria-hidden="true" href="#function-is_numeric"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_numeric</h3>
 <p>The function checks strings for being of data type NUMERIC.</p>
-<h4>
-<a id="user-content-examples-5" class="anchor" href="#examples-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-5" class="anchor" aria-hidden="true" href="#examples-5"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_numeric(<span class="pl-s"><span class="pl-pds">'</span>123<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
@@ -474,11 +460,9 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-is_bigint" class="anchor" href="#function-is_bigint" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_bigint</h3>
+<h3><a id="user-content-function-is_bigint" class="anchor" aria-hidden="true" href="#function-is_bigint"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_bigint</h3>
 <p>The function checks strings for being of data type BIGINT.</p>
-<h4>
-<a id="user-content-examples-6" class="anchor" href="#examples-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-6" class="anchor" aria-hidden="true" href="#examples-6"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_bigint(<span class="pl-s"><span class="pl-pds">'</span>3243546343<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 <span class="pl-c"><span class="pl-c">--</span> Result is true</span></pre></div>
 <p>Result:</p>
@@ -496,11 +480,9 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </table>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_bigint(<span class="pl-s"><span class="pl-pds">'</span>123.456<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 <span class="pl-c"><span class="pl-c">--</span> Result is false</span></pre></div>
-<h3>
-<a id="user-content-function-is_integer" class="anchor" href="#function-is_integer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_integer</h3>
+<h3><a id="user-content-function-is_integer" class="anchor" aria-hidden="true" href="#function-is_integer"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_integer</h3>
 <p>The function checks strings for being of data type INTEGER.</p>
-<h4>
-<a id="user-content-examples-7" class="anchor" href="#examples-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-7" class="anchor" aria-hidden="true" href="#examples-7"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_integer(<span class="pl-s"><span class="pl-pds">'</span>123<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 <span class="pl-c"><span class="pl-c">--</span> Result is true</span></pre></div>
 <p>Result:</p>
@@ -518,11 +500,9 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </table>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_integer(<span class="pl-s"><span class="pl-pds">'</span>123.456<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 <span class="pl-c"><span class="pl-c">--</span> Result is false</span></pre></div>
-<h3>
-<a id="user-content-function-is_smallint" class="anchor" href="#function-is_smallint" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_smallint</h3>
+<h3><a id="user-content-function-is_smallint" class="anchor" aria-hidden="true" href="#function-is_smallint"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_smallint</h3>
 <p>The function checks strings for being of data type SMALLINT.</p>
-<h4>
-<a id="user-content-examples-8" class="anchor" href="#examples-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-8" class="anchor" aria-hidden="true" href="#examples-8"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_smallint(<span class="pl-s"><span class="pl-pds">'</span>123<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 <span class="pl-c"><span class="pl-c">--</span> Result is true</span></pre></div>
 <p>Result:</p>
@@ -553,8 +533,7 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-is_boolean" class="anchor" href="#function-is_boolean" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_boolean</h3>
+<h3><a id="user-content-function-is_boolean" class="anchor" aria-hidden="true" href="#function-is_boolean"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_boolean</h3>
 <p>The function checks a string variable for containing valid BOOLEAN values.</p>
 <table>
 <thead>
@@ -619,8 +598,7 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<h4>
-<a id="user-content-examples-9" class="anchor" href="#examples-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-9" class="anchor" aria-hidden="true" href="#examples-9"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_boolean(<span class="pl-s"><span class="pl-pds">'</span>t<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 <span class="pl-c"><span class="pl-c">--</span> Result is true</span></pre></div>
 <p>Result:</p>
@@ -726,11 +704,9 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-is_json" class="anchor" href="#function-is_json" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_json</h3>
+<h3><a id="user-content-function-is_json" class="anchor" aria-hidden="true" href="#function-is_json"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_json</h3>
 <p>The function checks a string variable for containing a valid JSON.</p>
-<h4>
-<a id="user-content-examples-10" class="anchor" href="#examples-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-10" class="anchor" aria-hidden="true" href="#examples-10"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_json(<span class="pl-s"><span class="pl-pds">'</span>{"review": {"date": "1970-12-30", "votes": 10, "rating": 5, "helpful_votes": 0}, "product": {"id": "1551803542", "group": "Book", "title": "Start and Run a Coffee Bar (Start &amp; Run a)", "category": "Business &amp; Investing", "sales_rank": 11611, "similar_ids": ["0471136174", "0910627312", "047112138X", "0786883561", "0201570483"], "subcategory": "General"}, "customer_id": "AE22YDHSBFYIP"}<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
@@ -759,11 +735,9 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-is_jsonb" class="anchor" href="#function-is_jsonb" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_jsonb</h3>
+<h3><a id="user-content-function-is_jsonb" class="anchor" aria-hidden="true" href="#function-is_jsonb"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_jsonb</h3>
 <p>The function checks a string variable for containing a valid JSONB.</p>
-<h4>
-<a id="user-content-example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
+<h4><a id="user-content-example" class="anchor" aria-hidden="true" href="#example"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_jsonb(<span class="pl-s"><span class="pl-pds">'</span>{"review": {"date": "1970-12-30", "votes": 10, "rating": 5, "helpful_votes": 0}, "product": {"id": "1551803542", "group": "Book", "title": "Start and Run a Coffee Bar (Start &amp; Run a)", "category": "Business &amp; Investing", "sales_rank": 11611, "similar_ids": ["0471136174", "0910627312", "047112138X", "0786883561", "0201570483"], "subcategory": "General"}, "customer_id": "AE22YDHSBFYIP"}<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
@@ -792,11 +766,9 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-is_empty" class="anchor" href="#function-is_empty" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_empty</h3>
+<h3><a id="user-content-function-is_empty" class="anchor" aria-hidden="true" href="#function-is_empty"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_empty</h3>
 <p>The function checks a string variable for being either, NULL or ''.</p>
-<h4>
-<a id="user-content-examples-11" class="anchor" href="#examples-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-11" class="anchor" aria-hidden="true" href="#examples-11"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_empty(<span class="pl-s"><span class="pl-pds">'</span>abc<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 <span class="pl-c"><span class="pl-c">--</span> Result is false</span></pre></div>
 <p>Result:</p>
@@ -842,15 +814,13 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-is_hex" class="anchor" href="#function-is_hex" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_hex</h3>
+<h3><a id="user-content-function-is_hex" class="anchor" aria-hidden="true" href="#function-is_hex"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_hex</h3>
 <p>The function checks a string variable for being a hexadecimal number being a
 bigint.</p>
 <p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji><span>This function needs to have
 hex2bigint being installed!</span><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji></p>
 <p>If you use the package, both functions are installed in the correct sort order.</p>
-<h4>
-<a id="user-content-examples-12" class="anchor" href="#examples-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-12" class="anchor" aria-hidden="true" href="#examples-12"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_hex(<span class="pl-s"><span class="pl-pds">'</span>a1b0<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 <span class="pl-c"><span class="pl-c">--</span> Result is true</span></pre></div>
 <p>Result:</p>
@@ -896,16 +866,13 @@ hex2bigint being installed!</span><g-emoji class="g-emoji" alias="exclamation" f
 </tr>
 </tbody>
 </table>
-<h2>
-<a id="user-content-functions-about-encryption" class="anchor" href="#functions-about-encryption" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions about encryption</h2>
-<h3>
-<a id="user-content-function-sha256" class="anchor" href="#function-sha256" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION sha256</h3>
+<h2><a id="user-content-functions-about-encryption" class="anchor" aria-hidden="true" href="#functions-about-encryption"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions about encryption</h2>
+<h3><a id="user-content-function-sha256" class="anchor" aria-hidden="true" href="#function-sha256"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION sha256</h3>
 <p>Creates a function which returns a SHA256 hash for the given string.<br>
 The parameter has to be converted into a binary string of <a href="https://www.postgresql.org/docs/current/static/datatype-binary.html" rel="nofollow">bytea</a>.
 <g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji><span>The function needs the <a href="https://www.postgresql.org/docs/current/static/pgcrypto.html" rel="nofollow">pgcrypto</a> package</span><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji></p>
 <p><g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji>This function has an external dependency and is only installed, if the package pgcrypto is installed<g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji></p>
-<h4>
-<a id="user-content-example-1" class="anchor" href="#example-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
+<h4><a id="user-content-example-1" class="anchor" aria-hidden="true" href="#example-1"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> sha256(<span class="pl-s"><span class="pl-pds">'</span>test-string<span class="pl-pds">'</span></span>::<span class="pl-k">bytea</span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
@@ -920,13 +887,10 @@ The parameter has to be converted into a binary string of <a href="https://www.p
 </tr>
 </tbody>
 </table>
-<h2>
-<a id="user-content-functions-and-views-to-get-extended-system-information" class="anchor" href="#functions-and-views-to-get-extended-system-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions and views to get extended system information</h2>
-<h3>
-<a id="user-content-function-pg_schema_size" class="anchor" href="#function-pg_schema_size" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION pg_schema_size</h3>
+<h2><a id="user-content-functions-and-views-to-get-extended-system-information" class="anchor" aria-hidden="true" href="#functions-and-views-to-get-extended-system-information"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions and views to get extended system information</h2>
+<h3><a id="user-content-function-pg_schema_size" class="anchor" aria-hidden="true" href="#function-pg_schema_size"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION pg_schema_size</h3>
 <p>The function returns the size for schema given as parameter in bytes.</p>
-<h4>
-<a id="user-content-examples-13" class="anchor" href="#examples-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-13" class="anchor" aria-hidden="true" href="#examples-13"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Returns the size of the schema public in bytes</span>
 <span class="pl-k">SELECT</span> pg_schema_size(<span class="pl-s"><span class="pl-pds">'</span>public<span class="pl-pds">'</span></span>);</pre></div>
 <p>Result:</p>
@@ -957,8 +921,7 @@ The parameter has to be converted into a binary string of <a href="https://www.p
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-view-pg_db_views" class="anchor" href="#view-pg_db_views" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_db_views</h3>
+<h3><a id="user-content-view-pg_db_views" class="anchor" aria-hidden="true" href="#view-pg_db_views"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_db_views</h3>
 <p>Creates a view to get all views of the current database but excluding system views and all views which do start with "pg" or "_pg".</p>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
 <span class="pl-k">FROM</span> pg_db_views;</pre></div>
@@ -1172,127 +1135,174 @@ The parameter has to be converted into a binary string of <a href="https://www.p
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-view-pg_foreign_keys" class="anchor" href="#view-pg_foreign_keys" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_foreign_keys</h3>
-<p>Creates a view to get a list of foreign keys in the database.</p>
+<h3><a id="user-content-view-pg_foreign_keys" class="anchor" aria-hidden="true" href="#view-pg_foreign_keys"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_foreign_keys</h3>
+<p>Creates a view to get a list of foreign keys in the database. That includes the check for an existing single index, see boolean result of column "is_indexed".</p>
+<p><span>Below PostgreSQL 11 the column "enforced" is not available and therefore not part of the result.</span></p>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
 <span class="pl-k">FROM</span> pg_foreign_keys;</pre></div>
 <table>
 <thead>
 <tr>
-<th>table_catalog</th>
+<th>constraint_name</th>
+<th>is_deferrable</th>
+<th>initially_deferred</th>
+<th>enforced</th>
 <th>table_schema</th>
 <th>table_name</th>
 <th>column_name</th>
 <th>foreign_table_schema</th>
 <th>foreign_table_name</th>
 <th>foreign_column_name</th>
+<th>is_indexed</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>chinook</td>
+<td>FK_AlbumArtistId</td>
+<td>NO</td>
+<td>NO</td>
+<td>YES</td>
 <td>public</td>
 <td>Album</td>
 <td>ArtistId</td>
 <td>public</td>
 <td>Artist</td>
 <td>ArtistId</td>
+<td>true</td>
 </tr>
 <tr>
-<td>chinook</td>
+<td>FK_CustomerSupportRepId</td>
+<td>NO</td>
+<td>NO</td>
+<td>YES</td>
 <td>public</td>
 <td>Customer</td>
 <td>SupportRepId</td>
 <td>public</td>
 <td>Employee</td>
 <td>EmployeeId</td>
+<td>true</td>
 </tr>
 <tr>
-<td>chinook</td>
+<td>FK_EmployeeReportsTo</td>
+<td>NO</td>
+<td>NO</td>
+<td>YES</td>
 <td>public</td>
 <td>Employee</td>
 <td>ReportsTo</td>
 <td>public</td>
 <td>Employee</td>
 <td>EmployeeId</td>
+<td>true</td>
 </tr>
 <tr>
-<td>chinook</td>
+<td>FK_InvoiceCustomerId</td>
+<td>NO</td>
+<td>NO</td>
+<td>YES</td>
 <td>public</td>
 <td>Invoice</td>
 <td>CustomerId</td>
 <td>public</td>
 <td>Customer</td>
 <td>CustomerId</td>
+<td>true</td>
 </tr>
 <tr>
-<td>chinook</td>
+<td>FK_InvoiceLineInvoiceId</td>
+<td>NO</td>
+<td>NO</td>
+<td>YES</td>
 <td>public</td>
 <td>InvoiceLine</td>
 <td>InvoiceId</td>
 <td>public</td>
 <td>Invoice</td>
 <td>InvoiceId</td>
+<td>true</td>
 </tr>
 <tr>
-<td>chinook</td>
+<td>FK_InvoiceLineTrackId</td>
+<td>NO</td>
+<td>NO</td>
+<td>YES</td>
 <td>public</td>
 <td>InvoiceLine</td>
 <td>TrackId</td>
 <td>public</td>
 <td>Track</td>
 <td>TrackId</td>
+<td>true</td>
 </tr>
 <tr>
-<td>chinook</td>
+<td>FK_PlaylistTrackPlaylistId</td>
+<td>NO</td>
+<td>NO</td>
+<td>YES</td>
 <td>public</td>
 <td>PlaylistTrack</td>
 <td>PlaylistId</td>
 <td>public</td>
 <td>Playlist</td>
 <td>PlaylistId</td>
+<td>true</td>
 </tr>
 <tr>
-<td>chinook</td>
+<td>FK_PlaylistTrackTrackId</td>
+<td>NO</td>
+<td>NO</td>
+<td>YES</td>
 <td>public</td>
 <td>PlaylistTrack</td>
 <td>TrackId</td>
 <td>public</td>
 <td>Track</td>
 <td>TrackId</td>
+<td>true</td>
 </tr>
 <tr>
-<td>chinook</td>
+<td>FK_TrackAlbumId</td>
+<td>NO</td>
+<td>NO</td>
+<td>YES</td>
 <td>public</td>
 <td>Track</td>
 <td>AlbumId</td>
 <td>public</td>
 <td>Album</td>
 <td>AlbumId</td>
+<td>true</td>
 </tr>
 <tr>
-<td>chinook</td>
+<td>FK_TrackGenreId</td>
+<td>NO</td>
+<td>NO</td>
+<td>YES</td>
 <td>public</td>
 <td>Track</td>
 <td>GenreId</td>
 <td>public</td>
 <td>Genre</td>
 <td>GenreId</td>
+<td>true</td>
 </tr>
 <tr>
-<td>chinook</td>
+<td>FK_TrackMediaTypeId</td>
+<td>NO</td>
+<td>NO</td>
+<td>YES</td>
 <td>public</td>
 <td>Track</td>
 <td>MediaTypeId</td>
 <td>public</td>
 <td>MediaType</td>
 <td>MediaTypeId</td>
+<td>true</td>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-view-pg_functions" class="anchor" href="#view-pg_functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_functions</h3>
+<h3><a id="user-content-view-pg_functions" class="anchor" aria-hidden="true" href="#view-pg_functions"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_functions</h3>
 <p>Creates a view to get all functions of the current database, excluding those in the schema pg_catalog and information_schema.</p>
 <p>As there have been changes to the system tables used in this view, there are now two scripts dependend on the PostgreSQL version on which it has to be used,
 one for PostgreSQL 11 or newer and one for PostgreSQL 10 or older. This is handled in the script that creates the view.</p>
@@ -1328,8 +1338,7 @@ one for PostgreSQL 11 or newer and one for PostgreSQL 10 or older. This is handl
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-view-pg_active_locks" class="anchor" href="#view-pg_active_locks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_active_locks</h3>
+<h3><a id="user-content-view-pg_active_locks" class="anchor" aria-hidden="true" href="#view-pg_active_locks"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_active_locks</h3>
 <p>Creates a view to view all live locks with all necessary information about the connections and the query.<br>
 <span>The view needs PostgreSQL 9.2 as minimum version. The column application_name was added in 9.2.</span></p>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
@@ -1383,12 +1392,10 @@ one for PostgreSQL 11 or newer and one for PostgreSQL 10 or older. This is handl
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-view-pg_table_matview_infos" class="anchor" href="#view-pg_table_matview_infos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_table_matview_infos</h3>
+<h3><a id="user-content-view-pg_table_matview_infos" class="anchor" aria-hidden="true" href="#view-pg_table_matview_infos"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_table_matview_infos</h3>
 <p>Creates a view with information about the size of the table/materialized view and sizes of indexes on that table/materialized view.
 It does also list all indexes on that table in an array.</p>
-<h4>
-<a id="user-content-list-of-supported-object-types" class="anchor" href="#list-of-supported-object-types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List of supported object types</h4>
+<h4><a id="user-content-list-of-supported-object-types" class="anchor" aria-hidden="true" href="#list-of-supported-object-types"><span aria-hidden="true" class="octicon octicon-link"></span></a>List of supported object types</h4>
 <table>
 <thead>
 <tr>
@@ -1571,8 +1578,7 @@ It does also list all indexes on that table in an array.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-view-pg_object_ownership" class="anchor" href="#view-pg_object_ownership" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_object_ownership</h3>
+<h3><a id="user-content-view-pg_object_ownership" class="anchor" aria-hidden="true" href="#view-pg_object_ownership"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_object_ownership</h3>
 <p>Creates a view with information about the ownership of objects.
 Since PostgreSQL 11 supports procedures, therefore there is one version vor PostgreSQL 10. This view is supported in PostgreSQL 10 or newer.  Older versions are not supported.</p>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
@@ -1639,8 +1645,7 @@ Since PostgreSQL 11 supports procedures, therefore there is one version vor Post
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-view-pg_partitioned_tables_infos" class="anchor" href="#view-pg_partitioned_tables_infos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_partitioned_tables_infos</h3>
+<h3><a id="user-content-view-pg_partitioned_tables_infos" class="anchor" aria-hidden="true" href="#view-pg_partitioned_tables_infos"><span aria-hidden="true" class="octicon octicon-link"></span></a>VIEW pg_partitioned_tables_infos</h3>
 <p>Creates a view to get information about partitioned tables.
 Since PostgreSQL 10 supports partitions, but they became usable only in later versions. A system table to identify partitions has been added in PostgreSQL 11. Therefore this view is only available on systems with PostgreSQL 11 or newer.</p>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> <span class="pl-k">*</span>
@@ -1722,17 +1727,14 @@ Since PostgreSQL 10 supports partitions, but they became usable only in later ve
 </tr>
 </tbody>
 </table>
-<h2>
-<a id="user-content-functions-about-encodings" class="anchor" href="#functions-about-encodings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions about encodings</h2>
-<h3>
-<a id="user-content-function-is_encoding" class="anchor" href="#function-is_encoding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_encoding</h3>
+<h2><a id="user-content-functions-about-encodings" class="anchor" aria-hidden="true" href="#functions-about-encodings"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functions about encodings</h2>
+<h3><a id="user-content-function-is_encoding" class="anchor" aria-hidden="true" href="#function-is_encoding"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_encoding</h3>
 <p>The function checks if all characters are in included in a given encoding.
 That is especially useful, if you have to deal with exports into other
 encodings than the database encoding.</p>
 <p>The function with two parameters uses UTF-8 as source encoding,<br>
 The one with three parameters uses the third parameter as source encoding.</p>
-<h4>
-<a id="user-content-examples-14" class="anchor" href="#examples-14" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-14" class="anchor" aria-hidden="true" href="#examples-14"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_encoding(<span class="pl-s"><span class="pl-pds">'</span>Some characters<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>LATIN1<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
@@ -1791,12 +1793,10 @@ The one with three parameters uses the third parameter as source encoding.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-is_latin1" class="anchor" href="#function-is_latin1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_latin1</h3>
+<h3><a id="user-content-function-is_latin1" class="anchor" aria-hidden="true" href="#function-is_latin1"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION is_latin1</h3>
 <p>The function is a shortcut for is_encoding('Some characters', 'LATIN1'), you
 don't have to give the target encoding.</p>
-<h4>
-<a id="user-content-examples-15" class="anchor" href="#examples-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-15" class="anchor" aria-hidden="true" href="#examples-15"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_latin1(<span class="pl-s"><span class="pl-pds">'</span>Some characters<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
@@ -1826,12 +1826,10 @@ don't have to give the target encoding.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-return_not_part_of_latin1" class="anchor" href="#function-return_not_part_of_latin1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION return_not_part_of_latin1</h3>
+<h3><a id="user-content-function-return_not_part_of_latin1" class="anchor" aria-hidden="true" href="#function-return_not_part_of_latin1"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION return_not_part_of_latin1</h3>
 <p>The function returns a distinct array containing all characters, which are not defined in latin1.<br>
 The function <span>depends on is_latin1</span> which is part of this repository.</p>
-<h4>
-<a id="user-content-example-2" class="anchor" href="#example-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
+<h4><a id="user-content-example-2" class="anchor" aria-hidden="true" href="#example-2"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Returns an array containing the characters ğ and Ƶ each one time</span>
 <span class="pl-k">SELECT</span> return_not_part_of_latin1(<span class="pl-s"><span class="pl-pds">'</span>ağbƵcğeƵ<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
@@ -1847,15 +1845,12 @@ The function <span>depends on is_latin1</span> which is part of this repository.
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-replace_latin1" class="anchor" href="#function-replace_latin1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION replace_latin1</h3>
+<h3><a id="user-content-function-replace_latin1" class="anchor" aria-hidden="true" href="#function-replace_latin1"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION replace_latin1</h3>
 <p>The function has three implementations. All implementations <span>depend on the function is_latin1</span>, the function is included in this repository.</p>
-<h4>
-<a id="user-content-replace_latin1s-text" class="anchor" href="#replace_latin1s-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_latin1(s text)</h4>
+<h4><a id="user-content-replace_latin1s-text" class="anchor" aria-hidden="true" href="#replace_latin1s-text"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_latin1(s text)</h4>
 <p>The function takes one parameter with characters to be checked and replaced with
 an empty string, if they are not part of latin1.</p>
-<h5>
-<a id="user-content-example-3" class="anchor" href="#example-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
+<h5><a id="user-content-example-3" class="anchor" aria-hidden="true" href="#example-3"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> replace_latin1(<span class="pl-s"><span class="pl-pds">'</span>Some characters, ğ is Turkish and not latin1<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
 <table>
@@ -1870,12 +1865,10 @@ an empty string, if they are not part of latin1.</p>
 </tr>
 </tbody>
 </table>
-<h4>
-<a id="user-content-replace_latin1s-text-replacement-text" class="anchor" href="#replace_latin1s-text-replacement-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_latin1(s text, replacement text)</h4>
+<h4><a id="user-content-replace_latin1s-text-replacement-text" class="anchor" aria-hidden="true" href="#replace_latin1s-text-replacement-text"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_latin1(s text, replacement text)</h4>
 <p>The function takes a second parameter which is used to replace <em>all</em> characters,
 which are not part of latin1.</p>
-<h5>
-<a id="user-content-example-4" class="anchor" href="#example-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
+<h5><a id="user-content-example-4" class="anchor" aria-hidden="true" href="#example-4"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> replace_latin1(
   <span class="pl-s"><span class="pl-pds">'</span>Some characters, ğ is Turkish and not latin1 and replaced with a g<span class="pl-pds">'</span></span>,
   <span class="pl-s"><span class="pl-pds">'</span>g<span class="pl-pds">'</span></span>
@@ -1893,16 +1886,14 @@ which are not part of latin1.</p>
 </tr>
 </tbody>
 </table>
-<h4>
-<a id="user-content-replace_latin1s-text-s_search-text-s_replace-text" class="anchor" href="#replace_latin1s-text-s_search-text-s_replace-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_latin1(s text, s_search text[], s_replace text[])</h4>
+<h4><a id="user-content-replace_latin1s-text-s_search-text-s_replace-text" class="anchor" aria-hidden="true" href="#replace_latin1s-text-s_search-text-s_replace-text"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_latin1(s text, s_search text[], s_replace text[])</h4>
 <p>The function takes as first parameter a string which may or may not have none
 latin1 characters. The second parameter is an arrays containing all characters,
 that should be replaced. The third parameter is an array, too. The characters
 defined in s_search are replaced with the characters in s_replace, it takes the
 position in the array to identify which character should be replaced by which
 one.</p>
-<h5>
-<a id="user-content-example-5" class="anchor" href="#example-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
+<h5><a id="user-content-example-5" class="anchor" aria-hidden="true" href="#example-5"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> First identify the characters which should be replaced, which are {ğ,Ƶ}</span>
 <span class="pl-k">SELECT</span> return_not_part_of_latin1(<span class="pl-s"><span class="pl-pds">'</span>ağbƵcğeƵ<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 
@@ -1928,12 +1919,10 @@ one.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-return_not_part_of_encoding" class="anchor" href="#function-return_not_part_of_encoding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION return_not_part_of_encoding</h3>
+<h3><a id="user-content-function-return_not_part_of_encoding" class="anchor" aria-hidden="true" href="#function-return_not_part_of_encoding"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION return_not_part_of_encoding</h3>
 <p>The function returns a distinct array containing all characters, which are not defined in the second parameter as encoding.<br>
 The function <span>depends on is_encoding</span> which is part of this repository.</p>
-<h4>
-<a id="user-content-example-6" class="anchor" href="#example-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
+<h4><a id="user-content-example-6" class="anchor" aria-hidden="true" href="#example-6"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Returns an array containing the characters ğ and Ƶ each one time</span>
 <span class="pl-k">SELECT</span> return_not_part_of_encoding(<span class="pl-s"><span class="pl-pds">'</span>ağbƵcğeƵ<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>latin1<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;</pre></div>
 <p>Result:</p>
@@ -1949,16 +1938,13 @@ The function <span>depends on is_encoding</span> which is part of this repositor
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-replace_encoding" class="anchor" href="#function-replace_encoding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION replace_encoding</h3>
+<h3><a id="user-content-function-replace_encoding" class="anchor" aria-hidden="true" href="#function-replace_encoding"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION replace_encoding</h3>
 <p>The function has three implementations. All implementations <span>depend on the function is_encoding</span>, the function is included in this repository.</p>
-<h4>
-<a id="user-content-replace_encodings-text-e-text" class="anchor" href="#replace_encodings-text-e-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_encoding(s text, e text)</h4>
+<h4><a id="user-content-replace_encodings-text-e-text" class="anchor" aria-hidden="true" href="#replace_encodings-text-e-text"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_encoding(s text, e text)</h4>
 <p>The function takes one parameter with characters to be checked and replaced with
 an empty string, if they are not part of the encoding given in the second
 parameter.</p>
-<h5>
-<a id="user-content-example-7" class="anchor" href="#example-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
+<h5><a id="user-content-example-7" class="anchor" aria-hidden="true" href="#example-7"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> replace_encoding(
   <span class="pl-s"><span class="pl-pds">'</span>Some characters, ğ is Turkish and not latin1<span class="pl-pds">'</span></span>,
   <span class="pl-s"><span class="pl-pds">'</span>latin1<span class="pl-pds">'</span></span>
@@ -1976,12 +1962,10 @@ parameter.</p>
 </tr>
 </tbody>
 </table>
-<h4>
-<a id="user-content-replace_encodings-text-e-text-replacement-text" class="anchor" href="#replace_encodings-text-e-text-replacement-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_encoding(s text, e text, replacement text)</h4>
+<h4><a id="user-content-replace_encodings-text-e-text-replacement-text" class="anchor" aria-hidden="true" href="#replace_encodings-text-e-text-replacement-text"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_encoding(s text, e text, replacement text)</h4>
 <p>The function takes a third parameter which is used to replace <em>all</em> characters
 which are not part of the encoding given in parameter 2.</p>
-<h5>
-<a id="user-content-example-8" class="anchor" href="#example-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
+<h5><a id="user-content-example-8" class="anchor" aria-hidden="true" href="#example-8"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> replace_encoding(
   <span class="pl-s"><span class="pl-pds">'</span>Some characters, ğ is Turkish and not latin1 and replaced with a g<span class="pl-pds">'</span></span>,
   <span class="pl-s"><span class="pl-pds">'</span>latin1<span class="pl-pds">'</span></span>,
@@ -2000,16 +1984,14 @@ which are not part of the encoding given in parameter 2.</p>
 </tr>
 </tbody>
 </table>
-<h4>
-<a id="user-content-replace_encodings-text-s_search-text-s_replace-text" class="anchor" href="#replace_encodings-text-s_search-text-s_replace-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_encoding(s text, s_search text[], s_replace text[])</h4>
+<h4><a id="user-content-replace_encodings-text-s_search-text-s_replace-text" class="anchor" aria-hidden="true" href="#replace_encodings-text-s_search-text-s_replace-text"><span aria-hidden="true" class="octicon octicon-link"></span></a>replace_encoding(s text, s_search text[], s_replace text[])</h4>
 <p>The function takes as first parameter a string which may or may not have none
 latin1 characters. The second parameter is an arrays containing all characters,
 that should be replaced. The third parameter is an array, too. The characters
 defined in s_search are replaced with the characters in s_replace, it takes the
 position in the array to identify which character should be replaced by which
 one.</p>
-<h5>
-<a id="user-content-example-9" class="anchor" href="#example-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
+<h5><a id="user-content-example-9" class="anchor" aria-hidden="true" href="#example-9"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> First identify the characters which should be replaced, which are {ğ,Ƶ}</span>
 <span class="pl-k">SELECT</span> return_not_part_of_latin1(<span class="pl-s"><span class="pl-pds">'</span>ağbƵcğeƵ<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 
@@ -2035,14 +2017,11 @@ one.</p>
 </tr>
 </tbody>
 </table>
-<h2>
-<a id="user-content-user-defined-aggregates" class="anchor" href="#user-defined-aggregates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>User defined aggregates</h2>
-<h3>
-<a id="user-content-aggregate-gap_fill" class="anchor" href="#aggregate-gap_fill" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AGGREGATE gap_fill</h3>
+<h2><a id="user-content-user-defined-aggregates" class="anchor" aria-hidden="true" href="#user-defined-aggregates"><span aria-hidden="true" class="octicon octicon-link"></span></a>User defined aggregates</h2>
+<h3><a id="user-content-aggregate-gap_fill" class="anchor" aria-hidden="true" href="#aggregate-gap_fill"><span aria-hidden="true" class="octicon octicon-link"></span></a>AGGREGATE gap_fill</h3>
 <p>The aggregate is used in <a href="https://www.postgresql.org/docs/current/static/tutorial-window.html" rel="nofollow">Window Functions</a>
 to show the last value in case the current value is null.</p>
-<h4>
-<a id="user-content-example-10" class="anchor" href="#example-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
+<h4><a id="user-content-example-10" class="anchor" aria-hidden="true" href="#example-10"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">BEGIN</span>;
 
 <span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">test_gap_fill</span>(id <span class="pl-k">INTEGER</span>, some_value <span class="pl-k">text</span>);
@@ -2152,12 +2131,10 @@ to show the last value in case the current value is null.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-aggregate-array_min" class="anchor" href="#aggregate-array_min" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AGGREGATE array_min</h3>
+<h3><a id="user-content-aggregate-array_min" class="anchor" aria-hidden="true" href="#aggregate-array_min"><span aria-hidden="true" class="octicon octicon-link"></span></a>AGGREGATE array_min</h3>
 <p>Calculate minimum values from arrays.</p>
 <p>Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, NUMERIC, and TEXT;</p>
-<h4>
-<a id="user-content-examples-16" class="anchor" href="#examples-16" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-16" class="anchor" aria-hidden="true" href="#examples-16"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> array_min(ARRAY[<span class="pl-c1">45</span>, <span class="pl-c1">60</span>, <span class="pl-c1">43</span>, <span class="pl-c1">99</span>]::<span class="pl-k">SMALLINT</span>[]);</pre></div>
 <p>Result:</p>
 <table>
@@ -2256,12 +2233,10 @@ to show the last value in case the current value is null.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-aggregate-array_max" class="anchor" href="#aggregate-array_max" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AGGREGATE array_max</h3>
+<h3><a id="user-content-aggregate-array_max" class="anchor" aria-hidden="true" href="#aggregate-array_max"><span aria-hidden="true" class="octicon octicon-link"></span></a>AGGREGATE array_max</h3>
 <p>Calculate minimum values from arrays.</p>
 <p>Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, NUMERIC, and TEXT;</p>
-<h4>
-<a id="user-content-examples-17" class="anchor" href="#examples-17" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-17" class="anchor" aria-hidden="true" href="#examples-17"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> array_max(ARRAY[<span class="pl-c1">45</span>, <span class="pl-c1">60</span>, <span class="pl-c1">43</span>, <span class="pl-c1">99</span>]::<span class="pl-k">SMALLINT</span>[]);</pre></div>
 <p>Result:</p>
 <table>
@@ -2360,12 +2335,10 @@ to show the last value in case the current value is null.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-aggregate-array_avg" class="anchor" href="#aggregate-array_avg" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AGGREGATE array_avg</h3>
+<h3><a id="user-content-aggregate-array_avg" class="anchor" aria-hidden="true" href="#aggregate-array_avg"><span aria-hidden="true" class="octicon octicon-link"></span></a>AGGREGATE array_avg</h3>
 <p>Calculate average values from arrays.</p>
 <p>Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, and NUMERIC;</p>
-<h4>
-<a id="user-content-examples-18" class="anchor" href="#examples-18" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-18" class="anchor" aria-hidden="true" href="#examples-18"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> array_avg(ARRAY[<span class="pl-c1">45</span>, <span class="pl-c1">60</span>, <span class="pl-c1">43</span>, <span class="pl-c1">99</span>]::<span class="pl-k">SMALLINT</span>[]);</pre></div>
 <p>Result:</p>
 <table>
@@ -2450,12 +2423,10 @@ to show the last value in case the current value is null.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-aggregate-array_sum" class="anchor" href="#aggregate-array_sum" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AGGREGATE array_sum</h3>
+<h3><a id="user-content-aggregate-array_sum" class="anchor" aria-hidden="true" href="#aggregate-array_sum"><span aria-hidden="true" class="octicon octicon-link"></span></a>AGGREGATE array_sum</h3>
 <p>Calculate sum of values from arrays.</p>
 <p>Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, and, NUMERIC;</p>
-<h4>
-<a id="user-content-examples-19" class="anchor" href="#examples-19" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-19" class="anchor" aria-hidden="true" href="#examples-19"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> array_sum(ARRAY[<span class="pl-c1">45</span>, <span class="pl-c1">60</span>, <span class="pl-c1">43</span>, <span class="pl-c1">99</span>]::<span class="pl-k">SMALLINT</span>[]);</pre></div>
 <p>Result:</p>
 <table>
@@ -2540,18 +2511,14 @@ to show the last value in case the current value is null.</p>
 </tr>
 </tbody>
 </table>
-<h2>
-<a id="user-content-format-functions" class="anchor" href="#format-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Format functions</h2>
+<h2><a id="user-content-format-functions" class="anchor" aria-hidden="true" href="#format-functions"><span aria-hidden="true" class="octicon octicon-link"></span></a>Format functions</h2>
 <p>Several countries use different formats for numbers, dates, and timestamps.
 Therefore I needed some functions, which is easy to remember than the format
 codes which differ in different programming languages.</p>
-<h3>
-<a id="user-content-german-formats" class="anchor" href="#german-formats" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>German formats</h3>
-<h4>
-<a id="user-content-function-date_de" class="anchor" href="#function-date_de" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION date_de</h4>
+<h3><a id="user-content-german-formats" class="anchor" aria-hidden="true" href="#german-formats"><span aria-hidden="true" class="octicon octicon-link"></span></a>German formats</h3>
+<h4><a id="user-content-function-date_de" class="anchor" aria-hidden="true" href="#function-date_de"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION date_de</h4>
 <p>Creates a function which returns the given date in German format.</p>
-<h5>
-<a id="user-content-example-11" class="anchor" href="#example-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
+<h5><a id="user-content-example-11" class="anchor" aria-hidden="true" href="#example-11"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> date_de(<span class="pl-s"><span class="pl-pds">'</span>2018-01-01<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> d_de;</pre></div>
 <p>Result:</p>
 <table>
@@ -2566,11 +2533,9 @@ codes which differ in different programming languages.</p>
 </tr>
 </tbody>
 </table>
-<h4>
-<a id="user-content-function-datetime_de" class="anchor" href="#function-datetime_de" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION datetime_de</h4>
+<h4><a id="user-content-function-datetime_de" class="anchor" aria-hidden="true" href="#function-datetime_de"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION datetime_de</h4>
 <p>Creates a function which returns the given timestamp in German format.</p>
-<h5>
-<a id="user-content-example-12" class="anchor" href="#example-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
+<h5><a id="user-content-example-12" class="anchor" aria-hidden="true" href="#example-12"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> datetime_de(<span class="pl-s"><span class="pl-pds">'</span>2018-01-01 13:30:30 GMT<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> ts_de;</pre></div>
 <p>Result:</p>
 <table>
@@ -2585,14 +2550,11 @@ codes which differ in different programming languages.</p>
 </tr>
 </tbody>
 </table>
-<h2>
-<a id="user-content-conversion-functions" class="anchor" href="#conversion-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conversion functions</h2>
-<h3>
-<a id="user-content-function-to_unix_timestamp" class="anchor" href="#function-to_unix_timestamp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION to_unix_timestamp</h3>
+<h2><a id="user-content-conversion-functions" class="anchor" aria-hidden="true" href="#conversion-functions"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conversion functions</h2>
+<h3><a id="user-content-function-to_unix_timestamp" class="anchor" aria-hidden="true" href="#function-to_unix_timestamp"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION to_unix_timestamp</h3>
 <p>Creates two functions which returns unix timestamp for the a given timestamp or
 a given timestamp with time zone.</p>
-<h4>
-<a id="user-content-examples-20" class="anchor" href="#examples-20" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-20" class="anchor" aria-hidden="true" href="#examples-20"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Timestamp without time zone, server uses German / Berlin time zone</span>
 <span class="pl-k">SELECT</span> to_unix_timestamp(<span class="pl-s"><span class="pl-pds">'</span>2018-01-01 00:00:00<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> unix_timestamp;</pre></div>
 <p>Result:</p>
@@ -2623,11 +2585,9 @@ a given timestamp with time zone.</p>
 </tr>
 </tbody>
 </table>
-<h3>
-<a id="user-content-function-hex2bigint" class="anchor" href="#function-hex2bigint" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION hex2bigint</h3>
+<h3><a id="user-content-function-hex2bigint" class="anchor" aria-hidden="true" href="#function-hex2bigint"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION hex2bigint</h3>
 <p>Creates a functions which returns a hexadecimal number given as text as bigint.</p>
-<h5>
-<a id="user-content-example-13" class="anchor" href="#example-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
+<h5><a id="user-content-example-13" class="anchor" aria-hidden="true" href="#example-13"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h5>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> hex2bigint(<span class="pl-s"><span class="pl-pds">'</span>a1b0<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> hex_as_bigint;</pre></div>
 <p>Result:</p>
 <table>
@@ -2642,15 +2602,12 @@ a given timestamp with time zone.</p>
 </tr>
 </tbody>
 </table>
-<h2>
-<a id="user-content-other-functions" class="anchor" href="#other-functions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other functions</h2>
-<h3>
-<a id="user-content-function-array_trim" class="anchor" href="#function-array_trim" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION array_trim</h3>
+<h2><a id="user-content-other-functions" class="anchor" aria-hidden="true" href="#other-functions"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other functions</h2>
+<h3><a id="user-content-function-array_trim" class="anchor" aria-hidden="true" href="#function-array_trim"><span aria-hidden="true" class="octicon octicon-link"></span></a>FUNCTION array_trim</h3>
 <p>Removes empty strings and null entries from a given array. In addition the
 function can remove duplicate entries. The function supports strings, numbers,
 dates, and timestamps with or without time zone.</p>
-<h4>
-<a id="user-content-examples-21" class="anchor" href="#examples-21" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
+<h4><a id="user-content-examples-21" class="anchor" aria-hidden="true" href="#examples-21"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h4>
 <div class="highlight highlight-source-sql"><pre><span class="pl-c"><span class="pl-c">--</span> Untrimmed timestamp array with time zone with duplicates</span>
 <span class="pl-k">SELECT</span> array_trim(ARRAY[<span class="pl-s"><span class="pl-pds">'</span>2018-11-11 11:00:00 MEZ<span class="pl-pds">'</span></span>,<span class="pl-k">NULL</span>,<span class="pl-s"><span class="pl-pds">'</span>2018-11-11 11:00:00 MEZ<span class="pl-pds">'</span></span>]::<span class="pl-k">TIMESTAMP WITH TIME ZONE</span>[]) <span class="pl-k">AS</span> trimmed_array;</pre></div>
 <p>Result:</p>

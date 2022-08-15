@@ -17,6 +17,18 @@ conversions have become more strict.
 All examples have been tested with PostgreSQL 15 beta 2, differences in the behavior of
 previous versions are noted.
 
+[![version](https://img.shields.io/badge/PostgreSQL-10-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-11-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-12-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-13-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-14-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-15beta3-blue.svg)]()
+
+[![Lang](https://img.shields.io/badge/Language-pl/pgSQL-green.svg)]()
+[![PostgreSQL](https://img.shields.io/badge/License-PostgreSQL-green.svg)]()
+[![Extension](https://img.shields.io/badge/Extension-PostgreSQL-green.svg)]()
+
+
 # Repositories
 
 The main repository is now on
@@ -847,28 +859,29 @@ FROM pg_db_views;
 
 ### VIEW pg_foreign_keys
 
-Creates a view to get a list of foreign keys in the database.
+Creates a view to get a list of foreign keys in the database. That includes the check for an existing single index, see boolean result of column "is_indexed".
+
+<span style="color:red">Below PostgreSQL 11 the column "enforced" is not available and therefore not part of the result.</span>
 
 ```sql
 SELECT *
 FROM pg_foreign_keys;
 ```
 
+|constraint_name|is_deferrable|initially_deferred|enforced|table_schema|table_name|column_name|foreign_table_schema|foreign_table_name|foreign_column_name|is_indexed|
+|---------------|-------------|------------------|--------|------------|----------|-----------|--------------------|------------------|-------------------|----------|
+|FK_AlbumArtistId|NO|NO|YES|public|Album|ArtistId|public|Artist|ArtistId|true|
+|FK_CustomerSupportRepId|NO|NO|YES|public|Customer|SupportRepId|public|Employee|EmployeeId|true|
+|FK_EmployeeReportsTo|NO|NO|YES|public|Employee|ReportsTo|public|Employee|EmployeeId|true|
+|FK_InvoiceCustomerId|NO|NO|YES|public|Invoice|CustomerId|public|Customer|CustomerId|true|
+|FK_InvoiceLineInvoiceId|NO|NO|YES|public|InvoiceLine|InvoiceId|public|Invoice|InvoiceId|true|
+|FK_InvoiceLineTrackId|NO|NO|YES|public|InvoiceLine|TrackId|public|Track|TrackId|true|
+|FK_PlaylistTrackPlaylistId|NO|NO|YES|public|PlaylistTrack|PlaylistId|public|Playlist|PlaylistId|true|
+|FK_PlaylistTrackTrackId|NO|NO|YES|public|PlaylistTrack|TrackId|public|Track|TrackId|true|
+|FK_TrackAlbumId|NO|NO|YES|public|Track|AlbumId|public|Album|AlbumId|true|
+|FK_TrackGenreId|NO|NO|YES|public|Track|GenreId|public|Genre|GenreId|true|
+|FK_TrackMediaTypeId|NO|NO|YES|public|Track|MediaTypeId|public|MediaType|MediaTypeId|true|
 
-
-| table_catalog | table_schema | table_name    | column_name  | foreign_table_schema | foreign_table_name | foreign_column_name |
-| ------------- | ------------ | ------------- | ------------ | -------------------- | ------------------ | ------------------- |
-| chinook       | public       | Album         | ArtistId     | public               | Artist             | ArtistId            |
-| chinook       | public       | Customer      | SupportRepId | public               | Employee           | EmployeeId          |
-| chinook       | public       | Employee      | ReportsTo    | public               | Employee           | EmployeeId          |
-| chinook       | public       | Invoice       | CustomerId   | public               | Customer           | CustomerId          |
-| chinook       | public       | InvoiceLine   | InvoiceId    | public               | Invoice            | InvoiceId           |
-| chinook       | public       | InvoiceLine   | TrackId      | public               | Track              | TrackId             |
-| chinook       | public       | PlaylistTrack | PlaylistId   | public               | Playlist           | PlaylistId          |
-| chinook       | public       | PlaylistTrack | TrackId      | public               | Track              | TrackId             |
-| chinook       | public       | Track         | AlbumId      | public               | Album              | AlbumId             |
-| chinook       | public       | Track         | GenreId      | public               | Genre              | GenreId             |
-| chinook       | public       | Track         | MediaTypeId  | public               | MediaType          | MediaTypeId         |
 
 
 ### VIEW pg_functions
