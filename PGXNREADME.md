@@ -22,7 +22,7 @@ previous versions are noted.
 [![version](https://img.shields.io/badge/PostgreSQL-12-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-13-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-14-blue.svg)]()
-[![version](https://img.shields.io/badge/PostgreSQL-15beta3-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-15-blue.svg)]()
 
 [![Lang](https://img.shields.io/badge/Language-pl/pgSQL-green.svg)]()
 [![PostgreSQL](https://img.shields.io/badge/License-PostgreSQL-green.svg)]()
