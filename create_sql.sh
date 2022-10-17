@@ -267,7 +267,7 @@ psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -c "SELECT versio
 
 psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/sql/out/versions/pgsql_tweaks--$EXTVERSION.sql"
 
-psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/test/sql/out/pgsql_tweaks_test--$EXTVERSION.sql" > "$DIR/test/out/sql/pgsql_tweaks_test--$EXTVERSION.out"
+psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/test/sql/out/pgsql_tweaks_test--$EXTVERSION.sql" > "$DIR/test/sql/out/pgsql_tweaks_test--$EXTVERSION.out"
 
 # Check the statements used in the README
 psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/test/sql/examples.sql" > "/dev/null"
