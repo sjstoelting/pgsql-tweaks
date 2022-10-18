@@ -228,7 +228,11 @@ FILENAME="$TESTDIR/$EXTENSION""_test--$EXTVERSION.sql"
 truncate -s 0 $FILENAME
 
 # Add initial statements
-echo '\timing' >> $FILENAME
+# Timing is only on when not creating versions
+if [ "$PGXN" != "y" ]; then
+  echo '\timing' >> $FILENAME
+fi
+
 echo 'SET client_min_messages TO warning;' >> $FILENAME
 echo 'SET log_min_messages    TO warning;' >> $FILENAME
 echo '' >> $FILENAME
