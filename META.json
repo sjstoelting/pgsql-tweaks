@@ -23,9 +23,9 @@
   "provides": {
     "pgsql_tweaks": {
       "abstract": "Contains PostgreSQL functions and views which I regularly needed and might help others, too.",
-      "file": "sql/out/versions/pgsql_tweaks--0.10.0.sql",
+      "file": "sql/out/versions/pgsql_tweaks--0.10.1.sql",
       "docfile": "PGXNREADME.md",
-      "version": "0.10.0"
+      "version": "0.10.1"
     }
   },
   "resources": {
