@@ -10,11 +10,9 @@ a schema name.
 All functions and views are covered by tests. The tests are done in simple SQL
 statements. Each test does raise division by zero if it fails.
 
-The tests have been done with PostgreSQL 9.6 and 15 beta 2. There have been some
-changes in the behaviour in PostgreSQL 10, Timestamp and Date functions and
-conversions have become more strict.
+The tests have been done with PostgreSQL 11 up to 16 beta 1.
 
-All examples have been tested with PostgreSQL 15 beta 2, differences in the behavior of
+All examples have been tested with PostgreSQL 16 beta 1, differences in the behavior of
 previous versions are noted.
 
 [![version](https://img.shields.io/badge/PostgreSQL-11-blue.svg)]()
