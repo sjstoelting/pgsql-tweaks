@@ -17,12 +17,12 @@ conversions have become more strict.
 All examples have been tested with PostgreSQL 15 beta 2, differences in the behavior of
 previous versions are noted.
 
-[![version](https://img.shields.io/badge/PostgreSQL-10-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-11-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-12-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-13-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-14-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-15-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-16-beta-1-blue.svg)]()
 
 [![Lang](https://img.shields.io/badge/Language-pl/pgSQL-green.svg)]()
 [![PostgreSQL](https://img.shields.io/badge/License-PostgreSQL-green.svg)]()
