@@ -13,7 +13,7 @@
       "runtime": {
          "requires": {
             "plpgsql": 0,
-            "PostgreSQL": "10.0.0"
+            "PostgreSQL": "11.0.0"
          },
          "recommends": {
             "PostgreSQL": "15.0.0"
