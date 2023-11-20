@@ -164,7 +164,7 @@ declare -a SQLFILES=(
   "function_replace_encoding"
   "function_replace_latin1"
   "function_return_not_part_of_encoding"
-  "aggregate_function_gab_fill"
+  "aggregate_function_gap_fill"
   "function_date_de"
   "function_datetime_de"
   "function_to_unix_timestamp"
