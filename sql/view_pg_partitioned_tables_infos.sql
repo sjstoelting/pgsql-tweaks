@@ -9,7 +9,7 @@ BEGIN
 
 	IF version_greater_10 THEN
 		-- Create the view pg_functions for PostgreSQL 10 or newer
-		CREATE OR REPLACE VIEW public.pg_partitioned_tables_infos AS
+		CREATE OR REPLACE VIEW pg_partitioned_tables_infos AS
 		SELECT cl.oid AS parent_relid
 			, n.nspname AS parent_schemaname
 			, cl.relname AS parent_tablename
