@@ -40,6 +40,7 @@ echo '' >> $FILENAME
 
 echo 'DROP VIEW IF EXISTS pg_active_locks;' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_empty(s text);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS is_empty_b(s text);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_sum(a BIGINT[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_sum(a INTEGER[]);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS array_sum(a SMALLINT[]);' >> $FILENAME
