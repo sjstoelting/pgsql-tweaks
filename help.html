@@ -22,7 +22,7 @@ statements. Each test does raise division by zero if it fails.</p>
 <p>The main repository is now on
 <a href="https://gitlab.com/sjstoelting/pgsql-tweaks.git" rel="nofollow">GitLab</a>. A mirror will stay on <a href="https://github.com/sjstoelting/pgsql-tweaks">GitHub</a>.</p>
 <p>If you discover any issue, please file them on
-<a href="https://gitlab.com/sjstoelting/pgsql-tweaks/issues" rel="nofollow">https://gitlab.com/sjstoelting/pgsql-tweaks/issues</a>.</p>
+<a href="https://gitlab.com/sjstoelting/pgsql-tweaks/-/issues" rel="nofollow">https://gitlab.com/sjstoelting/pgsql-tweaks/-/issues</a>.</p>
 <div class="markdown-heading"><h1 class="heading-element">Building the extension</h1><a id="user-content-building-the-extension" class="anchor" aria-label="Permalink: Building the extension" href="#building-the-extension"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>All functions and tests are located in single files.</p>
 <p>The files for the extension are build by the shell script "create-sql.sh".
@@ -60,7 +60,7 @@ make install</pre></div>
 1.1.10 <a href="#user-content-function-is_boolean">FUNCTION is_boolean</a><br>
 1.1.11 <a href="#user-content-function-is_json">FUNCTION is_json</a><br>
 1.1.12 <a href="#user-content-function-is_jsonb">FUNCTION is_jsonb</a><br>
-1.1.13 <a href="#user-content-function-is_empty">FUNCTION is_empty</a><br>
+1.1.13 <a href="#user-content-function-is_empty">FUNCTION is_empty or is_empty_b</a><br>
 1.1.14 <a href="#user-content-function-is_hex">FUNCTION is_hex</a></p>
 <p>1.2 <a href="#user-content-functions-about-encryption">Functions about encryption</a><br>
 1.2.1 <a href="#user-content-function-sha256">FUNCTION sha256</a></p>
@@ -763,8 +763,12 @@ strict, as in previous versions the conversion tried to calculate a date.</p>
 </tr>
 </tbody>
 </table>
-<div class="markdown-heading"><h3 class="heading-element">FUNCTION is_empty</h3><a id="user-content-function-is_empty" class="anchor" aria-label="Permalink: FUNCTION is_empty" href="#function-is_empty"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>The function checks a string variable for being either, NULL or ''.</p>
+<div class="markdown-heading"><h3 class="heading-element">FUNCTION is_empty or is_empty_b</h3><a id="user-content-function-is_empty-or-is_empty_b" class="anchor" aria-label="Permalink: FUNCTION is_empty or is_empty_b" href="#function-is_empty-or-is_empty_b"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>The function checks a string variable for being either, NULL or '' and is returing a boolean result.</p>
+<p>The extension <a href="https://pgtap.org/" rel="nofollow">pgtap</a> has the same name for a function with the same purpose, but a different returning value.<br>
+Therefore the function name differs, if pgtap is installed.</p>
+<p>The function <strong>is_empty</strong>, when pgtap is not installed.</p>
+<p>The function <strong>is_empty_b</strong>, when pgtap is not installed. The <strong>b</strong> stands for its boolean result.</p>
 <div class="markdown-heading"><h4 class="heading-element">Examples</h4><a id="user-content-examples-11" class="anchor" aria-label="Permalink: Examples" href="#examples-11"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> is_empty(<span class="pl-s"><span class="pl-pds">'</span>abc<span class="pl-pds">'</span></span>) <span class="pl-k">AS</span> res;
 <span class="pl-c"><span class="pl-c">--</span> Result is false</span></pre></div>

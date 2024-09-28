@@ -32,7 +32,7 @@ The main repository is now on
 [GitLab](https://gitlab.com/sjstoelting/pgsql-tweaks.git). A mirror will stay on [GitHub](https://github.com/sjstoelting/pgsql-tweaks).
 
 If you discover any issue, please file them on
-https://gitlab.com/sjstoelting/pgsql-tweaks/issues.
+https://gitlab.com/sjstoelting/pgsql-tweaks/-/issues.
 
 # Building the extension
 
@@ -94,7 +94,7 @@ Afterwards you are able to create the extension in a database:
 1.1.10 [FUNCTION is_boolean](#FUNCTION.is_boolean)<br />
 1.1.11 [FUNCTION is_json](#FUNCTION.is_json)<br />
 1.1.12 [FUNCTION is_jsonb](#FUNCTION.is_jsonb)<br />
-1.1.13 [FUNCTION is_empty](#FUNCTION.is_empty)<br />
+1.1.13 [FUNCTION is_empty or is_empty_b](#FUNCTION.is_empty or is_empty_b
 1.1.14 [FUNCTION is_hex](#FUNCTION.is_hex)
 
 1.2 [Functions about encryption](#Functions.about encryption)<br />
@@ -668,9 +668,17 @@ Result:
 |:---:|
 | f   |
 
-### FUNCTION is_empty
+### FUNCTION is_empty or is_empty_b
 
-The function checks a string variable for being either, NULL or ''.
+The function checks a string variable for being either, NULL or '' and is returing a boolean result.
+
+The extension [pgtap](https://pgtap.org/) has the same name for a function with the same purpose, but a different returning value.<br />
+Therefore the function name differs, if pgtap is installed.
+
+The function **is_empty**, when pgtap is not installed.
+
+The function **is_empty_b**, when pgtap is not installed. The **b** stands for its boolean result.
+
 
 #### Examples
 
