@@ -94,7 +94,7 @@ Afterwards you are able to create the extension in a database:
 1.1.10 [FUNCTION is_boolean](#function-is_boolean)<br />
 1.1.11 [FUNCTION is_json](#function-is_json)<br />
 1.1.12 [FUNCTION is_jsonb](#function-is_jsonb)<br />
-1.1.13 [FUNCTION is_empty or is_empty_b](#function-is_empty)<br />
+1.1.13 [FUNCTION is_empty or is_empty_b](#function-is_empty-or-is_empty_b)<br />
 1.1.14 [FUNCTION is_hex](#function-is_hex)
 
 1.2 [Functions about encryption](#functions-about-encryption)<br />
