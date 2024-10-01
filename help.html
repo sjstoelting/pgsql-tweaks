@@ -24,13 +24,35 @@ statements. Each test does raise division by zero if it fails.</p>
 <p>If you discover any issue, please file them on
 <a href="https://gitlab.com/sjstoelting/pgsql-tweaks/-/issues" rel="nofollow">https://gitlab.com/sjstoelting/pgsql-tweaks/-/issues</a>.</p>
 <div class="markdown-heading"><h1 class="heading-element">Building the extension</h1><a id="user-content-building-the-extension" class="anchor" aria-label="Permalink: Building the extension" href="#building-the-extension"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>All functions and tests are located in single files.</p>
-<p>The files for the extension are build by the shell script "create-sql.sh".
-To be able to run the script, you need to have a configuration with the
-connection information. Please copy "build.cfg.example" to "build.cfg" and
-change the configuration to fit your environment.<br>
-The script assumes, that you have a <a href="https://www.postgresql.org/docs/current/static/libpq-pgpass.html" rel="nofollow">.pgpass</a>
-file with login information matching the configuration.</p>
+<p>Each function and test is organized into its own separate file for easy management. The shell script <code>create_sql.sh</code> is responsible for assembling these files into the appropriate SQL scripts needed for extension creation.</p>
+<p>To run the script, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Configuration</strong>:</p>
+<ul>
+<li>Copy the example configuration file <code>build.cfg.example</code> to <code>build.cfg</code>.</li>
+<li>Modify <code>build.cfg</code> to include the database connection information for your environment.</li>
+</ul>
+</li>
+<li>
+<p><strong>Running the Script</strong>:</p>
+<ul>
+<li>The script automatically generates the necessary SQL scripts by combining the function and test files.</li>
+<li>It is assumed that you have a <a href="https://www.postgresql.org/docs/current/static/libpq-pgpass.html" rel="nofollow"><code>.pgpass</code></a> file in your home directory, containing the database credentials matching the configuration. This file simplifies the login process during script execution.</li>
+</ul>
+</li>
+<li>
+<p><strong>PGXN Option</strong>:</p>
+<ul>
+<li>The script accepts an optional argument to control whether a zip file for <a href="https://pgxn.org/" rel="nofollow">PGXN</a> (PostgreSQL Extension Network) is created.</li>
+<li>If you pass <code>'y'</code> as the first argument, the script will generate a zip archive ready for submission to PGXN.</li>
+<li>Example:
+<div class="highlight highlight-source-shell"><pre>./create_sql.sh y</pre></div>
+This will create a zip file of the extension in the <code>$HOME/tmp</code> directory.</li>
+<li>If no argument is provided, or if the argument is not <code>'y'</code>, the PGXN zip file is <strong>not</strong> created.</li>
+</ul>
+</li>
+</ol>
 <div class="markdown-heading"><h1 class="heading-element">Installation</h1><a id="user-content-installation" class="anchor" aria-label="Permalink: Installation" href="#installation"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>You may either, install all functions as a package, or install single functions
 of your choice.</p>
@@ -60,7 +82,7 @@ make install</pre></div>
 1.1.10 <a href="#user-content-function-is_boolean">FUNCTION is_boolean</a><br>
 1.1.11 <a href="#user-content-function-is_json">FUNCTION is_json</a><br>
 1.1.12 <a href="#user-content-function-is_jsonb">FUNCTION is_jsonb</a><br>
-1.1.13 <a href="#user-content-function-is_empty">FUNCTION is_empty or is_empty_b</a><br>
+1.1.13 <a href="#user-content-function-is_empty-or-is_empty_b">FUNCTION is_empty or is_empty_b</a><br>
 1.1.14 <a href="#user-content-function-is_hex">FUNCTION is_hex</a></p>
 <p>1.2 <a href="#user-content-functions-about-encryption">Functions about encryption</a><br>
 1.2.1 <a href="#user-content-function-sha256">FUNCTION sha256</a></p>
