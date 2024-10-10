@@ -288,8 +288,15 @@ psql -h $DBHOST -p $DBPORT -X -q -b postgres -c "DROP DATABASE $DBNAME;"
 # Create the PGXN package, output path is users tmp
 if [ "$PGXN" = "y" ]; then
   echo "Creating pgxn zip file"
-  rm -f "~/tmp/pgsql-tweaks-$EXTVERSION.zip"
-  git archive --format zip --prefix=pgsql-tweaks-$EXTVERSION/ --output ~/tmp/pgsql-tweaks-$EXTVERSION.zip main
+
+  # Check if the tmp directory exists, if not, create it
+  if [ ! -d "$HOME/tmp" ]; then
+    echo "Directory $HOME/tmp does not exist. Creating it."
+    mkdir -p "$HOME/tmp"
+  fi
+
+  rm -f "$HOME/tmp/pgsql-tweaks-$EXTVERSION.zip"
+  git archive --format zip --prefix=pgsql-tweaks-$EXTVERSION/ --output "$HOME/tmp/pgsql-tweaks-$EXTVERSION.zip" main
 else
   echo "No pgxn zip file has been created"
 fi
