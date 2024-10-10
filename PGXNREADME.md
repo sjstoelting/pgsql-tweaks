@@ -36,15 +36,27 @@ https://gitlab.com/sjstoelting/pgsql-tweaks/-/issues.
 
 # Building the extension
 
-All functions and tests are located in single files.
+Each function and test is organized into its own separate file for easy management. The shell script `create_sql.sh` is responsible for assembling these files into the appropriate SQL scripts needed for extension creation.
 
-The files for the extension are build by the shell script "create-sql.sh".
-To be able to run the script, you need to have a configuration with the
-connection information. Please copy "build.cfg.example" to "build.cfg" and
-change the configuration to fit your environment.<br />
-The script assumes, that you have a [.pgpass](https://www.postgresql.org/docs/current/static/libpq-pgpass.html)
-file with login information matching the configuration.
+To run the script, follow these steps:
 
+1. **Configuration**:
+- Copy the example configuration file `build.cfg.example` to `build.cfg`.
+- Modify `build.cfg` to include the database connection information for your environment.
+
+2. **Running the Script**:
+- The script automatically generates the necessary SQL scripts by combining the function and test files.
+- It is assumed that you have a [`.pgpass`](https://www.postgresql.org/docs/current/static/libpq-pgpass.html) file in your home directory, containing the database credentials matching the configuration. This file simplifies the login process during script execution.
+
+3. **PGXN Option**:
+- The script accepts an optional argument to control whether a zip file for [PGXN](https://pgxn.org/) (PostgreSQL Extension Network) is created.
+- If you pass `'y'` as the first argument, the script will generate a zip archive ready for submission to PGXN.
+- Example:
+```bash
+./create_sql.sh y
+```
+This will create a zip file of the extension in the `$HOME/tmp` directory.
+- If no argument is provided, or if the argument is not `'y'`, the PGXN zip file is **not** created.
 
 # Installation
 
@@ -94,7 +106,7 @@ Afterwards you are able to create the extension in a database:
 1.1.10 [FUNCTION is_boolean](#FUNCTION.is_boolean)<br />
 1.1.11 [FUNCTION is_json](#FUNCTION.is_json)<br />
 1.1.12 [FUNCTION is_jsonb](#FUNCTION.is_jsonb)<br />
-1.1.13 [FUNCTION is_empty or is_empty_b](#FUNCTION.is_empty or is_empty_b
+1.1.13 [FUNCTION is_empty or is_empty_b](#FUNCTION.is_empty or is_empty_b)<br />
 1.1.14 [FUNCTION is_hex](#FUNCTION.is_hex)
 
 1.2 [Functions about encryption](#Functions.about encryption)<br />
