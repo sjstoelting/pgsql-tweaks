@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
   PGXN='N'
 else
   PGXN=$1
-fi
+fi # [ -z "$1" ]
 
 # Copy the build.cfg.example to build.cfg and edit the configuration to match your nees
 # Include the local configuration
@@ -218,7 +218,7 @@ for (( i=1; i<${arraylength}+1; i++ ));
 do
   cat $DIR/${SQLFILES[$i-1]}".sql" >> $FILENAME
   echo '' >> $FILENAME
-done
+done # (( i=1; i<${arraylength}+1; i++ ))
 
 # Now the test script has to be generated
 # Define output file
@@ -232,7 +232,7 @@ truncate -s 0 $FILENAME
 # Timing is only on when not creating versions
 if [ "$PGXN" != "y" ]; then
   echo '\timing' >> $FILENAME
-fi
+fi # [ "$PGXN" != "y" ]
 
 echo 'SET client_min_messages TO warning;' >> $FILENAME
 echo 'SET log_min_messages    TO warning;' >> $FILENAME
@@ -246,7 +246,7 @@ do
   echo "SELECT 'Test starting: ${SQLFILES[$i-1]}' AS next_test;"  >> $FILENAME
   cat $DIR/${SQLFILES[$i-1]}".sql" >> $FILENAME
   echo '' >> $FILENAME
-done
+done # (( i=1; i<${arraylength}+1; i++ ))
 
 
 # Create control file
@@ -272,34 +272,40 @@ psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -c "SELECT versio
 
 psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/sql/out/versions/pgsql_tweaks--$EXTVERSION.sql"
 
-psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/test/sql/out/pgsql_tweaks_test--$EXTVERSION.sql" > "$DIR/test/sql/out/pgsql_tweaks_test--$EXTVERSION.out"
+if [ "$PGXN" = "y" ]; then
+  # The result messages and captions are exported in English UTF8 en_EN
+  LC_MESSAGES=en_EN psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/test/sql/out/pgsql_tweaks_test--$EXTVERSION.sql" > "$DIR/test/sql/out/pgsql_tweaks_test--$EXTVERSION.out"
+else
+  # During development the messages are kept in the local installed language
+  psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/test/sql/out/pgsql_tweaks_test--$EXTVERSION.sql" > "$DIR/test/sql/out/pgsql_tweaks_test--$EXTVERSION.out"
+fi # [ "$PGXN" = "y" ]
 
-# Check the statements used in the README
+# Check the statements used in the README file
 psql -h $DBHOST -p $DBPORT -X -q -b -v ON_ERROR_STOP=1 $DBNAME -f "$DIR/test/sql/examples.sql" > "/dev/null"
 
 psql -h $DBHOST -p $DBPORT -X -q -b postgres -c "DROP DATABASE $DBNAME;"
 
-# Create a documentation  for PGXN, the link differ from GitHun to PGXN
-./create_pgxn_doc.sh
-
-# Create a documentation in HTML
-./create_html_doc.sh
-
 # Create the PGXN package, output path is users tmp
 if [ "$PGXN" = "y" ]; then
+    # Create a documentation  for PGXN, the link differ from GitHun to PGXN
+    ./create_pgxn_doc.sh
+
+    # Create a documentation in HTML
+    ./create_html_doc.sh
+
   echo "Creating pgxn zip file"
 
   # Check if the tmp directory exists, if not, create it
   if [ ! -d "$HOME/tmp" ]; then
     echo "Directory $HOME/tmp does not exist. Creating it."
     mkdir -p "$HOME/tmp"
-  fi
+  fi # [ ! -d "$HOME/tmp" ]
 
   rm -f "$HOME/tmp/pgsql-tweaks-$EXTVERSION.zip"
   git archive --format zip --prefix=pgsql-tweaks-$EXTVERSION/ --output "$HOME/tmp/pgsql-tweaks-$EXTVERSION.zip" main
 else
   echo "No pgxn zip file has been created"
-fi
+fi # [ "$PGXN" = "y" ]
 
 # Unset variables
 unset DIR
