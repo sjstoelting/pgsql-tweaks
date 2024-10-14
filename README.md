@@ -38,30 +38,41 @@ https://gitlab.com/sjstoelting/pgsql-tweaks/-/issues.
 
 Each function and test is organized into its own separate file for easy management. The shell script `create_sql.sh` is responsible for assembling these files into the appropriate SQL scripts needed for extension creation.
 
-To run the script, follow these steps:
+## Configuration
 
-1. **Configuration**: 
-   - Copy the example configuration file `build.cfg.example` to `build.cfg`.
-   - Modify `build.cfg` to include the database connection information for your environment.
+   Copy the example configuration file `build.cfg.example` to `build.cfg`.
+   Modify `build.cfg` to include the database connection information of your environment.
 
-2. **Running the Script**:
-   - The script automatically generates the necessary SQL scripts by combining the function and test files.
-   - It is assumed that you have a [`.pgpass`](https://www.postgresql.org/docs/current/static/libpq-pgpass.html) file in your home directory, containing the database credentials matching the configuration. This file simplifies the login process during script execution.
+## Running the Script
 
-3. **PGXN Option**:
-   - The script accepts an optional argument to control whether a zip file for [PGXN](https://pgxn.org/) (PostgreSQL Extension Network) is created.
-   - If you pass `'y'` as the first argument, the script will generate a zip archive ready for submission to PGXN.
-   - Example:  
-     ```bash
-     ./create_sql.sh y
-     ```
-     This will create a zip file of the extension in the `$HOME/tmp` directory.
-   - If no argument is provided, or if the argument is not `'y'`, the PGXN zip file is **not** created.
+   The script automatically generates the necessary SQL scripts by combining the function and test files.
+   It is assumed that you have a [`.pgpass`](https://www.postgresql.org/docs/current/static/libpq-pgpass.html) file in your home directory, containing the database credentials matching the configuration. This file simplifies the login process during script execution.
+   Otherwise you have to login with credentials for each execution.
+
+   The test results are generated with messages and captions in your local language settings. In addition the `test/sql/out/pgsql-tweaks-test-[version number].out` file has timing on, you see the execution time for each test.
+
+## Releasing
+
+   The script accepts an optional argument to control whether a zip file for [PGXN](https://pgxn.org/) (PostgreSQL Extension Network) is created. PGXN is also the prefered installation method.
+
+   You have to pass `'y'` as the first argument to the script. The language of the test results will be in English UTF8 en_EN.
+   In addition a zip archive is generated ready for submission to PGXN.
+
+   The `test/sql/out/pgsql-tweaks-test-[version number].out` file is generated without timing, otherwise the test results would not be comparable.
+
+   Example:
+
+   ```bash
+   ./create_sql.sh y
+   ```
+
+   This will create a zip file of the extension in the `$HOME/tmp` directory with the pattern `pgsql-tweaks-[version number].zip`.
+   When the directory `$HOME/tmp` does not exist, it is created by the scirpt.
+   If no argument is provided, or if the argument is not `'y'`, the PGXN zip file is **not** created.
 
 # Installation
 
-You may either, install all functions as a package, or install single functions
-of your choice.
+You may either, install all functions as a package, or install single functions of your choice.
 
 ## Install the package from source
 
@@ -71,6 +82,7 @@ Get the source by either, download the code as ZIP file, or by git clone.
 cd pgsql_tweaks
 make install
 ```
+
 Afterwards you are able to create the extension in a database:
 
 ```sql
@@ -81,13 +93,26 @@ CREATE EXTENSION pgsql_tweaks;
 
 pgsql_tweaks is now available over the PostgreSQL extension management, [PGXN](https://pgxn.org/dist/pgsql_tweaks/).
 
-The installation is done with the PGXN installer.
+The installation is done with the PGXN installer and it is the prefered installation.
 
 ```bash
 pgxn install pgsql_tweaks
 ```
 
 Afterwards you are able to create the extension in a database:
+
+```sql
+CREATE EXTENSION pgsql_tweaks;
+```
+
+## Testing
+
+When your local language is not set LC_MESSAGES to en_EN, you have to execute the the test in the installation directory with an additional parameter to have comparable resutls.
+
+```bash
+LC_MESSAGES=en_EN psql -f test/sql/out/pgsql-tweaks-[version number].sql > pgsql-tweaks-test-[version number].out
+diff pgsql-tweaks-[version number].out test/sql/out/pgsql-tweaks-test-[version number].out
+```
 
 # Table of content
 
