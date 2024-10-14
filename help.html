@@ -25,37 +25,26 @@ statements. Each test does raise division by zero if it fails.</p>
 <a href="https://gitlab.com/sjstoelting/pgsql-tweaks/-/issues" rel="nofollow">https://gitlab.com/sjstoelting/pgsql-tweaks/-/issues</a>.</p>
 <div class="markdown-heading"><h1 class="heading-element">Building the extension</h1><a id="user-content-building-the-extension" class="anchor" aria-label="Permalink: Building the extension" href="#building-the-extension"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Each function and test is organized into its own separate file for easy management. The shell script <code>create_sql.sh</code> is responsible for assembling these files into the appropriate SQL scripts needed for extension creation.</p>
-<p>To run the script, follow these steps:</p>
-<ol>
-<li>
-<p><strong>Configuration</strong>:</p>
-<ul>
-<li>Copy the example configuration file <code>build.cfg.example</code> to <code>build.cfg</code>.</li>
-<li>Modify <code>build.cfg</code> to include the database connection information for your environment.</li>
-</ul>
-</li>
-<li>
-<p><strong>Running the Script</strong>:</p>
-<ul>
-<li>The script automatically generates the necessary SQL scripts by combining the function and test files.</li>
-<li>It is assumed that you have a <a href="https://www.postgresql.org/docs/current/static/libpq-pgpass.html" rel="nofollow"><code>.pgpass</code></a> file in your home directory, containing the database credentials matching the configuration. This file simplifies the login process during script execution.</li>
-</ul>
-</li>
-<li>
-<p><strong>PGXN Option</strong>:</p>
-<ul>
-<li>The script accepts an optional argument to control whether a zip file for <a href="https://pgxn.org/" rel="nofollow">PGXN</a> (PostgreSQL Extension Network) is created.</li>
-<li>If you pass <code>'y'</code> as the first argument, the script will generate a zip archive ready for submission to PGXN.</li>
-<li>Example:
+<div class="markdown-heading"><h2 class="heading-element">Configuration</h2><a id="user-content-configuration" class="anchor" aria-label="Permalink: Configuration" href="#configuration"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Copy the example configuration file <code>build.cfg.example</code> to <code>build.cfg</code>.
+Modify <code>build.cfg</code> to include the database connection information of your environment.</p>
+<div class="markdown-heading"><h2 class="heading-element">Running the Script</h2><a id="user-content-running-the-script" class="anchor" aria-label="Permalink: Running the Script" href="#running-the-script"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>The script automatically generates the necessary SQL scripts by combining the function and test files.
+It is assumed that you have a <a href="https://www.postgresql.org/docs/current/static/libpq-pgpass.html" rel="nofollow"><code>.pgpass</code></a> file in your home directory, containing the database credentials matching the configuration. This file simplifies the login process during script execution.
+Otherwise you have to login with credentials for each execution.</p>
+<p>The test results are generated with messages and captions in your local language settings. In addition the <code>test/sql/out/pgsql-tweaks-test-[version number].out</code> file has timing on, you see the execution time for each test.</p>
+<div class="markdown-heading"><h2 class="heading-element">Releasing</h2><a id="user-content-releasing" class="anchor" aria-label="Permalink: Releasing" href="#releasing"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>The script accepts an optional argument to control whether a zip file for <a href="https://pgxn.org/" rel="nofollow">PGXN</a> (PostgreSQL Extension Network) is created. PGXN is also the prefered installation method.</p>
+<p>You have to pass <code>'y'</code> as the first argument to the script. The language of the test results will be in English UTF8 en_EN.
+In addition a zip archive is generated ready for submission to PGXN.</p>
+<p>The <code>test/sql/out/pgsql-tweaks-test-[version number].out</code> file is generated without timing, otherwise the test results would not be comparable.</p>
+<p>Example:</p>
 <div class="highlight highlight-source-shell"><pre>./create_sql.sh y</pre></div>
-This will create a zip file of the extension in the <code>$HOME/tmp</code> directory.</li>
-<li>If no argument is provided, or if the argument is not <code>'y'</code>, the PGXN zip file is <strong>not</strong> created.</li>
-</ul>
-</li>
-</ol>
+<p>This will create a zip file of the extension in the <code>$HOME/tmp</code> directory with the pattern <code>pgsql-tweaks-[version number].zip</code>.
+When the directory <code>$HOME/tmp</code> does not exist, it is created by the scirpt.
+If no argument is provided, or if the argument is not <code>'y'</code>, the PGXN zip file is <strong>not</strong> created.</p>
 <div class="markdown-heading"><h1 class="heading-element">Installation</h1><a id="user-content-installation" class="anchor" aria-label="Permalink: Installation" href="#installation"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>You may either, install all functions as a package, or install single functions
-of your choice.</p>
+<p>You may either, install all functions as a package, or install single functions of your choice.</p>
 <div class="markdown-heading"><h2 class="heading-element">Install the package from source</h2><a id="user-content-install-the-package-from-source" class="anchor" aria-label="Permalink: Install the package from source" href="#install-the-package-from-source"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Get the source by either, download the code as ZIP file, or by git clone.</p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> pgsql_tweaks
@@ -64,9 +53,14 @@ make install</pre></div>
 <div class="highlight highlight-source-sql"><pre>CREATE EXTENSION pgsql_tweaks;</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">Install the package with PGXN</h2><a id="user-content-install-the-package-with-pgxn" class="anchor" aria-label="Permalink: Install the package with PGXN" href="#install-the-package-with-pgxn"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>pgsql_tweaks is now available over the PostgreSQL extension management, <a href="https://pgxn.org/dist/pgsql_tweaks/" rel="nofollow">PGXN</a>.</p>
-<p>The installation is done with the PGXN installer.</p>
+<p>The installation is done with the PGXN installer and it is the prefered installation.</p>
 <div class="highlight highlight-source-shell"><pre>pgxn install pgsql_tweaks</pre></div>
 <p>Afterwards you are able to create the extension in a database:</p>
+<div class="highlight highlight-source-sql"><pre>CREATE EXTENSION pgsql_tweaks;</pre></div>
+<div class="markdown-heading"><h2 class="heading-element">Testing</h2><a id="user-content-testing" class="anchor" aria-label="Permalink: Testing" href="#testing"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>When your local language is not set LC_MESSAGES to en_EN, you have to execute the the test in the installation directory with an additional parameter to have comparable resutls.</p>
+<div class="highlight highlight-source-shell"><pre>LC_MESSAGES=en_EN psql -f test/sql/out/pgsql-tweaks-[version number].sql <span class="pl-k">&gt;</span> pgsql-tweaks-test-[version number].out
+diff pgsql-tweaks-[version number].out test/sql/out/pgsql-tweaks-test-[version number].out</pre></div>
 <div class="markdown-heading"><h1 class="heading-element">Table of content</h1><a id="user-content-table-of-content" class="anchor" aria-label="Permalink: Table of content" href="#table-of-content"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>1 <a href="#user-content-list-of-functions">List of functions</a></p>
 <p>1.1 <a href="#user-content-functions-to-check-data-types">Functions to check data types</a><br>
