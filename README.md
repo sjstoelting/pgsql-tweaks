@@ -1806,3 +1806,28 @@ The [Markdown](https://en.wikipedia.org/wiki/Markdown) contains documentation fo
 - Procedures
 
 For each object the basic informations and comments are included in the documentation.
+
+This example is generating the documentation as [Markdown](https://en.wikipedia.org/wiki/Markdown) for the current database:
+
+```sql
+WITH res AS
+  (
+    SELECT array_agg (stats.get_markdown_doku_by_schema(schema_name)) AS markdown
+    FROM information_schema.schemata
+    WHERE information_schema.schemata.catalog_name = (current_database())::information_schema.sql_identifier
+      -- Exclude some system schemas
+      AND schema_name NOT IN
+        (
+          'information_schema',
+          'pg_catalog',
+          'pg_toast'
+        )
+      -- Exclude empty results
+      AND COALESCE (stats.get_markdown_doku_by_schema(schema_name), '') <> ''
+	)
+-- CHR(13) is a line break and is used here to have two
+-- line breaks between every schema result
+SELECT array_to_string(markdown, CHR(13) || CHR(13)) AS markdown_for_all_schemas
+FROM res
+;
+```
