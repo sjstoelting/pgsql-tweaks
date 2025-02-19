@@ -2,7 +2,7 @@
   "name": "pgsql_tweaks",
   "abstract": "Contains PostgreSQL functions which I regularly needed.",
   "description": "The package includes several functions and views to help daily work.",
-  "version": "0.10.7",
+  "version": "0.11.0",
   "maintainer": [
      "Stefanie Janine Stölting <mail@stefanie-stoelting.de>"
   ],
