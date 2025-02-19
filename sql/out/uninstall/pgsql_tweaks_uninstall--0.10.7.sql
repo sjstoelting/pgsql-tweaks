@@ -90,6 +90,5 @@ DROP FUNCTION IF EXISTS is_bigint_array(s TEXT);
 DROP FUNCTION IF EXISTS is_integer_array(s TEXT);
 DROP FUNCTION IF EXISTS is_smallint_array(s TEXT);
 DROP FUNCTION IF EXISTS is_text_array(s TEXT);
-DROP FUNCTION IF EXISTS function_get_markdown_doku_by_schema(in_schema_name TEXT, time_zone TEXT);
 
 END;

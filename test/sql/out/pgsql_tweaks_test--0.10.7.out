@@ -1158,8 +1158,3 @@
  t
 (1 row)
 
-                      next_test                      
------------------------------------------------------
- Test starting: function_get_markdown_doku_by_schema
-(1 row)
-
