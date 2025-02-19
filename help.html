@@ -2689,3 +2689,24 @@ dates, and timestamps with or without time zone.</p>
 <li>Procedures</li>
 </ul>
 <p>For each object the basic informations and comments are included in the documentation.</p>
+<p>This example is generating the documentation as <a href="https://en.wikipedia.org/wiki/Markdown" rel="nofollow">Markdown</a> for the current database:</p>
+<div class="highlight highlight-source-sql"><pre>WITH res <span class="pl-k">AS</span>
+  (
+    <span class="pl-k">SELECT</span> array_agg (<span class="pl-c1">stats</span>.<span class="pl-c1">get_markdown_doku_by_schema</span>(schema_name)) <span class="pl-k">AS</span> markdown
+    <span class="pl-k">FROM</span> <span class="pl-c1">information_schema</span>.<span class="pl-c1">schemata</span>
+    <span class="pl-k">WHERE</span> <span class="pl-c1">information_schema</span>.<span class="pl-c1">schemata</span>.catalog_name <span class="pl-k">=</span> (current_database())::<span class="pl-c1">information_schema</span>.<span class="pl-c1">sql_identifier</span>
+      <span class="pl-c"><span class="pl-c">--</span> Exclude some system schemas</span>
+      <span class="pl-k">AND</span> schema_name NOT <span class="pl-k">IN</span>
+        (
+          <span class="pl-s"><span class="pl-pds">'</span>information_schema<span class="pl-pds">'</span></span>,
+          <span class="pl-s"><span class="pl-pds">'</span>pg_catalog<span class="pl-pds">'</span></span>,
+          <span class="pl-s"><span class="pl-pds">'</span>pg_toast<span class="pl-pds">'</span></span>
+        )
+      <span class="pl-c"><span class="pl-c">--</span> Exclude empty results</span>
+      <span class="pl-k">AND</span> COALESCE (<span class="pl-c1">stats</span>.<span class="pl-c1">get_markdown_doku_by_schema</span>(schema_name), <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>) <span class="pl-k">&lt;&gt;</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>
+	)
+<span class="pl-c"><span class="pl-c">--</span> CHR(13) is a line break and is used here to have two</span>
+<span class="pl-c"><span class="pl-c">--</span> line breaks between every schema result</span>
+<span class="pl-k">SELECT</span> array_to_string(markdown, CHR(<span class="pl-c1">13</span>) <span class="pl-k">||</span> CHR(<span class="pl-c1">13</span>)) <span class="pl-k">AS</span> markdown_for_all_schemas
+<span class="pl-k">FROM</span> res
+;</pre></div>
