@@ -9,8 +9,7 @@ a schema name.</p>
 statements. Each test does raise division by zero if it fails.</p>
 <p>The tests have been done with PostgreSQL 12 up to 17.</p>
 <p>All examples have been tested with PostgreSQL 17, differences in the behavior of previous versions are noted.</p>
-<p><a href=""><img src="https://camo.githubusercontent.com/1042d1fc01ac97f78a8c307a3ee403e1eba45a812519c0290319e3b872b3ade1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31322d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-12-blue.svg" style="max-width: 100%;"></a>
-<a href=""><img src="https://camo.githubusercontent.com/d2a89cd3f2051b2365b8b045ef9d3654181181b3abe1492d0399909e1509d747/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31332d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-13-blue.svg" style="max-width: 100%;"></a>
+<p><a href=""><img src="https://camo.githubusercontent.com/d2a89cd3f2051b2365b8b045ef9d3654181181b3abe1492d0399909e1509d747/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31332d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-13-blue.svg" style="max-width: 100%;"></a>
 <a href=""><img src="https://camo.githubusercontent.com/b2dd345d55c35062416aff03b72efd385599e03675909bdefb362d27c0d6e6bd/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31342d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-14-blue.svg" style="max-width: 100%;"></a>
 <a href=""><img src="https://camo.githubusercontent.com/2afe3e6dfa0535af3158334804ad3e1e6b09cfda81d51435d3f812fb05c62df1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31352d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-15-blue.svg" style="max-width: 100%;"></a>
 <a href=""><img src="https://camo.githubusercontent.com/b6c9ddd95255ec3cbdf81d2069c3809387320b4f1489052dd8fba4544591ba33/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31362d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-16-blue.svg" style="max-width: 100%;"></a>
@@ -58,7 +57,7 @@ make install</pre></div>
 <p>Afterwards you are able to create the extension in a database:</p>
 <div class="highlight highlight-source-sql"><pre>CREATE EXTENSION pgsql_tweaks;</pre></div>
 <div class="markdown-heading"><h2 class="heading-element">Testing</h2><a id="user-content-testing" class="anchor" aria-label="Permalink: Testing" href="#testing"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>When your local language is not set LC_MESSAGES to en_EN, you have to execute the the test in the installation directory with an additional parameter to have comparable resutls.</p>
+<p>When your local language is not set LC_MESSAGES to en_EN, you have to execute the the test in the installation directory with an additional parameter to have comparable results.</p>
 <div class="highlight highlight-source-shell"><pre>LC_MESSAGES=en_EN psql -f test/sql/out/pgsql-tweaks-[version number].sql <span class="pl-k">&gt;</span> pgsql-tweaks-test-[version number].out
 diff pgsql-tweaks-[version number].out test/sql/out/pgsql-tweaks-test-[version number].out</pre></div>
 <div class="markdown-heading"><h1 class="heading-element">Table of content</h1><a id="user-content-table-of-content" class="anchor" aria-label="Permalink: Table of content" href="#table-of-content"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
@@ -115,7 +114,8 @@ diff pgsql-tweaks-[version number].out test/sql/out/pgsql-tweaks-test-[version n
 1.7.1 <a href="#user-content-function-to_unix_timestamp">FUNCTION to_unix_timestamp</a><br>
 1.7.2 <a href="#user-content-function-hex2bigint">FUNCTION hex2bigint</a></p>
 <p>1.8 <a href="#user-content-other-functions">Other functions</a><br>
-1.8.1 <a href="#user-content-function-array_trim">FUNCTION array_trim</a></p>
+1.8.1 <a href="#user-content-function-array_trim">FUNCTION array_trim</a><br>
+1.8.2 <a href="#user-content-function-get_markdown_doku_by_schema">FUNCTION get_markdown_doku_by_schema</a></p>
 <div class="markdown-heading"><h1 class="heading-element">List of functions</h1><a id="user-content-list-of-functions" class="anchor" aria-label="Permalink: List of functions" href="#list-of-functions"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="markdown-heading"><h2 class="heading-element">Functions to check data types</h2><a id="user-content-functions-to-check-data-types" class="anchor" aria-label="Permalink: Functions to check data types" href="#functions-to-check-data-types"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="markdown-heading"><h3 class="heading-element">FUNCTION is_date</h3><a id="user-content-function-is_date" class="anchor" aria-label="Permalink: FUNCTION is_date" href="#function-is_date"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
@@ -2670,3 +2670,22 @@ dates, and timestamps with or without time zone.</p>
 </tr>
 </tbody>
 </table>
+<div class="markdown-heading"><h3 class="heading-element">FUNCTION get_markdown_doku_by_schema</h3><a id="user-content-function-get_markdown_doku_by_schema" class="anchor" aria-label="Permalink: FUNCTION get_markdown_doku_by_schema" href="#function-get_markdown_doku_by_schema"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>The function returns a <a href="https://en.wikipedia.org/wiki/Markdown" rel="nofollow">Markdown</a> text documentation for the given schema name.</p>
+<p>Parameters:</p>
+<ul>
+<li>in_schema_name: Name of the schema for which the documentation should be generated</li>
+<li>time_zone: The time zone that is used add a timestamp, when the documentation has been created</li>
+</ul>
+<p>The <a href="https://en.wikipedia.org/wiki/Markdown" rel="nofollow">Markdown</a> contains documentation for the following objects:</p>
+<ul>
+<li>Database</li>
+<li>Schema</li>
+<li>Tables with columns</li>
+<li>Views with columns</li>
+<li>Materialized Views with columns</li>
+<li>Foreign Tables with columns</li>
+<li>Functions</li>
+<li>Procedures</li>
+</ul>
+<p>For each object the basic informations and comments are included in the documentation.</p>

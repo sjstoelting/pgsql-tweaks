@@ -106,7 +106,7 @@ CREATE EXTENSION pgsql_tweaks;
 
 ## Testing
 
-When your local language is not set LC_MESSAGES to en_EN, you have to execute the the test in the installation directory with an additional parameter to have comparable resutls.
+When your local language is not set LC_MESSAGES to en_EN, you have to execute the the test in the installation directory with an additional parameter to have comparable results.
 
 ```bash
 LC_MESSAGES=en_EN psql -f test/sql/out/pgsql-tweaks-[version number].sql > pgsql-tweaks-test-[version number].out
@@ -176,7 +176,8 @@ diff pgsql-tweaks-[version number].out test/sql/out/pgsql-tweaks-test-[version n
 1.7.2 [FUNCTION hex2bigint](#function-hex2bigint)
 
 1.8 [Other functions](#other-functions)<br />
-1.8.1 [FUNCTION array_trim](#function-array_trim)
+1.8.1 [FUNCTION array_trim](#function-array_trim)<br />
+1.8.2 [FUNCTION get_markdown_doku_by_schema](#function-get_markdown_doku_by_schema)
 
 # List of functions
 
@@ -1783,3 +1784,25 @@ Result:
 | trimmed_array_distinct      |
 | --------------------------- |
 | {'2018-11-11 11:00:00.000'} |
+
+### FUNCTION get_markdown_doku_by_schema
+
+The function returns a [Markdown](https://en.wikipedia.org/wiki/Markdown) text documentation for the given schema name.
+
+Parameters:
+
+- in_schema_name: Name of the schema for which the documentation should be generated
+- time_zone: The time zone that is used add a timestamp, when the documentation has been created
+
+The [Markdown](https://en.wikipedia.org/wiki/Markdown) contains documentation for the following objects:
+
+- Database
+- Schema
+- Tables with columns
+- Views with columns
+- Materialized Views with columns
+- Foreign Tables with columns
+- Functions
+- Procedures
+
+For each object the basic informations and comments are included in the documentation.

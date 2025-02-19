@@ -4095,3 +4095,5 @@ FROM test
 
 ROLLBACK;
 
+SELECT 'Test starting: function_get_markdown_doku_by_schema' AS next_test;
+

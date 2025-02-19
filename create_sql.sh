@@ -126,6 +126,7 @@ echo 'DROP FUNCTION IF EXISTS is_bigint_array(s TEXT);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_integer_array(s TEXT);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_smallint_array(s TEXT);' >> $FILENAME
 echo 'DROP FUNCTION IF EXISTS is_text_array(s TEXT);' >> $FILENAME
+echo 'DROP FUNCTION IF EXISTS function_get_markdown_doku_by_schema(in_schema_name TEXT, time_zone TEXT);' >> $FILENAME
 
 echo '' >> $FILENAME
 echo 'END;' >> $FILENAME
@@ -185,6 +186,7 @@ declare -a SQLFILES=(
   "function_is_integer_array"
   "function_is_smallint_array"
   "function_is_text_array"
+  "function_get_markdown_doku_by_schema"
   )
 arraylength=${#SQLFILES[@]}
 
@@ -293,7 +295,7 @@ if [ "$PGXN" = "y" ]; then
     # Create a documentation in HTML
     ./create_html_doc.sh
 
-  echo "Creating pgxn zip file"
+  echo "Creating pgxn zip file in $HOME/tmp"
 
   # Check if the tmp directory exists, if not, create it
   if [ ! -d "$HOME/tmp" ]; then
