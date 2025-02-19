@@ -14,7 +14,6 @@ The tests have been done with PostgreSQL 12 up to 17.
 
 All examples have been tested with PostgreSQL 17, differences in the behavior of previous versions are noted.
 
-[![version](https://img.shields.io/badge/PostgreSQL-12-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-13-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-14-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-15-blue.svg)]()
