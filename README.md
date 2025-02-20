@@ -10,7 +10,7 @@ a schema name.
 All functions and views are covered by tests. The tests are done in simple SQL
 statements. Each test does raise division by zero if it fails.
 
-The tests have been done with PostgreSQL 12 up to 17.
+The tests have been done with PostgreSQL 13 up to 17.
 
 All examples have been tested with PostgreSQL 17, differences in the behavior of previous versions are noted.
 
