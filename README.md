@@ -1812,7 +1812,7 @@ This example is generating the documentation as [Markdown](https://en.wikipedia.
 ```sql
 WITH res AS
   (
-    SELECT array_agg (stats.get_markdown_doku_by_schema(schema_name)) AS markdown
+    SELECT array_agg (get_markdown_doku_by_schema(schema_name)) AS markdown
     FROM information_schema.schemata
     WHERE information_schema.schemata.catalog_name = (current_database())::information_schema.sql_identifier
       -- Exclude some system schemas
