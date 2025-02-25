@@ -1823,7 +1823,7 @@ WITH res AS
           'pg_toast'
         )
       -- Exclude empty results
-      AND COALESCE (stats.get_markdown_doku_by_schema(schema_name), '') <> ''
+      AND COALESCE (get_markdown_doku_by_schema(schema_name), '') <> ''
 	)
 -- CHR(13) is a line break and is used here to have two
 -- line breaks between every schema result
