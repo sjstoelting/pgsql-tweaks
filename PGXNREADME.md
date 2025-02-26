@@ -10,7 +10,7 @@ a schema name.
 All functions and views are covered by tests. The tests are done in simple SQL
 statements. Each test does raise division by zero if it fails.
 
-The tests have been done with PostgreSQL 12 up to 17.
+The tests have been done with PostgreSQL 13 up to 17.
 
 All examples have been tested with PostgreSQL 17, differences in the behavior of previous versions are noted.
 
@@ -1812,7 +1812,7 @@ This example is generating the documentation as [Markdown](https://en.wikipedia.
 ```sql
 WITH res AS
 (
-SELECT array_agg (stats.get_markdown_doku_by_schema(schema_name)) AS markdown
+SELECT array_agg (get_markdown_doku_by_schema(schema_name)) AS markdown
 FROM information_schema.schemata
 WHERE information_schema.schemata.catalog_name = (current_database())::information_schema.sql_identifier
 -- Exclude some system schemas
@@ -1823,7 +1823,7 @@ AND schema_name NOT IN
 'pg_toast'
 )
 -- Exclude empty results
-AND COALESCE (stats.get_markdown_doku_by_schema(schema_name), '') <> ''
+AND COALESCE (get_markdown_doku_by_schema(schema_name), '') <> ''
 )
 -- CHR(13) is a line break and is used here to have two
 -- line breaks between every schema result
