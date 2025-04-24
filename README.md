@@ -1462,7 +1462,7 @@ Result:
 
 ### AGGREGATE array_max
 
-Calculate minimum values from arrays.
+Calculate maximum values from arrays.
 
 Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, NUMERIC, and TEXT;
 
