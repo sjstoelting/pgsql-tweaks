@@ -10,7 +10,7 @@ a schema name.
 All functions and views are covered by tests. The tests are done in simple SQL
 statements. Each test does raise division by zero if it fails.
 
-The tests have been done with PostgreSQL 13 up to 17.
+The tests have been done with PostgreSQL 13 up to 18 beta 1.
 
 All examples have been tested with PostgreSQL 17, differences in the behavior of previous versions are noted.
 
@@ -19,6 +19,7 @@ All examples have been tested with PostgreSQL 17, differences in the behavior of
 [![version](https://img.shields.io/badge/PostgreSQL-15-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-16-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-17-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-18beta1-blue.svg)]()
 
 [![Lang](https://img.shields.io/badge/Language-pl/pgSQL-green.svg)]()
 [![PostgreSQL](https://img.shields.io/badge/License-PostgreSQL-green.svg)]()

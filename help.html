@@ -7,13 +7,14 @@ public schema. That way they are available for everyone without having to know
 a schema name.</p>
 <p>All functions and views are covered by tests. The tests are done in simple SQL
 statements. Each test does raise division by zero if it fails.</p>
-<p>The tests have been done with PostgreSQL 13 up to 17.</p>
+<p>The tests have been done with PostgreSQL 13 up to 18 beta 1.</p>
 <p>All examples have been tested with PostgreSQL 17, differences in the behavior of previous versions are noted.</p>
 <p><a href=""><img src="https://camo.githubusercontent.com/d2a89cd3f2051b2365b8b045ef9d3654181181b3abe1492d0399909e1509d747/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31332d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-13-blue.svg" style="max-width: 100%;"></a>
 <a href=""><img src="https://camo.githubusercontent.com/b2dd345d55c35062416aff03b72efd385599e03675909bdefb362d27c0d6e6bd/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31342d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-14-blue.svg" style="max-width: 100%;"></a>
 <a href=""><img src="https://camo.githubusercontent.com/2afe3e6dfa0535af3158334804ad3e1e6b09cfda81d51435d3f812fb05c62df1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31352d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-15-blue.svg" style="max-width: 100%;"></a>
 <a href=""><img src="https://camo.githubusercontent.com/b6c9ddd95255ec3cbdf81d2069c3809387320b4f1489052dd8fba4544591ba33/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31362d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-16-blue.svg" style="max-width: 100%;"></a>
-<a href=""><img src="https://camo.githubusercontent.com/d4308dc0c9177c0ebe49205431eebc432e19f044dff1d87bc077e188fbdc9359/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31372d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-17-blue.svg" style="max-width: 100%;"></a></p>
+<a href=""><img src="https://camo.githubusercontent.com/d4308dc0c9177c0ebe49205431eebc432e19f044dff1d87bc077e188fbdc9359/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d31372d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-17-blue.svg" style="max-width: 100%;"></a>
+<a href=""><img src="https://camo.githubusercontent.com/feeedaaefc21a2cc6580081cda31c350d913637ebf0b5f5b40a910c098965ef7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f737467726553514c2d313862657461312d626c75652e737667" alt="version" data-canonical-src="https://img.shields.io/badge/PostgreSQL-18beta1-blue.svg" style="max-width: 100%;"></a></p>
 <p><a href=""><img src="https://camo.githubusercontent.com/e0d0f6996fdf3cba78960efb62417ee001bcefd28e8b4eeef2f3b4d31dfc7700/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c616e67756167652d706c2f706753514c2d677265656e2e737667" alt="Lang" data-canonical-src="https://img.shields.io/badge/Language-pl/pgSQL-green.svg" style="max-width: 100%;"></a>
 <a href=""><img src="https://camo.githubusercontent.com/5eb31bac795fead9fbd57443292b5dfaeaaa49f08fd856d0254192c8803a279e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d506f737467726553514c2d677265656e2e737667" alt="PostgreSQL" data-canonical-src="https://img.shields.io/badge/License-PostgreSQL-green.svg" style="max-width: 100%;"></a>
 <a href=""><img src="https://camo.githubusercontent.com/b09338ed28c485df31576dbdcd7c6da762ea2ee056e78f07f34642933e3a4198/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f457874656e73696f6e2d506f737467726553514c2d677265656e2e737667" alt="Extension" data-canonical-src="https://img.shields.io/badge/Extension-PostgreSQL-green.svg" style="max-width: 100%;"></a></p>
@@ -2251,7 +2252,7 @@ to show the last value in case the current value is null.</p>
 </tbody>
 </table>
 <div class="markdown-heading"><h3 class="heading-element">AGGREGATE array_max</h3><a id="user-content-aggregate-array_max" class="anchor" aria-label="Permalink: AGGREGATE array_max" href="#aggregate-array_max"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Calculate minimum values from arrays.</p>
+<p>Calculate maximum values from arrays.</p>
 <p>Supported data types are SMALLINT, INTEGER, BIGINT, REAL, DOUBLE PRECISION, NUMERIC, and TEXT;</p>
 <div class="markdown-heading"><h4 class="heading-element">Examples</h4><a id="user-content-examples-17" class="anchor" aria-label="Permalink: Examples" href="#examples-17"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <div class="highlight highlight-source-sql"><pre><span class="pl-k">SELECT</span> array_max(ARRAY[<span class="pl-c1">45</span>, <span class="pl-c1">60</span>, <span class="pl-c1">43</span>, <span class="pl-c1">99</span>]::<span class="pl-k">SMALLINT</span>[]);</pre></div>
