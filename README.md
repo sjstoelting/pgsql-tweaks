@@ -19,7 +19,7 @@ All examples have been tested with PostgreSQL 17, differences in the behavior of
 [![version](https://img.shields.io/badge/PostgreSQL-15-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-16-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-17-blue.svg)]()
-[![version](https://img.shields.io/badge/PostgreSQL-18beta1-blue.svg)]()
+[![version](https://img.shields.io/badge/PostgreSQL-18beta2-blue.svg)]()
 
 [![Lang](https://img.shields.io/badge/Language-pl/pgSQL-green.svg)]()
 [![PostgreSQL](https://img.shields.io/badge/License-PostgreSQL-green.svg)]()
