@@ -10,9 +10,9 @@ a schema name.
 All functions and views are covered by tests. The tests are done in simple SQL
 statements. Each test does raise division by zero if it fails.
 
-The tests have been done with PostgreSQL 13 up to 18 beta 1.
+The tests have been done with PostgreSQL 13 up to 18 beta 2.
 
-All examples have been tested with PostgreSQL 17, differences in the behavior of previous versions are noted.
+All examples have been tested with PostgreSQL 18 beta 2, differences in the behavior of previous versions are noted.
 
 [![version](https://img.shields.io/badge/PostgreSQL-13-blue.svg)]()
 [![version](https://img.shields.io/badge/PostgreSQL-14-blue.svg)]()
@@ -28,11 +28,10 @@ All examples have been tested with PostgreSQL 17, differences in the behavior of
 
 # Repositories
 
-The main repository is now on
-[GitLab](https://gitlab.com/sjstoelting/pgsql-tweaks.git). A mirror will stay on [GitHub](https://github.com/sjstoelting/pgsql-tweaks).
+The main repository is now on [Codeberg](https://codeberg.org/pgsql_tweaks/pgsql-tweaks.org). A mirror will stay on [GitLab](https://gitlab.com/sjstoelting/pgsql-tweaks).
 
 If you discover any issue, please file them on
-https://gitlab.com/sjstoelting/pgsql-tweaks/-/issues.
+[https://codeberg.org/pgsql_tweaks/pgsql_tweaks/issues](https://codeberg.org/pgsql_tweaks/pgsql_tweaks/issues).
 
 # Building the extension
 
